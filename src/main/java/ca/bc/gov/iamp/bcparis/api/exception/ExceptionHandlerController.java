@@ -8,19 +8,14 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 
 import ca.bc.gov.iamp.bcparis.api.response.Error;
 import ca.bc.gov.iamp.bcparis.exception.icbc.ICBCRestException;
+import ca.bc.gov.iamp.bcparis.exception.layer7.Layer7RestException;
 import ca.bc.gov.iamp.bcparis.exception.message.InvalidMessageType;
 import ca.bc.gov.iamp.bcparis.exception.message.MessageTransformationException;
 
 @ControllerAdvice
 public class ExceptionHandlerController {
 
-//	@ResponseBody
-//	@ResponseStatus(HttpStatus.BAD_REQUEST)
-//	@ExceptionHandler({ InvalidMessageException.class })
-//	public Error invalidMessage(InvalidMessageException e) {
-//		return new Error("Invalid Message.");
-//	}
-	
+
 	@ResponseBody
 	@ResponseStatus(HttpStatus.BAD_REQUEST)
 	@ExceptionHandler({ InvalidMessageType.class })
@@ -38,10 +33,9 @@ public class ExceptionHandlerController {
 	
 	@ResponseBody
 	@ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
-	@ExceptionHandler({ ICBCRestException.class })
-	public Error ICBCException(ICBCRestException e) {
+	@ExceptionHandler({ ICBCRestException.class, Layer7RestException.class })
+	public Error restExceptions(RuntimeException e) {
 		return new Error(e.getMessage());
 	}
-	
 	
 }

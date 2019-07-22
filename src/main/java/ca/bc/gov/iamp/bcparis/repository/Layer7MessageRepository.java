@@ -5,8 +5,9 @@ import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.HttpServerErrorException;
 
-import ca.bc.gov.iamp.bcparis.exception.rest.RestException;
+import ca.bc.gov.iamp.bcparis.exception.layer7.Layer7RestException;
 import ca.bc.gov.iamp.bcparis.repository.rest.BaseRest;
 
 @Service
@@ -26,16 +27,20 @@ public class Layer7MessageRepository extends BaseRest{
 	
 	public String sendMessage(String messageContent) {
 		try {
-
-			HttpEntity<?> httpEntity = new HttpEntity<String>(messageContent,  getHeadersWithBasicAuth(messageContent, messageContent));
+			HttpEntity<?> httpEntity = new HttpEntity<String>(messageContent, getHeadersWithBasicAuth(username, password));
 			
-			ResponseEntity<String> response = getRestTemplate().postForEntity(messageEndpoint, httpEntity, String.class);
+			ResponseEntity<String> response = getRestTemplate().postForEntity(messageEndpoint + path, httpEntity, String.class);
 		
 			assertResponse(HttpStatus.OK, response.getStatusCode(), response.getBody() );
 			return response.getBody();
-		}catch (Exception e) {
-			throw new RestException("Exception to post to Layer 7 Message Repository.", e);
 		}
+		catch (HttpServerErrorException e) {
+			throw new Layer7RestException("Exception to post to Layer 7 Rest Service. Body:" + e.getResponseBodyAsString(), e);
+		}
+		catch (Exception e) {
+			throw new Layer7RestException("Exception to post to Layer 7 Rest Service.", e);
+		}
+		
 	}
 	
 }

@@ -45,8 +45,8 @@ public class MessageTransform {
 		}
 	}
 	
-	private List<String> extractCDATAAttributes(String text){
-		final String ATTRIBUTES = "SN:|MT:|MSID:|FROM:|TO:|SUBJ:|TestRNS:|";
+	private static List<String> extractCDATAAttributes(String text){
+		final String ATTRIBUTES = "SN:|MT:|MSID:|FROM:|TO:|SUBJ:|TestRNS:|\n|";
 		final String TEXT_ATTRIBUTES = "TEXT:|RE:|SNME:|G1:|DOB:|LIC:|RVL";
 		
 		List<String> attributes = new ArrayList<>();
@@ -75,3 +75,5 @@ public class MessageTransform {
 	}
 
 }
+
+

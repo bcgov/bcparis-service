@@ -41,13 +41,5 @@ public class Body implements Serializable{
 		return CDATAAttributes;
 	}
 	
-	public void swapFromAndTo() {
-		final String from = getCDATAAttribute("FROM");
-		final String to = getCDATAAttribute("TO");
-		
-		this.msgFFmt = msgFFmt
-				.replaceFirst("FROM:"+from, "FROM:"+to)
-				.replaceFirst("TO:"+to, "TO:"+from);
-	}
 
 }

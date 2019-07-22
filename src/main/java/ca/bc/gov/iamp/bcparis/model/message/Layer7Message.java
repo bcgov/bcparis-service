@@ -43,4 +43,11 @@ public class Layer7Message implements Serializable{
 		return "Report".equalsIgnoreCase(this.getEnvelope().getMqmd().getMessageType());
 	}
 
+	@Override
+	public String toString() {
+		return "Layer7Message [envelope=" + envelope + "]";
+	}
+	
+	
+
 }

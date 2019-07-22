@@ -10,7 +10,6 @@ import ca.bc.gov.iamp.bcparis.model.message.Body;
 import ca.bc.gov.iamp.bcparis.model.message.Layer7Message;
 import ca.bc.gov.iamp.bcparis.model.por.POROutput;
 import ca.bc.gov.iamp.bcparis.repository.PORRestRepository;
-import ca.bc.gov.iamp.bcparis.util.XMLUtil;
 
 @Service
 public class PORProcessor {
@@ -37,11 +36,10 @@ public class PORProcessor {
 			
 			final String porContent = extractPORContent(porResult);
 			
-			String layer7ContenteResponse = buildResponse(message, porContent);
-			message.getEnvelope().getBody().setMsgFFmt(layer7ContenteResponse);
-			message.getEnvelope().getBody().swapFromAndTo();
+			String response = buildResponse(message, porContent);
+			message.getEnvelope().getBody().setMsgFFmt(response);
 			
-			log.info("POR message processing completed.");
+			log.info("POR message processing completed: " + System.lineSeparator() + response);
 			
 			return message;
 		}else {
@@ -61,12 +59,16 @@ public class PORProcessor {
 		return sb.toString();
 	}
 	
-	private String buildResponse(Layer7Message message, String PORContent) {
-		final String msgFFmt = message.getEnvelope().getBody().getMsgFFmt();
-		final boolean contaisCDATATAG = XMLUtil.containsCDATA(message.getEnvelope().getBody().getMsgFFmt());
+	private String buildResponse(Layer7Message message, String porResponse) {
+		final String format = "SEND MT:M\n" + 
+							  "FMT:Y\n" + 
+							  "FROM:%s\n" + 
+							  "TO:%s\n" + 
+							  "%s";
+		final String from = message.getEnvelope().getBody().getCDATAAttribute("FROM");
+		final String to = message.getEnvelope().getBody().getCDATAAttribute("TO");
 		
-		return contaisCDATATAG 
-				? XMLUtil.CDATA_BEGIN + XMLUtil.extractCDATAFromMsgFFmt(msgFFmt) + System.lineSeparator() + PORContent + XMLUtil.CDATA_END
-				: XMLUtil.extractCDATAFromMsgFFmt(msgFFmt) + System.lineSeparator() + PORContent;
+		return String.format(format, to, from, porResponse);
 	}
+
 }

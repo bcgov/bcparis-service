@@ -42,4 +42,15 @@ public class Body implements Serializable{
 	}
 	
 
+	/**
+	 * Get the full SNME line
+	 * @param attributeName
+	 * @return
+	 */
+	public String getSNME() {
+		final String START = "SNME:";
+		final String END = "\n";
+		
+		return null;
+	}
 }

@@ -10,7 +10,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
-import ca.bc.gov.iamp.bcparis.exception.message.MessageTransformationException;
+import ca.bc.gov.iamp.bcparis.exception.message.MessageTransformException;
 import ca.bc.gov.iamp.bcparis.model.message.Layer7Message;
 import ca.bc.gov.iamp.bcparis.util.XMLUtil;
 
@@ -41,7 +41,7 @@ public class MessageTransform {
 			
 			return message;
 		}catch (Exception e) {
-			throw new MessageTransformationException(e);
+			throw new MessageTransformException(e);
 		}
 	}
 	

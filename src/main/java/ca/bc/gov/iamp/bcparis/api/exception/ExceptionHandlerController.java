@@ -10,7 +10,7 @@ import ca.bc.gov.iamp.bcparis.api.response.Error;
 import ca.bc.gov.iamp.bcparis.exception.icbc.ICBCRestException;
 import ca.bc.gov.iamp.bcparis.exception.layer7.Layer7RestException;
 import ca.bc.gov.iamp.bcparis.exception.message.InvalidMessageType;
-import ca.bc.gov.iamp.bcparis.exception.message.MessageTransformationException;
+import ca.bc.gov.iamp.bcparis.exception.message.MessageTransformException;
 
 @ControllerAdvice
 public class ExceptionHandlerController {
@@ -26,8 +26,8 @@ public class ExceptionHandlerController {
 	
 	@ResponseBody
 	@ResponseStatus(HttpStatus.BAD_REQUEST)
-	@ExceptionHandler({ MessageTransformationException.class })
-	public Error messageTransformation(MessageTransformationException e) {
+	@ExceptionHandler({ MessageTransformException.class })
+	public Error messageTransformation(MessageTransformException e) {
 		return new Error("Error during the message transformation.");
 	}
 	

@@ -43,12 +43,12 @@ public class ReportService {
 					break;
 					
 				case MQFB_NONE:
-					log.info("PAN  notification dispatched to Report processor.");
+					log.info("MQFB_NONE notification dispatched to Report processor.");
 					log.info("Processing MQFB_NONE notification.");
 					break;
 					
 				case DEFAULT:
-					log.info("PAN  notification dispatched to Report processor.");
+					log.info("DEFAULT notification dispatched to Report processor.");
 					log.info("Processing DEFAULT notification.");
 			}
 

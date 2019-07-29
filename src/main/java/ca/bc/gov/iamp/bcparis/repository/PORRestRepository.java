@@ -42,7 +42,7 @@ public class PORRestRepository {
 	
 		try {
 			
-			final String URL = procedureUrl + path;
+			String URL = procedureUrl + path;
 			HttpEntity<?> httpEntity = new HttpEntity<IMSRequest>(getHeaders(username, password));
 			
 			UriComponentsBuilder builder = UriComponentsBuilder.fromUriString(URL);
@@ -52,10 +52,11 @@ public class PORRestRepository {
 			addQueryParam(builder, "given3", given3);
 			addQueryParam(builder, "dob", dob);
 
-			log.info(String.format("Calling POR Rest Service. URL=%s", builder.build().toString()));
+			URL = builder.build().toString();
+			log.info(String.format("Calling POR Rest Service. URL=%s", URL));
 			
-			ResponseEntity<POROutput> response = restTemplate.exchange(builder.build().toString(), HttpMethod.GET, httpEntity, POROutput.class);
-			
+			ResponseEntity<POROutput> response = restTemplate.exchange(URL, HttpMethod.GET, httpEntity, POROutput.class);
+
 			handleResponse(response);
 			
 			return response.getBody();
@@ -82,8 +83,8 @@ public class PORRestRepository {
 		}
 	}
 	
-	private void addQueryParam(UriComponentsBuilder builder, final String name, final String namename) {
-		if(StringUtils.hasText(name)) 
-			builder.queryParam(name, name);
+	private void addQueryParam(UriComponentsBuilder builder, final String name, final String value) {
+		if(StringUtils.hasText(value)) 
+			builder.queryParam(name, value);
 	}
 }

@@ -43,7 +43,6 @@ public class ICBCRestRepository {
 	@Autowired
 	private RestTemplate restTemplate;
 	
-
 	public String requestDetails(IMSRequest ims) {
 		try {
 			final String URL = icbcUrl + pathTransaction;

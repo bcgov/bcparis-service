@@ -5,21 +5,21 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
+import org.springframework.web.client.HttpServerErrorException;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import ca.bc.gov.iamp.bcparis.exception.por.PORRestException;
 import ca.bc.gov.iamp.bcparis.model.por.POROutput;
+import ca.bc.gov.iamp.bcparis.repository.rest.BaseRest;
 
 @Component
-public class PORRestRepository {
+public class PORRestRepository extends BaseRest{
 
 	private final Logger log = LoggerFactory.getLogger(PORRestRepository.class);
 	
@@ -43,7 +43,7 @@ public class PORRestRepository {
 		try {
 			
 			String URL = procedureUrl + path;
-			HttpEntity<?> httpEntity = new HttpEntity<IMSRequest>(getHeaders(username, password));
+			HttpEntity<?> httpEntity = new HttpEntity<IMSRequest>(getHeadersWithBasicAuth(username, password));
 			
 			UriComponentsBuilder builder = UriComponentsBuilder.fromUriString(URL);
 			addQueryParam(builder, "surname", surname);
@@ -57,29 +57,15 @@ public class PORRestRepository {
 			
 			ResponseEntity<POROutput> response = restTemplate.exchange(URL, HttpMethod.GET, httpEntity, POROutput.class);
 
-			handleResponse(response);
+			assertResponse(HttpStatus.OK, response.getStatusCode(), response.getBody().toString());
 			
 			return response.getBody();
-		}catch (Exception e) {
-			throw new PORRestException("Exception to call POR Rest Service", e);
 		}
-	}
-	
-	private HttpHeaders getHeaders(final String username, final String password) {
-		HttpHeaders headers = new HttpHeaders();
-		headers.setContentType(MediaType.APPLICATION_JSON);
-		headers.setBasicAuth(username, password);
-		return headers;
-	}
-	
-	private void handleResponse(ResponseEntity<POROutput> response) throws Exception {
-		if( response.getStatusCode() == HttpStatus.OK) {
-			log.info(String.format("POR Rest service response=%s", response.getStatusCode()));
-			log.info(String.format("Body=%s", response.getBody()));
-		}else {
-			String message = String.format("Status code not expected during the POR Rest Service request. Status=%s. Body=%s", 
-					response.getStatusCodeValue(), response.getBody());
-			throw new PORRestException(message, null);			
+		catch (HttpServerErrorException e) {
+			throw new PORRestException("Exception to POR Rest Service. Body:" + e.getResponseBodyAsString(), e);
+		}
+		catch (Exception e) {
+			throw new PORRestException("Exception to call POR Rest Service", e);
 		}
 	}
 	

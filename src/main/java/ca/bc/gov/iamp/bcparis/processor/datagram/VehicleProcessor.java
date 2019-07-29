@@ -13,6 +13,12 @@ public class VehicleProcessor {
 	
 	public Layer7Message process(Layer7Message message) {
 		log.debug("Processing Vehicle message.");
+		
+		String vin = message.getEnvelope().getBody().getCDATAAttribute("VIN");
+		String lic = message.getEnvelope().getBody().getCDATAAttribute("LIC");
+		
+		
+		
 		return message;
 	}
 	

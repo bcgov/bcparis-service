@@ -1,51 +1,46 @@
 package ca.bc.gov.iamp.bcparis.repository;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-import org.springframework.web.client.RestTemplate;
+import org.springframework.web.client.HttpServerErrorException;
 
-import ca.bc.gov.iamp.bcparis.exception.rest.MessagePostException;
+import ca.bc.gov.iamp.bcparis.exception.layer7.Layer7RestException;
+import ca.bc.gov.iamp.bcparis.repository.rest.BaseRest;
 
 @Service
-public class Layer7MessageRepository {
+public class Layer7MessageRepository extends BaseRest{
 
-	//@Value("${message.endpoint}")
-	private String messageEndpoint = "http://bcgov.com.br:443";
-
-	@Autowired
-	private RestTemplate restTemplate;
+	@Value("${endpoint.layer7.rest}")
+	private String messageEndpoint;
 	
-	public void sendMessage(String messageContent) {
+	@Value("${endpoint.layer7.rest.path.put}")
+	private String path;
+	
+	@Value("${endpoint.layer7.rest.header.username}")
+	private String username;
+	
+	@Value("${endpoint.layer7.rest.header.password}")
+	private String password;
+	
+	public String sendMessage(String messageContent) {
 		try {
-
-			HttpEntity<?> httpEntity = new HttpEntity<String>(messageContent,  getHeaders());
+			HttpEntity<?> httpEntity = new HttpEntity<String>(messageContent, getHeadersWithBasicAuth(username, password));
 			
-			ResponseEntity<String> response = restTemplate.postForEntity(messageEndpoint, httpEntity, String.class);
+			ResponseEntity<String> response = getRestTemplate().postForEntity(messageEndpoint + path, httpEntity, String.class);
 		
-			handleResponse(response);
-		}catch (Exception e) {
-			throw new MessagePostException("Exception to post to Message Repository.", e);
+			assertResponse(HttpStatus.OK, response.getStatusCode(), response.getBody() );
+			return response.getBody();
 		}
-	}
-	
-	private HttpHeaders getHeaders() {
-		HttpHeaders headers = new HttpHeaders();
-		headers.setContentType(MediaType.APPLICATION_XML);
-		return headers;
-	}
-	
-	private void handleResponse(ResponseEntity<String> response) throws Exception {
-		if( response.getStatusCode() != HttpStatus.ACCEPTED) {
-			String message = String.format("Status code not expected during the Message Repository request. Status=%s. Body=%s", 
-					response.getStatusCodeValue(), response.getBody());
-			
-			throw new MessagePostException(message);
+		catch (HttpServerErrorException e) {
+			throw new Layer7RestException("Exception to post to Layer 7 Rest Service. Body:" + e.getResponseBodyAsString(), e);
 		}
+		catch (Exception e) {
+			throw new Layer7RestException("Exception to post to Layer 7 Rest Service.", e);
+		}
+		
 	}
 	
 }

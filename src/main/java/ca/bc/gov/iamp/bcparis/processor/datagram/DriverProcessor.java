@@ -18,12 +18,13 @@ public class DriverProcessor {
 	@Autowired
 	private ICBCRestRepository ICBCrepository;
 	
-	private final String IMS_RESQUEST_BODY = "DSSMTCPC HC BC41127 BC41027 QD SNME:SMITH/G1:JANE/G2:MARY/DOB:19000101/SEX:F";
+	//private final String IMS_RESQUEST_BODY = "DSSMTCPC HC BC41127 BC41027 QD SNME:SMITH/G1:JANE/G2:MARY/DOB:19000101/SEX:F";
 	
 	public Layer7Message process(Layer7Message message) {
 		log.info("Processing Driver message.");
 		
-		IMSRequest ims = IMSRequest.builder().imsRequest(IMS_RESQUEST_BODY).build();
+		String imsContent = createIMS(message);
+		IMSRequest ims = IMSRequest.builder().imsRequest(imsContent).build();
 		
 		String icbcResponse = ICBCrepository.requestDetails(ims);
 		
@@ -32,7 +33,14 @@ public class DriverProcessor {
 		return message;
 	}
 	
-	
+	public String createIMS(Layer7Message message) {
+		
+		final String from = message.getEnvelope().getBody().getCDATAAttribute("FROM");
+		final String to = message.getEnvelope().getBody().getCDATAAttribute("FROM");
+		final String snme = message.getEnvelope().getBody().getCDATAAttribute("SNME");
+		
+		return String.format("DSSMTCPC HC %s %s QD SNME:%s", from, to, snme);
+	}
 	
 	
 }

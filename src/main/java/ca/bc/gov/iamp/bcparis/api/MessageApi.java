@@ -5,6 +5,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import ca.bc.gov.iamp.bcparis.model.message.Layer7Message;
 import ca.bc.gov.iamp.bcparis.processor.MessageProcessor;
+import ca.bc.gov.iamp.bcparis.repository.Layer7MessageRepository;
 
 @RestController
 @RequestMapping("/message")
@@ -22,8 +24,9 @@ public class MessageApi {
 	@Autowired
 	private MessageProcessor processor;
 	
-
-
+	@Autowired
+	private Layer7MessageRepository repository;
+	
 	@PutMapping(consumes=MediaType.APPLICATION_JSON_VALUE)
 	private ResponseEntity<Layer7Message> message( @RequestBody Layer7Message message ){
 		
@@ -38,5 +41,10 @@ public class MessageApi {
 		
 		return processor.processMessage(messageContent);
 	}
-
+	
+	//TODO: Only for test purpose
+	@PostMapping(consumes=MediaType.APPLICATION_JSON_VALUE)
+	private ResponseEntity<String> testPutMessageLayer7( @RequestBody String message ){
+		return ResponseEntity.ok(repository.sendMessage(message));
+	}
 }

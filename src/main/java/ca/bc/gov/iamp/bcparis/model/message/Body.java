@@ -59,7 +59,7 @@ public class Body implements Serializable{
 	 */
 	public String getSNME() {
 		final String START = "SNME:";
-		final String END = "\\n";
+		final String END = "\n";
 		return cutFromCDATA(START, END);
 	}
 	

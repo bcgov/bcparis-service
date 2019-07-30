@@ -41,11 +41,10 @@ public class VehicleProcessor {
 	
 	public String createIMS(Layer7Message message) {
 		
-		final String schema = "${transactionName} HC ${fromORI} ${toORI} ${qdCode} ${queryParams}";
+		final String schema = "${transactionName} HC ${fromORI} ${toORI} ${queryParams}";
 		
 		final Body body = message.getEnvelope().getBody();
 		
-		final String CODE = "QD";
 		final String from = body.getCDATAAttribute("FROM");
 		final String to = body.getCDATAAttribute("TO");
 		final String queryParamAttr = getQueryParamAttribute(message);
@@ -56,7 +55,6 @@ public class VehicleProcessor {
 				.replace("${transactionName}", TRANSACTION)
 				.replace("${fromORI}", from)
 				.replace("${toORI}", to)
-				.replace("${qdCode}", CODE)
 				.replace("${queryParams}", queryParams);
 	}
 	

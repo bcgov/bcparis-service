@@ -65,7 +65,7 @@ public class ICBCRestRepository {
 		headers.add("imsUserId", imsUserId);
 		headers.add("imsCredential", imsCredential);
 		headers.add("auditTransactionId", auditTransactionId);
-		//headers.setBasicAuth(username, password);
+		headers.setBasicAuth(username, password);
 		return headers;
 	}
 	

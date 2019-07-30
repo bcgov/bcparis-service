@@ -4,6 +4,8 @@ import java.io.Serializable;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.util.StringUtils;
+
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
@@ -59,8 +61,8 @@ public class Body implements Serializable{
 	 */
 	public String getSNME() {
 		final String START = "SNME:";
-		final String END = "\n";
-		return cutFromCDATA(START, END);
+		String result = cutFromCDATA(START, "\n");
+		return StringUtils.isEmpty(result) ? cutFromCDATA(START, "\\n") : result;
 	}
 	
 	/**
@@ -70,8 +72,8 @@ public class Body implements Serializable{
 	 */
 	public String getDL() {
 		final String START = "DL:";
-		final String END = "\\n";
-		return cutFromCDATA(START, END);
+		String result = cutFromCDATA(START, "\n");
+		return StringUtils.isEmpty(result) ? cutFromCDATA(START, "\\n") : result;
 	}
 	
 	public String cutFromCDATA(final String START, final String END) {

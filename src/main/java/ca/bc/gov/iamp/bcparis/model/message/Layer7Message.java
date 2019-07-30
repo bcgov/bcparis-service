@@ -6,12 +6,18 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import ca.bc.gov.iamp.bcparis.exception.message.InvalidMessageType;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 
 @Getter
 @Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 public class Layer7Message implements Serializable{
 
 	private static final long serialVersionUID = -2139629085388836915L;

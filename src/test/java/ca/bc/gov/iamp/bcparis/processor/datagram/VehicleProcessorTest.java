@@ -43,7 +43,7 @@ public class VehicleProcessorTest {
 		final Layer7Message message = BCPARISTestUtil.getMessageVehicleVIN();
 		final String ims = processor.createIMS(message);
 		
-		Assert.assertEquals("JISTRAN HC BC41127 BC41028 QD VIN:1FTEW1EF3GKF29092", ims);
+		Assert.assertEquals("JISTRAN HC BC41127 BC41028 VIN:1FTEW1EF3GKF29092", ims);
 	}
 	
 	@Test
@@ -51,7 +51,7 @@ public class VehicleProcessorTest {
 		final Layer7Message message = BCPARISTestUtil.getMessageVehicleLIC();
 		final String ims = processor.createIMS(message);
 		
-		Assert.assertEquals("JISTRAN HC BC41127 BC41028 QD LIC:PN890H", ims);
+		Assert.assertEquals("JISTRAN HC BC41127 BC41028 LIC:PN890H", ims);
 	}
 	
 	@Test
@@ -59,7 +59,7 @@ public class VehicleProcessorTest {
 		final Layer7Message message = BCPARISTestUtil.getMessageVehicleRVL();
 		final String ims = processor.createIMS(message);
 		
-		Assert.assertEquals("JISTRN2 HC BC41127 BC41028 QD RVL:845513634081303/", ims);
+		Assert.assertEquals("JISTRN2 HC BC41127 BC41028 RVL:845513634081303/", ims);
 	}
 	
 }

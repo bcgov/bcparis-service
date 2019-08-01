@@ -64,7 +64,7 @@ public class PORProcessor {
 							  "FMT:Y\n" + 
 							  "FROM:%s\n" + 
 							  "TO:%s\n" + 
-							  "%s";
+							  "TEXT:%s";
 		final String from = message.getEnvelope().getBody().getCDATAAttribute("FROM");
 		final String to = message.getEnvelope().getBody().getCDATAAttribute("TO");
 		

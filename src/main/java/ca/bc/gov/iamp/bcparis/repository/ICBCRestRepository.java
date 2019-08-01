@@ -13,6 +13,8 @@ import org.springframework.stereotype.Repository;
 import org.springframework.web.client.RestTemplate;
 
 import ca.bc.gov.iamp.bcparis.exception.icbc.ICBCRestException;
+import ca.bc.gov.iamp.bcparis.repository.query.IMSRequest;
+import ca.bc.gov.iamp.bcparis.repository.query.IMSResponse;
 
 @Repository
 public class ICBCRestRepository {
@@ -50,10 +52,13 @@ public class ICBCRestRepository {
 			
 			HttpEntity<?> httpEntity = new HttpEntity<IMSRequest>(ims,  getHeaders(username, password));
 			
-			ResponseEntity<String> response = restTemplate.postForEntity(URL, httpEntity, String.class);
-		
+			ResponseEntity<IMSResponse> response = restTemplate.postForEntity(URL, httpEntity, IMSResponse.class);
+			
 			handleResponse(response);
-			return parseResponse(response);
+			
+			String cdata = response.getBody().imsResponse;
+			
+			return parseResponse(cdata);
 		}catch (Exception e) {
 			throw new ICBCRestException("Exception to call ICBC Rest Service", e);
 		}
@@ -69,7 +74,7 @@ public class ICBCRestRepository {
 		return headers;
 	}
 	
-	private void handleResponse(ResponseEntity<String> response) throws Exception {
+	private void handleResponse(ResponseEntity<IMSResponse> response) throws Exception {
 		if( response.getStatusCode() == HttpStatus.OK) {
 			log.info(String.format("ICBC Rest service response=%s", response.getStatusCode()));
 			log.info(String.format("Body=%s", response.getBody()));
@@ -80,10 +85,10 @@ public class ICBCRestRepository {
 		}
 	}
 	
-	private String parseResponse(ResponseEntity<String> response) {
+	private String parseResponse(String response) {
 		log.info("Parsing ICBC Rest Service Response.");
 		
-		return response.getBody();
+		return response;
 //				response.getBody()
 //			.replaceAll("$\\\"", "$”")						//Replace $\” with $”
 //			.replaceAll("!\\\"", "!\"")						//Replace !\" with !”

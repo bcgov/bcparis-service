@@ -41,7 +41,11 @@ public class Body implements Serializable{
 	public String getCDATAAttribute(final String attributeName) {
 		final String ATTR_WITH_DELIMITER  = attributeName.toUpperCase() + ":";
 		Optional<String> opt = CDATAAttributes.stream().filter( attr->attr.startsWith(ATTR_WITH_DELIMITER)  ).findFirst();
-		return opt.isPresent() ? opt.get().split(":")[1] : "";
+		if(opt.isPresent()) {
+			String[] splited = opt.get().split(":");
+			return splited.length == 2 ? splited[1] : "";
+		}else 
+			return "";
 	}
 	
 	public boolean containAttribute(final String attributeName) {

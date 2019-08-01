@@ -60,15 +60,24 @@ public class PORProcessor {
 	}
 	
 	private String buildResponse(Layer7Message message, String porResponse) {
-		final String format = "SEND MT:M\n" + 
-							  "FMT:Y\n" + 
-							  "FROM:%s\n" + 
-							  "TO:%s\n" + 
-							  "TEXT:%s";
-		final String from = message.getEnvelope().getBody().getCDATAAttribute("FROM");
-		final String to = message.getEnvelope().getBody().getCDATAAttribute("TO");
+		final String NEW_LINE = "\n";
+		final String schema = "SEND MT:M" + NEW_LINE +
+							  "FMT:Y" + NEW_LINE +
+							  "FROM:${from}" + NEW_LINE + 
+							  "TO:${to}" + NEW_LINE + 
+							  "TEXT:${text}" + NEW_LINE +
+							  NEW_LINE +
+							  "${por_response}";
 		
-		return String.format(format, to, from, porResponse);
+		final String from = message.getEnvelope().getBody().getCDATAAttribute("FROM");
+		final String to = message.getEnvelope().getBody().getCDATAAttribute("TO");	
+		final String text = message.getEnvelope().getBody().getCDATAAttribute("TEXT");
+		
+		return schema
+				.replace("${from}", to)
+				.replace("${to}", from)
+				.replace("${text}", text)
+				.replace("${por_response}", porResponse);
 	}
 
 }

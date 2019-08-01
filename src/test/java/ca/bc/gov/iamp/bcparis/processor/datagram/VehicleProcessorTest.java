@@ -9,7 +9,7 @@ import org.mockito.MockitoAnnotations;
 
 import ca.bc.gov.iamp.bcparis.model.message.Layer7Message;
 import ca.bc.gov.iamp.bcparis.repository.ICBCRestRepository;
-import ca.bc.gov.iamp.bcparis.repository.IMSRequest;
+import ca.bc.gov.iamp.bcparis.repository.query.IMSRequest;
 import test.util.BCPARISTestUtil;
 import test.util.TestUtil;
 

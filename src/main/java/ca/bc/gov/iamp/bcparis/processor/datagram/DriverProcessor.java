@@ -10,7 +10,7 @@ import ca.bc.gov.iamp.bcparis.exception.message.InvalidMessage;
 import ca.bc.gov.iamp.bcparis.model.message.Body;
 import ca.bc.gov.iamp.bcparis.model.message.Layer7Message;
 import ca.bc.gov.iamp.bcparis.repository.ICBCRestRepository;
-import ca.bc.gov.iamp.bcparis.repository.IMSRequest;
+import ca.bc.gov.iamp.bcparis.repository.query.IMSRequest;
 
 @Service
 public class DriverProcessor {

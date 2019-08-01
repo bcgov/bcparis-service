@@ -1,4 +1,4 @@
-package ca.bc.gov.iamp.bcparis.repository;
+package ca.bc.gov.iamp.bcparis.repository.query;
 
 import lombok.Builder;
 

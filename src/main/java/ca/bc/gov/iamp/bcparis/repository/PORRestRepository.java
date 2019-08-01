@@ -16,6 +16,7 @@ import org.springframework.web.util.UriComponentsBuilder;
 
 import ca.bc.gov.iamp.bcparis.exception.por.PORRestException;
 import ca.bc.gov.iamp.bcparis.model.por.POROutput;
+import ca.bc.gov.iamp.bcparis.repository.query.IMSRequest;
 import ca.bc.gov.iamp.bcparis.repository.rest.BaseRest;
 
 @Component

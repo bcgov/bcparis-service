@@ -45,6 +45,7 @@ public class MessageApi {
 	//TODO: Only for test purpose
 	@PostMapping(consumes=MediaType.APPLICATION_JSON_VALUE)
 	private ResponseEntity<String> testPutMessageLayer7( @RequestBody String message ){
-		return ResponseEntity.ok(repository.sendMessage(message));
+		final String response = repository.sendMessage(message);
+		return ResponseEntity.ok(response);
 	}
 }

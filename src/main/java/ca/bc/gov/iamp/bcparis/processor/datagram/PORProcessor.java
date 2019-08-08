@@ -65,18 +65,19 @@ public class PORProcessor {
 							  "FMT:Y" + NEW_LINE +
 							  "FROM:${from}" + NEW_LINE + 
 							  "TO:${to}" + NEW_LINE + 
-							  "TEXT:${text}" + NEW_LINE +
+							  "${TEXT_to_end_of_message}" + NEW_LINE +
 							  NEW_LINE +
 							  "${por_response}";
 		
-		final String from = message.getEnvelope().getBody().getCDATAAttribute("FROM");
-		final String to = message.getEnvelope().getBody().getCDATAAttribute("TO");	
-		final String text = message.getEnvelope().getBody().getCDATAAttribute("TEXT");
+		final Body body = message.getEnvelope().getBody(); 
+		final String from = body.getCDATAAttribute("FROM");
+		final String to = body.getCDATAAttribute("TO");	
+		final String messageContent = body.cutFromCDATA("TEXT:");
 		
 		return schema
 				.replace("${from}", to)
 				.replace("${to}", from)
-				.replace("${text}", text)
+				.replace("${TEXT_to_end_of_message}", messageContent)
 				.replace("${por_response}", porResponse);
 	}
 

@@ -1,15 +1,15 @@
 package ca.bc.gov.iamp.bcparis.repository.query;
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
+import lombok.NoArgsConstructor;
 
 @Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class IMSResponse {
 
-	public final String imsResponse;
-
-	public IMSResponse(String imsResponse) {
-		this.imsResponse = imsResponse;
-	}
+	public String imsResponse;
 
 	public String getImsResponse() {
 		return imsResponse;

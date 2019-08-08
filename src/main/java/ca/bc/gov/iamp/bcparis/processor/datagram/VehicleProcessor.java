@@ -34,8 +34,11 @@ public class VehicleProcessor {
 		
 		icbcResponse = parseResponse(icbcResponse);
 		
-		log.info("Vehicle message processing completed.");
+		String response = "";//buildResponse(message, icbcResponse);
 		message.getEnvelope().getBody().setMsgFFmt(icbcResponse);
+		
+		log.info("Vehicle message processing completed.");
+		
 		return message;
 	}
 	

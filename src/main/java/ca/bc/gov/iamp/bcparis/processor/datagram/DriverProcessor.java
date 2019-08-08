@@ -31,9 +31,11 @@ public class DriverProcessor {
 		
 		icbcResponse = parseResponse(icbcResponse);
 		
+		String response = "";// buildResponse(message, icbcResponse);
+		message.getEnvelope().getBody().setMsgFFmt(icbcResponse);
+		
 		log.info("Driver message processing completed.");
 		
-		message.getEnvelope().getBody().setMsgFFmt(icbcResponse);
 		return message;
 	}
 	

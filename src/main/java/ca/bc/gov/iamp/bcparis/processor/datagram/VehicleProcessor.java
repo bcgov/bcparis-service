@@ -34,8 +34,11 @@ public class VehicleProcessor {
 		
 		icbcResponse = parseResponse(icbcResponse);
 		
+		String response = buildResponse(message, icbcResponse);
+		message.getEnvelope().getBody().setMsgFFmt(response);
+		
 		log.info("Vehicle message processing completed.");
-		message.getEnvelope().getBody().setMsgFFmt(icbcResponse);
+		
 		return message;
 	}
 	
@@ -84,7 +87,35 @@ public class VehicleProcessor {
 	}
 	
 	private String parseResponse(String icbcResponse) {
-		return icbcResponse;
+		final String NEW_LINE = "\n";
+		
+		return icbcResponse
+				.replaceAll("\\$\"", NEW_LINE)	// $” are converted to newline
+				.replaceAll("\\$\\\\\"", NEW_LINE);	// $\” are converted to newline
+	}
+
+	private String buildResponse(Layer7Message message, String icbcResponse) {
+		final String NEW_LINE = "\n";
+		final String schema = "SEND MT:M" + NEW_LINE +
+							  "FMT:Y" + NEW_LINE +
+							  "FROM:${from}" + NEW_LINE + 
+							  "TO:${to}" + NEW_LINE + 
+							  "${TEXT}${RE}" + NEW_LINE +
+							  NEW_LINE +
+							  "${icbc_response}";
+		
+		final Body body = message.getEnvelope().getBody(); 
+		final String from = body.getCDATAAttribute("FROM");
+		final String to = body.getCDATAAttribute("TO");	
+		final String text = body.getCDATAAttribute("TEXT:");
+		final String re = body.getCDATAAttribute("RE:");
+		
+		return schema
+				.replace("${from}", to)
+				.replace("${to}", from)
+				.replace("${TEXT}", text)
+				.replace("${RE}", re)
+				.replace("${icbc_response}", icbcResponse);
 	}
 
 }

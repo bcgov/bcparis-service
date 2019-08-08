@@ -87,4 +87,9 @@ public class Body implements Serializable{
 				? msgFFmt.substring(beginIndex + START.length(), endIndex)
 				: "";
 	}
+	
+	public String cutFromCDATA(final String START) {
+		final int beginIndex = msgFFmt.indexOf(START);
+		return (beginIndex != -1) ? msgFFmt.substring(beginIndex) : "";
+	}
 }

@@ -27,6 +27,10 @@ public class BCPARISTestUtil {
 		return getMessage("cdata/sample-vehicle-rvl");
 	}
 	
+	public static Layer7Message getMessagePOR() {
+		return getMessage("cdata/sample-por");
+	}
+	
 	private static Layer7Message getMessage(final String cdata) {
 		MessageTransform transform = new MessageTransform();
 		return transform.parse(Layer7Message.builder()

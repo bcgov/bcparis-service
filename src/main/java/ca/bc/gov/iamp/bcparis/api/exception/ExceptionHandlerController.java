@@ -20,6 +20,7 @@ public class ExceptionHandlerController {
 	@ResponseStatus(HttpStatus.BAD_REQUEST)
 	@ExceptionHandler({ InvalidMessageType.class })
 	public Error invalidMessage(InvalidMessageType e) {
+		e.printStackTrace();
 		return new Error(e.getMessage());
 	}
 	
@@ -28,6 +29,7 @@ public class ExceptionHandlerController {
 	@ResponseStatus(HttpStatus.BAD_REQUEST)
 	@ExceptionHandler({ MessageTransformException.class })
 	public Error messageTransformation(MessageTransformException e) {
+		e.printStackTrace();
 		return new Error("Error during the message transformation.");
 	}
 	
@@ -35,6 +37,7 @@ public class ExceptionHandlerController {
 	@ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
 	@ExceptionHandler({ ICBCRestException.class, Layer7RestException.class })
 	public Error restExceptions(RuntimeException e) {
+		e.printStackTrace();
 		return new Error(e.getMessage());
 	}
 	

@@ -13,7 +13,6 @@ import ca.bc.gov.iamp.bcparis.exception.icbc.ICBCRestException;
 import ca.bc.gov.iamp.bcparis.exception.layer7.Layer7RestException;
 import ca.bc.gov.iamp.bcparis.exception.message.InvalidMessageType;
 import ca.bc.gov.iamp.bcparis.exception.message.MessageTransformException;
-import ca.bc.gov.iamp.bcparis.processor.datagram.VehicleProcessor;
 
 @ControllerAdvice
 public class ExceptionHandlerController {

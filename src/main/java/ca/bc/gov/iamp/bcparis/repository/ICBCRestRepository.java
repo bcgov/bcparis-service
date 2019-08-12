@@ -56,7 +56,7 @@ public class ICBCRestRepository {
 			
 			handleResponse(response);
 			
-			String cdata = response.getBody().imsResponse;
+			String cdata = response.getBody().getImsResponse();
 			
 			return parseResponse(cdata);
 		}catch (Exception e) {

@@ -37,8 +37,8 @@ public class DriverProcessorTest {
 		final String expectedParsed = "SEND MT:M\n" + 
 				"FMT:Y\n" + 
 				"FROM:BC41027\n" + 
-				"TO:BC41127\n" + 
-				"\n" + 
+				"TO:BC41127\n" +
+				"TEXT:RE: 0509\n" + 
 				"\n" + 
 				"HC  BC41027\n" + 
 				"BC41127\n" + 

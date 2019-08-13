@@ -67,7 +67,7 @@ public class MessageTransform {
 				+ "G1:|G2:|G3:|DOB:|DL:|" // POR
 				+ "SNME:|DL:|" // Driver
 				+ "LIC:|ODN:|TAG:|FLC:|VIN:|REG:|RNS:|RVL:|" // Vehicle
-				+ "\n\n|\\\\n\\\\n"; // New line and New line escaped (backslash)
+				+ "\\n|\\\\n|\n\n|\\\\n\\\\n"; // New line and New line escaped (backslash)
 
 		List<String> attributes = new ArrayList<>();
 

@@ -39,7 +39,7 @@ public class VehicleProcessorTest {
 				"FMT:Y\n" + 
 				"FROM:BC41028\n" + 
 				"TO:BC41127\n" + 
-				"\n" + 
+				"TEXT:RE: 2505\n" + 
 				"\n" + 
 				"HC BC41028\n" + 
 				"BC41127\n" + 

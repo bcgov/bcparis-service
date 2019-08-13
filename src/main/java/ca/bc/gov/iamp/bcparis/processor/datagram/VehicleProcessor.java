@@ -100,15 +100,15 @@ public class VehicleProcessor {
 							  "FMT:Y" + NEW_LINE +
 							  "FROM:${from}" + NEW_LINE + 
 							  "TO:${to}" + NEW_LINE + 
-							  "${TEXT}${RE}" + NEW_LINE +
+							  "TEXT:${TEXT}RE:${RE}" + NEW_LINE +
 							  NEW_LINE +
 							  "${icbc_response}";
 		
 		final Body body = message.getEnvelope().getBody(); 
 		final String from = body.getCDATAAttribute("FROM");
 		final String to = body.getCDATAAttribute("TO");	
-		final String text = body.getCDATAAttribute("TEXT:");
-		final String re = body.getCDATAAttribute("RE:");
+		final String text = body.getCDATAAttribute("TEXT");
+		final String re = body.getCDATAAttribute("RE");
 		
 		return schema
 				.replace("${from}", to)

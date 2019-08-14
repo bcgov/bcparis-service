@@ -4,6 +4,9 @@ import java.io.Serializable;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import ca.bc.gov.iamp.bcparis.model.message.body.Body;
+import ca.bc.gov.iamp.bcparis.model.message.body.MQMD;
+import ca.bc.gov.iamp.bcparis.model.message.header.Header;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -23,6 +26,9 @@ public class Envelope implements Serializable{
 	
 	@JsonProperty(value="Body")
 	private Body body;
+	
+	@JsonProperty(value="Header")
+	private Header header;
 	
 	@JsonProperty(value="MQMD")
 	private MQMD mqmd;

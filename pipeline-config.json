@@ -1,70 +1,42 @@
 {
-    "externalConfig": 
-    {
-        "branch": "master",
+	"externalConfig": {
 		"credentials": "bcparis-jenkins-github"
-    },
-
-    "ciConfig": 
-    {
-        "stages": 
-        {
-            "codeSecurityStage": 
-            {
-                "id": "security",
-                "enable": false
-            },
-
-            "codeBuildStage": 
-            {
-                "enable": true,
-                "id": "build",
-                "name": "Build",
-                "engine": 
-                {
-                    "type": "maven",
-                    "configDir": "external-config/build/maven"
-                }
-            },
-			
-			"codeArchiveStage": 
-            {
-                "enable": true,
-                "id": "archive",
-		"engine": 
-                {
-                    "credentials": "bcparis-jenkins-nexus"
-                }
-            }
-        }
-    },
-
-    "cdConfig": 
-    {
-        "deployments": 
-        {
-            "ocpDevDeployment": 
-            {
-                "env": "dev",
-                "cloudProvider": "ocp",
-                "project": "xqb2qz-dev",
-		"replicas": "1"
-            },
-
-            "ocpTestDeployment": 
-            {
-                "env": "test",
-                "cloudProvider": "ocp",
-                "project": "xqb2qz-test"
-            },
-
-            "ocpProdDeployment": 
-            {
-                "env": "prod",
-                "cloudProvider": "ocp",
-                "project": "xqb2qz-prod",
-                "enable": false
-            }
-        }
-    }
+	},
+	"ciConfig": {
+		"stages": {
+			"codeSecurityStage": {
+				"id": "security",
+				"enable": false
+			},
+			"codeArchiveStage": {
+				"id": "archive",
+				"engine": {
+					"credentials": "bcparis-jenkins-nexus"
+				}
+			}
+		}
+	},
+	"cdConfig": {
+		"deployments": {
+			"ocpDevDeployment": {
+				"env": "dev",
+				"cloudProvider": "ocp",
+				"project": "xqb2qz-dev",
+				"replicas": "1"
+			},
+			"ocpTestDeployment": {
+				"env": "test",
+				"cloudProvider": "ocp",
+				"project": "xqb2qz-test",
+				"type": "blue-green"
+			},
+			"ocpProdDeployment": {
+				"env": "prod",
+				"cloudProvider": "ocp",
+				"project": "xqb2qz-prod",
+				"enable": false,
+				"type": "blue-green"
+			}
+		}
+	}
 }

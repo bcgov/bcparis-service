@@ -6,8 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import ca.bc.gov.iamp.bcparis.exception.por.PORRestException;
-import ca.bc.gov.iamp.bcparis.model.message.Body;
 import ca.bc.gov.iamp.bcparis.model.message.Layer7Message;
+import ca.bc.gov.iamp.bcparis.model.message.body.Body;
 import ca.bc.gov.iamp.bcparis.model.por.POROutput;
 import ca.bc.gov.iamp.bcparis.repository.PORRestRepository;
 

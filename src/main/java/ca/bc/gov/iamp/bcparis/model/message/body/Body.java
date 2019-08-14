@@ -1,4 +1,4 @@
-package ca.bc.gov.iamp.bcparis.model.message;
+package ca.bc.gov.iamp.bcparis.model.message.body;
 
 import java.io.Serializable;
 import java.util.List;

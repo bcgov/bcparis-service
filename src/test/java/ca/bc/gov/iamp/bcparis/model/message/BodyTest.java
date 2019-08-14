@@ -3,6 +3,7 @@ package ca.bc.gov.iamp.bcparis.model.message;
 import org.junit.Assert;
 import org.junit.Test;
 
+import ca.bc.gov.iamp.bcparis.model.message.body.Body;
 import test.util.BCPARISTestUtil;
 
 public class BodyTest {

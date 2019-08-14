@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import ca.bc.gov.iamp.bcparis.model.message.Layer7Message;
 import ca.bc.gov.iamp.bcparis.processor.MessageProcessor;
+import ca.bc.gov.iamp.bcparis.processor.datagram.SatelliteProcessor;
 import ca.bc.gov.iamp.bcparis.repository.Layer7MessageRepository;
 
 @RestController
@@ -26,6 +27,9 @@ public class MessageApi {
 	
 	@Autowired
 	private Layer7MessageRepository repository;
+	
+	@Autowired
+	private SatelliteProcessor satellite;
 	
 	@PutMapping(consumes=MediaType.APPLICATION_JSON_VALUE)
 	private ResponseEntity<Layer7Message> message( @RequestBody Layer7Message message ){
@@ -42,10 +46,17 @@ public class MessageApi {
 		return processor.processMessage(messageContent);
 	}
 	
-	//TODO: Only for test purpose
-	@PostMapping(consumes=MediaType.APPLICATION_JSON_VALUE)
-	private ResponseEntity<String> testPutMessageLayer7( @RequestBody String message ){
+	//Only for test purpose
+	@PostMapping( path="/test/layer7", consumes=MediaType.APPLICATION_JSON_VALUE)
+	private ResponseEntity<String> testPutMessageLayer7( @RequestBody Layer7Message message ){
 		final String response = repository.sendMessage(message);
 		return ResponseEntity.ok(response);
+	}
+	
+	//Only for test purpose
+	@PostMapping( path="/test/satellite/vehicle", consumes=MediaType.APPLICATION_JSON_VALUE)
+	private ResponseEntity<String> testSatelliteVehicle( @RequestBody String message ){
+		satellite.sendVehicleMessages();
+		return ResponseEntity.ok("Satellite flow doesn`t return response.");
 	}
 }

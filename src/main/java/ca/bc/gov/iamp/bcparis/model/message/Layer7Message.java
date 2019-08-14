@@ -6,6 +6,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import ca.bc.gov.iamp.bcparis.exception.message.InvalidMessageType;
+import ca.bc.gov.iamp.bcparis.model.MessageType;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;

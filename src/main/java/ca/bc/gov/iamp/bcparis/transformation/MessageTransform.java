@@ -11,8 +11,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import ca.bc.gov.iamp.bcparis.exception.message.MessageTransformException;
-import ca.bc.gov.iamp.bcparis.model.message.Body;
 import ca.bc.gov.iamp.bcparis.model.message.Layer7Message;
+import ca.bc.gov.iamp.bcparis.model.message.body.Body;
 import ca.bc.gov.iamp.bcparis.util.XMLUtil;
 
 @Service

@@ -1,8 +1,8 @@
 package test.util;
 
-import ca.bc.gov.iamp.bcparis.model.message.Body;
 import ca.bc.gov.iamp.bcparis.model.message.Envelope;
 import ca.bc.gov.iamp.bcparis.model.message.Layer7Message;
+import ca.bc.gov.iamp.bcparis.model.message.body.Body;
 import ca.bc.gov.iamp.bcparis.transformation.MessageTransform;
 
 public class BCPARISTestUtil {

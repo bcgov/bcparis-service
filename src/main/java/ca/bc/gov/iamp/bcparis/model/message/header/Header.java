@@ -39,4 +39,15 @@ public class Header implements Serializable{
 	@JsonProperty(value="Origin")
 	public Origin origin;
 	
+	@JsonProperty(value="Role")
+	public String role;
+	
+	@JsonProperty(value="AgencyId")
+	public String agencyId;
+	
+	@JsonProperty(value="UserId")
+	public String userId;
+	
+	@JsonProperty(value="DeviceId")
+	public String deviceId;
 }

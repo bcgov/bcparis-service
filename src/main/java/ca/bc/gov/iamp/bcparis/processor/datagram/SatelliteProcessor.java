@@ -10,6 +10,9 @@ import ca.bc.gov.iamp.bcparis.model.message.Layer7Message;
 import ca.bc.gov.iamp.bcparis.model.message.body.Body;
 import ca.bc.gov.iamp.bcparis.model.message.body.MQMD;
 import ca.bc.gov.iamp.bcparis.model.message.header.Header;
+import ca.bc.gov.iamp.bcparis.model.message.header.MsgSrvc;
+import ca.bc.gov.iamp.bcparis.model.message.header.Origin;
+import ca.bc.gov.iamp.bcparis.model.message.header.Routing;
 import ca.bc.gov.iamp.bcparis.repository.Layer7MessageRepository;
 
 @Service
@@ -53,10 +56,10 @@ public class SatelliteProcessor {
 		String cdata3 = buildMessageCDATA(VEHICLE_SCHEMA, VEHICLE_FROM_URI, VEHICLE_TO_URI, VEHICLE_DL_SNME);
 		String cdata4 = buildMessageCDATA(VEHICLE_SCHEMA, VEHICLE_FROM_URI, VEHICLE_TO_URI, VEHICLE_DL_SNME_DOB_SEX);
 		
-		layer7repository.sendMessage(buildMessage(cdata1));
-		layer7repository.sendMessage(buildMessage(cdata2));
-		layer7repository.sendMessage(buildMessage(cdata3));
-		layer7repository.sendMessage(buildMessage(cdata4));
+		layer7repository.sendMessage(createLayer7Message(cdata1));
+		layer7repository.sendMessage(createLayer7Message(cdata2));
+		layer7repository.sendMessage(createLayer7Message(cdata3));
+		layer7repository.sendMessage(createLayer7Message(cdata4));
 	}
 	
 	private String buildMessageCDATA(String schema, String from, String to, String query) {
@@ -66,9 +69,20 @@ public class SatelliteProcessor {
 				.replaceAll("${QUERY_MESSAGE}", query);
 	}
 	
-	private Layer7Message buildMessage(String cdata) {
+	private Layer7Message createLayer7Message(String cdata) {
 		
-		Header header = Header.builder().build();
+		Header header = Header.builder()
+				.role("ROLE 1")
+				.origin(Origin.builder().qname("CPIC.MSG.AGENCY.REMOTE").qMgrName("BMVQ3VIC").build())
+				.agencyId("AGENCY 1")
+				.cpicVer("1.4")
+				.userId("UID 1")
+				.deviceId("DEVICE ID 1")
+				.udf("BCPARISTEST")
+				.priority("1")
+				.routing(Routing.builder().qname("CPIC.MSG.BMVQ3VIC").qMgrName("BMVQ3VIC").build())
+				.msgSrvc(MsgSrvc.builder().msgActn("Send").build())
+				.build();
 		
 		Body body = Body.builder().build();
 		

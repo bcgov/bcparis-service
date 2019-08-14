@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.HttpServerErrorException;
 
 import ca.bc.gov.iamp.bcparis.exception.layer7.Layer7RestException;
+import ca.bc.gov.iamp.bcparis.model.message.Layer7Message;
 import ca.bc.gov.iamp.bcparis.repository.rest.BaseRest;
 
 @Service
@@ -25,10 +26,11 @@ public class Layer7MessageRepository extends BaseRest{
 	@Value("${endpoint.layer7.rest.header.password}")
 	private String password;
 	
-	public String sendMessage(String messageContent) {
+	
+	public String sendMessage(Layer7Message message) {
 		try {
-			HttpEntity<?> httpEntity = new HttpEntity<String>(messageContent, getHeadersWithBasicAuth(username, password));
-			
+			HttpEntity<?> httpEntity = new HttpEntity<Layer7Message>(message,  getHeadersWithBasicAuth(username, password));
+
 			ResponseEntity<String> response = getRestTemplate().postForEntity(messageEndpoint + path, httpEntity, String.class);
 		
 			assertResponse(HttpStatus.OK, response.getStatusCode(), response.getBody() );

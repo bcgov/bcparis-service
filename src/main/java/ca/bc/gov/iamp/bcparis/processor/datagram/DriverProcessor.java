@@ -8,8 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import ca.bc.gov.iamp.bcparis.exception.message.InvalidMessage;
-import ca.bc.gov.iamp.bcparis.model.message.Body;
 import ca.bc.gov.iamp.bcparis.model.message.Layer7Message;
+import ca.bc.gov.iamp.bcparis.model.message.body.Body;
 import ca.bc.gov.iamp.bcparis.repository.ICBCRestRepository;
 import ca.bc.gov.iamp.bcparis.repository.query.IMSRequest;
 

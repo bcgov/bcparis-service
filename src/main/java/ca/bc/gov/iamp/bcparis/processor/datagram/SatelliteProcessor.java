@@ -5,9 +5,12 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import ca.bc.gov.iamp.bcparis.model.message.Envelope;
 import ca.bc.gov.iamp.bcparis.model.message.Layer7Message;
+import ca.bc.gov.iamp.bcparis.model.message.body.Body;
+import ca.bc.gov.iamp.bcparis.model.message.body.MQMD;
+import ca.bc.gov.iamp.bcparis.model.message.header.Header;
 import ca.bc.gov.iamp.bcparis.repository.Layer7MessageRepository;
-import ca.bc.gov.iamp.bcparis.service.Layer7MessageService;
 
 @Service
 public class SatelliteProcessor {
@@ -19,7 +22,7 @@ public class SatelliteProcessor {
 		
 	private final String VEHICLE_FROM_URI = "BC41127";
 	private final String VEHICLE_TO_URI = "BC41027";
-	private final String VEHICLE_INTER_DELAY  = "1";
+	//private final String VEHICLE_INTER_DELAY  = "1";
 	private final String VEHICLE_DL  = "DL:0200000";
 	private final String VEHICLE_DL_DATE  = "DL:4529693/DATE:20070122";
 	private final String VEHICLE_DL_SNME  = "SNME:SMITH/G1:JOHN/";
@@ -44,17 +47,39 @@ public class SatelliteProcessor {
 		return message;
 	}
 	
-	private void sendVehicleMessages() {
-		String message1 = buildMessage(VEHICLE_SCHEMA, VEHICLE_FROM_URI, VEHICLE_TO_URI, VEHICLE_DL);
+	public void sendVehicleMessages() {
+		String cdata1 = buildMessageCDATA(VEHICLE_SCHEMA, VEHICLE_FROM_URI, VEHICLE_TO_URI, VEHICLE_DL);
+		String cdata2 = buildMessageCDATA(VEHICLE_SCHEMA, VEHICLE_FROM_URI, VEHICLE_TO_URI, VEHICLE_DL_DATE);
+		String cdata3 = buildMessageCDATA(VEHICLE_SCHEMA, VEHICLE_FROM_URI, VEHICLE_TO_URI, VEHICLE_DL_SNME);
+		String cdata4 = buildMessageCDATA(VEHICLE_SCHEMA, VEHICLE_FROM_URI, VEHICLE_TO_URI, VEHICLE_DL_SNME_DOB_SEX);
 		
-		
+		layer7repository.sendMessage(buildMessage(cdata1));
+		layer7repository.sendMessage(buildMessage(cdata2));
+		layer7repository.sendMessage(buildMessage(cdata3));
+		layer7repository.sendMessage(buildMessage(cdata4));
 	}
 	
-	private String buildMessage(String schema, String from, String to, String query) {
+	private String buildMessageCDATA(String schema, String from, String to, String query) {
 		return schema
 				.replaceAll("${FROM}", from)
 				.replaceAll("${TO}", to)
 				.replaceAll("${QUERY_MESSAGE}", query);
 	}
 	
+	private Layer7Message buildMessage(String cdata) {
+		
+		Header header = Header.builder().build();
+		
+		Body body = Body.builder().build();
+		
+		MQMD mqmd = MQMD.builder().build();
+		
+		Envelope envelope = Envelope.builder()
+				.header(header)
+				.body(body)
+				.mqmd(mqmd)
+				.build();
+		
+		return Layer7Message.builder().envelope(envelope).build();
+	}
 }

@@ -75,7 +75,7 @@ public class DriverProcessor {
 		return icbcResponse
 				.replaceAll("\\]\"", NEW_LINE)		// ]” are converted to newline
 				.replaceAll("\\]\\\\\"", NEW_LINE) // ]/” are converted to newline
-				.replaceAll("\\u[0-9][0-9][0-9][0-9]", "")
+				//.replaceAll("\\u[0-9][0-9][0-9][0-9]", "")
 				.replaceAll("[^\\x00-\\x7F]+", "");
 	}
 	

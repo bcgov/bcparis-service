@@ -91,7 +91,9 @@ public class VehicleProcessor {
 		
 		return icbcResponse
 				.replaceAll("\\$\"", NEW_LINE)	// $” are converted to newline
-				.replaceAll("\\$\\\\\"", NEW_LINE);	// $\” are converted to newline
+				.replaceAll("\\$\\\\\"", NEW_LINE)	// $\” are converted to newline
+				.replaceAll("\\u[0-9][0-9][0-9][0-9]", "")
+				.replaceAll("[^\\x00-\\x7F]+", "");
 	}
 
 	private String buildResponse(Layer7Message message, String icbcResponse) {

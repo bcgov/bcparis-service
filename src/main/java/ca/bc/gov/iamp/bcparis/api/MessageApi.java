@@ -17,7 +17,7 @@ import ca.bc.gov.iamp.bcparis.processor.datagram.SatelliteProcessor;
 import ca.bc.gov.iamp.bcparis.repository.Layer7MessageRepository;
 
 @RestController
-@RequestMapping("/message")
+@RequestMapping("/api/v1/message")
 public class MessageApi {
 
 	private final Logger log = LoggerFactory.getLogger(MessageApi.class);

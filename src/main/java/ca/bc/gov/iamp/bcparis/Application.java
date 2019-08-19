@@ -9,7 +9,7 @@ import org.springframework.web.client.RestTemplate;
 
 @SpringBootApplication
 @EnableScheduling
-@ComponentScan(basePackages = "ca.bc.gov.iamp.bcparis")
+@ComponentScan(basePackages = "ca.bc.gov.iamp")
 public class Application {
 
 	public static void main(String[] args) {

@@ -1,6 +1,7 @@
 package ca.bc.gov.iamp.bcparis.repository;
 
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cloud.sleuth.annotation.NewSpan;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -27,6 +28,7 @@ public class Layer7MessageRepository extends BaseRest{
 	private String password;
 	
 	
+	@NewSpan("layer7-mq")
 	public String sendMessage(Layer7Message message) {
 		try {
 			HttpEntity<?> httpEntity = new HttpEntity<Layer7Message>(message,  getHeadersWithBasicAuth(username, password));
@@ -42,7 +44,6 @@ public class Layer7MessageRepository extends BaseRest{
 		catch (Exception e) {
 			throw new Layer7RestException("Exception to post to Layer 7 Rest Service.", e);
 		}
-		
 	}
 	
 }

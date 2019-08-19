@@ -4,6 +4,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cloud.sleuth.annotation.NewSpan;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
@@ -39,6 +40,7 @@ public class PORRestRepository extends BaseRest{
 	@Autowired
 	private RestTemplate restTemplate;
 	
+	@NewSpan("por")
 	public POROutput callPOR(String surname, String given1, String given2, String given3, String dob) {
 	
 		try {

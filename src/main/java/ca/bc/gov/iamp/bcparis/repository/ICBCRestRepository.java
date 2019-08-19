@@ -4,6 +4,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cloud.sleuth.annotation.NewSpan;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -45,6 +46,7 @@ public class ICBCRestRepository {
 	@Autowired
 	private RestTemplate restTemplate;
 	
+	@NewSpan("icbc")
 	public String requestDetails(IMSRequest ims) {
 		try {
 			final String URL = icbcUrl + pathTransaction;
@@ -77,7 +79,7 @@ public class ICBCRestRepository {
 	private void handleResponse(ResponseEntity<IMSResponse> response) throws Exception {
 		if( response.getStatusCode() == HttpStatus.OK) {
 			log.info(String.format("ICBC Rest service response=%s", response.getStatusCode()));
-			log.info(String.format("Body=%s", response.getBody()));
+			log.debug(String.format("Body=%s", response.getBody()));
 		}else {
 			String message = String.format("Status code not expected during the ICBC Rest Service request. Status=%s. Body=%s", 
 					response.getStatusCodeValue(), response.getBody());
@@ -87,15 +89,7 @@ public class ICBCRestRepository {
 	
 	private String parseResponse(String response) {
 		log.info("Parsing ICBC Rest Service Response.");
-		
 		return response;
-//				response.getBody()
-//			.replaceAll("$\\\"", "$”")						//Replace $\” with $”
-//			.replaceAll("!\\\"", "!\"")						//Replace !\" with !”
-//			.replaceAll("]\\\"", "!\"")						//Replace ]\" with !"
-//			.replaceAll("\\u[0-9][0-9][0-9][0-9]", "")		//Delete all \ u[0-9][0-9][0-9][0-9]
-//			.replaceAll("[^\\x00-\\x7F]+", "")				//Delete all [^\x00-\x7F]+
-//			.replaceAll("\\\\\\", "");						//Delete all  \\\
 	}
-	
+
 }

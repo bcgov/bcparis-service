@@ -1,41 +1,40 @@
 {
-	"externalConfig": {
-		"credentials": "bcparis-jenkins-github"
-	},
-	"ciConfig": {
-		"stages": {
-			"codeSecurityStage": {
-				"id": "security",
-				"enable": false
-			},
-			"codeArchiveStage": {
-				"id": "archive",
-				"engine": {
-					"credentials": "bcparis-jenkins-nexus"
-				}
-			}
-		}
-	},
 	"cdConfig": {
 		"deployments": {
 			"ocpDevDeployment": {
 				"env": "dev",
 				"cloudProvider": "ocp",
-				"project": "xqb2qz-dev",
+				"project": "bcparis-service-dev",
+				"type": "recreate",
 				"replicas": "1"
 			},
 			"ocpTestDeployment": {
 				"env": "test",
 				"cloudProvider": "ocp",
-				"project": "xqb2qz-test",
-				"type": "blue-green"
+				"project": "bcparis-service-test",
+				"type": "blue-green",
+				"replicas": "2",
+				"providerConfig": {
+					"autoScaling": {
+						"id": "autoscaling",
+						"type": "config",
+						"enabled": "true"
+					}
+				}
 			},
 			"ocpProdDeployment": {
 				"env": "prod",
 				"cloudProvider": "ocp",
-				"project": "xqb2qz-prod",
-				"enable": false,
-				"type": "blue-green"
+				"project": "bcparis-service-prod",
+				"type": "blue-green",
+				"replicas": "2",
+				"providerConfig": {
+					"autoScaling": {
+						"id": "autoscaling",
+						"type": "config",
+						"enabled": "true"
+					}
+				}
 			}
 		}
 	}

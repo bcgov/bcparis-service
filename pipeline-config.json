@@ -5,6 +5,7 @@
 	"ciConfig": {
 		"stages": {
 			"codeArchiveStage": {
+				"id": "archive",
 				"engine": {
 					"credentials": "bcparis-jenkins-nexus"
 				}

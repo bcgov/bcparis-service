@@ -17,40 +17,11 @@
 
 	<dependencies>
 
-<!-- 		<dependency> -->
-<!-- 			<groupId>org.springframework.boot</groupId> -->
-<!-- 			<artifactId>spring-boot-starter-web</artifactId> -->
-<!-- 		</dependency> -->
-
-		<!-- Lombok -->
-<!-- 		<dependency> -->
-<!-- 			<groupId>org.projectlombok</groupId> -->
-<!-- 			<artifactId>lombok</artifactId> -->
-<!-- 			<version>1.16.16</version> -->
-<!-- 			<scope>provided</scope> -->
-<!-- 		</dependency> -->
-
 		<!-- Spring Cloud Config -->
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-config</artifactId>
 		</dependency>
-		
-		<!-- https://mvnrepository.com/artifact/org.apache.axis/axis -->
-		<!-- <dependency>
-		    <groupId>org.apache.axis</groupId>
-		    <artifactId>axis</artifactId>
-		    <version>1.4</version>
-		</dependency> -->
-		
-
-		<!-- https://mvnrepository.com/artifact/javax.xml/jaxrpc-api -->
-<!-- 		<dependency>
-		    <groupId>javax.xml</groupId>
-		    <artifactId>jaxrpc-api</artifactId>
-		    <version>1.1</version>
-		</dependency> -->
-
 
 	</dependencies>
 

@@ -1,17 +1,29 @@
 {
+	"externalConfig": {
+		"credentials": "bcparis-jenkins-github"
+	},
+	"ciConfig": {
+		"stages": {
+			"codeArchiveStage": {
+				"engine": {
+					"credentials": "bcparis-jenkins-nexus"
+				}
+			}
+		}
+	},
 	"cdConfig": {
 		"deployments": {
 			"ocpDevDeployment": {
 				"env": "dev",
 				"cloudProvider": "ocp",
-				"project": "bcparis-service-dev",
+				"project": "xqb2qz-dev",
 				"type": "recreate",
 				"replicas": "1"
 			},
 			"ocpTestDeployment": {
 				"env": "test",
 				"cloudProvider": "ocp",
-				"project": "bcparis-service-test",
+				"project": "xqb2qz-test",
 				"type": "blue-green",
 				"replicas": "2",
 				"providerConfig": {
@@ -25,7 +37,7 @@
 			"ocpProdDeployment": {
 				"env": "prod",
 				"cloudProvider": "ocp",
-				"project": "bcparis-service-prod",
+				"project": "xqb2qz-prod",
 				"type": "blue-green",
 				"replicas": "2",
 				"providerConfig": {

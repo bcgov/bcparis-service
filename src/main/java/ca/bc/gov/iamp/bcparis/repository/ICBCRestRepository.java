@@ -11,6 +11,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Repository;
+import org.springframework.web.client.HttpServerErrorException;
 import org.springframework.web.client.RestTemplate;
 
 import ca.bc.gov.iamp.bcparis.exception.icbc.ICBCRestException;
@@ -58,10 +59,11 @@ public class ICBCRestRepository {
 			
 			handleResponse(response);
 			
-			String cdata = response.getBody().getImsResponse();
-			
-			return parseResponse(cdata);
-		}catch (Exception e) {
+			return response.getBody().getImsResponse();
+		}catch (HttpServerErrorException e) {
+			return e.getResponseBodyAsString();
+		}
+		catch (Exception e) {
 			throw new ICBCRestException("Exception to call ICBC Rest Service", e);
 		}
 	}
@@ -85,11 +87,6 @@ public class ICBCRestRepository {
 					response.getStatusCodeValue(), response.getBody());
 			throw new ICBCRestException(message, null);			
 		}
-	}
-	
-	private String parseResponse(String response) {
-		log.info("Parsing ICBC Rest Service Response.");
-		return response;
 	}
 
 }

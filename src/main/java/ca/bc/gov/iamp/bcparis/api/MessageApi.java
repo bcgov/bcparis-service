@@ -15,6 +15,7 @@ import ca.bc.gov.iamp.bcparis.model.message.Layer7Message;
 import ca.bc.gov.iamp.bcparis.processor.MessageProcessor;
 import ca.bc.gov.iamp.bcparis.processor.datagram.SatelliteProcessor;
 import ca.bc.gov.iamp.bcparis.repository.Layer7MessageRepository;
+import ca.bc.gov.iamp.bcparis.service.SatelliteService;
 
 @RestController
 @RequestMapping("/api/v1/message")
@@ -31,10 +32,15 @@ public class MessageApi {
 	@Autowired
 	private SatelliteProcessor satellite;
 	
+	@Autowired
+	private SatelliteService satelliteService;
+	
 	@PutMapping(consumes=MediaType.APPLICATION_JSON_VALUE)
 	private ResponseEntity<Layer7Message> message( @RequestBody Layer7Message message ){
 		
 		Layer7Message messageResponse = onMessage(message);
+		
+		checkSatelliteMessage(messageResponse);
 		
 		return ResponseEntity.ok(messageResponse);
 	}
@@ -46,6 +52,14 @@ public class MessageApi {
 		return processor.processMessage(messageContent);
 	}
 	
+	private void checkSatelliteMessage(Layer7Message messageResponse) {
+		final String text = messageResponse.getEnvelope().getBody().getCDATAAttribute("TEXT");
+		if(text.startsWith("BCPARIS Diagnostic Test")) {
+			String date = text.substring(text.indexOf("qwe") + 3);
+			log.info("(Satellite) Execution time: " + satelliteService.calculateExecutionTime(date));
+		}
+	}
+	
 	//Only for test purpose
 	@PostMapping( path="/test/layer7", consumes=MediaType.APPLICATION_JSON_VALUE)
 	private ResponseEntity<String> testPutMessageLayer7( @RequestBody Layer7Message message ){
@@ -54,9 +68,16 @@ public class MessageApi {
 	}
 	
 	//Only for test purpose
-	@PostMapping( path="/test/satellite/vehicle", consumes=MediaType.APPLICATION_JSON_VALUE)
-	private ResponseEntity<String> testSatelliteVehicle( @RequestBody String message ){
-		satellite.sendVehicleMessages();
-		return ResponseEntity.ok("Satellite flow doesn`t return response.");
+//	@PostMapping( path="/test/satellite/vehicle", consumes=MediaType.APPLICATION_JSON_VALUE)
+//	private ResponseEntity<String> testSatelliteVehicle( @RequestBody String message ){
+//		satellite.sendVehicleMessages();
+//		return ResponseEntity.ok("Satellite flow doesn`t return response.");
+//	}
+	
+	//Only for test purpose
+	@PostMapping( path="/test/satellite/driver", consumes=MediaType.APPLICATION_JSON_VALUE)
+	private ResponseEntity<String> testSatelliteDriver( @RequestBody String message ){
+		satellite.sendDriverMessages();
+		return ResponseEntity.ok("Sent to MQ.");
 	}
 }

@@ -32,15 +32,12 @@ public class MessageApi {
 	@Autowired
 	private SatelliteProcessor satellite;
 	
-	@Autowired
-	private SatelliteService satelliteService;
-	
 	@PutMapping(consumes=MediaType.APPLICATION_JSON_VALUE)
 	private ResponseEntity<Layer7Message> message( @RequestBody Layer7Message message ){
 		
 		Layer7Message messageResponse = onMessage(message);
 		
-		checkSatelliteMessage(messageResponse);
+		satellite.checkSatelliteMessage(messageResponse);
 		
 		return ResponseEntity.ok(messageResponse);
 	}
@@ -50,14 +47,6 @@ public class MessageApi {
 		log.info("Message Received:\n" + messageContent);
 		
 		return processor.processMessage(messageContent);
-	}
-	
-	private void checkSatelliteMessage(Layer7Message messageResponse) {
-		final String text = messageResponse.getEnvelope().getBody().getCDATAAttribute("TEXT");
-		if(text.startsWith("BCPARIS Diagnostic Test")) {
-			String date = text.substring(text.indexOf("qwe") + 3);
-			log.info("(Satellite) Execution time: " + satelliteService.calculateExecutionTime(date));
-		}
 	}
 	
 	//Only for test purpose
@@ -77,7 +66,7 @@ public class MessageApi {
 	//Only for test purpose
 	@PostMapping( path="/test/satellite/driver", consumes=MediaType.APPLICATION_JSON_VALUE)
 	private ResponseEntity<String> testSatelliteDriver( @RequestBody String message ){
-		satellite.sendDriverMessages();
+		//satellite.sendDriverMessages();
 		return ResponseEntity.ok("Sent to MQ.");
 	}
 }

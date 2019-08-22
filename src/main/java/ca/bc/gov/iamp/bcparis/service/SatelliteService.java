@@ -34,12 +34,12 @@ public class SatelliteService {
 		repository.sendMessage(message);
 	}
 	
-	public Layer7Message createLayer7Message(String schema, String from, String to, String query) {
+	private Layer7Message createLayer7Message(String schema, String from, String to, String query) {
 		String cdata = buildCDATA(schema, from, to, query);
 		return createLayer7Message(cdata);
 	}
 	
-	public String buildCDATA(String schema, String from, String to, String query) {
+	private String buildCDATA(String schema, String from, String to, String query) {
 		String date = getDate();
 		String text = "BCPARIS Diagnostic Test qwe" + date;
 		return schema
@@ -51,7 +51,7 @@ public class SatelliteService {
 				.replace("{DATE_TIME}", date);
 	}
 	
-	public Layer7Message createLayer7Message(String cdata) {
+	private Layer7Message createLayer7Message(String cdata) {
 		
 		Header header = Header.builder()
 				.role("ROLE 1")

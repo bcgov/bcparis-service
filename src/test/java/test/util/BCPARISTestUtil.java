@@ -31,6 +31,10 @@ public class BCPARISTestUtil {
 		return getMessage("cdata/sample-por");
 	}
 	
+	public static Layer7Message getSatelliteMessage() {
+		return getMessage("cdata/sample-satellite");
+	}
+	
 	private static Layer7Message getMessage(final String cdata) {
 		MessageTransform transform = new MessageTransform();
 		return transform.parse(Layer7Message.builder()

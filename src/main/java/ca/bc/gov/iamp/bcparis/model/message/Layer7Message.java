@@ -46,6 +46,7 @@ public class Layer7Message implements Serializable{
 		}	
 	}
 	
+	@JsonIgnore
 	public boolean isReport() {
 		return "Report".equalsIgnoreCase(this.getEnvelope().getMqmd().getMessageType());
 	}

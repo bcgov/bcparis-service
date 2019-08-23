@@ -37,18 +37,18 @@ public class SatelliteProcessor {
 		final String text = messageResponse.getEnvelope().getBody().getCDATAAttribute("TEXT");
 		if(text.startsWith("BCPARIS Diagnostic Test")) {
 			String date = text.substring(text.indexOf("qwe") + 3);
-			log.info("(Satellite) Execution time: " + service.calculateExecutionTime(date));
+			log.info("Satellite Execution time: " + service.calculateExecutionTime(date));
 		}
 	}
 	
 	public void sendSatelliteMessages() {
-		log.debug("Sending Satellite message.");
+		log.info("Sending Satellite message.");
 		
 		sendVehicleMessages();
 		sendDriverMessages();
 		sendPorMessages();
 		
-		log.debug("Satellite messages sent.");
+		log.info("Satellite messages sent.");
 	}
 	
 	private void sendVehicleMessages() {

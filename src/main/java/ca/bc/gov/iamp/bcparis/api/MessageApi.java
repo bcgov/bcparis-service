@@ -44,7 +44,8 @@ public class MessageApi {
 	
 	private Layer7Message onMessage(Layer7Message messageContent) {
 		
-		log.info("Message Received:\n" + messageContent);
+		log.info("Message received");
+		log.debug("Message content:\n" + messageContent);
 		
 		return processor.processMessage(messageContent);
 	}

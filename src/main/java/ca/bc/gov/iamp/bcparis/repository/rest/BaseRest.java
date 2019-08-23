@@ -27,8 +27,8 @@ public class BaseRest {
 	}
 	
 	public void assertResponse(final HttpStatus expected, final HttpStatus received, final String body) {
-		log.info(String.format("POR Rest response=%s", body));
-		log.info(String.format("Body=%s", received));
+		log.debug(String.format("POR Rest response=%s", body));
+		log.debug(String.format("Body=%s", received));
 		
 		if( received != expected) {
 			throw new RestException(String.format(errorMessage, received, body));

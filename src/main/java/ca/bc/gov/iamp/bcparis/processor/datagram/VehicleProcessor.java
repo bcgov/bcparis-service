@@ -25,7 +25,7 @@ public class VehicleProcessor {
 	private ICBCRestRepository ICBCrepository;
 	
 	public Layer7Message process(Layer7Message message) {
-		log.debug("Processing Vehicle message.");
+		log.info("Processing Vehicle message.");
 		
 		String imsContent = createIMS(message);
 		IMSRequest ims = IMSRequest.builder().imsRequest(imsContent).build();

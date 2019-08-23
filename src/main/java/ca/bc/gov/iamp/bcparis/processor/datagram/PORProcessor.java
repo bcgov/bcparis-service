@@ -39,7 +39,8 @@ public class PORProcessor {
 			String response = buildResponse(message, porContent);
 			message.getEnvelope().getBody().setMsgFFmt(response);
 			
-			log.info("POR message processing completed: " + System.lineSeparator() + response);
+			log.info("POR message processing completed.");
+			log.debug("POR message: " + System.lineSeparator() + response);
 			
 			return message;
 		}else {

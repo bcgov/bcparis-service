@@ -51,7 +51,7 @@ public class ICBCRestRepository {
 	public String requestDetails(IMSRequest ims) {
 		try {
 			final String URL = icbcUrl + pathTransaction;
-			log.info(String.format("Calling ICBC Rest Service. URL=%s, IMS=%s", URL, ims.imsRequest ));
+			log.debug(String.format("Calling ICBC Rest Service. URL=%s, IMS=%s", URL, ims.imsRequest ));
 			
 			HttpEntity<?> httpEntity = new HttpEntity<IMSRequest>(ims,  getHeaders(username, password));
 			
@@ -80,7 +80,7 @@ public class ICBCRestRepository {
 	
 	private void handleResponse(ResponseEntity<IMSResponse> response) throws Exception {
 		if( response.getStatusCode() == HttpStatus.OK) {
-			log.info(String.format("ICBC Rest service response=%s", response.getStatusCode()));
+			log.debug(String.format("ICBC Rest service response=%s", response.getStatusCode()));
 			log.debug(String.format("Body=%s", response.getBody()));
 		}else {
 			String message = String.format("Status code not expected during the ICBC Rest Service request. Status=%s. Body=%s", 

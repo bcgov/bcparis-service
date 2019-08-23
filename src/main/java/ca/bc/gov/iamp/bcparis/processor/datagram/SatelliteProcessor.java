@@ -104,5 +104,8 @@ public class SatelliteProcessor {
 		service.sendMessage(SCHEMA, POR_TO_URI, "SNME:SMITH/G1:John");
 	}
 
+	public void test(String uri, String query) {
+		service.sendMessage(SCHEMA, uri, query);
+	}
 }
 

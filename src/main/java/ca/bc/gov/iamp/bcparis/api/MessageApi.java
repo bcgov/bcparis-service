@@ -9,13 +9,13 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import ca.bc.gov.iamp.bcparis.model.message.Layer7Message;
 import ca.bc.gov.iamp.bcparis.processor.MessageProcessor;
 import ca.bc.gov.iamp.bcparis.processor.datagram.SatelliteProcessor;
 import ca.bc.gov.iamp.bcparis.repository.Layer7MessageRepository;
-import ca.bc.gov.iamp.bcparis.service.SatelliteService;
 
 @RestController
 @RequestMapping("/api/v1/message")
@@ -57,16 +57,10 @@ public class MessageApi {
 	}
 	
 	//Only for test purpose
-//	@PostMapping( path="/test/satellite/vehicle", consumes=MediaType.APPLICATION_JSON_VALUE)
-//	private ResponseEntity<String> testSatelliteVehicle( @RequestBody String message ){
-//		satellite.sendVehicleMessages();
-//		return ResponseEntity.ok("Satellite flow doesn`t return response.");
-//	}
-	
-	//Only for test purpose
-	@PostMapping( path="/test/satellite/driver", consumes=MediaType.APPLICATION_JSON_VALUE)
-	private ResponseEntity<String> testSatelliteDriver( @RequestBody String message ){
-		//satellite.sendDriverMessages();
+	@PostMapping( path="/test/satellite")
+	private ResponseEntity<String> testSatelliteVehicle( @RequestParam String uri, @RequestParam String query ){
+		satellite.test(uri, query);
 		return ResponseEntity.ok("Sent to MQ.");
 	}
+
 }

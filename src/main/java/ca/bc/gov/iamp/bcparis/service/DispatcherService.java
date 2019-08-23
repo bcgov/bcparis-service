@@ -30,17 +30,14 @@ public class DispatcherService {
 	@Autowired
 	private SatelliteProcessor satelliteProcessor;
 	
-	@Autowired
-	private ReportService reportService;
-
 	public Layer7Message dispatch(Layer7Message message) {
 		
 		MessageType messageType = message.getMessageType();
 		
 		switch (messageType) {
 			case REPORT: {
-				log.info("Message dispatched to Report service.");
-				return reportService.reportdispatcher(message);
+				log.info("Report message ignored.");
+				return message;
 			}
 			case DRIVER: {
 				log.info("Message dispatched to Driver processor.");

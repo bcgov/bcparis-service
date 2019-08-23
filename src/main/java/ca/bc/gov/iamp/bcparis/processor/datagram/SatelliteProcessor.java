@@ -5,6 +5,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import ca.bc.gov.iamp.bcparis.model.MessageType;
 import ca.bc.gov.iamp.bcparis.model.message.Layer7Message;
 import ca.bc.gov.iamp.bcparis.service.SatelliteService;
 
@@ -28,31 +29,83 @@ public class SatelliteProcessor {
 			  "{DATE_TIME}{DATE_TIME}";
 
 	public Layer7Message process(Layer7Message message) {
-		log.debug("Processing Satellite message.");
+		log.debug("Satellite message ignored.");
 		return message;
 	}
 	
-	public void sendVehicleMessages() {
-//		final String VEHICLE_TO_URI = "BC41028";
-//		final String DRIVER_LIC_2 = "LIC:233AWB/H/LIC:GVW143/H/LIC:007F\n" + 
-//				"JR/H/LIC:JXX477/REG:957167\n" + 
-//				"/VIN:1GNEL19W1XB163160/VIN:163160/P:Y/VIN:163160/P:Y/RSVP:16";
-		
-//		service.sendMessage(SCHEMA, VEHICLE_TO_URI, "LIC:PCG829/H");
-//		service.sendMessage(SCHEMA, VEHICLE_TO_URI, "REG:2156746");
-//		service.sendMessage(SCHEMA, VEHICLE_TO_URI, "REG:02156746");
-//		service.sendMessage(SCHEMA, VEHICLE_TO_URI, DRIVER_LIC_2);
-//		service.sendMessage(SCHEMA, VEHICLE_TO_URI, "RVL:314208701580602/");
-//		service.sendMessage(SCHEMA, VEHICLE_TO_URI, "RNS:SMITH/G1:JOHN/G2:/DOB:/");
+	public void checkSatelliteMessage(Layer7Message messageResponse) {
+		final String text = messageResponse.getEnvelope().getBody().getCDATAAttribute("TEXT");
+		if(text.startsWith("BCPARIS Diagnostic Test")) {
+			String date = text.substring(text.indexOf("qwe") + 3);
+			log.info("Satellite Execution time: " + service.calculateExecutionTime(date));
+		}
 	}
 	
-	public void sendDriverMessages() {
-		final String DRIVER_TO_URI = "BC41027";		
-//		service.sendMessage(SCHEMA, DRIVER_TO_URI, "DL:0200000");
-//		service.sendMessage(SCHEMA, DRIVER_TO_URI, "DL:4529693/DATE:20070122");
+	public void sendSatelliteMessages() {
+		log.info("Sending Satellite message.");
+		
+		sendVehicleMessages();
+		sendDriverMessages();
+		sendPorMessages();
+		
+		log.info("Satellite messages sent.");
+	}
+	
+	private void sendVehicleMessages() {
+		final String VEHICLE_TO_URI = MessageType.VEHICLE.getCode();
+		
+		//BC41028 JISTRAN Single Lic
+		service.sendMessage(SCHEMA, VEHICLE_TO_URI, "LIC:PCG829/H");
+		
+		//BC41028 JISTRAN Single Reg
+		service.sendMessage(SCHEMA, VEHICLE_TO_URI, "REG:2156746");
+		
+		//BC41028 JISTRAN Single 8 digit Reg
+		service.sendMessage(SCHEMA, VEHICLE_TO_URI, "REG:02156746");
+		
+		//BC41028 JISTRAN string out commands
+		service.sendMessage(SCHEMA, VEHICLE_TO_URI, "LIC:233AWB/H/LIC:GVW143/H/LIC:007F\n" + 
+				"JR/H/LIC:JXX477/REG:957167\n" + 
+				"/VIN:1GNEL19W1XB163160/VIN:163160/P:Y/VIN:163160/P:Y/RSVP:16");
+		
+		//BC41028 JISTRN2 RVL
+		service.sendMessage(SCHEMA, VEHICLE_TO_URI, "RVL:314208701580602/");
+		
+		//BC41028 JISTRN2 RNS
+		service.sendMessage(SCHEMA, VEHICLE_TO_URI, "RNS:SMITH/G1:JOHN/G2:/DOB:/");
+	}
+	
+	private void sendDriverMessages() {
+		final String DRIVER_TO_URI = MessageType.DRIVER.getCode();
+		
+		//BC41027 DL:02000000 - No DATE:
+		service.sendMessage(SCHEMA, DRIVER_TO_URI, "DL:0200000");
+		
+		//BC41027  Single Lic - Null in Prod DL:4529693/DATE:20070122
+		service.sendMessage(SCHEMA, DRIVER_TO_URI, "DL:4529693/DATE:20070122");
+		
+		//BC41027 SNME
 		service.sendMessage(SCHEMA, DRIVER_TO_URI, "SNME:SMITH/G1:JOHN/");
-//		service.sendMessage(SCHEMA, DRIVER_TO_URI, "SNME:SMITH/G1:JOHN/DOB:19601208/SEX:M");
+		
+		//BC41027 SNME with dob SEX
+		service.sendMessage(SCHEMA, DRIVER_TO_URI, "SNME:SMITH/G1:JOHN/DOB:19601208/SEX:M");
+	}
+	
+	private void sendPorMessages() {
+		final String POR_TO_URI = MessageType.POR.getCode();
+		
+		//BC41029 - Cline - S
+		service.sendMessage(SCHEMA, POR_TO_URI, "SNME:CLINE/G1:Brian/G2:Edward");
+		
+		//BC41029 - Cline - P
+		service.sendMessage(SCHEMA, POR_TO_URI, "SNME:CLINE/G1:Drista");
+		
+		//BC41029 SNME:SMITH/G1:John
+		service.sendMessage(SCHEMA, POR_TO_URI, "SNME:SMITH/G1:John");
 	}
 
+	public void test(String uri, String query) {
+		service.sendMessage(SCHEMA, uri, query);
+	}
 }
 

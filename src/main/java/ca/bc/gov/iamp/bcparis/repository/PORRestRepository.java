@@ -56,7 +56,7 @@ public class PORRestRepository extends BaseRest{
 			addQueryParam(builder, "dob", dob);
 
 			URL = builder.build().toString();
-			log.info(String.format("Calling POR Rest Service. URL=%s", URL));
+			log.debug(String.format("Calling POR Rest Service. URL=%s", URL));
 			
 			ResponseEntity<POROutput> response = restTemplate.exchange(URL, HttpMethod.GET, httpEntity, POROutput.class);
 

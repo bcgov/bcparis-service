@@ -63,6 +63,7 @@ public class Body implements Serializable{
 	 * @param attributeName
 	 * @return
 	 */
+	@JsonIgnore
 	public String getSNME() {
 		final String START = "SNME:";
 		String result = cutFromCDATA(START, "\n");
@@ -74,6 +75,7 @@ public class Body implements Serializable{
 	 * @param attributeName
 	 * @return
 	 */
+	@JsonIgnore
 	public String getDL() {
 		final String START = "DL:";
 		String result = cutFromCDATA(START, "\n");

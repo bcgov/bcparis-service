@@ -81,11 +81,12 @@ public class DriverProcessor {
 	
 	private String buildResponse(Layer7Message message, String icbcResponse) {
 		final String NEW_LINE = "\n";
+		
 		final String schema = "SEND MT:M" + NEW_LINE +
 							  "FMT:Y" + NEW_LINE +
 							  "FROM:${from}" + NEW_LINE + 
 							  "TO:${to}" + NEW_LINE + 
-							  "TEXT:${TEXT}RE:${RE}" + NEW_LINE +
+							  "TEXT:${text}${re}" + NEW_LINE +
 							  NEW_LINE +
 							  "${icbc_response}";
 		
@@ -98,8 +99,11 @@ public class DriverProcessor {
 		return schema
 				.replace("${from}", to)
 				.replace("${to}", from)
-				.replace("${TEXT}", text)
-				.replace("${RE}", re)
+				.replace("${text}", text)
+				.replace("${re}",  body.containAttribute("RE") ? "RE:" + re : "")
 				.replace("${icbc_response}", icbcResponse);
 	}
+	
+	
+	
 }

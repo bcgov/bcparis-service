@@ -1,7 +1,8 @@
 {
 	"externalConfig": {
-		"credentials": "bcparis-jenkins-github"
-	},
+        "branch": "develop",
+        "credentials": "bcparis-jenkins-github"
+    },
 	"ciConfig": {
 		"stages": {
 			"codeArchiveStage": {

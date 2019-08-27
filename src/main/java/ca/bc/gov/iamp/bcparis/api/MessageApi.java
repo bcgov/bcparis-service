@@ -59,9 +59,16 @@ public class MessageApi {
 	
 	//Only for test purpose
 	@PostMapping( path="/test/satellite")
-	private ResponseEntity<String> testSatelliteVehicle( @RequestParam String uri, @RequestParam String query ){
+	private ResponseEntity<String> testSatellite( @RequestParam String uri, @RequestParam String query ){
 		satellite.test(uri, query);
 		return ResponseEntity.ok("Sent to MQ.");
+	}
+	
+	//Only for test purpose
+	@PostMapping( path="/test/satellite/all")
+	private ResponseEntity<String> testSatelliteAll(){
+		satellite.sendSatelliteMessages();
+		return ResponseEntity.ok("Satellite messages sent.");
 	}
 
 }

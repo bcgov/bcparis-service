@@ -34,7 +34,10 @@
 						"type": "config",
 						"enabled": "true"
 					}
-				}
+				},
+				"testing": {
+                    "enable": false
+                }
 			},
 			"ocpProdDeployment": {
 				"env": "prod",

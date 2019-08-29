@@ -1,5 +1,7 @@
 package ca.bc.gov.iamp.bcparis.repository;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.sleuth.annotation.NewSpan;
 import org.springframework.http.HttpEntity;
@@ -15,6 +17,8 @@ import ca.bc.gov.iamp.bcparis.repository.rest.BaseRest;
 @Service
 public class Layer7MessageRepository extends BaseRest{
 
+	private final Logger log = LoggerFactory.getLogger(Layer7MessageRepository.class);
+	
 	@Value("${endpoint.layer7.rest}")
 	private String messageEndpoint;
 	
@@ -31,9 +35,12 @@ public class Layer7MessageRepository extends BaseRest{
 	@NewSpan("layer7-mq")
 	public String sendMessage(Layer7Message message) {
 		try {
+			final String URL = messageEndpoint + path;
 			HttpEntity<?> httpEntity = new HttpEntity<Layer7Message>(message,  getHeadersWithBasicAuth(username, password));
-
-			ResponseEntity<String> response = getRestTemplate().postForEntity(messageEndpoint + path, httpEntity, String.class);
+			
+			log.debug(String.format("Calling Layer7 Rest Service. URL=%s, Layer7Message=%s", URL, message ));
+			
+			ResponseEntity<String> response = getRestTemplate().postForEntity(URL, httpEntity, String.class);
 		
 			assertResponse(HttpStatus.OK, response.getStatusCode(), response.getBody() );
 			return response.getBody();

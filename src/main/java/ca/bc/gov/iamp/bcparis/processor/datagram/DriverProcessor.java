@@ -63,7 +63,7 @@ public class DriverProcessor {
 	private String getQueryParams(Layer7Message message) {
 		final Body body = message.getEnvelope().getBody();
 		if(body.containAttribute("SNME"))
-			return "SNME:" + body.getSNME();
+			return "SNME:" + body.getCDATAAttribute("SNME");
 		else if(body.containAttribute("DL"))
 			return "DL:" + body.getDL();
 		else

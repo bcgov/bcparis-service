@@ -28,6 +28,7 @@ public class SatelliteService {
 	
 	private final String SATELLITE_FROM_URI = "BC41127";
 	private final DateTimeFormatter formater = DateTimeFormatter.ofPattern("yyyyMMddHHmmss");
+	private final DateTimeFormatter formaterWithMs = DateTimeFormatter.ofPattern("yyyyMMddHHmmss.SSS");
 	
 	public void sendMessage(String schema, String to, String query) {
 		Layer7Message message = createLayer7Message(schema, SATELLITE_FROM_URI, to, query);
@@ -80,15 +81,19 @@ public class SatelliteService {
 	}
 	
 	public String calculateExecutionTime(String date) {
+		final String ZERO_MILLESECONDS = ".000";
 		ZonedDateTime now = LocalDateTime.now().atZone(ZoneOffset.UTC);
-		ZonedDateTime start = LocalDateTime.parse(date, formater).atZone(ZoneOffset.UTC);
+		ZonedDateTime start = LocalDateTime.parse(date + ZERO_MILLESECONDS, formaterWithMs).atZone(ZoneOffset.UTC);
 		
 		Duration duration = Duration.between(start, now);
 		return getDurationFormated(duration);
 	}
 
 	private String getDurationFormated(Duration duration) {
-		return String.format("%tT", duration.toMillis() - TimeZone.getDefault().getRawOffset());
+		int offsetTimezone = TimeZone.getDefault().getRawOffset();
+		
+		return String.format("%tT.%s", (duration.toMillis() - offsetTimezone), 
+				String.valueOf(duration.getNano()).substring(0, 3));
 	}
 
 }

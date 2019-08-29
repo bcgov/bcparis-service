@@ -11,7 +11,6 @@ import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
 
 import ca.bc.gov.iamp.bcparis.model.MessageType;
 import ca.bc.gov.iamp.bcparis.model.message.Layer7Message;
@@ -33,10 +32,9 @@ public class SatelliteProcessorTest {
 	@Test
 	public void bypass_satellite_message_success() throws JsonProcessingException {
 		Layer7Message message = BCPARISTestUtil.getSatelliteMessage();
-		Layer7Message response = processor.process( message );
+		Object response = processor.process( message );
 		
-		ObjectMapper mapper = new ObjectMapper();
-		Assert.assertEquals(mapper.writeValueAsString(message), mapper.writeValueAsString(response));
+		Assert.assertEquals(response, "OK");
 	}
 	
 	@Test

@@ -1,5 +1,7 @@
 package ca.bc.gov.iamp.bcparis.processor.datagram;
 
+import java.util.List;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,18 +21,19 @@ public class PORProcessor {
 	@Autowired
 	private PORRestRepository PORrepository;
 	
-	
 	public Layer7Message process(Layer7Message message) {
 		log.info("Processing POR message.");
 		Body body = message.getEnvelope().getBody();
 		
-		String surname = body.getCDATAAttribute("SNME");
-		String given1 = body.getCDATAAttribute("G1");
-		String given2 = body.getCDATAAttribute("G2");
-		String given3 = body.getCDATAAttribute("G3");
-		String dob = body.getCDATAAttribute("DOB");
+		List<String> attributes = body.getSNME();
 		
-		POROutput porResult = PORrepository.callPOR(surname, given1, given2, given3, dob);
+		String snme = body.getAttribute(attributes, "SNME");
+		String given1 = body.getAttribute(attributes, "G1");
+		String given2 = body.getAttribute(attributes, "G2");
+		String given3 = body.getAttribute(attributes, "G3");
+		String dob = body.getAttribute(attributes, "DOB");
+		
+		POROutput porResult = PORrepository.callPOR(snme, given1, given2, given3, dob);
 		
 		if("Success".equalsIgnoreCase(porResult.getStatusMsg())) {
 			

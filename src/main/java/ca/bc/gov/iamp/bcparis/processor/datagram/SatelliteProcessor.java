@@ -22,22 +22,25 @@ public class SatelliteProcessor {
 			  "FMT:Y" + NEW_LINE +
 			  "FROM:{FROM}" + NEW_LINE + 
 			  "TO:{TO}" + NEW_LINE + 
-			  "TEXT:{TEXT}REG:2156746" + NEW_LINE +
+			  "TEXT:{TEXT}" + NEW_LINE +
 			  NEW_LINE +
 			  "{QUERY_MESSAGE}" + 
 			  NEW_LINE + NEW_LINE + 
 			  "{DATE_TIME}{DATE_TIME}";
 
-	public Layer7Message process(Layer7Message message) {
-		log.debug("Satellite message ignored.");
-		return message;
+	public String process(Layer7Message message) {
+		log.debug("Processing Satellite message.");
+		
+		calculateRoundTripTime(message);
+		
+		return "OK";
 	}
 	
-	public void checkSatelliteMessage(Layer7Message messageResponse) {
+	private void calculateRoundTripTime(Layer7Message messageResponse) {
 		final String text = messageResponse.getEnvelope().getBody().getCDATAAttribute("TEXT");
 		if(text.startsWith("BCPARIS Diagnostic Test")) {
 			String date = text.substring(text.indexOf("qwe") + 3);
-			log.info("Satellite Execution time: " + service.calculateExecutionTime(date));
+			log.info("Satellite Round Trip Execution: " + service.calculateExecutionTime(date));
 		}
 	}
 	

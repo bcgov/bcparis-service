@@ -1,10 +1,7 @@
 package ca.bc.gov.iamp.bcparis.transformation;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -13,6 +10,7 @@ import org.springframework.stereotype.Service;
 import ca.bc.gov.iamp.bcparis.exception.message.MessageTransformException;
 import ca.bc.gov.iamp.bcparis.model.message.Layer7Message;
 import ca.bc.gov.iamp.bcparis.model.message.body.Body;
+import ca.bc.gov.iamp.bcparis.util.RegexTokenizer;
 import ca.bc.gov.iamp.bcparis.util.XMLUtil;
 
 @Service
@@ -53,7 +51,7 @@ public class MessageTransform {
 
 			List<String> attributes = extractCDATAAttributes(msgFFmt);
 
-			message.getEnvelope().getBody().setCDATAAttributes(attributes);
+			message.getEnvelope().getBody().setCdataAttributes(attributes);
 
 			return message;
 		} catch (Exception e) {
@@ -61,37 +59,15 @@ public class MessageTransform {
 		}
 	}
 
-	public static List<String> extractCDATAAttributes(String text) {
-
-		final String ATTRIBUTES = "SN:|MT:|MSID:|FROM:|TO:|SUBJ:|" + "TEXT:|RE:|" + "TestRNS:|" // Satellite test
-				+ "G1:|G2:|G3:|DOB:|DL:|" // POR
-				+ "SNME:|DL:|" // Driver
-				+ "LIC:|ODN:|TAG:|FLC:|VIN:|REG:|RNS:|RVL:|" // Vehicle
-				+ "\\n|\\\\n|\n\n|\\\\n\\\\n"; // New line and New line escaped (backslash)
-
-		List<String> attributes = new ArrayList<>();
-
-		List<Integer> attributeIndex = new ArrayList<>();
-		Matcher matcher = Pattern.compile(ATTRIBUTES).matcher(text);
-
-		// Extract the attributes index from the string.
-		while (matcher.find())
-			attributeIndex.add(matcher.start());
-
-		// Iterate parsing all attributes
-		for (int i = 0; i < attributeIndex.size(); i++) {
-			Integer start = attributeIndex.get(i);
-			Integer end = (i < attributeIndex.size() - 1) ? attributeIndex.get(i + 1) : text.length();
-
-			String attributeKeyValue = text.substring(start, end);
-			if (attributeKeyValue.contains("/"))
-				Arrays.asList(attributeKeyValue.split("/")).forEach(attributes::add);
-			else {
-				attributes.add(attributeKeyValue.trim());
-			}
-		}
-
-		return attributes;
+	public static List<String> extractCDATAAttributes(final String text) {
+		List<String> delimiters = Arrays.asList("SN:", "MT:", "MSID:", "FROM:", "TO:", "SUBJ:", "TEXT:", "RE:", 
+				"TestRNS:", // Satellite test
+				"SNME:", //POR and Driver
+				"DL:",	//Driver
+				"LIC:", "ODN:", "TAG:", "FLC:", "VIN:", "REG:", "RNS:", "RVL:", // Vehicle
+				"\\n","\\\\n", "\n\n", "\\\\n\\\\n"); // New line and New line escaped (backslash)
+				
+		return new RegexTokenizer(text, delimiters).getTokens();
 	}
 
 }

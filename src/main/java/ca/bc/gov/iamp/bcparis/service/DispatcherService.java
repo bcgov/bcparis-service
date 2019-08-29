@@ -30,7 +30,7 @@ public class DispatcherService {
 	@Autowired
 	private SatelliteProcessor satelliteProcessor;
 	
-	public Layer7Message dispatch(Layer7Message message) {
+	public Object dispatch(Layer7Message message) {
 		
 		MessageType messageType = message.getMessageType();
 		
@@ -53,6 +53,8 @@ public class DispatcherService {
 			}
 			case SATELLITE: {
 				log.info("Message dispatched to Satellite processor.");
+				
+				
 				return satelliteProcessor.process( message ); 
 			}
 			default: throw new InvalidMessageType("Invalid Message type");

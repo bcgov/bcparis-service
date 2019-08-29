@@ -24,7 +24,7 @@ public class MessageProcessor {
 	@Autowired
 	private DispatcherService dispatcher;
 
-	public Layer7Message processMessage(Layer7Message message){
+	public Object processMessage(Layer7Message message){
 		log.info("Start Message processing.");
 		
 		message = transform.parse(message);

@@ -1,0 +1,714 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="3007174e-7111-4fe1-8c68-120b5588d2a1" activeEnvironment="Default" name="BCPARIS  Automation Test Suite" resourceRoot="" soapui-version="5.5.0" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.actions.iface.tools.soapui.TestRunnerAction@values-local"><![CDATA[<xml-fragment xmlns:con="http://eviware.com/soapui/config">
+  <con:entry key="Report Format(s)" value=""/>
+  <con:entry key="Host:Port" value=""/>
+  <con:entry key="Export JUnit Results" value="false"/>
+  <con:entry key="Export All" value="false"/>
+  <con:entry key="Save After" value="false"/>
+  <con:entry key="Add Settings" value="false"/>
+  <con:entry key="WSS Password Type" value=""/>
+  <con:entry key="TestSuite" value="&lt;all>"/>
+  <con:entry key="Endpoint" value=""/>
+  <con:entry key="Select Report Type" value=""/>
+  <con:entry key="System Properties" value=""/>
+  <con:entry key="Password" value=""/>
+  <con:entry key="Print Report" value="false"/>
+  <con:entry key="Open Report" value="false"/>
+  <con:entry key="Export JUnit Results with test properties" value="false"/>
+  <con:entry key="Global Properties" value=""/>
+  <con:entry key="Project Properties" value=""/>
+  <con:entry key="Project Password" value=""/>
+  <con:entry key="TestCase" value="&lt;all>"/>
+  <con:entry key="Username" value=""/>
+  <con:entry key="user-settings.xml Password" value=""/>
+  <con:entry key="TestRunner Path" value=""/>
+  <con:entry key="Environment" value="Default"/>
+  <con:entry key="Coverage Report" value="false"/>
+  <con:entry key="Enable UI" value="false"/>
+  <con:entry key="Root Folder" value=""/>
+  <con:entry key="Ignore Errors" value="false"/>
+  <con:entry key="Domain" value=""/>
+  <con:entry key="Tool Args" value=""/>
+  <con:entry key="Save Project" value="false"/>
+</xml-fragment>]]></con:setting></con:settings><con:interface xsi:type="con:RestService" id="d314e088-673e-4286-b4d0-aa117b9672dd" wadlVersion="http://wadl.dev.java.net/2009/02" name="https://bcparis-service-xqb2qz-dev.pathfinder.bcgov" type="rest" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart=""/><con:endpoints><con:endpoint>${#Project#endpoint}</con:endpoint></con:endpoints><con:resource name="Message" path="/api/v1/message" id="5bac3618-1981-4069-ad99-b3309d240152"><con:settings/><con:parameters/><con:method name="Message 1" id="e067d7c2-e9c7-4700-8d76-bf99e6961570" method="PUT"><con:settings/><con:parameters/><con:representation type="RESPONSE"><con:mediaType>application/json;charset=UTF-8</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:mes="https://bcparis-service-xqb2qz-dev.pathfinder.bcgov/message">mes:Response</con:element></con:representation><con:representation type="REQUEST"><con:mediaType>application/json</con:mediaType><con:params/></con:representation><con:representation type="FAULT"><con:mediaType>application/json;charset=UTF-8</con:mediaType><con:status>400 500 404</con:status><con:params/><con:element xmlns:mes="https://bcparis-service-xqb2qz-dev.pathfinder.bcgov/message">mes:Fault</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>401</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>401</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType>text/xml;charset=utf-8</con:mediaType><con:status>500</con:status><con:params/><con:element xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">soapenv:Envelope</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:request name="Request 1" id="d1c34245-220e-4c43-8fdf-8734f04ff6c5" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>${#Project#endpoint}</con:endpoint><con:request>{
+   "Envelope":{
+      "Header":{
+         "Origin":{
+            "QName":"CPIC.MSG.AGENCY.REMOTE",
+            "QMgrName":"BMVQ3VIC"
+         },
+         "CPICVer":"1.4",
+         "UDF":"BCPARISTEST",
+         "Priority":"1",
+         "Routing":{
+            "QName":"CPIC.MSG.BMVQ3VIC",
+            "QMgrName":"BMVQ3VIC"
+         },
+         "MsgSrvc":{
+            "msgActn":"Receive"
+         }
+      },
+      "Body":{
+         "MsgFFmt":"&lt;![CDATA[SN:M00001-0001 MT:MUF MSID:BRKR-190515-20:05:48 FROM:BC41127TO:BC41027TEXT:RE: 0509\nHC BC40940\nBC41027\nSNME:NEWMAN/G1:OLDSON/G2:MIKE/DOB:19900214\n\n2019051520054820190515200548]]&gt;"
+      },
+      "MQMD":{
+         "feedback":"0",
+         "replyToQueueManagerName":"CBQ3",
+         "messageIdByte":"41 4D 51 20 43 42 51 33 20 20 20 20 20 20 20 20 D9 BF 03 5D 85 20 6E 23",
+         "messageType":"8",
+         "format":"MQSTR",
+         "replyToQueueName":"CPIC.RPT.MSG",
+         "correlationIdByte":"41 4D 51 20 42 4D 56 51 33 56 49 43 20 20 20 20 5D 0A D2 81 20 38 61 02"
+      }
+   }
+}</con:request><con:originalUri>https://bcparis-service-xqb2qz-dev.pathfinder.bcgov/message</con:originalUri><con:credentials><con:username>${#Project#username}</con:username><con:password xsi:nil="true"/><con:domain xsi:nil="true"/><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:request></con:method></con:resource></con:interface><con:testSuite id="4703bb5f-deb8-4fa1-ba06-9666d036cf53" name="BC PARIS"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase id="43cc68c4-2d4c-497e-97fd-647180f7f4a4" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Driver" searchProperties="true"><con:settings/><con:testStep type="groovy" name="Setup Properties" id="d7ef563f-d536-4513-a416-e139c8c33bca" disabled="true"><con:settings/><con:config><script>def props = new Properties()
+//replace the path with your file name below. use / instead of \ as path separator even on windows platform.
+new File("C:\\Users\\183166\\Downloads\\BCPprop.properties").withInputStream { s ->
+  props.load(s) 
+}
+props.each {
+    context.testCase.testSuite.setPropertyValue(it.key, it.value)
+}
+
+</script></con:config></con:testStep><con:testStep type="restrequest" name="Success" id="c5d7c1a0-3aed-446f-8955-72faaab3f3b5"><con:settings/><con:config service="https://bcparis-service-xqb2qz-dev.pathfinder.bcgov" methodName="Message 1" resourcePath="/api/v1/message" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Success" id="580325d8-635e-4c17-a926-ea4c122ac5d8" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#Project#endpoint}</con:endpoint><con:request>{
+   "Envelope":{
+      "Header":{
+         "Origin":{
+            "QName":"CPIC.MSG.AGENCY.REMOTE",
+            "QMgrName":"BMVQ3VIC"
+         },
+         "CPICVer":"1.4",
+         "UDF":"BCPARISTEST",
+         "Priority":"1",
+         "Routing":{
+            "QName":"CPIC.MSG.BMVQ3VIC",
+            "QMgrName":"BMVQ3VIC"
+         },
+         "MsgSrvc":{
+            "msgActn":"Receive"
+         }
+      },
+      "Body":{
+         "MsgFFmt":"&lt;![CDATA[SN:M00001-0001 MT:MUF MSID:BRKR-190515-20:05:48 FROM:BC41127TO:BC41027TEXT:RE: 0509\nHC BC40940\nBC41027\nSNME:NEWMAN/G1:OLDSON/G2:MIKE/DOB:19900214\n\n2019051520054820190515200548]]&gt;"
+      },
+      "MQMD":{
+         "feedback":"0",
+         "replyToQueueManagerName":"CBQ3",
+         "messageIdByte":"41 4D 51 20 43 42 51 33 20 20 20 20 20 20 20 20 D9 BF 03 5D 85 20 6E 23",
+         "messageType":"8",
+         "format":"MQSTR",
+         "replyToQueueName":"CPIC.RPT.MSG",
+         "correlationIdByte":"41 4D 51 20 42 4D 56 51 33 56 49 43 20 20 20 20 5D 0A D2 81 20 38 61 02"
+      }
+   }
+}</con:request><con:originalUri>https://bcparis-service-xqb2qz-dev.pathfinder.bcgov/message</con:originalUri><con:assertion type="JsonPath Match" id="17449067-7f75-46e7-b40d-62ce32dc26e1" name="JsonPath Match"><con:configuration><path>Envelope</path><content>{"Body":{"MsgFFmt":"SEND MT:M\nFMT:Y\nFROM:BC41027\nTO:BC41127\nTEXT:RE: 0509\n\nHC  BC41027\nBC41127\nRE SNME:NEWMAN/G1:OLDSON/G2:MIKE/DOB:19900214\nNOT ON FILE\n       "},"Header":{"CPICVer":"1.4","UDF":"BCPARISTEST","Priority":"1","MsgSrvc":{"msgActn":"Receive"},"Routing":{"qmgrName":"BMVQ3VIC","QName":"CPIC.MSG.BMVQ3VIC","QMgrName":"BMVQ3VIC"},"Origin":{"qmgrName":"BMVQ3VIC","QName":"CPIC.MSG.AGENCY.REMOTE","QMgrName":"BMVQ3VIC"},"Role":null,"AgencyId":null,"UserId":null,"DeviceId":null},"MQMD":{"feedback":"0","replyToQueueManagerName":"CBQ3","messageIdByte":"41 4D 51 20 43 42 51 33 20 20 20 20 20 20 20 20 D9 BF 03 5D 85 20 6E 23","messageType":"8","format":"MQSTR","replyToQueueName":"CPIC.RPT.MSG","correlationIdByte":"41 4D 51 20 42 4D 56 51 33 56 49 43 20 20 20 20 5D 0A D2 81 20 38 61 02"}}</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="Valid HTTP Status Codes" id="d9d9438d-94e3-40a7-9b32-724e4832fb31" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:credentials><con:username>${#Project#username}</con:username><con:password>${#Project#password}</con:password><con:domain xsi:nil="true"/><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="Message Transform Exception" id="a0e093ec-4eb7-4641-8e97-12f532df6b97"><con:settings/><con:config service="https://bcparis-service-xqb2qz-dev.pathfinder.bcgov" methodName="Message 1" resourcePath="/api/v1/message" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Message Transform Exception" id="fa92fe03-5d67-4e63-9c78-cff37f3fc1d2" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#Project#endpoint}</con:endpoint><con:request>{
+   "Envelope":{
+      "Header":{
+         "Origin":{
+            "QName":"CPIC.MSG.AGENCY.REMOTE",
+            "QMgrName":"BMVQ3VIC"
+         },
+         "CPICVer":"1.4",
+         "UDF":"BCPARISTEST",
+         "Priority":"1",
+         "Routing":{
+            "QName":"CPIC.MSG.BMVQ3VIC",
+            "QMgrName":"BMVQ3VIC"
+         },
+         "MsgSrvc":{
+            "msgActn":"Receive"
+         }
+      },
+      "Body":{
+         "MsgFFmt":[CDATA[SN:M00001-0001 MT:MUF MSID:BRKR-190515-20:05:48 FROM:BC41127TO:BC41027TEXT:RE: 0509\nHC BC40940\nBC41027\nSNME:NEWMAN/G1:OLDSON/G2:MIKE/DOB:19900214\n\n2019051520054820190515200548]]&gt;"
+      },
+      "MQMD":{
+         "feedback":"0",
+         "replyToQueueManagerName":"CBQ3",
+         "messageIdByte":"41 4D 51 20 43 42 51 33 20 20 20 20 20 20 20 20 D9 BF 03 5D 85 20 6E 23",
+         "messageType":"8",
+         "format":"MQSTR",
+         "replyToQueueName":"CPIC.RPT.MSG",
+         "correlationIdByte":"41 4D 51 20 42 4D 56 51 33 56 49 43 20 20 20 20 5D 0A D2 81 20 38 61 02"
+      }
+   }
+}</con:request><con:originalUri>https://bcparis-service-xqb2qz-dev.pathfinder.bcgov/message</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="2c6bda54-8bb7-4930-ab0f-90fd7769fe88" name="Valid HTTP Status Codes"><con:configuration><codes>400</codes></con:configuration></con:assertion><con:credentials><con:username>${#Project#username}</con:username><con:password>${#Project#password}</con:password><con:domain xsi:nil="true"/><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="Invalid Message Type_invalidTo" id="51b77ab1-f306-4604-9a1e-0e80782f32f5"><con:settings/><con:config service="https://bcparis-service-xqb2qz-dev.pathfinder.bcgov" methodName="Message 1" resourcePath="/api/v1/message" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Invalid Message Type_invalidTo" id="9ff4354c-1518-478d-9510-2e41957a315c" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#Project#endpoint}</con:endpoint><con:request>{
+   "Envelope":{
+      "Header":{
+         "Origin":{
+            "QName":"CPIC.MSG.AGENCY.REMOTE",
+            "QMgrName":"BMVQ3VIC"
+         },
+         "CPICVer":"1.4",
+         "UDF":"BCPARISTEST",
+         "Priority":"1",
+         "Routing":{
+            "QName":"CPIC.MSG.BMVQ3VIC",
+            "QMgrName":"BMVQ3VIC"
+         },
+         "MsgSrvc":{
+            "msgActn":"Receive"
+         }
+      },
+      "Body":{
+         "MsgFFmt":"&lt;![CDATA[SN:M00001-0001 MT:MUF MSID:BRKR-190515-20:05:48 FROM:BC41127TO:BC41040TEXT:RE: 0509\nHC BC40940\nBC41027\nSNME:NEWMAN/G1:OLDSON/G2:MIKE/DOB:19900214\n\n2019051520054820190515200548]]&gt;"
+      },
+      "MQMD":{
+         "feedback":"0",
+         "replyToQueueManagerName":"CBQ3",
+         "messageIdByte":"41 4D 51 20 43 42 51 33 20 20 20 20 20 20 20 20 D9 BF 03 5D 85 20 6E 23",
+         "messageType":"8",
+         "format":"MQSTR",
+         "replyToQueueName":"CPIC.RPT.MSG",
+         "correlationIdByte":"41 4D 51 20 42 4D 56 51 33 56 49 43 20 20 20 20 5D 0A D2 81 20 38 61 02"
+      }
+   }
+}</con:request><con:originalUri>https://bcparis-service-xqb2qz-dev.pathfinder.bcgov/message</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="473bea1b-8392-4bb5-a89f-a7134396c68c" name="Valid HTTP Status Codes"><con:configuration><codes>400</codes></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="2362b2bc-83db-46d8-869f-79a0e75d4e38" name="JsonPath Match"><con:configuration><path>details</path><content>Invalid Message type. TO=BC41040</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:username>${#Project#username}</con:username><con:password>${#Project#password}</con:password><con:domain xsi:nil="true"/><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="Invalid Message Type_MissingTo" id="4837dfa8-a26a-43d8-bd2e-85b8cd39c553"><con:settings/><con:config service="https://bcparis-service-xqb2qz-dev.pathfinder.bcgov" methodName="Message 1" resourcePath="/api/v1/message" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Invalid Message Type_MissingTo" id="9ff4354c-1518-478d-9510-2e41957a315c" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#Project#endpoint}</con:endpoint><con:request>{
+   "Envelope":{
+      "Header":{
+         "Origin":{
+            "QName":"CPIC.MSG.AGENCY.REMOTE",
+            "QMgrName":"BMVQ3VIC"
+         },
+         "CPICVer":"1.4",
+         "UDF":"BCPARISTEST",
+         "Priority":"1",
+         "Routing":{
+            "QName":"CPIC.MSG.BMVQ3VIC",
+            "QMgrName":"BMVQ3VIC"
+         },
+         "MsgSrvc":{
+            "msgActn":"Receive"
+         }
+      },
+      "Body":{
+         "MsgFFmt":"&lt;![CDATA[SN:M00001-0001 MT:MUF MSID:BRKR-190515-20:05:48 FROM:BC41127TEXT:RE: 0509\nHC BC40940\nBC41027\nSNME:NEWMAN/G1:OLDSON/G2:MIKE/DOB:19900214\n\n2019051520054820190515200548]]&gt;"
+      },
+      "MQMD":{
+         "feedback":"0",
+         "replyToQueueManagerName":"CBQ3",
+         "messageIdByte":"41 4D 51 20 43 42 51 33 20 20 20 20 20 20 20 20 D9 BF 03 5D 85 20 6E 23",
+         "messageType":"8",
+         "format":"MQSTR",
+         "replyToQueueName":"CPIC.RPT.MSG",
+         "correlationIdByte":"41 4D 51 20 42 4D 56 51 33 56 49 43 20 20 20 20 5D 0A D2 81 20 38 61 02"
+      }
+   }
+}</con:request><con:originalUri>https://bcparis-service-xqb2qz-dev.pathfinder.bcgov/message</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="473bea1b-8392-4bb5-a89f-a7134396c68c" name="Valid HTTP Status Codes"><con:configuration><codes>400</codes></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="2362b2bc-83db-46d8-869f-79a0e75d4e38" name="JsonPath Match"><con:configuration><path>details</path><content>Invalid Message type. TO=</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:username>${#Project#username}</con:username><con:password>${#Project#password}</con:password><con:domain xsi:nil="true"/><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="ICBC REST Exception" id="6ca6d49c-5e8a-47ce-8e55-1b83c522dc9b"><con:settings/><con:config service="https://bcparis-service-xqb2qz-dev.pathfinder.bcgov" methodName="Message 1" resourcePath="/api/v1/message" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="ICBC REST Exception" id="27eeda01-996b-4ec7-8a54-936b0fc7af89" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#Project#endpoint}</con:endpoint><con:request>{
+   "Envelope":{
+      "Header":{
+         "Origin":{
+            "QName":"CPIC.MSG.AGENCY.REMOTE",
+            "QMgrName":"BMVQ3VIC"
+         },
+         "CPICVer":"1.4",
+         "UDF":"BCPARISTEST",
+         "Priority":"1",
+         "Routing":{
+            "QName":"CPIC.MSG.BMVQ3VIC",
+            "QMgrName":"BMVQ3VIC"
+         },
+         "MsgSrvc":{
+            "msgActn":"Receive"
+         }
+      },
+      "Body":{
+         "MsgFFmt":"&lt;![CDATA[SN:M00001-0001 MT:MUF MSID:BRKR-190515-20:02:21 FROM:BC41127 TO:BC41027 TEXT:RE: 8372\nHC IC80300\nBC41027 \nBC41028\nSNME:SMITH/G9:JANE/G2:MARY/DOB:19000101/SEX:F\n\n2019051520022120190515200221\n]]&gt;"
+      },
+      "MQMD":{
+         "feedback":"0",
+         "replyToQueueManagerName":"CBQ3",
+         "messageIdByte":"41 4D 51 20 43 42 51 33 20 20 20 20 20 20 20 20 D9 BF 03 5D 85 20 6E 23",
+         "messageType":"8",
+         "format":"MQSTR",
+         "replyToQueueName":"CPIC.RPT.MSG",
+         "correlationIdByte":"41 4D 51 20 42 4D 56 51 33 56 49 43 20 20 20 20 5D 0A D2 81 20 38 61 02"
+      }
+   }
+}</con:request><con:originalUri>https://bcparis-service-xqb2qz-dev.pathfinder.bcgov/message</con:originalUri><con:assertion type="JsonPath Match" id="0985e812-358b-490e-9ad1-8eba8104eae2" name="JsonPath Match"><con:configuration><path>Envelope</path><content>{"Body":{"MsgFFmt":"SEND MT:M\nFMT:Y\nFROM:BC41027\nTO:BC41127\nTEXT:RE: 8372\n\nHC  BC41027\nBC41127\nRE SNME:SMITH/G9:JANE/G2:MARY/DOB:19000101/SEX:F\nRESUBMIT, KEYWORD INVALID 'G9        '\n       "},"Header":{"CPICVer":"1.4","UDF":"BCPARISTEST","Priority":"1","MsgSrvc":{"msgActn":"Receive"},"Routing":{"qmgrName":"BMVQ3VIC","QName":"CPIC.MSG.BMVQ3VIC","QMgrName":"BMVQ3VIC"},"Origin":{"qmgrName":"BMVQ3VIC","QName":"CPIC.MSG.AGENCY.REMOTE","QMgrName":"BMVQ3VIC"},"Role":null,"AgencyId":null,"UserId":null,"DeviceId":null},"MQMD":{"feedback":"0","replyToQueueManagerName":"CBQ3","messageIdByte":"41 4D 51 20 43 42 51 33 20 20 20 20 20 20 20 20 D9 BF 03 5D 85 20 6E 23","messageType":"8","format":"MQSTR","replyToQueueName":"CPIC.RPT.MSG","correlationIdByte":"41 4D 51 20 42 4D 56 51 33 56 49 43 20 20 20 20 5D 0A D2 81 20 38 61 02"}}</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="Valid HTTP Status Codes" id="f15bbc0d-5e6c-4549-b445-5c42a0be897c" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:credentials><con:username>${#Project#username}</con:username><con:password>${#Project#password}</con:password><con:domain xsi:nil="true"/><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="ICBC Invalid Message- Internal Validation" id="527b72a4-7e97-46ae-8e07-0456be5dbb46"><con:settings/><con:config service="https://bcparis-service-xqb2qz-dev.pathfinder.bcgov" methodName="Message 1" resourcePath="/api/v1/message" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="ICBC Invalid Message- Internal Validation" id="27eeda01-996b-4ec7-8a54-936b0fc7af89" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#Project#endpoint}</con:endpoint><con:request>{
+   "Envelope":{
+      "Header":{
+         "Origin":{
+            "QName":"CPIC.MSG.AGENCY.REMOTE",
+            "QMgrName":"BMVQ3VIC"
+         },
+         "CPICVer":"1.4",
+         "UDF":"BCPARISTEST",
+         "Priority":"1",
+         "Routing":{
+            "QName":"CPIC.MSG.BMVQ3VIC",
+            "QMgrName":"BMVQ3VIC"
+         },
+         "MsgSrvc":{
+            "msgActn":"Receive"
+         }
+      },
+      "Body":{
+         "MsgFFmt":"&lt;![CDATA[SN:M00001-0001 MT:MUF MSID:BRKR-190515-20:05:48 FROM:BC41127TO:BC41027TEXT:RE: 0509\nHC BC40940\nBC41027\/DOB:19900214\n\n2019051520054820190515200548]]&gt;"
+      },
+      "MQMD":{
+         "feedback":"0",
+         "replyToQueueManagerName":"CBQ3",
+         "messageIdByte":"41 4D 51 20 43 42 51 33 20 20 20 20 20 20 20 20 D9 BF 03 5D 85 20 6E 23",
+         "messageType":"8",
+         "format":"MQSTR",
+         "replyToQueueName":"CPIC.RPT.MSG",
+         "correlationIdByte":"41 4D 51 20 42 4D 56 51 33 56 49 43 20 20 20 20 5D 0A D2 81 20 38 61 02"
+      }
+   }
+}</con:request><con:originalUri>https://bcparis-service-xqb2qz-dev.pathfinder.bcgov/message</con:originalUri><con:assertion type="JsonPath Match" id="0985e812-358b-490e-9ad1-8eba8104eae2" name="JsonPath Match"><con:configuration><path>errors</path><content>["Driver message should come with SNME or DL."]</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="Valid HTTP Status Codes" id="f15bbc0d-5e6c-4549-b445-5c42a0be897c" name="Valid HTTP Status Codes"><con:configuration><codes>500</codes></con:configuration></con:assertion><con:credentials><con:username>${#Project#username}</con:username><con:password>${#Project#password}</con:password><con:domain xsi:nil="true"/><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:loadTest id="0923b463-a5b1-49b1-8130-e1e9039bdf29" name="driver flow"><con:settings><con:setting id="HttpSettings@close-connections">false</con:setting></con:settings><con:threadCount>15</con:threadCount><con:startDelay>0</con:startDelay><con:sampleInterval>250</con:sampleInterval><con:calculateTPSOnTimePassed>true</con:calculateTPSOnTimePassed><con:resetStatisticsOnThreadCountChange>true</con:resetStatisticsOnThreadCountChange><con:historyLimit>-1</con:historyLimit><con:testLimit>600</con:testLimit><con:limitType>TIME</con:limitType><con:loadStrategy><con:type>Simple</con:type><con:config><testDelay>500</testDelay><randomFactor>0.5</randomFactor></con:config></con:loadStrategy><con:assertion type="Step Status" name="Step Status"/><con:maxAssertionErrors>100</con:maxAssertionErrors><con:cancelExcessiveThreads>true</con:cancelExcessiveThreads><con:strategyInterval>500</con:strategyInterval></con:loadTest><con:properties/></con:testCase><con:testCase id="d4fc4c68-3986-4b58-bfe6-cc0cd500620c" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="POR" searchProperties="true"><con:settings/><con:testStep type="restrequest" name="Success" id="6890504c-a691-424f-bb09-42d5f727d927"><con:settings/><con:config service="https://bcparis-service-xqb2qz-dev.pathfinder.bcgov" methodName="Message 1" resourcePath="/api/v1/message" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Success" id="5b4f7654-190b-4593-ae42-5a234764718a" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#Project#endpoint}</con:endpoint><con:request>{
+   "Envelope":{
+      "Header":{
+         "Origin":{
+            "QName":"CPIC.MSG.AGENCY.REMOTE",
+            "QMgrName":"BMVQ3VIC"
+         },
+         "CPICVer":"1.4",
+         "UDF":"BCPARISTEST",
+         "Priority":"1",
+         "Routing":{
+            "QName":"CPIC.MSG.BMVQ3VIC",
+            "QMgrName":"BMVQ3VIC"
+         },
+         "MsgSrvc":{
+            "msgActn":"Receive"
+         }
+      },
+      "Body":{
+         "MsgFFmt":"&lt;![CDATA[SN:M00001-0001 MT:MUF MSID:BRKR-190515-20:05:48 FROM:BC41127TO:BC41029TEXT:RE: 0509\nHC BC40940\nBC41027\nSNME:WISKIN/G1:TOMAS/G2:GEORGE/G3:ALPHONSE/DOB:20020325\n\n2019051520054820190515200548]]&gt;"
+      },
+      "MQMD":{
+         "feedback":"",
+         "replyToQueueManagerName":"CBQ3",
+         "messageIdByte":"41 4D 51 20 43 42 51 33 20 20 20 20 20 20 20 20 D9 BF 03 5D 85 20 6E 23",
+         "messageType":"8",
+         "format":"MQSTR",
+         "replyToQueueName":"CPIC.RPT.MSG",
+         "correlationIdByte":"41 4D 51 20 42 4D 56 51 33 56 49 43 20 20 20 20 5D 0A D2 81 20 38 61 02"
+      }
+   }
+}</con:request><con:originalUri>https://bcparis-service-xqb2qz-dev.pathfinder.bcgov/message</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="183802a9-e90c-4a5d-b8cf-2658ead792b8" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="683418f0-0bca-4519-a9c6-1b303664f5aa" name="JsonPath Match"><con:configuration><path>Envelope</path><content>{"Body":{"MsgFFmt":"SEND MT:M\nFMT:Y\nFROM:BC41029\nTO:BC41127\nTEXT:RE: 0509\nHC BC40940\nBC41027\nSNME:WISKIN/G1:TOMAS/G2:GEORGE/G3:ALPHONSE/DOB:20020325\n\n2019051520054820190515200548\n\nOrder Effective  Role Sex   Name, G1, G2, G3  DOB TermDate (T)\n    77484 2004/12/16 - H - M - WISKIN, Tomas George Alphonse 2002/03/25\n                     - D - M - SMITH, John 1950/03/23\n                     - P -   - BORLISH2, Bella2\n                     - P - M - DOE, Jane 1980/04/17\n                     - P -   - JOHNAISBURT, Johnnie\n                     - P -   - KORINSETH1, Sally1\nROLE: S (Defendant), P (Protected Party), H (Order Holder) or I (Interested Party)\nCall 1-800-990-9888 for more information.\n"},"Header":{"CPICVer":"1.4","UDF":"BCPARISTEST","Priority":"1","MsgSrvc":{"msgActn":"Receive"},"Routing":{"qmgrName":"BMVQ3VIC","QName":"CPIC.MSG.BMVQ3VIC","QMgrName":"BMVQ3VIC"},"Origin":{"qmgrName":"BMVQ3VIC","QName":"CPIC.MSG.AGENCY.REMOTE","QMgrName":"BMVQ3VIC"},"Role":null,"AgencyId":null,"UserId":null,"DeviceId":null},"MQMD":{"feedback":"","replyToQueueManagerName":"CBQ3","messageIdByte":"41 4D 51 20 43 42 51 33 20 20 20 20 20 20 20 20 D9 BF 03 5D 85 20 6E 23","messageType":"8","format":"MQSTR","replyToQueueName":"CPIC.RPT.MSG","correlationIdByte":"41 4D 51 20 42 4D 56 51 33 56 49 43 20 20 20 20 5D 0A D2 81 20 38 61 02"}}</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:username>${#Project#username}</con:username><con:password>${#Project#password}</con:password><con:domain xsi:nil="true"/><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="Invalid Message Type" id="bf2b84ee-139a-4a65-8168-4b23c33078a0"><con:settings/><con:config service="https://bcparis-service-xqb2qz-dev.pathfinder.bcgov" methodName="Message 1" resourcePath="/api/v1/message" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Invalid Message Type" id="fa92fe03-5d67-4e63-9c78-cff37f3fc1d2" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#Project#endpoint}</con:endpoint><con:request>{
+   "Envelope":{
+      "Header":{
+         "Origin":{
+            "QName":"CPIC.MSG.AGENCY.REMOTE",
+            "QMgrName":"BMVQ3VIC"
+         },
+         "CPICVer":"1.4",
+         "UDF":"BCPARISTEST",
+         "Priority":"1",
+         "Routing":{
+            "QName":"CPIC.MSG.BMVQ3VIC",
+            "QMgrName":"BMVQ3VIC"
+         },
+         "MsgSrvc":{
+            "msgActn":"Receive"
+         }
+      },
+      "Body":{
+         "MsgFFmt":"&lt;![CDATA[SN:M00001-0001 MT:MUF MSID:BRKR-190515-20:05:48 FROM:BC41127TO:BC41029\nSNME:WISKIN/G1:TOMAS/G2:GEORGE/G3:ALPHONSE/DOB:20020325\n\n2019051520054820190515200548]]&gt;"
+      },
+      "MQMD":{
+         "feedback":"",
+         "replyToQueueManagerName":"CBQ3",
+         "messageIdByte":"41 4D 51 20 43 42 51 33 20 20 20 20 20 20 20 20 D9 BF 03 5D 85 20 6E 23",
+         "messageType":"8",
+         "format":"MQSTR",
+         "replyToQueueName":"CPIC.RPT.MSG",
+         "correlationIdByte":"41 4D 51 20 42 4D 56 51 33 56 49 43 20 20 20 20 5D 0A D2 81 20 38 61 02"
+      }
+   }
+}</con:request><con:originalUri>https://bcparis-service-xqb2qz-dev.pathfinder.bcgov/message</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="2c6bda54-8bb7-4930-ab0f-90fd7769fe88" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:credentials><con:username>${#Project#username}</con:username><con:password>${#Project#password}</con:password><con:domain xsi:nil="true"/><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:loadTest id="5eb80238-7a9f-42f3-b13e-e056a90a5e4a" name="POR"><con:settings><con:setting id="HttpSettings@close-connections">false</con:setting></con:settings><con:threadCount>5</con:threadCount><con:startDelay>0</con:startDelay><con:sampleInterval>250</con:sampleInterval><con:calculateTPSOnTimePassed>true</con:calculateTPSOnTimePassed><con:resetStatisticsOnThreadCountChange>true</con:resetStatisticsOnThreadCountChange><con:historyLimit>-1</con:historyLimit><con:testLimit>10</con:testLimit><con:limitType>TIME</con:limitType><con:loadStrategy><con:type>Simple</con:type></con:loadStrategy><con:assertion type="Step Status" name="Step Status"/><con:maxAssertionErrors>100</con:maxAssertionErrors><con:cancelExcessiveThreads>true</con:cancelExcessiveThreads><con:strategyInterval>500</con:strategyInterval></con:loadTest><con:properties/></con:testCase><con:testCase id="3b92ae59-2a5e-4f49-94db-970b2a4ba5df" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Vehicle" searchProperties="true"><con:settings/><con:testStep type="restrequest" name="Success_LIC" id="b65e8adc-052a-4c1c-9fb7-09174c1ad45a"><con:settings/><con:config service="https://bcparis-service-xqb2qz-dev.pathfinder.bcgov" methodName="Message 1" resourcePath="/api/v1/message" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Success_LIC" id="b58de902-56a1-4b59-b239-0d90fa565c5f" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#Project#endpoint}</con:endpoint><con:request>{
+   "Envelope":{
+      "Header":{
+         "Origin":{
+            "QName":"CPIC.MSG.AGENCY.REMOTE",
+            "QMgrName":"BMVQ3VIC"
+         },
+         "CPICVer":"1.4",
+         "UDF":"BCPARISTEST",
+         "Priority":"1",
+         "Routing":{
+            "QName":"CPIC.MSG.BMVQ3VIC",
+            "QMgrName":"BMVQ3VIC"
+         },
+         "MsgSrvc":{
+            "msgActn":"Receive"
+         }
+      },
+      "Body":{
+         "MsgFFmt":"&lt;![CDATA[SN:M00001-0001 MT:MUF MSID:BRKR-190515-20:09:47 FROM:BC41127 TO:BC41028 TEXT:RE: 2505\nHC BC93181 \nBC41028 \nLIC:812DHR\\/ 13JUN18\\\\11:05:13\n]]&gt;"
+      },
+      "MQMD":{
+         "feedback":"0",
+         "replyToQueueManagerName":"CBQ3",
+         "messageIdByte":"41 4D 51 20 43 42 51 33 20 20 20 20 20 20 20 20 D9 BF 03 5D 85 20 6E 23",
+         "messageType":"8",
+         "format":"MQSTR",
+         "replyToQueueName":"CPIC.RPT.MSG",
+         "correlationIdByte":"41 4D 51 20 42 4D 56 51 33 56 49 43 20 20 20 20 5D 0A D2 81 20 38 61 02"
+      }
+   }
+}
+</con:request><con:originalUri>https://bcparis-service-xqb2qz-dev.pathfinder.bcgov/message</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="87045685-9fb5-4c21-a9aa-0aa9725f616f" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="ed34b600-0fc1-4409-983c-a6d9cd61eabb" name="JsonPath Match"><con:configuration><path>Envelope.Body.MsgFFmt</path><content>SEND MT:M
+FMT:Y
+FROM:BC41028
+TO:BC41127
+TEXT:RE: 2505
+
+HC BC41028
+BC41127
+RE LIC:812DHR
+LIC:812DHR  STATUS:TERMINATED EXP:2019-05-27 ** REPLACED BY PM152N **
+UNATTACHED LAST REG:12721681 LCHG:2018-07-21 DECAL# 14646639
+MORADI AMIN
+15-23986 104 AVE
+MAPLE RIDGE BC V2W 0G8
+ODN:7820741  PODL:7820741
+</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:username>${#Project#username}</con:username><con:password>${#Project#password}</con:password><con:domain xsi:nil="true"/><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="Success_ODN" id="cab6d467-7a83-4809-b097-28589811306f"><con:settings/><con:config service="https://bcparis-service-xqb2qz-dev.pathfinder.bcgov" methodName="Message 1" resourcePath="/api/v1/message" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Success_ODN" id="b58de902-56a1-4b59-b239-0d90fa565c5f" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#Project#endpoint}</con:endpoint><con:request>{
+   "Envelope":{
+      "Header":{
+         "Origin":{
+            "QName":"CPIC.MSG.AGENCY.REMOTE",
+            "QMgrName":"BMVQ3VIC"
+         },
+         "CPICVer":"1.4",
+         "UDF":"BCPARISTEST",
+         "Priority":"1",
+         "Routing":{
+            "QName":"CPIC.MSG.BMVQ3VIC",
+            "QMgrName":"BMVQ3VIC"
+         },
+         "MsgSrvc":{
+            "msgActn":"Receive"
+         }
+      },
+      "Body":{
+         "MsgFFmt":"&lt;![CDATA[SN:M00001-0001 MT:MUF MSID:BRKR-190515-20:09:47 FROM:BC41127 TO:BC41028 TEXT:RE: 2505\nHC BC93181 \nBC41028 \nODN:812DHR\\/ 13JUN18\\\\11:05:13\n]]&gt;"
+      },
+      "MQMD":{
+         "feedback":"0",
+         "replyToQueueManagerName":"CBQ3",
+         "messageIdByte":"41 4D 51 20 43 42 51 33 20 20 20 20 20 20 20 20 D9 BF 03 5D 85 20 6E 23",
+         "messageType":"8",
+         "format":"MQSTR",
+         "replyToQueueName":"CPIC.RPT.MSG",
+         "correlationIdByte":"41 4D 51 20 42 4D 56 51 33 56 49 43 20 20 20 20 5D 0A D2 81 20 38 61 02"
+      }
+   }
+}
+</con:request><con:originalUri>https://bcparis-service-xqb2qz-dev.pathfinder.bcgov/message</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="87045685-9fb5-4c21-a9aa-0aa9725f616f" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="ed34b600-0fc1-4409-983c-a6d9cd61eabb" name="JsonPath Match"><con:configuration><path>Envelope.Body.MsgFFmt</path><content>SEND MT:M
+FMT:Y
+FROM:BC41028
+TO:BC41127
+TEXT:RE: 2505
+
+HC BC41028
+BC41127
+RE ODN:812DHR
+RESUBMIT - INVALID LICENCE NUMBER
+</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:username>${#Project#username}</con:username><con:password>${#Project#password}</con:password><con:domain xsi:nil="true"/><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="Success_TAG" id="14612ec3-e481-48b2-ab93-13ecacc8640c"><con:settings/><con:config service="https://bcparis-service-xqb2qz-dev.pathfinder.bcgov" methodName="Message 1" resourcePath="/api/v1/message" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Success_TAG" id="b58de902-56a1-4b59-b239-0d90fa565c5f" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#Project#endpoint}</con:endpoint><con:request>{
+   "Envelope":{
+      "Header":{
+         "Origin":{
+            "QName":"CPIC.MSG.AGENCY.REMOTE",
+            "QMgrName":"BMVQ3VIC"
+         },
+         "CPICVer":"1.4",
+         "UDF":"BCPARISTEST",
+         "Priority":"1",
+         "Routing":{
+            "QName":"CPIC.MSG.BMVQ3VIC",
+            "QMgrName":"BMVQ3VIC"
+         },
+         "MsgSrvc":{
+            "msgActn":"Receive"
+         }
+      },
+      "Body":{
+         "MsgFFmt":"&lt;![CDATA[SN:M00001-0001 MT:MUF MSID:BRKR-190515-20:09:47 FROM:BC41127 TO:BC41028 TEXT:RE: 2505\nHC BC93181 \nBC41028 \nTAG:812DHR\\/ 13JUN18\\\\11:05:13\n]]&gt;"
+      },
+      "MQMD":{
+         "feedback":"0",
+         "replyToQueueManagerName":"CBQ3",
+         "messageIdByte":"41 4D 51 20 43 42 51 33 20 20 20 20 20 20 20 20 D9 BF 03 5D 85 20 6E 23",
+         "messageType":"8",
+         "format":"MQSTR",
+         "replyToQueueName":"CPIC.RPT.MSG",
+         "correlationIdByte":"41 4D 51 20 42 4D 56 51 33 56 49 43 20 20 20 20 5D 0A D2 81 20 38 61 02"
+      }
+   }
+}
+</con:request><con:originalUri>https://bcparis-service-xqb2qz-dev.pathfinder.bcgov/message</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="87045685-9fb5-4c21-a9aa-0aa9725f616f" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="ed34b600-0fc1-4409-983c-a6d9cd61eabb" name="JsonPath Match"><con:configuration><path>Envelope.Body.MsgFFmt</path><content>SEND MT:M
+FMT:Y
+FROM:BC41028
+TO:BC41127
+TEXT:RE: 2505
+
+HC BC41028
+BC41127
+RE TAG:812DHR
+RESUBMIT - DECAL (TAG) MUST BE COMPOSED OF 8 NUMERIC DIGITS
+</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:username>${#Project#username}</con:username><con:password>${#Project#password}</con:password><con:domain xsi:nil="true"/><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="Success_FLC" id="afcf8f31-c551-457c-acc8-c30b2aa994d7"><con:settings/><con:config service="https://bcparis-service-xqb2qz-dev.pathfinder.bcgov" methodName="Message 1" resourcePath="/api/v1/message" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Success_FLC" id="b58de902-56a1-4b59-b239-0d90fa565c5f" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#Project#endpoint}</con:endpoint><con:request>{
+   "Envelope":{
+      "Header":{
+         "Origin":{
+            "QName":"CPIC.MSG.AGENCY.REMOTE",
+            "QMgrName":"BMVQ3VIC"
+         },
+         "CPICVer":"1.4",
+         "UDF":"BCPARISTEST",
+         "Priority":"1",
+         "Routing":{
+            "QName":"CPIC.MSG.BMVQ3VIC",
+            "QMgrName":"BMVQ3VIC"
+         },
+         "MsgSrvc":{
+            "msgActn":"Receive"
+         }
+      },
+      "Body":{
+         "MsgFFmt":"&lt;![CDATA[SN:M00001-0001 MT:MUF MSID:BRKR-190515-20:09:47 FROM:BC41127 TO:BC41028 TEXT:RE: 2505\nHC BC93181 \nBC41028 \nFLC:812DHR\\/ 13JUN18\\\\11:05:13\n]]&gt;"
+      },
+      "MQMD":{
+         "feedback":"0",
+         "replyToQueueManagerName":"CBQ3",
+         "messageIdByte":"41 4D 51 20 43 42 51 33 20 20 20 20 20 20 20 20 D9 BF 03 5D 85 20 6E 23",
+         "messageType":"8",
+         "format":"MQSTR",
+         "replyToQueueName":"CPIC.RPT.MSG",
+         "correlationIdByte":"41 4D 51 20 42 4D 56 51 33 56 49 43 20 20 20 20 5D 0A D2 81 20 38 61 02"
+      }
+   }
+}
+</con:request><con:originalUri>https://bcparis-service-xqb2qz-dev.pathfinder.bcgov/message</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="87045685-9fb5-4c21-a9aa-0aa9725f616f" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="ed34b600-0fc1-4409-983c-a6d9cd61eabb" name="JsonPath Match"><con:configuration><path>Envelope.Body.MsgFFmt</path><content>SEND MT:M
+FMT:Y
+FROM:BC41028
+TO:BC41127
+TEXT:RE: 2505
+
+HC BC41028
+BC41127
+RE FLC:812DHR
+FLOATER POLICY INFORMATION NOT ON FILE
+</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:username>${#Project#username}</con:username><con:password>${#Project#password}</con:password><con:domain xsi:nil="true"/><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="Success_VIN" id="e346b76d-57ed-4dd8-9d28-73ee11cc3a00"><con:settings/><con:config service="https://bcparis-service-xqb2qz-dev.pathfinder.bcgov" methodName="Message 1" resourcePath="/api/v1/message" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Success_VIN" id="b58de902-56a1-4b59-b239-0d90fa565c5f" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#Project#endpoint}</con:endpoint><con:request>{
+   "Envelope":{
+      "Header":{
+         "Origin":{
+            "QName":"CPIC.MSG.AGENCY.REMOTE",
+            "QMgrName":"BMVQ3VIC"
+         },
+         "CPICVer":"1.4",
+         "UDF":"BCPARISTEST",
+         "Priority":"1",
+         "Routing":{
+            "QName":"CPIC.MSG.BMVQ3VIC",
+            "QMgrName":"BMVQ3VIC"
+         },
+         "MsgSrvc":{
+            "msgActn":"Receive"
+         }
+      },
+      "Body":{
+         "MsgFFmt":"&lt;![CDATA[SN:M00001-0001 MT:MUF MSID:BRKR-190515-20:09:47 FROM:BC41127 TO:BC41028 TEXT:RE: 2505\nHC BC93181 \nBC41028 \nVIN:812DHR\\/ 13JUN18\\\\11:05:13\n]]&gt;"
+      },
+      "MQMD":{
+         "feedback":"0",
+         "replyToQueueManagerName":"CBQ3",
+         "messageIdByte":"41 4D 51 20 43 42 51 33 20 20 20 20 20 20 20 20 D9 BF 03 5D 85 20 6E 23",
+         "messageType":"8",
+         "format":"MQSTR",
+         "replyToQueueName":"CPIC.RPT.MSG",
+         "correlationIdByte":"41 4D 51 20 42 4D 56 51 33 56 49 43 20 20 20 20 5D 0A D2 81 20 38 61 02"
+      }
+   }
+}
+</con:request><con:originalUri>https://bcparis-service-xqb2qz-dev.pathfinder.bcgov/message</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="87045685-9fb5-4c21-a9aa-0aa9725f616f" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="ed34b600-0fc1-4409-983c-a6d9cd61eabb" name="JsonPath Match"><con:configuration><path>Envelope.Body.MsgFFmt</path><content>SEND MT:M
+FMT:Y
+FROM:BC41028
+TO:BC41127
+TEXT:RE: 2505
+
+HC BC41028
+BC41127
+RE VIN:812DHR
+VIN(S) NOT FOUND
+</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:username>${#Project#username}</con:username><con:password>${#Project#password}</con:password><con:domain xsi:nil="true"/><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="Success_REG" id="e0d5d5c5-b1df-4d0e-b8b9-f8f219cc95bc"><con:settings/><con:config service="https://bcparis-service-xqb2qz-dev.pathfinder.bcgov" methodName="Message 1" resourcePath="/api/v1/message" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Success_REG" id="b58de902-56a1-4b59-b239-0d90fa565c5f" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#Project#endpoint}</con:endpoint><con:request>{
+   "Envelope":{
+      "Header":{
+         "Origin":{
+            "QName":"CPIC.MSG.AGENCY.REMOTE",
+            "QMgrName":"BMVQ3VIC"
+         },
+         "CPICVer":"1.4",
+         "UDF":"BCPARISTEST",
+         "Priority":"1",
+         "Routing":{
+            "QName":"CPIC.MSG.BMVQ3VIC",
+            "QMgrName":"BMVQ3VIC"
+         },
+         "MsgSrvc":{
+            "msgActn":"Receive"
+         }
+      },
+      "Body":{
+         "MsgFFmt":"&lt;![CDATA[SN:M00001-0001 MT:MUF MSID:BRKR-190515-20:09:47 FROM:BC41127 TO:BC41028 TEXT:RE: 2505\nHC BC93181 \nBC41028 \nREG:812DHR\\/ 13JUN18\\\\11:05:13\n]]&gt;"
+      },
+      "MQMD":{
+         "feedback":"0",
+         "replyToQueueManagerName":"CBQ3",
+         "messageIdByte":"41 4D 51 20 43 42 51 33 20 20 20 20 20 20 20 20 D9 BF 03 5D 85 20 6E 23",
+         "messageType":"8",
+         "format":"MQSTR",
+         "replyToQueueName":"CPIC.RPT.MSG",
+         "correlationIdByte":"41 4D 51 20 42 4D 56 51 33 56 49 43 20 20 20 20 5D 0A D2 81 20 38 61 02"
+      }
+   }
+}
+</con:request><con:originalUri>https://bcparis-service-xqb2qz-dev.pathfinder.bcgov/message</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="87045685-9fb5-4c21-a9aa-0aa9725f616f" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="ed34b600-0fc1-4409-983c-a6d9cd61eabb" name="JsonPath Match"><con:configuration><path>Envelope.Body.MsgFFmt</path><content>SEND MT:M
+FMT:Y
+FROM:BC41028
+TO:BC41127
+TEXT:RE: 2505
+
+HC BC41028
+BC41127
+RE REG:812DHR
+RESUBMIT - INVALID REGISTRATION NUMBER
+</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:username>${#Project#username}</con:username><con:password>${#Project#password}</con:password><con:domain xsi:nil="true"/><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="Success_RNS" id="209dd4b5-c413-4fe9-b8b1-a70e82fa5c09"><con:settings/><con:config service="https://bcparis-service-xqb2qz-dev.pathfinder.bcgov" methodName="Message 1" resourcePath="/api/v1/message" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Success_RNS" id="b58de902-56a1-4b59-b239-0d90fa565c5f" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#Project#endpoint}</con:endpoint><con:request>{
+   "Envelope":{
+      "Header":{
+         "Origin":{
+            "QName":"CPIC.MSG.AGENCY.REMOTE",
+            "QMgrName":"BMVQ3VIC"
+         },
+         "CPICVer":"1.4",
+         "UDF":"BCPARISTEST",
+         "Priority":"1",
+         "Routing":{
+            "QName":"CPIC.MSG.BMVQ3VIC",
+            "QMgrName":"BMVQ3VIC"
+         },
+         "MsgSrvc":{
+            "msgActn":"Receive"
+         }
+      },
+      "Body":{
+         "MsgFFmt":"&lt;![CDATA[SN:M00001-0001 MT:MUF MSID:BRKR-190515-20:09:47 FROM:BC41127 TO:BC41028 TEXT:RE: 2505\nHC BC93181 \nBC41028 \nRNS:812DHR\\/ 13JUN18\\\\11:05:13\n]]&gt;"
+      },
+      "MQMD":{
+         "feedback":"0",
+         "replyToQueueManagerName":"CBQ3",
+         "messageIdByte":"41 4D 51 20 43 42 51 33 20 20 20 20 20 20 20 20 D9 BF 03 5D 85 20 6E 23",
+         "messageType":"8",
+         "format":"MQSTR",
+         "replyToQueueName":"CPIC.RPT.MSG",
+         "correlationIdByte":"41 4D 51 20 42 4D 56 51 33 56 49 43 20 20 20 20 5D 0A D2 81 20 38 61 02"
+      }
+   }
+}
+</con:request><con:originalUri>https://bcparis-service-xqb2qz-dev.pathfinder.bcgov/message</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="87045685-9fb5-4c21-a9aa-0aa9725f616f" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="ed34b600-0fc1-4409-983c-a6d9cd61eabb" name="JsonPath Match"><con:configuration><path>Envelope.Body.MsgFFmt</path><content>SEND MT:M
+FMT:Y
+FROM:BC41028
+TO:BC41127
+TEXT:RE: 2505
+
+HC BC41028
+BC41127
+RE RNS:812DHR
+RESUBMIT - REGISTERED OWNER G1 NAME OR DOB REQUIRED
+</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:username>${#Project#username}</con:username><con:password>${#Project#password}</con:password><con:domain xsi:nil="true"/><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="Success_RVL" id="e523e47d-5c33-4279-8dc6-6fe5d927c3ca"><con:settings/><con:config service="https://bcparis-service-xqb2qz-dev.pathfinder.bcgov" methodName="Message 1" resourcePath="/api/v1/message" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Success_RVL" id="b58de902-56a1-4b59-b239-0d90fa565c5f" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#Project#endpoint}</con:endpoint><con:request>{
+   "Envelope":{
+      "Header":{
+         "Origin":{
+            "QName":"CPIC.MSG.AGENCY.REMOTE",
+            "QMgrName":"BMVQ3VIC"
+         },
+         "CPICVer":"1.4",
+         "UDF":"BCPARISTEST",
+         "Priority":"1",
+         "Routing":{
+            "QName":"CPIC.MSG.BMVQ3VIC",
+            "QMgrName":"BMVQ3VIC"
+         },
+         "MsgSrvc":{
+            "msgActn":"Receive"
+         }
+      },
+      "Body":{
+         "MsgFFmt":"&lt;![CDATA[SN:M00001-0001 MT:MUF MSID:BRKR-190515-20:09:47 FROM:BC41127 TO:BC41028 TEXT:RE: 2505\nHC BC93181 \nBC41028 \nRVL:812DHR\\/ 13JUN18\\\\11:05:13\n]]&gt;"
+      },
+      "MQMD":{
+         "feedback":"0",
+         "replyToQueueManagerName":"CBQ3",
+         "messageIdByte":"41 4D 51 20 43 42 51 33 20 20 20 20 20 20 20 20 D9 BF 03 5D 85 20 6E 23",
+         "messageType":"8",
+         "format":"MQSTR",
+         "replyToQueueName":"CPIC.RPT.MSG",
+         "correlationIdByte":"41 4D 51 20 42 4D 56 51 33 56 49 43 20 20 20 20 5D 0A D2 81 20 38 61 02"
+      }
+   }
+}
+</con:request><con:originalUri>https://bcparis-service-xqb2qz-dev.pathfinder.bcgov/message</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="87045685-9fb5-4c21-a9aa-0aa9725f616f" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="ed34b600-0fc1-4409-983c-a6d9cd61eabb" name="JsonPath Match"><con:configuration><path>Envelope.Body.MsgFFmt</path><content>SEND MT:M
+FMT:Y
+FROM:BC41028
+TO:BC41127
+TEXT:RE: 2505
+
+HC BC41028
+BC41127
+RE RVL:812DHR
+RESUBMIT - INVALID PERSON ID KEY ENTERED
+</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:username>${#Project#username}</con:username><con:password>${#Project#password}</con:password><con:domain xsi:nil="true"/><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="ICBC Rest Exception" id="069e94ee-7a75-4508-aac6-8f8b3907b8a7"><con:settings/><con:config service="https://bcparis-service-xqb2qz-dev.pathfinder.bcgov" methodName="Message 1" resourcePath="/api/v1/message" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="ICBC Rest Exception" id="74ea632a-2a0b-4fe9-8bf9-d1b80f9bbbce" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#Project#endpoint}</con:endpoint><con:request>{
+   "Envelope":{
+      "Header":{
+         "Origin":{
+            "QName":"CPIC.MSG.AGENCY.REMOTE",
+            "QMgrName":"BMVQ3VIC"
+         },
+         "CPICVer":"1.4",
+         "UDF":"BCPARISTEST",
+         "Priority":"1",
+         "Routing":{
+            "QName":"CPIC.MSG.BMVQ3VIC",
+            "QMgrName":"BMVQ3VIC"
+         },
+         "MsgSrvc":{
+            "msgActn":"Receive"
+         }
+      },
+      "Body":{
+         "MsgFFmt":"&lt;![CDATA[SN:M00001-0001 MT:MUF MSID:BRKR-190515-20:09:47 FROM:BC41127 TO:BC41028 TEXT:RE: 2505\nHC BC93181 \nBC41028 \n\\/ 13JUN18\\\\11:05:13\n]]&gt;"
+      },
+      "MQMD":{
+         "feedback":"0",
+         "replyToQueueManagerName":"CBQ3",
+         "messageIdByte":"41 4D 51 20 43 42 51 33 20 20 20 20 20 20 20 20 D9 BF 03 5D 85 20 6E 23",
+         "messageType":"8",
+         "format":"MQSTR",
+         "replyToQueueName":"CPIC.RPT.MSG",
+         "correlationIdByte":"41 4D 51 20 42 4D 56 51 33 56 49 43 20 20 20 20 5D 0A D2 81 20 38 61 02"
+      }
+   }
+}
+</con:request><con:originalUri>https://bcparis-service-xqb2qz-dev.pathfinder.bcgov/message</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="ed05e379-12af-4f96-b534-7a5328e7a79d" name="Valid HTTP Status Codes"><con:configuration><codes>500</codes></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="891d69c2-7171-4e09-a196-4cd0d2d05e30" name="JsonPath Match"><con:configuration><path>errors</path><content>["Invalid BC41028 query param not found. Valid params=[LIC, ODN, TAG, FLC, VIN, REG, RNS, RVL]"]</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:username>${#Project#username}</con:username><con:password>${#Project#password}</con:password><con:domain xsi:nil="true"/><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:loadTest id="51c712ba-b42a-4619-8bf2-630bd3543ccf" name="Vehicle"><con:settings><con:setting id="HttpSettings@close-connections">false</con:setting></con:settings><con:threadCount>15</con:threadCount><con:startDelay>0</con:startDelay><con:sampleInterval>250</con:sampleInterval><con:calculateTPSOnTimePassed>true</con:calculateTPSOnTimePassed><con:resetStatisticsOnThreadCountChange>true</con:resetStatisticsOnThreadCountChange><con:historyLimit>-1</con:historyLimit><con:testLimit>120</con:testLimit><con:limitType>TIME</con:limitType><con:loadStrategy><con:type>Simple</con:type><con:config><testDelay>500</testDelay><randomFactor>0.5</randomFactor></con:config></con:loadStrategy><con:assertion type="Step Status" name="Step Status"/><con:maxAssertionErrors>100</con:maxAssertionErrors><con:cancelExcessiveThreads>true</con:cancelExcessiveThreads><con:strategyInterval>500</con:strategyInterval></con:loadTest><con:properties/></con:testCase><con:properties/></con:testSuite><con:endpointStrategy xsi:type="con:DefaultEndpointStrategy" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:endpoint mode="COMPLEMENT" username="${">${#Project#endpoint)</con:endpoint><con:endpoint mode="COMPLEMENT" username="${#Project#username}">${#Project#endpoint}</con:endpoint></con:endpointStrategy><con:properties><con:property><con:name>password</con:name><con:value>Welc0me4!</con:value></con:property><con:property><con:name>endpoint</con:name><con:value>https://wsgw.test.jag.gov.bc.ca/iamp/bcparis-service</con:value></con:property><con:property><con:name>username</con:name><con:value>iamp_tst</con:value></con:property></con:properties><con:afterLoadScript>def propertyFilePath = System.getProperty('soapui.properties')
+def propertiesFile = new File(propertyFilePath)
+def props = new Properties()
+
+ 
+
+try {
+    props.load(new FileInputStream(propertiesFile))
+    log.info("Test Execution using CommandLine / Jenkins")
+} catch (FileNotFoundException e) {
+    def groovyUtils = new com.eviware.soapui.support.GroovyUtils( context )
+    props.load(new FileInputStream(groovyUtils.projectPath + '\\local.properties'))
+    log.info("Test Execution using SoapUI GUI")
+}
+
+ 
+
+props.each { key, value -> 
+project.setPropertyValue(key, value)
+log.info 'Key :'+key+' Value : '+value
+}</con:afterLoadScript><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/><con:sensitiveInformation/></con:soapui-project>

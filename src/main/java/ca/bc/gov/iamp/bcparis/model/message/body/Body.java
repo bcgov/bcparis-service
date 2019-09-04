@@ -4,6 +4,8 @@ import java.io.Serializable;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import org.springframework.util.StringUtils;
 
@@ -58,6 +60,13 @@ public class Body implements Serializable{
 		final String ATTR_WITH_DELIMITER  = attributeName.toUpperCase() + ":";
 		Optional<String> opt = list.stream().filter( attr->attr.startsWith(ATTR_WITH_DELIMITER)  ).findFirst();
 		return opt.isPresent() ? opt.get().substring(opt.get().indexOf(":")+1) : "";
+	}
+	
+	@JsonIgnore
+	public List<String> getAttributeList(final String attributeName) {
+		final String ATTR_WITH_DELIMITER  = attributeName.toUpperCase() + ":";
+		Stream<String> opt = cdataAttributes.stream().filter( attr->attr.startsWith(ATTR_WITH_DELIMITER)  );
+		return opt.collect(Collectors.toList()); 
 	}
 	
 	/**

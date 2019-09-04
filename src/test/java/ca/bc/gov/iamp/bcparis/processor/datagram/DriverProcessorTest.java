@@ -3,13 +3,16 @@ package ca.bc.gov.iamp.bcparis.processor.datagram;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import org.mockito.ArgumentCaptor;
 import org.mockito.InjectMocks;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
+import org.mockito.Spy;
 
 import ca.bc.gov.iamp.bcparis.model.message.Layer7Message;
 import ca.bc.gov.iamp.bcparis.repository.ICBCRestRepository;
 import ca.bc.gov.iamp.bcparis.repository.query.IMSRequest;
+import ca.bc.gov.iamp.bcparis.service.MessageService;
 import test.util.BCPARISTestUtil;
 import test.util.TestUtil;
 
@@ -20,10 +23,14 @@ public class DriverProcessorTest {
 	
 	private ICBCRestRepository icbc = Mockito.mock(ICBCRestRepository.class);
 	
+	@Spy
+	private MessageService service = new MessageService();
+	
 	@Before
     public void initMocks(){
         MockitoAnnotations.initMocks(this);
     }
+	
 	
 	@Test
 	public void proccess_success() {
@@ -65,18 +72,27 @@ public class DriverProcessorTest {
 	public void create_ims_using_CNME_success() {
 		final Layer7Message message = BCPARISTestUtil.getMessageDriverSNME();
 		
-		final String ims = processor.createIMS(message);
+		ArgumentCaptor<IMSRequest> argument = ArgumentCaptor.forClass(IMSRequest.class);
+		Mockito.when(icbc.requestDetails(argument.capture())).thenReturn("ICBC Response");
 		
-		Assert.assertEquals("DSSMTCPC HC BC41127 BC41027 QD SNME:NEWMAN/G1:OLDSON/G2:MIKE/DOB:19900214", ims);
+		processor.process(message);
+	
+		Mockito.verify(icbc, Mockito.times(1)).requestDetails(argument.capture());
+		Assert.assertEquals("DSSMTCPC HC BC41127 BC41027 QD SNME:NEWMAN/G1:OLDSON/G2:MIKE/DOB:19900214", argument.getValue().getImsRequest());
 	}
+	
 	
 	@Test
 	public void create_ims_using_DL_success() {
 		final Layer7Message message = BCPARISTestUtil.getMessageDriverDL();
 		
-		final String ims = processor.createIMS(message);
+		ArgumentCaptor<IMSRequest> argument = ArgumentCaptor.forClass(IMSRequest.class);
+		Mockito.when(icbc.requestDetails(argument.capture())).thenReturn("ICBC Response");
 		
-		Assert.assertEquals("DSSMTCPC HC BC41127 BC41027 QD DL:3559874", ims);
+		processor.process(message);
+	
+		Mockito.verify(icbc, Mockito.times(1)).requestDetails(argument.capture());
+		Assert.assertEquals("DSSMTCPC HC BC41127 BC41027 QD DL:3559874", argument.getValue().getImsRequest());
 	}
 	
 }

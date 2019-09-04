@@ -15,6 +15,10 @@ public class BCPARISTestUtil {
 		return getMessage("cdata/sample-driver-dl");
 	}
 	
+	public static Layer7Message getMessageVehicleMultipleParams() {
+		return getMessage("cdata/sample-vehicle-multiple-params");
+	}
+	
 	public static Layer7Message getMessageVehicleVIN() {
 		return getMessage("cdata/sample-vehicle-vin");
 	}

@@ -8,6 +8,7 @@ import org.mockito.InjectMocks;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 import org.mockito.Spy;
+import org.springframework.util.StringUtils;
 
 import ca.bc.gov.iamp.bcparis.model.message.Layer7Message;
 import ca.bc.gov.iamp.bcparis.repository.ICBCRestRepository;
@@ -93,6 +94,21 @@ public class DriverProcessorTest {
 	
 		Mockito.verify(icbc, Mockito.times(1)).requestDetails(argument.capture());
 		Assert.assertEquals("DSSMTCPC HC BC41127 BC41027 QD DL:3559874", argument.getValue().getImsRequest());
+	}
+	
+	@Test
+	public void create_query_params_list_success() {
+		final Layer7Message message = BCPARISTestUtil.getMessageDriverMultipleParams();
+		
+		ArgumentCaptor<IMSRequest> argument = ArgumentCaptor.forClass(IMSRequest.class);
+		Mockito.when(icbc.requestDetails(argument.capture())).thenReturn("ICBC Response");
+		
+		processor.process(message);
+		
+		Mockito.verify(icbc, Mockito.times(2)).requestDetails(argument.capture());
+		
+		int count = StringUtils.countOccurrencesOf(message.getEnvelope().getBody().getMsgFFmt(), "TEXT:BCPARIS Diagnostic Test qwe20190827173834");
+		Assert.assertEquals(2, count);
 	}
 	
 }

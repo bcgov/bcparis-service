@@ -3,13 +3,17 @@ package ca.bc.gov.iamp.bcparis.processor.datagram;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import org.mockito.ArgumentCaptor;
 import org.mockito.InjectMocks;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
+import org.mockito.Spy;
+import org.springframework.util.StringUtils;
 
 import ca.bc.gov.iamp.bcparis.model.message.Layer7Message;
 import ca.bc.gov.iamp.bcparis.repository.ICBCRestRepository;
 import ca.bc.gov.iamp.bcparis.repository.query.IMSRequest;
+import ca.bc.gov.iamp.bcparis.service.MessageService;
 import test.util.BCPARISTestUtil;
 import test.util.TestUtil;
 
@@ -21,6 +25,9 @@ public class VehicleProcessorTest {
 	
 	private ICBCRestRepository icbc = Mockito.mock(ICBCRestRepository.class);
 	
+	@Spy
+	private MessageService service = new MessageService();
+	
 	@Before
     public void initMocks(){
         MockitoAnnotations.initMocks(this);
@@ -28,6 +35,7 @@ public class VehicleProcessorTest {
 	
 	@Test
 	public void proccess_success() {
+		
 		final String mockICBCResponse = TestUtil.readFile("ICBC/response-vehicle");
 		final Layer7Message message = BCPARISTestUtil.getMessageVehicleVIN();
 		
@@ -68,25 +76,55 @@ public class VehicleProcessorTest {
 	@Test
 	public void create_ims_using_VIN_success() {
 		final Layer7Message message = BCPARISTestUtil.getMessageVehicleVIN();
-		final String ims = processor.createIMS(message);
 		
-		Assert.assertEquals("JISTRAN HC BC41127 BC41028 VIN:1FTEW1EF3GKF29092", ims);
+		ArgumentCaptor<IMSRequest> argument = ArgumentCaptor.forClass(IMSRequest.class);
+		Mockito.when(icbc.requestDetails(argument.capture())).thenReturn("ICBC Response");
+		
+		processor.process(message);
+	
+		Mockito.verify(icbc, Mockito.times(1)).requestDetails(argument.capture());
+		Assert.assertEquals("JISTRAN HC BC41127 BC41028 VIN:1FTEW1EF3GKF29092", argument.getValue().getImsRequest());
 	}
 	
 	@Test
 	public void create_ims_using_LIC_success() {
 		final Layer7Message message = BCPARISTestUtil.getMessageVehicleLIC();
-		final String ims = processor.createIMS(message);
 		
-		Assert.assertEquals("JISTRAN HC BC41127 BC41028 LIC:PN890H", ims);
+		ArgumentCaptor<IMSRequest> argument = ArgumentCaptor.forClass(IMSRequest.class);
+		Mockito.when(icbc.requestDetails(argument.capture())).thenReturn("ICBC Response");
+		
+		processor.process(message);
+	
+		Mockito.verify(icbc, Mockito.times(1)).requestDetails(argument.capture());
+		Assert.assertEquals("JISTRAN HC BC41127 BC41028 LIC:PN890H", argument.getValue().getImsRequest());
 	}
 	
 	@Test
 	public void create_ims_using_RVL_success() {
 		final Layer7Message message = BCPARISTestUtil.getMessageVehicleRVL();
-		final String ims = processor.createIMS(message);
 		
-		Assert.assertEquals("JISTRN2 HC BC41127 BC41028 RVL:845513634081303/", ims);
+		ArgumentCaptor<IMSRequest> argument = ArgumentCaptor.forClass(IMSRequest.class);
+		Mockito.when(icbc.requestDetails(argument.capture())).thenReturn("ICBC Response");
+		
+		processor.process(message);
+		
+		Mockito.verify(icbc, Mockito.times(1)).requestDetails(argument.capture());
+		Assert.assertEquals("JISTRN2 HC BC41127 BC41028 RVL:845513634081303/", argument.getValue().getImsRequest());
+	}
+	
+	@Test
+	public void create_query_params_list_success() {
+		final Layer7Message message = BCPARISTestUtil.getMessageVehicleMultipleParams();
+		
+		ArgumentCaptor<IMSRequest> argument = ArgumentCaptor.forClass(IMSRequest.class);
+		Mockito.when(icbc.requestDetails(argument.capture())).thenReturn("ICBC Response");
+		
+		processor.process(message);
+		
+		Mockito.verify(icbc, Mockito.times(8)).requestDetails(argument.capture());
+		
+		int count = StringUtils.countOccurrencesOf(message.getEnvelope().getBody().getMsgFFmt(), "TEXT:BCPARIS Diagnostic Test qwe20190827173834");
+		Assert.assertEquals(8, count);
 	}
 
 }

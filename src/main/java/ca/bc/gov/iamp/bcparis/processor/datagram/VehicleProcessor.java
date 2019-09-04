@@ -1,123 +1,92 @@
 
 package ca.bc.gov.iamp.bcparis.processor.datagram;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.util.StringUtils;
 
-import ca.bc.gov.iamp.bcparis.exception.message.InvalidMessage;
 import ca.bc.gov.iamp.bcparis.model.message.Layer7Message;
 import ca.bc.gov.iamp.bcparis.model.message.body.Body;
 import ca.bc.gov.iamp.bcparis.repository.ICBCRestRepository;
 import ca.bc.gov.iamp.bcparis.repository.query.IMSRequest;
+import ca.bc.gov.iamp.bcparis.service.MessageService;
 
 @Service
-public class VehicleProcessor {
+public class VehicleProcessor implements DatagramProcessor{
 
 	private final Logger log = LoggerFactory.getLogger(VehicleProcessor.class);
 	
 	@Autowired
-	private ICBCRestRepository ICBCrepository;
+	private ICBCRestRepository icbcRepository;
+	
+	@Autowired
+	private MessageService messageService;
 	
 	public Layer7Message process(Layer7Message message) {
 		log.info("Processing Vehicle message.");
 		
-		String imsContent = createIMS(message);
-		IMSRequest ims = IMSRequest.builder().imsRequest(imsContent).build();
+		List<IMSRequest> requests = createIMSContent(message);
 		
-		String icbcResponse = ICBCrepository.requestDetails(ims);
+		List<String> responseParsed = requests.parallelStream()
+			.map(request -> icbcRepository.requestDetails(request))
+			.map( icbcResponse -> {
+				icbcResponse = parseResponse(icbcResponse);
+				return messageService.buildResponse(message.getEnvelope().getBody(), icbcResponse);
+			})
+			.collect(Collectors.toList());
 		
-		icbcResponse = parseResponse(icbcResponse);
-		
-		String response = buildResponse(message, icbcResponse);
-		message.getEnvelope().getBody().setMsgFFmt(response);
+		final String msgFFmt = String.join("\n\n", responseParsed); 
+		message.getEnvelope().getBody().setMsgFFmt(msgFFmt);
 		
 		log.info("Vehicle message processing completed.");
 		
 		return message;
 	}
 	
-	public String createIMS(Layer7Message message) {
+	private List<IMSRequest> createIMSContent(Layer7Message message) {
+		final List<IMSRequest> result = new ArrayList<>();
 		
-		final String schema = "${transactionName} HC ${fromORI} ${toORI} ${queryParams}";
+		final String icbcPayload = "${transactionName} HC ${fromORI} ${toORI} ${queryParams}";
 		
 		final Body body = message.getEnvelope().getBody();
-		
 		final String from = body.getCDATAAttribute("FROM");
 		final String to = body.getCDATAAttribute("TO");
-		final String queryParamAttr = getQueryParamAttribute(message);
-		final String queryParams = queryParamAttr + ":" + getQueryParam(body, queryParamAttr);
-		final String TRANSACTION = getTransaction(queryParamAttr);
 		
-		return schema
-				.replace("${transactionName}", TRANSACTION)
-				.replace("${fromORI}", from)
-				.replace("${toORI}", to)
-				.replace("${queryParams}", queryParams);
-	}
-	
-	private String getTransaction(String queryParamAttr) {
-		return ( "RVL".equalsIgnoreCase(queryParamAttr) || "RNS".equalsIgnoreCase(queryParamAttr))
-			? "JISTRN2" : "JISTRAN";
-	}
-	
-	private String getQueryParam(Body body, String queryParamAttr) {
-		final String START = queryParamAttr + ":";
-		final String END = "\\n";
-		final String END2 = "\n";
-		String result = body.cutFromCDATA(START, END);
-		if(StringUtils.isEmpty(result))
-			result = body.cutFromCDATA(START, END2);
+		final List<String> queryParams = messageService.getQueryAttributesList(
+				message.getEnvelope().getBody(), 
+				Arrays.asList("LIC", "ODN", "TAG", "FLC", "VIN", "REG", "RNS", "RVL"));
+		
+		for(String query : queryParams) {
+			final String transaction = getTransaction(query);
+			final String imsContent = icbcPayload
+					.replace("${transactionName}", transaction)
+					.replace("${fromORI}", from)
+					.replace("${toORI}", to)
+					.replace("${queryParams}", query);
+			
+			result.add(IMSRequest.builder().imsRequest(imsContent).build());
+		}
+		
 		return result;
 	}
 	
-	private String getQueryParamAttribute(Layer7Message message) {
-		final Body body = message.getEnvelope().getBody();
-		final List<String> validBC41028 = Arrays.asList("LIC", "ODN", "TAG", "FLC", "VIN", "REG", "RNS", "RVL");
-		for (String string : validBC41028) {
-			if(body.containAttribute(string))
-				return string;
-		}
-		throw new InvalidMessage("Invalid BC41028 query param not found. Valid params=" + validBC41028);
+	private String getTransaction(String query) {
+		return ( query.toUpperCase().startsWith("RVL") || query.toUpperCase().startsWith("RNS"))
+			? "JISTRN2" : "JISTRAN";
 	}
 	
 	private String parseResponse(String icbcResponse) {
 		final String NEW_LINE = "\n";
-		
 		return icbcResponse
 				.replaceAll("\\$\"", NEW_LINE)	// $” are converted to newline
 				.replaceAll("\\$\\\\\"", NEW_LINE)	// $\” are converted to newline
-				//.replaceAll("\\u[0-9][0-9][0-9][0-9]", "")
 				.replaceAll("[^\\x00-\\x7F]+", "");
-	}
-
-	private String buildResponse(Layer7Message message, String icbcResponse) {
-		final String NEW_LINE = "\n";
-		final String schema = "SEND MT:M" + NEW_LINE +
-							  "FMT:Y" + NEW_LINE +
-							  "FROM:${from}" + NEW_LINE + 
-							  "TO:${to}" + NEW_LINE + 
-							  "TEXT:${text}${re}" + NEW_LINE +
-							  NEW_LINE +
-							  "${icbc_response}";
-		
-		final Body body = message.getEnvelope().getBody(); 
-		final String from = body.getCDATAAttribute("FROM");
-		final String to = body.getCDATAAttribute("TO");	
-		final String text = body.getCDATAAttribute("TEXT");	
-		final String re = body.getCDATAAttribute("RE");
-		
-		return schema
-				.replace("${from}", to)
-				.replace("${to}", from)
-				.replace("${text}", text)
-				.replace("${re}",  body.containAttribute("RE") ? "RE:" + re : "")
-				.replace("${icbc_response}", icbcResponse);
 	}
 
 }

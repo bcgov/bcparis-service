@@ -1,14 +1,14 @@
 package ca.bc.gov.iamp.bcparis.exception.rest;
 
-public class RestException extends RuntimeException{
+public class ResponseCodeNotExpected extends RuntimeException{
 
 	private static final long serialVersionUID = 1L;
 
-	public RestException(String message) {
+	public ResponseCodeNotExpected(String message) {
 		super(message);
 	}
 	
-	public RestException(String message, Throwable cause) {
+	public ResponseCodeNotExpected(String message, Throwable cause) {
 		super(message, cause);
 	}
 }

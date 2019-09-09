@@ -9,7 +9,7 @@ import org.springframework.http.MediaType;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 
-import ca.bc.gov.iamp.bcparis.exception.rest.RestException;
+import ca.bc.gov.iamp.bcparis.exception.rest.ResponseCodeNotExpected;
 
 @Component
 public class BaseRest {
@@ -31,7 +31,7 @@ public class BaseRest {
 		log.debug(String.format("Rest response-body=%s", body));
 		
 		if( received != expected) {
-			throw new RestException(String.format(errorMessage, received, body));
+			throw new ResponseCodeNotExpected(String.format(errorMessage, received, body));
 		}
 	}
 	

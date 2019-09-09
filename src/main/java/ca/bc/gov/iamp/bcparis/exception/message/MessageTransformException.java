@@ -7,5 +7,9 @@ public class MessageTransformException extends RuntimeException{
 	public MessageTransformException(Throwable cause) {
 		super(cause);
 	}
+
+	public MessageTransformException(String message, Throwable cause) {
+		super(message, cause);
+	}
 	
 }

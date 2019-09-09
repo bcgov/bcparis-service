@@ -2,24 +2,22 @@ package ca.bc.gov.iamp.bcparis.repository;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.sleuth.annotation.NewSpan;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Repository;
 import org.springframework.web.client.HttpServerErrorException;
-import org.springframework.web.client.RestTemplate;
 
 import ca.bc.gov.iamp.bcparis.exception.icbc.ICBCRestException;
 import ca.bc.gov.iamp.bcparis.repository.query.IMSRequest;
 import ca.bc.gov.iamp.bcparis.repository.query.IMSResponse;
+import ca.bc.gov.iamp.bcparis.repository.rest.BaseRest;
 
 @Repository
-public class ICBCRestRepository {
+public class ICBCRestRepository extends BaseRest{
 
 	private final Logger log = LoggerFactory.getLogger(ICBCRestRepository.class);
 	
@@ -44,9 +42,6 @@ public class ICBCRestRepository {
 	@Value("${endpoint.icbc.rest.header.password}")
 	private String password;
 	
-	@Autowired
-	private RestTemplate restTemplate;
-	
 	@NewSpan("icbc")
 	public String requestDetails(IMSRequest ims) {
 		try {
@@ -55,13 +50,13 @@ public class ICBCRestRepository {
 			
 			HttpEntity<?> httpEntity = new HttpEntity<IMSRequest>(ims,  getHeaders(username, password));
 			
-			ResponseEntity<IMSResponse> response = restTemplate.postForEntity(URL, httpEntity, IMSResponse.class);
+			ResponseEntity<IMSResponse> response = getRestTemplate().postForEntity(URL, httpEntity, IMSResponse.class);
 			
-			handleResponse(response);
+			assertResponse(HttpStatus.OK, response.getStatusCode(), response.getBody().toString() );
 			
 			return response.getBody().getImsResponse();
 		}catch (HttpServerErrorException e) {
-			return e.getResponseBodyAsString();
+			throw new ICBCRestException("Exception to call ICBC Rest Service Response Body:" + e.getResponseBodyAsString(), e);
 		}
 		catch (Exception e) {
 			throw new ICBCRestException("Exception to call ICBC Rest Service", e);
@@ -69,24 +64,11 @@ public class ICBCRestRepository {
 	}
 	
 	private HttpHeaders getHeaders(final String username, final String password) {
-		HttpHeaders headers = new HttpHeaders();
-		headers.setContentType(MediaType.APPLICATION_JSON);
+		HttpHeaders headers = getHeadersWithBasicAuth(username, password);
 		headers.add("imsUserId", imsUserId);
 		headers.add("imsCredential", imsCredential);
 		headers.add("auditTransactionId", auditTransactionId);
-		headers.setBasicAuth(username, password);
 		return headers;
-	}
-	
-	private void handleResponse(ResponseEntity<IMSResponse> response) throws Exception {
-		if( response.getStatusCode() == HttpStatus.OK) {
-			log.debug(String.format("ICBC Rest service response=%s", response.getStatusCode()));
-			log.debug(String.format("Body=%s", response.getBody()));
-		}else {
-			String message = String.format("Status code not expected during the ICBC Rest Service request. Status=%s. Body=%s", 
-					response.getStatusCodeValue(), response.getBody());
-			throw new ICBCRestException(message, null);			
-		}
 	}
 
 }

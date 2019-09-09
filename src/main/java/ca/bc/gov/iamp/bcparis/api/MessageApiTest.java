@@ -15,32 +15,29 @@ import ca.bc.gov.iamp.bcparis.processor.datagram.SatelliteProcessor;
 import ca.bc.gov.iamp.bcparis.repository.Layer7MessageRepository;
 
 @RestController
-@RequestMapping("/api/v1/message")
+@RequestMapping("/api/v1/message/test")
 @ConditionalOnProperty(name="endpoint.bcparis.message-test.activate", havingValue="true", matchIfMissing=false)
 public class MessageApiTest {
 
 	@Autowired
-	private Layer7MessageRepository repository;
-	
+	private Layer7MessageRepository layer7Repository;
+
 	@Autowired
 	private SatelliteProcessor satellite;
 
-	//Only for test purpose
-	@PostMapping( path="/test/layer7", consumes=MediaType.APPLICATION_JSON_VALUE)
+	@PostMapping( path="/layer7", consumes=MediaType.APPLICATION_JSON_VALUE)
 	private ResponseEntity<String> testPutMessageLayer7( @RequestBody Layer7Message message ){
-		final String response = repository.sendMessage(message);
+		final String response = layer7Repository.sendMessage(message);
 		return ResponseEntity.ok(response);
 	}
 	
-	//Only for test purpose
-	@PostMapping( path="/test/satellite")
+	@PostMapping( path="/satellite")
 	private ResponseEntity<String> testSatellite( @RequestParam String uri, @RequestParam String query ){
 		satellite.test(uri, query);
 		return ResponseEntity.ok("Sent to MQ.");
 	}
 	
-	//Only for test purpose
-	@PostMapping( path="/test/satellite/all")
+	@PostMapping( path="/satellite/all")
 	private ResponseEntity<String> testSatelliteAll(){
 		satellite.sendSatelliteMessages();
 		return ResponseEntity.ok("Satellite messages sent.");

@@ -46,7 +46,7 @@ public class Layer7MessageRepository extends BaseRest{
 			return response.getBody();
 		}
 		catch (HttpServerErrorException e) {
-			throw new Layer7RestException("Exception to post to Layer 7 Rest Service. Body:" + e.getResponseBodyAsString(), e);
+			throw new Layer7RestException("Exception to post to Layer 7 Rest Service. Response Body:" + e.getResponseBodyAsString(), e);
 		}
 		catch (Exception e) {
 			throw new Layer7RestException("Exception to post to Layer 7 Rest Service.", e);

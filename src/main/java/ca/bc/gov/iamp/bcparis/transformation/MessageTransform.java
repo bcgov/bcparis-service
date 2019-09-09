@@ -55,7 +55,7 @@ public class MessageTransform {
 
 			return message;
 		} catch (Exception e) {
-			throw new MessageTransformException(e);
+			throw new MessageTransformException("Error during the message transformation.", e);
 		}
 	}
 

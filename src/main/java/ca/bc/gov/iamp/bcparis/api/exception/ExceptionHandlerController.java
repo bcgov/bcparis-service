@@ -14,6 +14,7 @@ import ca.bc.gov.iamp.api.exception.ApiRuntimeException;
 import ca.bc.gov.iamp.api.exception.handling.ApiError;
 import ca.bc.gov.iamp.bcparis.exception.icbc.ICBCRestException;
 import ca.bc.gov.iamp.bcparis.exception.layer7.Layer7RestException;
+import ca.bc.gov.iamp.bcparis.exception.message.InvalidMessage;
 import ca.bc.gov.iamp.bcparis.exception.message.InvalidMessageType;
 import ca.bc.gov.iamp.bcparis.exception.message.MessageTransformException;
 import ca.bc.gov.iamp.bcparis.exception.por.PORRestException;
@@ -28,8 +29,8 @@ public class ExceptionHandlerController {
 	private EmailService emailService;
 	
 	@ResponseBody
-	@ExceptionHandler({ MessageTransformException.class, InvalidMessageType.class })
-	public ResponseEntity<ApiError> messageException(MessageTransformException e) {
+	@ExceptionHandler({ MessageTransformException.class, InvalidMessageType.class, InvalidMessage.class })
+	public ResponseEntity<ApiError> messageException(RuntimeException e) {
 		log.error(e.getLocalizedMessage(), e);
 		return sendError(e, HttpStatus.BAD_REQUEST);
 	}

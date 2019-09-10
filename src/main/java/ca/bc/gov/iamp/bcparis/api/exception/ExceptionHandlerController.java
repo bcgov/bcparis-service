@@ -55,6 +55,12 @@ public class ExceptionHandlerController {
 		return sendError(e, HttpStatus.INTERNAL_SERVER_ERROR);
 	}
 	
+	public void satelliteException(Exception e) {
+		log.error(e.getLocalizedMessage(), e);
+		
+		emailService.sendEmail(e.getLocalizedMessage() + e.getMessage());
+	}
+	
 	private ResponseEntity<ApiError> sendError(Exception ex, HttpStatus httpStatus) {
         ApiError apiError;
         if (ex instanceof ApiRuntimeException) {

@@ -5,6 +5,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import ca.bc.gov.iamp.bcparis.api.exception.ExceptionHandlerController;
 import ca.bc.gov.iamp.bcparis.model.MessageType;
 import ca.bc.gov.iamp.bcparis.model.message.Layer7Message;
 import ca.bc.gov.iamp.bcparis.service.SatelliteService;
@@ -14,6 +15,9 @@ public class SatelliteProcessor {
 
 	@Autowired
 	private SatelliteService service;
+	
+	@Autowired
+	private ExceptionHandlerController exceptionHandler;
 	
 	final String NEW_LINE = "\n";
 	private final Logger log = LoggerFactory.getLogger(SatelliteProcessor.class);
@@ -45,13 +49,19 @@ public class SatelliteProcessor {
 	}
 	
 	public void sendSatelliteMessages() {
-		log.info("Sending Satellite message.");
-		
-		sendVehicleMessages();
-		sendDriverMessages();
-		sendPorMessages();
-		
-		log.info("Satellite messages sent.");
+		try {
+			
+			log.info("Sending Satellite message.");
+			
+			sendVehicleMessages();
+			sendDriverMessages();
+			sendPorMessages();
+			
+			log.info("Satellite messages sent.");
+			
+		}catch (Exception e) {
+			exceptionHandler.satelliteException(e);
+		}
 	}
 	
 	private void sendVehicleMessages() {

@@ -7,8 +7,6 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-import org.springframework.util.StringUtils;
-
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
@@ -98,26 +96,6 @@ public class Body implements Serializable{
 	@JsonIgnore
 	public List<String> getCDATAAttributes() {
 		return cdataAttributes;
-	}
-	
-	/**
-	 * Get the DL line
-	 * @param attributeName
-	 * @return
-	 */
-	@JsonIgnore
-	public String getDL() {
-		final String START = "DL:";
-		String result = cutFromCDATA(START, "\n");
-		return StringUtils.isEmpty(result) ? cutFromCDATA(START, "\\n") : result;
-	}
-	
-	public String cutFromCDATA(final String START, final String END) {
-		final int beginIndex = msgFFmt.indexOf(START);
-		final int endIndex = msgFFmt.indexOf(END, beginIndex);
-		return (beginIndex != -1 && endIndex != -1)
-				? msgFFmt.substring(beginIndex + START.length(), endIndex)
-				: "";
 	}
 	
 	public String cutFromCDATA(final String START) {

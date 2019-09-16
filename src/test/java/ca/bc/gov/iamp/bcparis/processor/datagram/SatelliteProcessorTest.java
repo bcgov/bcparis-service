@@ -31,7 +31,7 @@ public class SatelliteProcessorTest {
 	
 	@Test
 	public void bypass_satellite_message_success() throws JsonProcessingException {
-		Layer7Message message = BCPARISTestUtil.getSatelliteMessage();
+		Layer7Message message = BCPARISTestUtil.getMessageSatellite();
 		Object response = processor.process( message );
 		
 		Assert.assertEquals(response, "OK");

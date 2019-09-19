@@ -38,5 +38,15 @@ public class BodyTest {
 		List<String> attributes = body.getCDATAAttributes();
 		Assert.assertEquals(13, attributes.size());
 	}
+	
+	@Test
+	public void cut_from_CDATA_success() {
+		final String expected = "TEXT:RE: 0509\\nHC BC40940\\nBC41027\\nSNME:NEWMAN/G1:OLDSON/G2:MIKE/DOB:19900214\\n\\n2019051520054820190515200548";
+		
+		final Body body = BCPARISTestUtil.getMessageDriverSNME().getEnvelope().getBody();
+		final String text = body.cutFromCDATA("TEXT:");
+		
+		Assert.assertEquals(expected, text);
+	}
 
 }

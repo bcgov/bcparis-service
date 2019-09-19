@@ -42,4 +42,11 @@ public class BaseRest {
 		return headers;
 	}
 	
+	public HttpHeaders getHeadersWithBasicAuthMultipartFormData(final String username, final String password) {
+		HttpHeaders headers = new HttpHeaders();
+	    headers.setContentType(MediaType.MULTIPART_FORM_DATA);
+	    headers.setBasicAuth(username, password);
+	    return headers;
+	}
+	
 }

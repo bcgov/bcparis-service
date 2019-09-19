@@ -1,24 +1,20 @@
 package ca.bc.gov.iamp.bcparis.repository;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.sleuth.annotation.NewSpan;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
-import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Repository;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
-import org.springframework.web.client.RestTemplate;
+
+import ca.bc.gov.iamp.bcparis.repository.rest.BaseRest;
 
 @Repository
-public class EmailRepository {
+public class EmailRepository extends BaseRest{
 
-	@Autowired
-	private RestTemplate restTemplate;
-	
 	@Value("${endpoint.iamp-email-service.rest}")
 	private String url;
 	
@@ -38,16 +34,10 @@ public class EmailRepository {
 	    map.add("to", to);
 	    map.add("body", body);
 
-	    HttpEntity<MultiValueMap<String, Object>> entity = new HttpEntity<MultiValueMap<String, Object>>(map, getHeaders());
+	    HttpHeaders headers = getHeadersWithBasicAuthMultipartFormData(username, password);
+	    HttpEntity<MultiValueMap<String, Object>> entity = new HttpEntity<MultiValueMap<String, Object>>(map, headers);
 	    
-	    return restTemplate.exchange(url + path, HttpMethod.POST, entity, String.class);
-	}
-	
-	private HttpHeaders getHeaders() {
-		HttpHeaders headers = new HttpHeaders();
-	    headers.setContentType(MediaType.MULTIPART_FORM_DATA);
-	    headers.setBasicAuth(username, password);
-	    return headers;
+	    return getRestTemplate().exchange(url + path, HttpMethod.POST, entity, String.class);
 	}
 	
 }

@@ -31,6 +31,10 @@ public class BCPARISTestUtil {
 		return getMessage("cdata/sample-vehicle-rvl");
 	}
 	
+	public static Layer7Message getMessageVehicleRNS() {
+		return getMessage("cdata/sample-vehicle-rns");
+	}
+	
 	public static Layer7Message getMessageVehicleMultipleParams() {
 		return getMessage("cdata/sample-vehicle-multiple-params");
 	}
@@ -39,8 +43,12 @@ public class BCPARISTestUtil {
 		return getMessage("cdata/sample-por");
 	}
 	
-	public static Layer7Message getSatelliteMessage() {
+	public static Layer7Message getMessageSatellite() {
 		return getMessage("cdata/sample-satellite");
+	}
+	
+	public static Layer7Message getMessageSatelliteRoundTrip() {
+		return getMessage("cdata/sample-satellite-round-trip");
 	}
 	
 	private static Layer7Message getMessage(final String cdata) {

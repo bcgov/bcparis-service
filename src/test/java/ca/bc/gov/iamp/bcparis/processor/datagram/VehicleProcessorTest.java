@@ -113,6 +113,19 @@ public class VehicleProcessorTest {
 	}
 	
 	@Test
+	public void create_ims_using_RNS_success() {
+		final Layer7Message message = BCPARISTestUtil.getMessageVehicleRNS();
+		
+		ArgumentCaptor<IMSRequest> argument = ArgumentCaptor.forClass(IMSRequest.class);
+		Mockito.when(icbc.requestDetails(argument.capture())).thenReturn("ICBC Response");
+		
+		processor.process(message);
+		
+		Mockito.verify(icbc, Mockito.times(1)).requestDetails(argument.capture());
+		Assert.assertEquals("JISTRN2 HC BC41127 BC41028 RNS:845513634081303/", argument.getValue().getImsRequest());
+	}
+	
+	@Test
 	public void create_query_params_list_success() {
 		final Layer7Message message = BCPARISTestUtil.getMessageVehicleMultipleParams();
 		

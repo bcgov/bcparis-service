@@ -48,7 +48,11 @@ public class Layer7Message implements Serializable{
 	
 	@JsonIgnore
 	public boolean isReport() {
-		return "Report".equalsIgnoreCase(this.getEnvelope().getMqmd().getMessageType());
+		if(this.getEnvelope() != null && this.getEnvelope().getMqmd() != null) {
+			final String messageType = this.getEnvelope().getMqmd().getMessageType();
+			return "Report".equalsIgnoreCase(messageType);
+		}
+		return false;
 	}
 
 	@Override

@@ -77,9 +77,7 @@ public class SatelliteProcessor {
 		service.sendMessage(SCHEMA, VEHICLE_TO_URI, "REG:02156746");
 		
 		//BC41028 JISTRAN string out commands
-		service.sendMessage(SCHEMA, VEHICLE_TO_URI, "LIC:233AWB/H/LIC:GVW143/H/LIC:007F\n" + 
-				"JR/H/LIC:JXX477/REG:957167\n" + 
-				"/VIN:1GNEL19W1XB163160/VIN:163160/P:Y/VIN:163160/P:Y/RSVP:16");
+		service.sendMessage(SCHEMA, VEHICLE_TO_URI, "LIC:233AWB/H/LIC:GVW143/H/LIC:007FJR/H/LIC:JXX477/");
 		
 		//BC41028 JISTRN2 RVL
 		service.sendMessage(SCHEMA, VEHICLE_TO_URI, "RVL:314208701580602/");

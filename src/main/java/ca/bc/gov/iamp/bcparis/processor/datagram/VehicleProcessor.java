@@ -1,6 +1,8 @@
-
+	
 package ca.bc.gov.iamp.bcparis.processor.datagram;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -64,6 +66,10 @@ public class VehicleProcessor implements DatagramProcessor{
 		
 		for(String query : queryParams) {
 			final String transaction = getTransaction(query);
+			
+			if(query.toUpperCase().startsWith("VIN"))
+				query += "/" + getLocalTimeNowICBCFormat();
+				
 			final String imsContent = icbcPayload
 					.replace("${transactionName}", transaction)
 					.replace("${fromORI}", from)
@@ -87,6 +93,15 @@ public class VehicleProcessor implements DatagramProcessor{
 				.replaceAll("\\$\"", NEW_LINE)	// $” are converted to newline
 				.replaceAll("\\$\\\\\"", NEW_LINE)	// $\” are converted to newline
 				.replaceAll("[^\\x00-\\x7F]+", "");
+	}
+	
+	/**
+	 * Returns Local Time in ICBC format
+	 * @return
+	 * 		ddMMMyy\\HH:mm:ss
+	 */
+	private String getLocalTimeNowICBCFormat() {
+		return LocalDateTime.now().format(DateTimeFormatter.ofPattern("ddMMMyy\\HH:mm:ss")).toString();
 	}
 
 }

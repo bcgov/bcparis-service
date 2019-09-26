@@ -15,6 +15,12 @@
 		<version>1.0.1</version>
 	</parent>
 
+	<properties>
+		<sonar.exclusions>
+			**/QuartzConfiguration.java
+		</sonar.exclusions>
+	</properties>
+
 	<dependencies>
 
 		<!-- Spring Cloud Config -->
@@ -22,18 +28,18 @@
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-config</artifactId>
 		</dependency>
-		
-		<!-- Quartz for satellite job-->
+
+		<!-- Quartz for satellite job -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-quartz</artifactId>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>

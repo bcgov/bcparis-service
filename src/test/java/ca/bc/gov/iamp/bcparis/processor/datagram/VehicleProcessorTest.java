@@ -83,7 +83,9 @@ public class VehicleProcessorTest {
 		processor.process(message);
 	
 		Mockito.verify(icbc, Mockito.times(1)).requestDetails(argument.capture());
-		Assert.assertEquals("JISTRAN HC BC41127 BC41028 VIN:1FTEW1EF3GKF29092", argument.getValue().getImsRequest());
+		
+		Assert.assertTrue(
+			argument.getValue().getImsRequest().startsWith("JISTRAN HC BC41127 BC41028 VIN:1FTEW1EF3GKF29092"));
 	}
 	
 	@Test

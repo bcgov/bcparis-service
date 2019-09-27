@@ -8,7 +8,4 @@ public class ResponseCodeNotExpected extends RuntimeException{
 		super(message);
 	}
 	
-	public ResponseCodeNotExpected(String message, Throwable cause) {
-		super(message, cause);
-	}
 }

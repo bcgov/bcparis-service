@@ -98,7 +98,7 @@ public class VehicleProcessor implements DatagramProcessor{
 	/**
 	 * Returns Local Time in ICBC format
 	 * @return
-	 * 		ddMMMyy\\HH:mm:ss
+	 * 		ddMMMyy\HH:mm:ss
 	 */
 	private String getLocalTimeNowICBCFormat() {
 		return LocalDateTime.now().format(DateTimeFormatter.ofPattern("ddMMMyy\\HH:mm:ss")).toString();

@@ -37,7 +37,7 @@ public class ExceptionHandlerController {
 	
 	@ResponseBody
 	@ExceptionHandler({ HttpServerErrorException.class })
-	public ResponseEntity<ApiError> HttpServerError(HttpServerErrorException e) {
+	public ResponseEntity<ApiError> httpServerError(HttpServerErrorException e) {
 		String emailBody = e.getLocalizedMessage() + "\nResponse Body: " + e.getResponseBodyAsString();
 		log.error(emailBody, e);
 		emailService.sendEmail(emailBody);

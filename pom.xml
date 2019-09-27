@@ -17,7 +17,8 @@
 
 	<properties>
 		<sonar.exclusions>
-			**/QuartzConfiguration.java
+			**/QuartzConfiguration.java,
+			**/AutoWiringSpringBeanJobFactory.java
 		</sonar.exclusions>
 	</properties>
 

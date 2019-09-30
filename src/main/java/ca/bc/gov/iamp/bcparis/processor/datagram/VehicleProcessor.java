@@ -67,8 +67,12 @@ public class VehicleProcessor implements DatagramProcessor{
 		for(String query : queryParams) {
 			final String transaction = getTransaction(query);
 			
-			if(query.toUpperCase().startsWith("VIN"))
-				query += "/" + getLocalTimeNowICBCFormat();
+			// Remove /h /H
+			if(query.endsWith("/h") || query.endsWith("/H"))
+				query = query.substring(0, query.length() - 2);
+			
+			// Add date and time
+			query += "/" + getLocalTimeNowICBCFormat();
 				
 			final String imsContent = icbcPayload
 					.replace("${transactionName}", transaction)

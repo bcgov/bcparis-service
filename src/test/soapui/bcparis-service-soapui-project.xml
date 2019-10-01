@@ -350,7 +350,7 @@ props.each {
       }
    }
 }
-</con:request><con:originalUri>https://bcparis-service-xqb2qz-dev.pathfinder.bcgov/message</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="87045685-9fb5-4c21-a9aa-0aa9725f616f" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="ed34b600-0fc1-4409-983c-a6d9cd61eabb" name="JsonPath Match"><con:configuration><path>Envelope.Body.MsgFFmt</path><content>SEND MT:M
+</con:request><con:originalUri>https://bcparis-service-xqb2qz-dev.pathfinder.bcgov/message</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="87045685-9fb5-4c21-a9aa-0aa9725f616f" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="ed34b600-0fc1-4409-983c-a6d9cd61eabb" name="JsonPath Match" disabled="true"><con:configuration><path>Envelope.Body.MsgFFmt</path><content>SEND MT:M
 FMT:Y
 FROM:BC41028
 TO:BC41127
@@ -397,7 +397,7 @@ ODN:7820741  PODL:7820741
       }
    }
 }
-</con:request><con:originalUri>https://bcparis-service-xqb2qz-dev.pathfinder.bcgov/message</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="87045685-9fb5-4c21-a9aa-0aa9725f616f" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="ed34b600-0fc1-4409-983c-a6d9cd61eabb" name="JsonPath Match"><con:configuration><path>Envelope.Body.MsgFFmt</path><content>SEND MT:M
+</con:request><con:originalUri>https://bcparis-service-xqb2qz-dev.pathfinder.bcgov/message</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="87045685-9fb5-4c21-a9aa-0aa9725f616f" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="ed34b600-0fc1-4409-983c-a6d9cd61eabb" name="JsonPath Match" disabled="true"><con:configuration><path>Envelope.Body.MsgFFmt</path><content>SEND MT:M
 FMT:Y
 FROM:BC41028
 TO:BC41127
@@ -439,7 +439,7 @@ RESUBMIT - INVALID LICENCE NUMBER
       }
    }
 }
-</con:request><con:originalUri>https://bcparis-service-xqb2qz-dev.pathfinder.bcgov/message</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="87045685-9fb5-4c21-a9aa-0aa9725f616f" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="ed34b600-0fc1-4409-983c-a6d9cd61eabb" name="JsonPath Match"><con:configuration><path>Envelope.Body.MsgFFmt</path><content>SEND MT:M
+</con:request><con:originalUri>https://bcparis-service-xqb2qz-dev.pathfinder.bcgov/message</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="87045685-9fb5-4c21-a9aa-0aa9725f616f" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="ed34b600-0fc1-4409-983c-a6d9cd61eabb" name="JsonPath Match" disabled="true"><con:configuration><path>Envelope.Body.MsgFFmt</path><content>SEND MT:M
 FMT:Y
 FROM:BC41028
 TO:BC41127
@@ -481,7 +481,7 @@ RESUBMIT - DECAL (TAG) MUST BE COMPOSED OF 8 NUMERIC DIGITS
       }
    }
 }
-</con:request><con:originalUri>https://bcparis-service-xqb2qz-dev.pathfinder.bcgov/message</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="87045685-9fb5-4c21-a9aa-0aa9725f616f" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="ed34b600-0fc1-4409-983c-a6d9cd61eabb" name="JsonPath Match"><con:configuration><path>Envelope.Body.MsgFFmt</path><content>SEND MT:M
+</con:request><con:originalUri>https://bcparis-service-xqb2qz-dev.pathfinder.bcgov/message</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="87045685-9fb5-4c21-a9aa-0aa9725f616f" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="ed34b600-0fc1-4409-983c-a6d9cd61eabb" name="JsonPath Match" disabled="true"><con:configuration><path>Envelope.Body.MsgFFmt</path><content>SEND MT:M
 FMT:Y
 FROM:BC41028
 TO:BC41127
@@ -556,7 +556,7 @@ We cannot hardcode the assertion response.</content><allowWildcards>false</allow
       }
    }
 }
-</con:request><con:originalUri>https://bcparis-service-xqb2qz-dev.pathfinder.bcgov/message</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="87045685-9fb5-4c21-a9aa-0aa9725f616f" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="ed34b600-0fc1-4409-983c-a6d9cd61eabb" name="JsonPath Match"><con:configuration><path>Envelope.Body.MsgFFmt</path><content>SEND MT:M
+</con:request><con:originalUri>https://bcparis-service-xqb2qz-dev.pathfinder.bcgov/message</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="87045685-9fb5-4c21-a9aa-0aa9725f616f" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="ed34b600-0fc1-4409-983c-a6d9cd61eabb" name="JsonPath Match" disabled="true"><con:configuration><path>Envelope.Body.MsgFFmt</path><content>SEND MT:M
 FMT:Y
 FROM:BC41028
 TO:BC41127
@@ -598,7 +598,7 @@ RESUBMIT - INVALID REGISTRATION NUMBER
       }
    }
 }
-</con:request><con:originalUri>https://bcparis-service-xqb2qz-dev.pathfinder.bcgov/message</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="87045685-9fb5-4c21-a9aa-0aa9725f616f" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="ed34b600-0fc1-4409-983c-a6d9cd61eabb" name="JsonPath Match"><con:configuration><path>Envelope.Body.MsgFFmt</path><content>SEND MT:M
+</con:request><con:originalUri>https://bcparis-service-xqb2qz-dev.pathfinder.bcgov/message</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="87045685-9fb5-4c21-a9aa-0aa9725f616f" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="ed34b600-0fc1-4409-983c-a6d9cd61eabb" name="JsonPath Match" disabled="true"><con:configuration><path>Envelope.Body.MsgFFmt</path><content>SEND MT:M
 FMT:Y
 FROM:BC41028
 TO:BC41127
@@ -640,7 +640,7 @@ RESUBMIT - REGISTERED OWNER G1 NAME OR DOB REQUIRED
       }
    }
 }
-</con:request><con:originalUri>https://bcparis-service-xqb2qz-dev.pathfinder.bcgov/message</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="87045685-9fb5-4c21-a9aa-0aa9725f616f" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="ed34b600-0fc1-4409-983c-a6d9cd61eabb" name="JsonPath Match"><con:configuration><path>Envelope.Body.MsgFFmt</path><content>SEND MT:M
+</con:request><con:originalUri>https://bcparis-service-xqb2qz-dev.pathfinder.bcgov/message</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="87045685-9fb5-4c21-a9aa-0aa9725f616f" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="ed34b600-0fc1-4409-983c-a6d9cd61eabb" name="JsonPath Match" disabled="true"><con:configuration><path>Envelope.Body.MsgFFmt</path><content>SEND MT:M
 FMT:Y
 FROM:BC41028
 TO:BC41127

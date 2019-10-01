@@ -98,7 +98,7 @@ public class VehicleProcessorTest {
 		processor.process(message);
 	
 		Mockito.verify(icbc, Mockito.times(1)).requestDetails(argument.capture());
-		Assert.assertEquals("JISTRAN HC BC41127 BC41028 LIC:PN890H", argument.getValue().getImsRequest());
+		Assert.assertTrue(argument.getValue().getImsRequest().startsWith("JISTRAN HC BC41127 BC41028 LIC:PN890H"));
 	}
 	
 	@Test
@@ -111,7 +111,7 @@ public class VehicleProcessorTest {
 		processor.process(message);
 		
 		Mockito.verify(icbc, Mockito.times(1)).requestDetails(argument.capture());
-		Assert.assertEquals("JISTRN2 HC BC41127 BC41028 RVL:845513634081303/", argument.getValue().getImsRequest());
+		Assert.assertTrue(argument.getValue().getImsRequest().startsWith("JISTRN2 HC BC41127 BC41028 RVL:845513634081303"));
 	}
 	
 	@Test
@@ -124,7 +124,7 @@ public class VehicleProcessorTest {
 		processor.process(message);
 		
 		Mockito.verify(icbc, Mockito.times(1)).requestDetails(argument.capture());
-		Assert.assertEquals("JISTRN2 HC BC41127 BC41028 RNS:845513634081303/", argument.getValue().getImsRequest());
+		Assert.assertTrue(argument.getValue().getImsRequest().startsWith("JISTRN2 HC BC41127 BC41028 RNS:845513634081303/"));
 	}
 	
 	@Test

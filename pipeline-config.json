@@ -6,6 +6,7 @@
 	"ciConfig": {
 		"stages": {
 			"codeSecurityStage": {
+				"id": "security",
 				"enable": false
 			},
 			"codeArchiveStage": {

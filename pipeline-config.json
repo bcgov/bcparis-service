@@ -5,6 +5,9 @@
 	},
 	"ciConfig": {
 		"stages": {
+			"codeSecurityStage": {
+				"enable": false
+			},
 			"codeArchiveStage": {
 				"id": "archive",
 				"engine": {
@@ -36,8 +39,8 @@
 					}
 				},
 				"testing": {
-                    "enable": false
-                }
+					"enable": false
+				}
 			},
 			"ocpProdDeployment": {
 				"env": "prod",

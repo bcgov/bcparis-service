@@ -32,18 +32,18 @@ public class DriverProcessor implements DatagramProcessor{
 	public Layer7Message process(Layer7Message message) {
 		log.info("Processing Driver message.");
 		
+		Body body = message.getEnvelope().getBody();
 		List<IMSRequest> requests = createIMSContent(message);
 		
 		List<String> responseParsed = requests.parallelStream()
 			.map(request -> icbcRepository.requestDetails(request))
-			.map( icbcResponse -> {
-				icbcResponse = parseResponse(icbcResponse);
-				return messageService.buildResponse(message.getEnvelope().getBody(), icbcResponse);
-			})
+			.map( icbcResponse -> parseResponse(icbcResponse))
 			.collect(Collectors.toList());
 		
-		final String msgFFmt = String.join("\n\n", responseParsed); 
-		message.getEnvelope().getBody().setMsgFFmt(msgFFmt);
+		final String response = String.join("\n\n", responseParsed); 
+		final String msgFFmt = messageService.buildResponse(body, response);
+		
+		body.setMsgFFmt(msgFFmt);
 		
 		log.info("Driver message processing completed.");
 		
@@ -54,7 +54,6 @@ public class DriverProcessor implements DatagramProcessor{
 		final List<IMSRequest> result = new ArrayList<>();
 		
 		final String icbcPayload = "${transactionName} HC ${fromORI} ${toORI} ${qdCode} ${queryParams}";
-		
 		
 		final String transaction = "DSSMTCPC";
 		final String code = "QD";

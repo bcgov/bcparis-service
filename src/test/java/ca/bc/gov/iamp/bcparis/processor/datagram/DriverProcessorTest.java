@@ -108,7 +108,7 @@ public class DriverProcessorTest {
 		Mockito.verify(icbc, Mockito.times(2)).requestDetails(argument.capture());
 		
 		int count = StringUtils.countOccurrencesOf(message.getEnvelope().getBody().getMsgFFmt(), "TEXT:BCPARIS Diagnostic Test qwe20190827173834");
-		Assert.assertEquals(2, count);
+		Assert.assertEquals(1, count);
 	}
 	
 }

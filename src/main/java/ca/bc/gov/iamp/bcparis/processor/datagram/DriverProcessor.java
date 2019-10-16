@@ -83,7 +83,8 @@ public class DriverProcessor implements DatagramProcessor{
 		final String NEW_LINE = "\n";
 		return icbcResponse
 				.replaceAll("\\]\"", NEW_LINE)		// ]” are converted to newline
-				.replaceAll("\\]\\\\\"", NEW_LINE) // ]/” are converted to newline
+				.replaceAll("\\]\\\\\"", NEW_LINE) 	// ]/” are converted to newline
+				.replaceAll("[&<>]", "")			// escape & < >
 				.replaceAll("[^\\x00-\\x7F]+", "");
 	}
 	

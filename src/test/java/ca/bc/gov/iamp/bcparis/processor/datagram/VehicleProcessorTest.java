@@ -61,7 +61,7 @@ public class VehicleProcessorTest {
 				"AAAAA34S0L5110025  SUZUKI      SWIFT  1990  06716641\n" + 
 				"AAAAF52H7M1110025  SKIPPER            1991  06950618\n" + 
 				"AAAAG0704PH110025  VOLKSWAGEN  TRANS  1993  08520937\n" + 
-				"AAAAT2939SC110025  SPECIAL     SP&SP  1995  09501294\n" + 
+				"AAAAT2939SC110025  SPECIAL     SPSP  1995  09501294\n" + 
 				"AAAAF13C6XU110025  TOYOTA      SIENA  1999  08946364\n" + 
 				"AAAAC124X27110025  CHEVROLET   CAVAL  2002  00718278\n" + 
 				"AAAAT18X75K110025  CHEVROLET   BLAZR  2005  02936978\n" + 
@@ -69,7 +69,7 @@ public class VehicleProcessorTest {
 				"AAAAT923475110025  TOYOTA      YARIS  2007  03743005\n" + 
 				"AAAAA16458H110025  HONDA       CIVIC  2008  02381256\n" + 
 				"     THERE ARE MORE POSSIBLE HITS.\n" + 
-				"     CONTACT VEHICLE REGISTRATION & LICENCING AT ICBC\n";
+				"     CONTACT VEHICLE REGISTRATION  LICENCING AT ICBC\n";
 		Assert.assertEquals(expectedParsed, icbcResponse.getEnvelope().getBody().getMsgFFmt());
 	}
 	
@@ -138,8 +138,11 @@ public class VehicleProcessorTest {
 		
 		Mockito.verify(icbc, Mockito.times(8)).requestDetails(argument.capture());
 		
-		int count = StringUtils.countOccurrencesOf(message.getEnvelope().getBody().getMsgFFmt(), "TEXT:BCPARIS Diagnostic Test qwe20190827173834");
-		Assert.assertEquals(8, count);
+		int countTEXT = StringUtils.countOccurrencesOf(message.getEnvelope().getBody().getMsgFFmt(), "TEXT:BCPARIS Diagnostic Test qwe20190827173834");
+		int countICBCResponse = StringUtils.countOccurrencesOf(message.getEnvelope().getBody().getMsgFFmt(), "ICBC Response");
+		
+		Assert.assertEquals(1, countTEXT);
+		Assert.assertEquals(8, countICBCResponse);
 	}
 
 }

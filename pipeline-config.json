@@ -36,8 +36,8 @@
 					}
 				},
 				"testing": {
-                    "enable": false
-                }
+					"enable": false
+				}
 			},
 			"ocpProdDeployment": {
 				"env": "prod",

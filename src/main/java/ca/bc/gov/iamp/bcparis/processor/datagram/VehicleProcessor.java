@@ -138,11 +138,11 @@ public class VehicleProcessor implements DatagramProcessor{
 	
 	private String parseResponse(String icbcResponse) {
 		final String NEW_LINE = "\n";
-		return icbcResponse
+		icbcResponse = icbcResponse
 				.replaceAll("\\$\"", NEW_LINE)	// $” are converted to newline
 				.replaceAll("\\$\\\\\"", NEW_LINE)	// $\” are converted to newline
-				.replaceAll("[&<>]", "")			// escape & < >
 				.replaceAll("[^\\x00-\\x7F]+", "");
+		return messageService.escape(icbcResponse);
 	}
 	
 	/**

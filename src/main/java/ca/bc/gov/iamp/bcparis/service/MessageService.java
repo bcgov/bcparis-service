@@ -49,4 +49,12 @@ public class MessageService {
 				.replace("${icbc_response}", icbcResponse);
 	}
 	
+	public String escape(String message) {
+		return message
+				.replaceAll("&", "&amp;")
+				.replaceAll("<", "&lt;")
+				.replaceAll(">", "&gt;")
+				.replaceAll("\"", "&quot;");
+	}
+	
 }

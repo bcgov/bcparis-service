@@ -48,11 +48,26 @@
 			<version>8.0.17</version>
 		</dependency>
 		
+		<!-- Splunk -->
 		<dependency>
-			<groupId>com.splunk.logging</groupId>
-			<artifactId>splunk-library-javalogging</artifactId>
-			<version>1.6.2</version>
-		</dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+            <version>1.2.3</version>
+        </dependency>
+        
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-core</artifactId>
+            <version>1.2.3</version>
+        </dependency>
+        
+        <dependency>
+            <groupId>com.splunk.logging</groupId>
+            <artifactId>splunk-library-javalogging</artifactId>
+            <version>1.6.2</version>
+        </dependency>
+		
+		
 	</dependencies>
 
 </project>

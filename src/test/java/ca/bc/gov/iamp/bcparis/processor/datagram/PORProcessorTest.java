@@ -8,12 +8,17 @@ import org.junit.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
+import org.mockito.Spy;
+import org.springframework.util.StringUtils;
 
+import ca.bc.gov.iamp.bcparis.exception.por.PORRestException;
 import ca.bc.gov.iamp.bcparis.model.message.Layer7Message;
 import ca.bc.gov.iamp.bcparis.model.por.POROutput;
 import ca.bc.gov.iamp.bcparis.model.por.PORResult;
 import ca.bc.gov.iamp.bcparis.repository.PORRestRepository;
+import ca.bc.gov.iamp.bcparis.service.MessageService;
 import test.util.BCPARISTestUtil;
+import test.util.TestUtil;
 
 public class PORProcessorTest {
 
@@ -21,6 +26,9 @@ public class PORProcessorTest {
 	private PORProcessor processor = new PORProcessor();
 	
 	private PORRestRepository repo = Mockito.mock(PORRestRepository.class);
+	
+	@Spy
+	private MessageService service = new MessageService();
 	
 	@Before
     public void initMocks(){
@@ -60,6 +68,25 @@ public class PORProcessorTest {
 		por.getResult().add(new PORResult("Role: (D)efendant, (P)rotected, (H)older or (I)nterested Party"));
 		por.getResult().add(new PORResult("Call 1-888-000-9999 for more information."));
 		return por;
+	}
+	
+	@Test
+	public void error_during_POR_call() {
+		String errorContent = TestUtil.readFile("ICBC/response-error.xml");
+		
+		final Layer7Message message = BCPARISTestUtil.getMessagePOR();
+		
+		Mockito.when(repo.callPOR(Mockito.anyString(), Mockito.anyString(), Mockito.anyString(), Mockito.anyString(), Mockito.anyString()))
+			.thenThrow(new PORRestException("", errorContent, null) );
+		
+		try {
+			processor.process(message);
+		}catch (Exception e) {
+			//Just ignore
+		}
+		
+		int count = StringUtils.countOccurrencesOf(message.getEnvelope().getBody().getMsgFFmt(), "l7:detailMessage");
+		Assert.assertEquals(18, count);
 	}
 	
 }

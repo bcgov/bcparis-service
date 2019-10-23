@@ -65,10 +65,14 @@ public class PORRestRepository extends BaseRest{
 			return response.getBody();
 		}
 		catch (HttpServerErrorException e) {
-			throw new PORRestException("Exception to call POR Rest Service. Respose Body:" + e.getResponseBodyAsString(), e);
+			throw new PORRestException(
+					String.format("Message=%s\n Response Body=%s", e.getLocalizedMessage(), e.getResponseBodyAsString()),
+					e.getResponseBodyAsString(), e);
 		}
 		catch (Exception e) {
-			throw new PORRestException("Exception to call POR Rest Service", e);
+			throw new PORRestException(
+					String.format("Message=%s", e.getLocalizedMessage()), 
+					e.getLocalizedMessage(), e);
 		}
 	}
 	

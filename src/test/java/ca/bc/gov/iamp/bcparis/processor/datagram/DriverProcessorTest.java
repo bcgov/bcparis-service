@@ -2,7 +2,9 @@ package ca.bc.gov.iamp.bcparis.processor.datagram;
 
 import org.junit.Assert;
 import org.junit.Before;
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.ExpectedException;
 import org.mockito.ArgumentCaptor;
 import org.mockito.InjectMocks;
 import org.mockito.Mockito;
@@ -10,6 +12,7 @@ import org.mockito.MockitoAnnotations;
 import org.mockito.Spy;
 import org.springframework.util.StringUtils;
 
+import ca.bc.gov.iamp.bcparis.exception.icbc.ICBCRestException;
 import ca.bc.gov.iamp.bcparis.model.message.Layer7Message;
 import ca.bc.gov.iamp.bcparis.repository.ICBCRestRepository;
 import ca.bc.gov.iamp.bcparis.repository.query.IMSRequest;
@@ -27,11 +30,13 @@ public class DriverProcessorTest {
 	@Spy
 	private MessageService service = new MessageService();
 	
+	@Rule
+    public ExpectedException thrown = ExpectedException.none();
+	
 	@Before
     public void initMocks(){
         MockitoAnnotations.initMocks(this);
     }
-	
 	
 	@Test
 	public void proccess_success() {
@@ -109,6 +114,24 @@ public class DriverProcessorTest {
 		
 		int count = StringUtils.countOccurrencesOf(message.getEnvelope().getBody().getMsgFFmt(), "TEXT:BCPARIS Diagnostic Test qwe20190827173834");
 		Assert.assertEquals(1, count);
+	}
+	
+	@Test
+	public void error_during_ICBC_call() {
+		String errorContent = TestUtil.readFile("ICBC/response-error.xml");
+		
+		final Layer7Message message = BCPARISTestUtil.getMessageDriverDL();
+		
+		Mockito.when(icbc.requestDetails(Mockito.any())).thenThrow(new ICBCRestException("", errorContent, null) );
+		
+		try {
+			processor.process(message);
+		}catch (Exception e) {
+			//Just ignore
+		}
+		
+		int count = StringUtils.countOccurrencesOf(message.getEnvelope().getBody().getMsgFFmt(), "l7:detailMessage");
+		Assert.assertEquals(18, count);
 	}
 	
 }

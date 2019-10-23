@@ -14,6 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
+import ca.bc.gov.iamp.bcparis.exception.icbc.ICBCRestException;
 import ca.bc.gov.iamp.bcparis.model.message.Layer7Message;
 import ca.bc.gov.iamp.bcparis.model.message.body.Body;
 import ca.bc.gov.iamp.bcparis.repository.ICBCRestRepository;
@@ -37,19 +38,28 @@ public class VehicleProcessor implements DatagramProcessor{
 		Body body = message.getEnvelope().getBody();
 		List<IMSRequest> requests = createIMSContent(message);
 		
-		List<String> responseParsed = requests.parallelStream()
-			.map(request -> icbcRepository.requestDetails(request))
-			.map( icbcResponse -> parseResponse(icbcResponse))
-			.collect(Collectors.toList());
+		try {
 		
-		final String response = String.join("\n\n", responseParsed); 
-		final String msgFFmt = messageService.buildResponse(body, response);
+			List<String> responseParsed = requests.parallelStream()
+				.map(request -> icbcRepository.requestDetails(request))
+				.map( icbcResponse -> parseVehicleResponse(icbcResponse))
+				.collect(Collectors.toList());
 		
-		body.setMsgFFmt(msgFFmt);
-		
-		log.info("Vehicle message processing completed.");
-		
-		return message;
+			final String response = String.join("\n\n", responseParsed); 
+			final String msgFFmt = messageService.buildResponse(body, response);
+			
+			body.setMsgFFmt(msgFFmt);
+			
+			log.info("Vehicle message processing completed.");
+			return message;
+			
+		}catch (ICBCRestException e) {
+			String content = messageService.parseResponseError(e.getResponseContent());
+			content = parseVehicleResponse(content);
+			content = messageService.buildResponse(body, content);
+			body.setMsgFFmt(content);
+			throw e;
+		}
 	}
 	
 	private List<IMSRequest> createIMSContent(Layer7Message message) {
@@ -136,7 +146,7 @@ public class VehicleProcessor implements DatagramProcessor{
 			? "JISTRN2" : "JISTRAN";
 	}
 	
-	private String parseResponse(String icbcResponse) {
+	private String parseVehicleResponse(String icbcResponse) {
 		final String NEW_LINE = "\n";
 		icbcResponse = icbcResponse
 				.replaceAll("\\$\"", NEW_LINE)	// $” are converted to newline

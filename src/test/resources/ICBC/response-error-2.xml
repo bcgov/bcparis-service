@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
+    <soapenv:Body>
+        <soapenv:Fault>
+            <faultcode>soapenv:Server</faultcode>
+            <faultstring>Policy Falsified</faultstring>
+            <faultactor>https://wsgw.test.jag.gov.bc.ca/ims/transaction</faultactor>
+            <detail>
+                <l7:policyResult status="Authentication Failed"
+                    xmlns:l7="http://www.layer7tech.com/ws/policy/fault" xmlns:l7p="http://www.layer7tech.com/ws/policy">
+                    <l7:assertionResult assertion="l7p:AuditAssertion" status="No Error"/>
+                    <l7:assertionResult assertion="l7p:HttpBasic" status="No Error">
+                        <l7:detailMessage id="4104">Found user: foo_bar</l7:detailMessage>
+                    </l7:assertionResult>
+                    <l7:assertionResult assertion="l7p:SpecificUser" status="Authentication Failed">
+                        <l7:detailMessage id="4217">Credentials failed for foo_bar due to 'Invalid password'</l7:detailMessage>
+                        <l7:detailMessage id="4208">Authentication failed for foo_bar</l7:detailMessage>
+                    </l7:assertionResult>
+                    <l7:assertionResult assertion="l7p:SpecificUser" status="Authentication Failed">
+                        <l7:detailMessage id="4217">Credentials failed for foo_bar due to 'Invalid password'</l7:detailMessage>
+                        <l7:detailMessage id="4208">Authentication failed for SVCBCAGD</l7:detailMessage>
+                    </l7:assertionResult>
+                    <l7:assertionResult assertion="l7p:SpecificUser" status="Authentication Failed">
+                        <l7:detailMessage id="4217">Credentials failed for foo_bar due to 'Invalid password'</l7:detailMessage>
+                        <l7:detailMessage id="4208">Authentication failed for SVCBCAGQ</l7:detailMessage>
+                    </l7:assertionResult>
+                    <l7:assertionResult assertion="l7p:OneOrMore" status="Authentication Failed"/>
+                    <l7:assertionResult assertion="l7p:All" status="Authentication Failed"/>
+                </l7:policyResult>
+            </detail>
+        </soapenv:Fault>
+    </soapenv:Body>
+</soapenv:Envelope>

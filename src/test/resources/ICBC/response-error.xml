@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
+    <soapenv:Body>
+        <soapenv:Fault>
+            <faultcode>soapenv:Server</faultcode>
+            <faultstring>Policy Falsified</faultstring>
+            <faultactor>https://wsgw.test.jag.gov.bc.ca/ims/transaction</faultactor>
+            <detail>
+                <l7:policyResult status="Assertion Falsified"
+                    xmlns:l7="http://www.layer7tech.com/ws/policy/fault " xmlns:l7p="http://www.layer7tech.com/ws/policy">
+                    <l7:assertionResult assertion="l7p:AuditAssertion" status="No Error"/>
+                    <l7:assertionResult assertion="l7p:HttpBasic" status="No Error">
+                        <l7:detailMessage id="4104">Found user: bcparis_bc41127</l7:detailMessage>
+                    </l7:assertionResult>
+                    <l7:assertionResult assertion="l7p:SpecificUser" status="No Error">
+                        <l7:detailMessage id="4206">Authentication success bcparis_bc41127</l7:detailMessage>
+                    </l7:assertionResult>
+                    <l7:assertionResult assertion="l7p:OneOrMore" status="No Error"/>
+                    <l7:assertionResult
+                        assertion="l7p:HttpRoutingAssertion" status="Assertion Falsified">
+                        <l7:detailMessage id="-6">No such variable: uri</l7:detailMessage>
+                        <l7:detailMessage id="-7">Variable exists but has no value: request.url.query</l7:detailMessage>
+                        <l7:detailMessage id="152">Unsupported variable: uri</l7:detailMessage>
+                        <l7:detailMessage id="-6">No such variable: uri</l7:detailMessage>
+                        <l7:detailMessage id="-7">Variable exists but has no value: request.url.query</l7:detailMessage>
+                        <l7:detailMessage id="4014">Using login 'SVCBCAGQ'</l7:detailMessage>
+                        <l7:detailMessage id="4038">Downstream service returned status (500). This is considered a failure case.</l7:detailMessage>
+                    </l7:assertionResult>
+                    <l7:assertionResult assertion="l7p:All" status="Assertion Falsified"/>
+                </l7:policyResult>
+            </detail>
+        </soapenv:Fault>
+    </soapenv:Body>
+</soapenv:Envelope>

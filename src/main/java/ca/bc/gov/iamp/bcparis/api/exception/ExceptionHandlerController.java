@@ -8,7 +8,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.client.HttpServerErrorException;
 
 import ca.bc.gov.iamp.api.exception.ApiRuntimeException;
 import ca.bc.gov.iamp.api.exception.handling.ApiError;
@@ -18,7 +17,9 @@ import ca.bc.gov.iamp.bcparis.exception.message.InvalidMessage;
 import ca.bc.gov.iamp.bcparis.exception.message.InvalidMessageType;
 import ca.bc.gov.iamp.bcparis.exception.message.MessageTransformException;
 import ca.bc.gov.iamp.bcparis.exception.por.PORRestException;
+import ca.bc.gov.iamp.bcparis.model.message.Layer7Message;
 import ca.bc.gov.iamp.bcparis.service.EmailService;
+import ca.bc.gov.iamp.bcparis.util.RequestContext;
 
 @ControllerAdvice
 public class ExceptionHandlerController {
@@ -28,37 +29,14 @@ public class ExceptionHandlerController {
 	@Autowired
 	private EmailService emailService;
 	
+	@Autowired
+	private RequestContext context;
+	
 	@ResponseBody
 	@ExceptionHandler({ MessageTransformException.class, InvalidMessageType.class, InvalidMessage.class })
 	public ResponseEntity<ApiError> messageException(RuntimeException e) {
 		log.error(e.getLocalizedMessage(), e);
 		return sendError(e, HttpStatus.BAD_REQUEST);
-	}
-	
-	@ResponseBody
-	@ExceptionHandler({ HttpServerErrorException.class })
-	public ResponseEntity<ApiError> httpServerError(HttpServerErrorException e) {
-		String emailBody = e.getLocalizedMessage() + "\nResponse Body: " + e.getResponseBodyAsString();
-		log.error(emailBody, e);
-		emailService.sendEmail(emailBody);
-		
-		return sendError(e, HttpStatus.INTERNAL_SERVER_ERROR);
-	}
-	
-	@ResponseBody
-	@ExceptionHandler({ ICBCRestException.class, Layer7RestException.class, PORRestException.class })
-	public ResponseEntity<ApiError> restExceptions(RuntimeException e) {
-		log.error(e.getLocalizedMessage(), e);
-		
-		emailService.sendEmail(e.getLocalizedMessage() + e.getMessage());
-		
-		return sendError(e, HttpStatus.INTERNAL_SERVER_ERROR);
-	}
-	
-	public void satelliteException(Exception e) {
-		log.error(e.getLocalizedMessage(), e);
-		
-		emailService.sendEmail(e.getLocalizedMessage() + e.getMessage());
 	}
 	
 	private ResponseEntity<ApiError> sendError(Exception ex, HttpStatus httpStatus) {
@@ -71,4 +49,19 @@ public class ExceptionHandlerController {
         }
         return new ResponseEntity<>(apiError, apiError.getStatus());
     }
+	
+	@ResponseBody
+	@ExceptionHandler({ ICBCRestException.class, Layer7RestException.class, PORRestException.class })
+	public ResponseEntity<Layer7Message> restExceptions(RuntimeException e) {
+		log.error(e.getMessage(), e);
+		emailService.sendEmail(e.getMessage());
+		return new ResponseEntity<Layer7Message>(
+			(Layer7Message) context.getRequestObject(), HttpStatus.INTERNAL_SERVER_ERROR);
+	}
+	
+	public void satelliteException(Exception e) {
+		log.error(e.getMessage(), e);
+		emailService.sendEmail(e.getMessage());
+	}
+
 }

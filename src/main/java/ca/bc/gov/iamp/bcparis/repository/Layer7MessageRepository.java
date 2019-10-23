@@ -10,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.HttpServerErrorException;
 
+import ca.bc.gov.iamp.bcparis.exception.icbc.ICBCRestException;
 import ca.bc.gov.iamp.bcparis.exception.layer7.Layer7RestException;
 import ca.bc.gov.iamp.bcparis.model.message.Layer7Message;
 import ca.bc.gov.iamp.bcparis.repository.rest.BaseRest;
@@ -46,10 +47,14 @@ public class Layer7MessageRepository extends BaseRest{
 			return response.getBody();
 		}
 		catch (HttpServerErrorException e) {
-			throw new Layer7RestException("Exception to post to Layer 7 Rest Service. Response Body:" + e.getResponseBodyAsString(), e);
+			throw new ICBCRestException(
+					String.format("Response Body=%s", e.getLocalizedMessage(), e.getResponseBodyAsString()),
+					e.getResponseBodyAsString(), e);
 		}
 		catch (Exception e) {
-			throw new Layer7RestException("Exception to post to Layer 7 Rest Service.", e);
+			throw new Layer7RestException(
+					String.format("Message=%s", e.getLocalizedMessage()), 
+					e.getLocalizedMessage(), e);
 		}
 	}
 	

@@ -10,6 +10,7 @@ import org.mockito.MockitoAnnotations;
 import org.mockito.Spy;
 import org.springframework.util.StringUtils;
 
+import ca.bc.gov.iamp.bcparis.exception.icbc.ICBCRestException;
 import ca.bc.gov.iamp.bcparis.model.message.Layer7Message;
 import ca.bc.gov.iamp.bcparis.repository.ICBCRestRepository;
 import ca.bc.gov.iamp.bcparis.repository.query.IMSRequest;
@@ -145,4 +146,22 @@ public class VehicleProcessorTest {
 		Assert.assertEquals(8, countICBCResponse);
 	}
 
+	@Test
+	public void error_during_ICBC_call() {
+		String errorContent = TestUtil.readFile("ICBC/response-error-2.xml");
+		
+		final Layer7Message message = BCPARISTestUtil.getMessageVehicleMultipleParams();
+		
+		Mockito.when(icbc.requestDetails(Mockito.any())).thenThrow(new ICBCRestException("", errorContent, null) );
+		
+		try {
+			processor.process(message);
+		}catch (Exception e) {
+			//Just ignore
+		}
+		
+		int count = StringUtils.countOccurrencesOf(message.getEnvelope().getBody().getMsgFFmt(), "l7:detailMessage");
+		Assert.assertEquals(14, count);
+	}
+	
 }

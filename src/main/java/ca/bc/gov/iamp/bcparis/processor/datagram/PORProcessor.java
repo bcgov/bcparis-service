@@ -12,6 +12,7 @@ import ca.bc.gov.iamp.bcparis.model.message.Layer7Message;
 import ca.bc.gov.iamp.bcparis.model.message.body.Body;
 import ca.bc.gov.iamp.bcparis.model.por.POROutput;
 import ca.bc.gov.iamp.bcparis.repository.PORRestRepository;
+import ca.bc.gov.iamp.bcparis.service.MessageService;
 
 @Service
 public class PORProcessor {
@@ -20,6 +21,9 @@ public class PORProcessor {
 
 	@Autowired
 	private PORRestRepository PORrepository;
+	
+	@Autowired
+	private MessageService messageService;
 	
 	public Layer7Message process(Layer7Message message) {
 		log.info("Processing POR message.");
@@ -33,21 +37,30 @@ public class PORProcessor {
 		String given3 = body.getAttribute(attributes, "G3");
 		String dob = body.getAttribute(attributes, "DOB");
 		
-		POROutput porResult = PORrepository.callPOR(snme, given1, given2, given3, dob);
-		
-		if("Success".equalsIgnoreCase(porResult.getStatusMsg())) {
+		try {
+			POROutput porResult = PORrepository.callPOR(snme, given1, given2, given3, dob);
 			
-			final String porContent = extractPORContent(porResult);
-			
-			String response = buildResponse(message, porContent);
-			message.getEnvelope().getBody().setMsgFFmt(response);
-			
-			log.info("POR message processing completed.");
-			log.debug("POR message: " + System.lineSeparator() + response);
-			
-			return message;
-		}else {
-			 throw new PORRestException("Not Expected POR Response. status_msg=" + porResult.getStatusMsg());
+			if("Success".equalsIgnoreCase(porResult.getStatusMsg())) {
+				
+				final String porContent = extractPORContent(porResult);
+				
+				String response = buildResponse(message, porContent);
+				message.getEnvelope().getBody().setMsgFFmt(response);
+				
+				log.info("POR message processing completed.");
+				log.debug("POR message: " + System.lineSeparator() + response);
+				
+				return message;
+			}else {
+				final String m = String.format("Not Expected POR Response. status_msg=%s", porResult.getStatusMsg());
+				throw new PORRestException(m, m);
+			}
+		}catch (PORRestException e) {
+			String content = messageService.parseResponseError(e.getResponseContent());
+			content = messageService.escape(content);
+			content = messageService.buildResponse(body, content);
+			body.setMsgFFmt(content);
+			throw e;
 		}
 	}
 	

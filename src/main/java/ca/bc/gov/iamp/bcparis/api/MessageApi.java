@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import ca.bc.gov.iamp.bcparis.model.message.Layer7Message;
 import ca.bc.gov.iamp.bcparis.processor.MessageProcessor;
+import ca.bc.gov.iamp.bcparis.util.RequestContext;
 
 @RestController
 @RequestMapping("/api/v1/message")
@@ -22,11 +23,16 @@ public class MessageApi {
 	@Autowired
 	private MessageProcessor processor;
 	
+	@Autowired
+	private RequestContext context;
+	
 	@PutMapping(consumes=MediaType.APPLICATION_JSON_VALUE)
 	private ResponseEntity<Object> message( @RequestBody Layer7Message message ){
 		
 		log.info("Message received");
 		log.debug("Message content:\n" + message);
+		
+		context.setRequestObject(message);
 		
 		Object response = processor.processMessage(message);
 		

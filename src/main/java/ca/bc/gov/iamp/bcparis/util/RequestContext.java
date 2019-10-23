@@ -13,6 +13,6 @@ import lombok.Setter;
 @Setter
 public class RequestContext {
 
-	public Object requestObject;
+	private Object requestObject;
 	
 }

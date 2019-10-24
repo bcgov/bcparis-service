@@ -1,5 +1,7 @@
 package ca.bc.gov.iamp.bcparis.repository;
 
+import java.util.UUID;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
@@ -29,9 +31,6 @@ public class ICBCRestRepository extends BaseRest {
 
 	@Value("${endpoint.icbc.rest.header.imsCredential}")
 	private String imsCredential;
-
-	@Value("${endpoint.icbc.rest.header.auditTransactionId}")
-	private String auditTransactionId;
 
 	@Value("${endpoint.icbc.rest.path.transaction}")
 	private String pathTransaction;
@@ -71,7 +70,7 @@ public class ICBCRestRepository extends BaseRest {
 		HttpHeaders headers = getHeadersWithBasicAuth(username, password);
 		headers.add("imsUserId", imsUserId);
 		headers.add("imsCredential", imsCredential);
-		headers.add("auditTransactionId", auditTransactionId);
+		headers.add("auditTransactionId", UUID.randomUUID().toString());
 		return headers;
 	}
 

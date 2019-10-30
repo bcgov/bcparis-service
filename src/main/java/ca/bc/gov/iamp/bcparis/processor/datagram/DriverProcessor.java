@@ -39,7 +39,7 @@ public class DriverProcessor implements DatagramProcessor{
 		try {
 			
 			List<String> responseParsed = requests.parallelStream()
-					.map(request -> icbcRepository.requestDetails(request))
+					.map(request -> icbcRepository.requestDetails(message, request))
 					.map( icbcResponse -> parseDriverResponse(icbcResponse))
 					.collect(Collectors.toList());
 				

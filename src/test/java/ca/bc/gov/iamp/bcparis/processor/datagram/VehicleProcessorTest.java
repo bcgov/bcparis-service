@@ -40,7 +40,7 @@ public class VehicleProcessorTest {
 		final String mockICBCResponse = TestUtil.readFile("ICBC/response-vehicle");
 		final Layer7Message message = BCPARISTestUtil.getMessageVehicleVIN();
 		
-		Mockito.when(icbc.requestDetails(Mockito.any(IMSRequest.class)))
+		Mockito.when(icbc.requestDetails(Mockito.any(Layer7Message.class), Mockito.any(IMSRequest.class)))
 			.thenReturn(mockICBCResponse);
 		
 		final Layer7Message icbcResponse = processor.process(message);
@@ -79,11 +79,11 @@ public class VehicleProcessorTest {
 		final Layer7Message message = BCPARISTestUtil.getMessageVehicleVIN();
 		
 		ArgumentCaptor<IMSRequest> argument = ArgumentCaptor.forClass(IMSRequest.class);
-		Mockito.when(icbc.requestDetails(argument.capture())).thenReturn("ICBC Response");
+		Mockito.when(icbc.requestDetails(Mockito.any(Layer7Message.class), argument.capture())).thenReturn("ICBC Response");
 		
 		processor.process(message);
 	
-		Mockito.verify(icbc, Mockito.times(1)).requestDetails(argument.capture());
+		Mockito.verify(icbc, Mockito.times(1)).requestDetails(Mockito.any(Layer7Message.class), argument.capture());
 		
 		Assert.assertTrue(
 			argument.getValue().getImsRequest().startsWith("JISTRAN HC BC41127 BC41028 VIN:1FTEW1EF3GKF29092"));
@@ -94,11 +94,11 @@ public class VehicleProcessorTest {
 		final Layer7Message message = BCPARISTestUtil.getMessageVehicleLIC();
 		
 		ArgumentCaptor<IMSRequest> argument = ArgumentCaptor.forClass(IMSRequest.class);
-		Mockito.when(icbc.requestDetails(argument.capture())).thenReturn("ICBC Response");
+		Mockito.when(icbc.requestDetails(Mockito.any(Layer7Message.class), argument.capture())).thenReturn("ICBC Response");
 		
 		processor.process(message);
 	
-		Mockito.verify(icbc, Mockito.times(1)).requestDetails(argument.capture());
+		Mockito.verify(icbc, Mockito.times(1)).requestDetails(Mockito.any(Layer7Message.class), argument.capture());
 		Assert.assertTrue(argument.getValue().getImsRequest().startsWith("JISTRAN HC BC41127 BC41028 LIC:PN890H"));
 	}
 	
@@ -107,11 +107,11 @@ public class VehicleProcessorTest {
 		final Layer7Message message = BCPARISTestUtil.getMessageVehicleRVL();
 		
 		ArgumentCaptor<IMSRequest> argument = ArgumentCaptor.forClass(IMSRequest.class);
-		Mockito.when(icbc.requestDetails(argument.capture())).thenReturn("ICBC Response");
+		Mockito.when(icbc.requestDetails(Mockito.any(Layer7Message.class), argument.capture())).thenReturn("ICBC Response");
 		
 		processor.process(message);
 		
-		Mockito.verify(icbc, Mockito.times(1)).requestDetails(argument.capture());
+		Mockito.verify(icbc, Mockito.times(1)).requestDetails(Mockito.any(Layer7Message.class), argument.capture());
 		Assert.assertTrue(argument.getValue().getImsRequest().startsWith("JISTRN2 HC BC41127 BC41028 RVL:845513634081303"));
 	}
 	
@@ -120,11 +120,11 @@ public class VehicleProcessorTest {
 		final Layer7Message message = BCPARISTestUtil.getMessageVehicleRNS();
 		
 		ArgumentCaptor<IMSRequest> argument = ArgumentCaptor.forClass(IMSRequest.class);
-		Mockito.when(icbc.requestDetails(argument.capture())).thenReturn("ICBC Response");
+		Mockito.when(icbc.requestDetails(Mockito.any(Layer7Message.class), argument.capture())).thenReturn("ICBC Response");
 		
 		processor.process(message);
 		
-		Mockito.verify(icbc, Mockito.times(1)).requestDetails(argument.capture());
+		Mockito.verify(icbc, Mockito.times(1)).requestDetails(Mockito.any(Layer7Message.class), argument.capture());
 		Assert.assertTrue(argument.getValue().getImsRequest().startsWith("JISTRN2 HC BC41127 BC41028 RNS:845513634081303/"));
 	}
 	
@@ -133,11 +133,11 @@ public class VehicleProcessorTest {
 		final Layer7Message message = BCPARISTestUtil.getMessageVehicleMultipleParams();
 		
 		ArgumentCaptor<IMSRequest> argument = ArgumentCaptor.forClass(IMSRequest.class);
-		Mockito.when(icbc.requestDetails(argument.capture())).thenReturn("ICBC Response");
+		Mockito.when(icbc.requestDetails(Mockito.any(Layer7Message.class), argument.capture())).thenReturn("ICBC Response");
 		
 		processor.process(message);
 		
-		Mockito.verify(icbc, Mockito.times(8)).requestDetails(argument.capture());
+		Mockito.verify(icbc, Mockito.times(8)).requestDetails(Mockito.any(Layer7Message.class), argument.capture());
 		
 		int countTEXT = StringUtils.countOccurrencesOf(message.getEnvelope().getBody().getMsgFFmt(), "TEXT:BCPARIS Diagnostic Test qwe20190827173834");
 		int countICBCResponse = StringUtils.countOccurrencesOf(message.getEnvelope().getBody().getMsgFFmt(), "ICBC Response");
@@ -152,7 +152,7 @@ public class VehicleProcessorTest {
 		
 		final Layer7Message message = BCPARISTestUtil.getMessageVehicleMultipleParams();
 		
-		Mockito.when(icbc.requestDetails(Mockito.any())).thenThrow(new ICBCRestException("", errorContent, null) );
+		Mockito.when(icbc.requestDetails(Mockito.any(Layer7Message.class), Mockito.any())).thenThrow(new ICBCRestException("", errorContent, null) );
 		
 		try {
 			processor.process(message);

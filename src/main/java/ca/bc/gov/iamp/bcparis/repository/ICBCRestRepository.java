@@ -14,6 +14,8 @@ import org.springframework.stereotype.Repository;
 import org.springframework.web.client.HttpServerErrorException;
 
 import ca.bc.gov.iamp.bcparis.exception.icbc.ICBCRestException;
+import ca.bc.gov.iamp.bcparis.model.message.Layer7Message;
+import ca.bc.gov.iamp.bcparis.model.message.body.MQMD;
 import ca.bc.gov.iamp.bcparis.repository.query.IMSRequest;
 import ca.bc.gov.iamp.bcparis.repository.query.IMSResponse;
 import ca.bc.gov.iamp.bcparis.repository.rest.BaseRest;
@@ -42,12 +44,12 @@ public class ICBCRestRepository extends BaseRest {
 	private String password;
 
 	@NewSpan("icbc")
-	public String requestDetails(IMSRequest ims) {
+	public String requestDetails(final Layer7Message l7message, IMSRequest ims) {
 		try {
 			final String URL = icbcUrl + pathTransaction;
 			log.debug(String.format("Calling ICBC Rest Service. URL=%s, IMS=%s", URL, ims.imsRequest ));
 			
-			HttpEntity<?> httpEntity = new HttpEntity<IMSRequest>(ims,  getHeaders(username, password));
+			HttpEntity<?> httpEntity = new HttpEntity<IMSRequest>(ims,  getHeaders(l7message, username, password));
 			
 			ResponseEntity<IMSResponse> response = getRestTemplate().postForEntity(URL, httpEntity, IMSResponse.class);
 			
@@ -66,12 +68,20 @@ public class ICBCRestRepository extends BaseRest {
 		}
 	}
 
-	private HttpHeaders getHeaders(final String username, final String password) {
+	private HttpHeaders getHeaders(final Layer7Message l7message, final String username, final String password) {
 		HttpHeaders headers = getHeadersWithBasicAuth(username, password);
 		headers.add("imsUserId", imsUserId);
 		headers.add("imsCredential", imsCredential);
-		headers.add("auditTransactionId", UUID.randomUUID().toString());
+		headers.add("auditTransactionId", generateAuditTransactionId(l7message));
 		return headers;
+	}
+	
+	private String generateAuditTransactionId(final Layer7Message l7message){
+		if(l7message != null && l7message.getEnvelope() != null  && l7message.getEnvelope().getMqmd() != null){
+			MQMD mqmd = l7message.getEnvelope().getMqmd();
+			return String.format("[messageIdByte:%s | correlationIdByte:%s] ", mqmd.getMessageIdByte(), mqmd.getCorrelationIdByte());
+		}
+		return UUID.randomUUID().toString();
 	}
 
 }

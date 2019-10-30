@@ -41,7 +41,7 @@ public class VehicleProcessor implements DatagramProcessor{
 		try {
 		
 			List<String> responseParsed = requests.parallelStream()
-				.map(request -> icbcRepository.requestDetails(request))
+				.map(request -> icbcRepository.requestDetails(message, request))
 				.map( icbcResponse -> parseVehicleResponse(icbcResponse))
 				.collect(Collectors.toList());
 		

@@ -43,7 +43,7 @@ public class DriverProcessorTest {
 		final String mockICBCResponse = TestUtil.readFile("ICBC/response-driver");
 		final Layer7Message message = BCPARISTestUtil.getMessageDriverSNME();
 		
-		Mockito.when(icbc.requestDetails(Mockito.any(IMSRequest.class)))
+		Mockito.when(icbc.requestDetails(Mockito.any(Layer7Message.class), Mockito.any(IMSRequest.class)))
 			.thenReturn(mockICBCResponse);
 		
 		final Layer7Message icbcResponse = processor.process(message);
@@ -79,11 +79,11 @@ public class DriverProcessorTest {
 		final Layer7Message message = BCPARISTestUtil.getMessageDriverSNME();
 		
 		ArgumentCaptor<IMSRequest> argument = ArgumentCaptor.forClass(IMSRequest.class);
-		Mockito.when(icbc.requestDetails(argument.capture())).thenReturn("ICBC Response");
+		Mockito.when(icbc.requestDetails(Mockito.any(Layer7Message.class), argument.capture())).thenReturn("ICBC Response");
 		
 		processor.process(message);
 	
-		Mockito.verify(icbc, Mockito.times(1)).requestDetails(argument.capture());
+		Mockito.verify(icbc, Mockito.times(1)).requestDetails(Mockito.any(Layer7Message.class), argument.capture());
 		Assert.assertEquals("DSSMTCPC HC BC41127 BC41027 QD SNME:NEWMAN/G1:OLDSON/G2:MIKE/DOB:19900214", argument.getValue().getImsRequest());
 	}
 	
@@ -93,11 +93,11 @@ public class DriverProcessorTest {
 		final Layer7Message message = BCPARISTestUtil.getMessageDriverDL();
 		
 		ArgumentCaptor<IMSRequest> argument = ArgumentCaptor.forClass(IMSRequest.class);
-		Mockito.when(icbc.requestDetails(argument.capture())).thenReturn("ICBC Response");
+		Mockito.when(icbc.requestDetails(Mockito.any(Layer7Message.class), argument.capture())).thenReturn("ICBC Response");
 		
 		processor.process(message);
 	
-		Mockito.verify(icbc, Mockito.times(1)).requestDetails(argument.capture());
+		Mockito.verify(icbc, Mockito.times(1)).requestDetails(Mockito.any(Layer7Message.class), argument.capture());
 		Assert.assertEquals("DSSMTCPC HC BC41127 BC41027 QD DL:3559874", argument.getValue().getImsRequest());
 	}
 	
@@ -106,11 +106,11 @@ public class DriverProcessorTest {
 		final Layer7Message message = BCPARISTestUtil.getMessageDriverMultipleParams();
 		
 		ArgumentCaptor<IMSRequest> argument = ArgumentCaptor.forClass(IMSRequest.class);
-		Mockito.when(icbc.requestDetails(argument.capture())).thenReturn("ICBC Response");
+		Mockito.when(icbc.requestDetails(Mockito.any(Layer7Message.class), argument.capture())).thenReturn("ICBC Response");
 		
 		processor.process(message);
 		
-		Mockito.verify(icbc, Mockito.times(2)).requestDetails(argument.capture());
+		Mockito.verify(icbc, Mockito.times(2)).requestDetails(Mockito.any(Layer7Message.class), argument.capture());
 		
 		int count = StringUtils.countOccurrencesOf(message.getEnvelope().getBody().getMsgFFmt(), "TEXT:BCPARIS Diagnostic Test qwe20190827173834");
 		Assert.assertEquals(1, count);
@@ -122,7 +122,7 @@ public class DriverProcessorTest {
 		
 		final Layer7Message message = BCPARISTestUtil.getMessageDriverDL();
 		
-		Mockito.when(icbc.requestDetails(Mockito.any())).thenThrow(new ICBCRestException("", errorContent, null) );
+		Mockito.when(icbc.requestDetails(Mockito.any(Layer7Message.class), Mockito.any())).thenThrow(new ICBCRestException("", errorContent, null) );
 		
 		try {
 			processor.process(message);

@@ -1,5 +1,6 @@
 package ca.bc.gov.iamp.bcparis.repository;
 
+import org.aspectj.bridge.MessageUtil;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -15,8 +16,10 @@ import org.springframework.web.client.HttpServerErrorException;
 import org.springframework.web.client.RestTemplate;
 
 import ca.bc.gov.iamp.bcparis.exception.icbc.ICBCRestException;
+import ca.bc.gov.iamp.bcparis.model.message.Layer7Message;
 import ca.bc.gov.iamp.bcparis.repository.query.IMSRequest;
 import ca.bc.gov.iamp.bcparis.repository.query.IMSResponse;
+import test.util.BCPARISTestUtil;
 
 public class ICBCRestRepositoryTest {
 
@@ -40,7 +43,7 @@ public class ICBCRestRepositoryTest {
         Mockito.when(rest.postForEntity(Mockito.anyString(), Mockito.any(HttpEntity.class), Mockito.any()) )
     		.thenReturn(new ResponseEntity<>(getResponse(), HttpStatus.OK));
 		
-		final String icbcResponse = repo.requestDetails(IMSRequest.builder().build());
+		final String icbcResponse = repo.requestDetails(BCPARISTestUtil.getMessageDriverDL(), IMSRequest.builder().build());
 		
 		Assert.assertEquals(icbcResponse, "IMS Response");
 	}
@@ -51,7 +54,7 @@ public class ICBCRestRepositoryTest {
         Mockito.when(rest.postForEntity(Mockito.anyString(), Mockito.any(HttpEntity.class), Mockito.any()) )
     		.thenThrow(new HttpServerErrorException(HttpStatus.INTERNAL_SERVER_ERROR, "Internal Server Error"));
 		
-		repo.requestDetails(IMSRequest.builder().build());
+		repo.requestDetails(BCPARISTestUtil.getMessageDriverDL(), IMSRequest.builder().build());
 	}
 	
 	@Test(expected=ICBCRestException.class)
@@ -60,7 +63,7 @@ public class ICBCRestRepositoryTest {
 		 Mockito.when(rest.postForEntity(Mockito.anyString(), Mockito.any(HttpEntity.class), Mockito.any()) )
  		.thenReturn(new ResponseEntity<>(getResponse(), HttpStatus.NOT_FOUND));
 		
-		repo.requestDetails(IMSRequest.builder().build());
+		repo.requestDetails(BCPARISTestUtil.getMessageDriverDL(), IMSRequest.builder().build());
 	}
 	
 	private IMSResponse getResponse() {

@@ -22,15 +22,15 @@ public class LoggingFilter implements Filter {
 
         HttpRequestWrapper copiedRequest = new HttpRequestWrapper((HttpServletRequest) request);
         Layer7Message l7message = null;
-        String corlData = null;
+        String messageId = null;
+        String correlationId = null;
 
         // Message parsing
         try {
             l7message = new ObjectMapper().readValue(copiedRequest.getRequestBody(), Layer7Message.class);
             if (l7message != null) {
-                corlData = String.format("[messageId:%s | correlationId:%s] ",
-                        l7message.getEnvelope().getMqmd().getMessageIdByte(),
-                        l7message.getEnvelope().getMqmd().getCorrelationIdByte());
+                messageId = l7message.getEnvelope().getMqmd().getMessageIdByte();
+                correlationId = l7message.getEnvelope().getMqmd().getCorrelationIdByte();
 
             }
         } catch (Exception ex) {
@@ -40,9 +40,10 @@ public class LoggingFilter implements Filter {
 
         // Logging
         try {
-            if (corlData != null) {
-                MDC.put("corlData", corlData);
-            }
+
+            MDC.put("messageId", messageId);
+            MDC.put("correlationId", correlationId);
+            MDC.put("mdcData", String.format("[msgId:%s, corlId:%s]", messageId, correlationId));
 
             chain.doFilter(copiedRequest, response);
         } finally {

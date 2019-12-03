@@ -1,0 +1,1605 @@
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>AEjchyu0AOkxg</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:DUF MSID:BRKR-190515-20:02:03 FROM:BC41127 TO:BC41028 SUBJ:AB5184 FOR ACCD ENTRY TEXT:
+RVL:845513634081303/
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>8Ejci0W011jPQ</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:MUF MSID:BRKR-190515-20:02:04 FROM:BC41127 TO:BC41028 TEXT:RE: 8261
+HC BC11422 
+BC41028 
+LIC:PN890H
+
+2019051520020420190515200204
+
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>8Ejci0W0173dG</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:MUF MSID:BRKR-190515-20:02:05 FROM:BC41127 TO:BC41028 TEXT:RE: 8262
+HC BC35351 
+BC41028 
+LIC:MY1480
+
+2019051520020520190515200205
+
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>AEjci5M017qBk</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:DUF MSID:BRKR-190515-20:02:07 FROM:BC41127 TO:BC41027 TEXT:
+DL:3559874/
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>AEjci6y0163Su</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:DUF MSID:BRKR-190515-20:02:09 FROM:BC41127 TO:BC41027 TEXT:
+DL:5510075/
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>AEjci8a02P9K6</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:DUF MSID:BRKR-190515-20:02:11 FROM:BC41127 TO:BC41027 TEXT:
+DL:7290091/DATE:190515/
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>AEjci6y0263Su</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:DUF MSID:BRKR-190515-20:02:12 FROM:BC41127 TO:BC41027 TEXT:
+DL:5510075/DATE:190515/
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>AEjci6y02G8Ec</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:DUF MSID:BRKR-190515-20:02:14 FROM:BC41127 TO:BC41027 TEXT:
+DL:6372039/DATE:190515/
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>8EjciLU01cF7g</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:MUF MSID:BRKR-190515-20:02:17 FROM:BC41127 TO:BC41028 TEXT:RE: 8346
+HC BC35076 
+BC41028 
+LIC:GB202C
+
+2019051520021720190515200217
+
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>8EjciQK01SwBE</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:MUF MSID:BRKR-190515-20:02:20 FROM:BC41127 TO:BC41028 TEXT:RE: 8364
+HC BC94848 
+BC41028 
+LIC:EB286V
+
+2019051520022020190515200220
+
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>8EjciQK011DLG</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:MUF MSID:BRKR-190515-20:02:20 FROM:BC41127 TO:BC41028 TEXT:RE: 8365
+HC BC92540 
+BC41028 
+LIC:HH034L
+
+2019051520022020190515200220
+
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>MSGID/e09bef0a776d11e99139ac1e020900000000000000000000.NLTRAN/UQ.USORI/VACBP1500.QTYPE/L.NLCTL/*NN53770924</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:MUF MSID:BRKR-190515-20:02:21 FROM:IC80300 TO:BC41027 TEXT:RE: 8372
+HC IC80300 
+BC41027 
+SNME:OTHERLAST/G1:BILL/DOB:19921002
+
+2019051520022120190515200221
+
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>8EjciTY02Q5ok</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:MUF MSID:BRKR-190515-20:02:22 FROM:BC41127 TO:BC41027 TEXT:RE: 8399
+HC BC35144 
+BC41027 
+SNME:SMITH/G1:DAN/DOB:19860703
+
+2019051520022220190515200222
+
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>AEjciVA018bBk</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:DUF MSID:BRKR-190515-20:02:23 FROM:BC41127 TO:BC41027 TEXT:
+DL:2960184/
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>AEjciVA028bBk</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:DUF MSID:BRKR-190515-20:02:23 FROM:BC41127 TO:BC41027 TEXT:
+DL:2960184/DATE:190515/
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>AEjciWm01bgmK</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:DUF MSID:BRKR-190515-20:02:24 FROM:BC41127 TO:BC41027 TEXT:
+DL:7748033/
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>AEjciWm02bgmK</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:DUF MSID:BRKR-190515-20:02:24 FROM:BC41127 TO:BC41027 TEXT:
+DL:7748033/DATE:190515/
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>AEjciWm01BqB4</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:DUF MSID:BRKR-190515-20:02:24 FROM:BC41127 TO:BC41027 TEXT:
+DL:8526502/
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>AEjciWm02BqB4</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:DUF MSID:BRKR-190515-20:02:24 FROM:BC41127 TO:BC41027 TEXT:
+DL:8526502/DATE:190515/
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>AEjciYO02SdHG</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:DUF MSID:BRKR-190515-20:02:26 FROM:BC41127 TO:BC41027 TEXT:
+DL:0100219/DATE:190515/
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>AEjcibc02eKF4</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:DUF MSID:BRKR-190515-20:02:27 FROM:BC41127 TO:BC41027 TEXT:
+DL:8571987/DATE:190515/
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>AEjcigS01146s</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:DUF MSID:BRKR-190515-20:02:30 FROM:BC41127 TO:BC41027 TEXT:
+DL:0100219/
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>AEjcigS02146s</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:DUF MSID:BRKR-190515-20:02:31 FROM:BC41127 TO:BC41027 TEXT:
+DL:0100219/DATE:190515/
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>8Ejcii401ZoRU</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:MUF MSID:BRKR-190515-20:02:31 FROM:BC41127 TO:BC41028 TEXT:RE: 8483
+HC BC92960 
+BC41028 
+LIC:MG4034
+
+2019051520023120190515200231
+
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>AEjcijg01bgnW</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:DUF MSID:BRKR-190515-20:02:32 FROM:BC41127 TO:BC41027 TEXT:
+DL:8794636/
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>AEjcijg03bgnW</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:DUF MSID:BRKR-190515-20:02:33 FROM:BC41127 TO:BC41027 TEXT:
+DL:8794636/DATE:190515/
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>AEjcimu02Orom</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:DUF MSID:BRKR-190515-20:02:34 FROM:BC41127 TO:BC41027 TEXT:
+DL:3326346/DATE:190515/
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>8Ejcimu01G7vu</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:MUF MSID:BRKR-190515-20:02:34 FROM:BC41127 TO:BC41028 TEXT:RE: 8515
+HC BC93072 
+BC41028 
+LIC:HY7039
+
+2019051520023420190515200234
+
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>AEjcioW01Fxv2</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:DUF MSID:BRKR-190515-20:02:35 FROM:BC41127 TO:BC41027 TEXT:
+DL:8822371/
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>AEjcioW02Fxv2</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:DUF MSID:BRKR-190515-20:02:35 FROM:BC41127 TO:BC41027 TEXT:
+DL:8822371/DATE:190515/
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>8EjcitM01AgCy</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:MUF MSID:BRKR-190515-20:02:38 FROM:BC41127 TO:BC41028 TEXT:RE: 8529
+HC BC11426 
+BC41028 
+LIC:PW710H
+
+2019051520023820190515200238
+
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>AEjciuy01OwC4</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:DUF MSID:BRKR-190515-20:02:39 FROM:BC41127 TO:BC41027 TEXT:
+DL:6525984/
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>AEjcizo023NHS</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:DUF MSID:BRKR-190515-20:02:42 FROM:BC41127 TO:BC41027 TEXT:
+DL:6248207/DATE:190515/
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>8Ejcj3201IzSm</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:MUF MSID:BRKR-190515-20:02:44 FROM:BC41127 TO:BC41028 TEXT:RE: 8599
+HC BC92802 
+BC41028 
+LIC:JK5377
+
+2019051520024420190515200244
+
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>8EjcjEK01VWeA</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:MUF MSID:BRKR-190515-20:02:51 FROM:BC41127 TO:BC41028 TEXT:RE: 8658
+HC BC90552 
+BC41028 
+LIC:HJ699D
+
+2019051520025120190515200251
+
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>AEjcjJA011DJs</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:DUF MSID:BRKR-190515-20:02:54 FROM:BC41127 TO:BC41027 TEXT:
+DL:6340785/
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>8EjcjJA012QUk</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:MUF MSID:BRKR-190515-20:02:54 FROM:BC41127 TO:BC41028 TEXT:RE: 8708
+HC BC93556 
+BC41028 
+LIC:7XXT
+
+2019051520025420190515200254
+
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>AEjcjJA01dK48</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:DUF MSID:BRKR-190515-20:02:55 FROM:BC41127 TO:BC41027 TEXT:
+DL:6194704/
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>AEjcjKm02dK48</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:DUF MSID:BRKR-190515-20:02:55 FROM:BC41127 TO:BC41027 TEXT:
+DL:6194704/DATE:190515/
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>AEjckVM01IHJ8</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:DUF MSID:BRKR-190515-20:03:00 FROM:BC41127 TO:BC41027 TEXT:
+DL:7378395/
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>8Ejckf201G4vW</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:MUF MSID:BRKR-190515-20:03:06 FROM:BC41127 TO:BC41027 TEXT:RE: 8787
+HC BC10352 
+BC41027 
+SNME:MNAME1/G1:ALEC/DOB:19880322
+
+2019051520030620190515200306
+
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>AEjcklU02YA5w</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:DUF MSID:BRKR-190515-20:03:10 FROM:BC41127 TO:BC41027 TEXT:
+DL:6304969/DATE:190515/
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>AEjcklU01dm74</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:DUF MSID:BRKR-190515-20:03:11 FROM:BC41127 TO:BC41027 TEXT:
+DL:0956325/
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>8EjckqK018hc6</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:MUF MSID:BRKR-190515-20:03:13 FROM:BC41127 TO:BC41028 TEXT:RE: 8833
+HC BC92875 
+BC41028 
+LIC:HV156W
+
+2019051520031320190515200313
+
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>AEjckvA01ZoRO</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:DUF MSID:BRKR-190515-20:03:16 FROM:BC41127 TO:BC41027 TEXT:
+DL:8571987/
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>8EjckvA01LRu2</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:MUF MSID:BRKR-190515-20:03:17 FROM:BC41127 TO:BC41028 TEXT:RE: 8856
+HC BC93556 
+BC41028 
+LIC:727XXT
+
+2019051520031620190515200316
+
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>8Ejcl1c01HwD0</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:MUF MSID:BRKR-190515-20:03:20 FROM:BC41127 TO:BC41028 TEXT:RE: 8877
+HC BC91181 
+BC41028 
+LIC:PA373A
+
+2019051520032020190515200320
+
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>AEjcl3E02Bc66</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:DUF MSID:BRKR-190515-20:03:21 FROM:BC41127 TO:BC41027 TEXT:
+DL:5297909/DATE:190515/
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>AEjcl6S01bjkm</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:DUF MSID:BRKR-190515-20:03:24 FROM:BC41127 TO:BC41027 TEXT:
+DL:8176406/
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>AEjcl8402bjkm</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:DUF MSID:BRKR-190515-20:03:24 FROM:BC41127 TO:BC41027 TEXT:
+DL:8176406/DATE:190515/
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>8EjclBI01DvpK</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:MUF MSID:BRKR-190515-20:03:27 FROM:BC41127 TO:BC41028 TEXT:RE: 8925
+HC BC35076 
+BC41028 
+LIC:HD546T
+
+2019051520032620190515200327
+
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>8EjclEW01LRwS</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:MUF MSID:BRKR-190515-20:03:29 FROM:BC41127 TO:BC41027 TEXT:RE: 8934
+HC BC92535 
+BC41027 
+SNME:METER/G1:SEVE/DOB:19630213
+
+2019051520032820190515200328
+
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>AEjclHk02ThvY</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:DUF MSID:BRKR-190515-20:03:30 FROM:BC41127 TO:BC41027 TEXT:
+DL:9003896/DATE:190515/
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>HEjclJM02QSlc</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:DUF MSID:BRKR-190515-20:03:31 FROM:BC41127 TO:BC41027 TEXT:
+DL:5494701/DATE:190515/
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>8EjclJM012lZi</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:MUF MSID:BRKR-190515-20:03:32 FROM:BC41127 TO:BC41028 TEXT:RE: 8956
+HC BC91400 
+BC41028 
+LIC:FR770A
+
+2019051520033120190515200331
+
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>AEjclPo01DlVC</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:DUF MSID:BRKR-190515-20:03:35 FROM:BC41127 TO:BC41027 TEXT:
+DL:2129275/
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>MSGID/1013e33c776e11e99139ac1e020900000000000000000000.NLTRAN/XQ.USORI/VACBP1500.QTYPE/L.NLCTL/*NN53772748</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:MUF MSID:BRKR-190515-20:03:41 FROM:IC80300 TO:BC41028 TEXT:RE: 8684
+HC IC80300 
+BC41028 
+LIC:GA282R
+
+2019051520034120190515200341
+
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>AEjclMa05SP48</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:DUF MSID:BRKR-190515-20:03:47 FROM:BC41127 TO:BC41028 SUBJ:WAR 19-73910 TEXT:
+ODN:8847493/
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>8Ejclci0FFWgc</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:MUF MSID:BRKR-190515-20:03:48 FROM:BC41127 TO:BC41028 TEXT:RE: 9109
+HC BC95062 
+BC41028 
+LIC:5KT551
+
+2019051520034820190515200348
+
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>8Ejclo0010fFG</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:MUF MSID:BRKR-190515-20:03:50 FROM:BC41127 TO:BC41028 TEXT:RE: 9187
+HC BC90860 
+BC41028 
+LIC:HK519B
+
+2019051520035020190515200350
+
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>AEjclsq016ABe</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:DUF MSID:BRKR-190515-20:03:53 FROM:BC41127 TO:BC41027 TEXT:
+DL:2570182/
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>8Ejclw4016ABm</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:MUF MSID:BRKR-190515-20:03:55 FROM:BC41127 TO:BC41028 TEXT:RE: 9315
+HC BC93690 
+BC41028 
+LIC:BA726L
+
+2019051520035520190515200355
+
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>AEjcm2W01W4kQ</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:DUF MSID:BRKR-190515-20:03:59 FROM:BC41127 TO:BC41027 TEXT:
+DL:8794636/
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>FEjcnEi01YA96</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:MUF MSID:BRKR-190515-20:04:05 FROM:BC41127 TO:BC41027 TEXT:RE: 9694
+HC BC41137 
+BC41027 
+SNME:HCART/G1:KEN/DOB:19960227
+
+2019051520040520190515200405
+
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>8EjcnHw014FnC</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:MUF MSID:BRKR-190515-20:04:07 FROM:BC41127 TO:BC41028 TEXT:RE: 9702
+HC BC94412 
+BC41028 
+LIC:383PDF
+
+2019051520040720190515200407
+
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>AEjcnOO016AEM</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:DUF MSID:BRKR-190515-20:04:11 FROM:BC41127 TO:BC41027 TEXT:
+DL:7125574/
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>8EjcnQ001Sczq</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:MUF MSID:BRKR-190515-20:04:13 FROM:BC41127 TO:BC41028 TEXT:RE: 9740
+HC BC35038 
+BC41028 
+LIC:931PWX
+
+2019051520041220190515200412
+
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>AEjcnWS01Q5Iq</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:DUF MSID:BRKR-190515-20:04:16 FROM:BC41127 TO:BC41027 TEXT:
+DL:6833151/
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>8EjcnZg02dwPy</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:MUF MSID:BRKR-190515-20:04:19 FROM:BC41127 TO:BC41027 TEXT:RE: 9804
+HC BC92329 
+BC41027 
+SNME:LONG/G1:JIM SON/AGE:25
+
+2019051520041920190515200419
+
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>AEjcoU801LRt0</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:DUF MSID:BRKR-190515-20:04:53 FROM:BC41127 TO:BC41027 TEXT:
+DL:1731947/
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>8EjcoVk01GW0I</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:MUF MSID:BRKR-190515-20:04:54 FROM:BC41127 TO:BC41028 TEXT:RE: 0041
+HC BC90228 
+BC41028 
+LIC:FV665C
+
+2019051520045420190515200454
+
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>8EjcoYy01NEsi</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:MUF MSID:BRKR-190515-20:04:57 FROM:BC41127 TO:BC41028 TEXT:RE: 0055
+HC BC35038 
+BC41028 
+LIC:931PWX
+
+2019051520045620190515200456
+
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>AEjcoaa014fwK</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:DUF MSID:BRKR-190515-20:04:57 FROM:BC41127 TO:BC41027 TEXT:
+DL:5371720/
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>8EjcocC01GOzy</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:MUF MSID:BRKR-190515-20:04:58 FROM:BC41127 TO:BC41028 TEXT:RE: 0064
+HC BC91313 
+BC41028 
+LIC:GMT48T
+
+2019051520045820190515200458
+
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>AEjcphw02SB5k</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:DUF MSID:BRKR-190515-20:05:00 FROM:BC41127 TO:BC41027 TEXT:
+DL:5712714/DATE:190515/
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>AEjcphw01SB5k</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:DUF MSID:BRKR-190515-20:05:00 FROM:BC41127 TO:BC41027 TEXT:
+DL:5712714/
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>8EjcpjY0141lY</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:MUF MSID:BRKR-190515-20:05:01 FROM:BC41127 TO:BC41028 TEXT:RE: 0080
+HC BC92878 
+BC41028 
+LIC:EN091D
+
+2019051520050120190515200501
+
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>AEjcpjY0263SI</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:DUF MSID:BRKR-190515-20:05:01 FROM:BC41127 TO:BC41027 TEXT:
+DL:6833151/DATE:190515/
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>8Ejcpmm01e3Ag</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:MUF MSID:BRKR-190515-20:05:03 FROM:BC41127 TO:BC41028 TEXT:RE: 0103
+HC BC35144 
+BC41028 
+LIC:HX957C
+
+2019051520050320190515200503
+
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>8Ejcpq002e3As</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:MUF MSID:BRKR-190515-20:05:06 FROM:BC41127 TO:BC41028 TEXT:RE: 0116
+HC BC92404 
+BC41028 
+RNS:CAMERON/G1:JESSA/G2:/DOB:19890926
+
+2019051520050620190515200506
+
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>AEjcpuq02EriK</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:DUF MSID:BRKR-190515-20:05:08 FROM:BC41127 TO:BC41027 TEXT:
+DL:8025280/DATE:190515/
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>AEjcqNs01EriG</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:DUF MSID:BRKR-190515-20:05:27 FROM:BC41127 TO:BC41027 TEXT:
+DL:6362973/
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>AEjcqPU01PQYa</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:DUF MSID:BRKR-190515-20:05:27 FROM:BC41127 TO:BC41027 SUBJ:VT ENTRY TEXT:
+DL:3333432/
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>AEjcqVw010fD8</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:DUF MSID:BRKR-190515-20:05:31 FROM:BC41127 TO:BC41027 TEXT:
+DL:9172486/
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>8EjcqVw012wOU</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:MUF MSID:BRKR-190515-20:05:32 FROM:BC41127 TO:BC41028 TEXT:RE: 0373
+HC BC35206 
+BC41028 
+LIC:793XPL
+
+2019051520053120190515200531
+
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>AEjcqe001d7Ls</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:DUF MSID:BRKR-190515-20:05:36 FROM:BC41127 TO:BC41027 TEXT:
+DL:6434777/
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>8Ejcqfc01Pqfu</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:MUF MSID:BRKR-190515-20:05:38 FROM:BC41127 TO:BC41028 TEXT:RE: 0422
+HC BC91070 
+BC41028 
+LIC:PX937T
+
+2019051520053820190515200538
+
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>8EjcqhE01G7tW</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:MUF MSID:BRKR-190515-20:05:38 FROM:BC41127 TO:BC41028 TEXT:RE: 0424
+HC BC10360 
+BC41028 
+LIC:KH4428
+
+2019051520053820190515200538
+
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>AEjcqiq020H94</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:DUF MSID:BRKR-190515-20:05:39 FROM:BC41127 TO:BC41027 TEXT:
+DL:7843465/DATE:190515/
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>AEjcqiq010H94</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:DUF MSID:BRKR-190515-20:05:39 FROM:BC41127 TO:BC41027 TEXT:
+DL:7843465/
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>AEjcqqu02IzR8</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:DUF MSID:BRKR-190515-20:05:44 FROM:BC41127 TO:BC41027 TEXT:
+DL:7927559/DATE:190515/
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>AEjcqsW02buEk</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:DUF MSID:BRKR-190515-20:05:45 FROM:BC41127 TO:BC41027 SUBJ:DL INFO AJ15714026 TEXT:
+DL:5168213/
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>AEjcqu801Pqh0</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:DUF MSID:BRKR-190515-20:05:46 FROM:BC41127 TO:BC41027 TEXT:
+DL:2780015/
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>8Ejcqvk01W4m6</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:MUF MSID:BRKR-190515-20:05:47 FROM:BC41127 TO:BC41028 TEXT:RE: 0493
+HC BC92023 
+BC41028 
+LIC:FB671P
+
+2019051520054720190515200547
+
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>AEjcqvk01SB2u</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:DUF MSID:BRKR-190515-20:05:47 FROM:BC41127 TO:BC41027 TEXT:
+DL:1488010/
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>8EjcqxM01JeZk</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:MUF MSID:BRKR-190515-20:05:48 FROM:BC41127 TO:BC41027 TEXT:RE: 0509
+HC BC40940 
+BC41027 
+SNME:NEWMAN/G1:OLDSON/G2:MIKE/DOB:19900214
+
+2019051520054820190515200548
+
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>MSGID/5c44ffb6776e11e99139ac1e020900000000000000000000.NLTRAN/XQ.USORI/VACBP1500.QTYPE/L.NLCTL/*NN53791743</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:MUF MSID:BRKR-190515-20:05:49 FROM:IC80300 TO:BC41028 TEXT:RE: 0530
+HC IC80300 
+BC41028 
+LIC:DH130S
+
+2019051520054820190515200548
+
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>MSGID/5c580a52776e11e99139ac1e020900000000000000000000.NLTRAN/UQ.USORI/VACBP1500.QTYPE/L.NLCTL/*NN53786321</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:MUF MSID:BRKR-190515-20:05:49 FROM:IC80300 TO:BC41027 TEXT:RE: 0531
+HC IC80300 
+BC41027 
+SNME:DE/G1:ATRHUR/DOB:19500625
+
+2019051520054820190515200548
+
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>8Ejcr0a01E1bk</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:MUF MSID:BRKR-190515-20:05:52 FROM:BC41127 TO:BC41028 TEXT:RE: 0553
+HC BC91568 
+BC41028 
+LIC:599NPL
+
+2019051520055220190515200552
+
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>8Ejcr7201B0ZK</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:MUF MSID:BRKR-190515-20:05:54 FROM:BC41127 TO:BC41028 TEXT:RE: 0578
+HC BC35038 
+BC41028 
+LIC:DD629N
+
+2019051520055420190515200554
+
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>MSGID/5f287da2776e11e99139ac1e020900000000000000000000.NLTRAN/UQ.USORI/WAWSP9161.QTYPE/L.NLCTL/*05GK000AUH</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:MUF MSID:BRKR-190515-20:05:53 FROM:IC80300 TO:BC41027 TEXT:RE: 0538
+HC IC80300 
+BC41027 
+SNME:SINGHA/G1:WENDY/DOB:19740520
+
+2019051520055320190515200553
+
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>8Ejcr5Q01Wtty</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:MUF MSID:BRKR-190515-20:05:54 FROM:BC41127 TO:BC41028 TEXT:RE: 0581
+HC BC93261 
+BC41028 
+LIC:599NPL
+
+2019051520055420190515200554
+
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>AEjcrAG01TRwK</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:DUF MSID:BRKR-190515-20:05:56 FROM:BC41127 TO:BC41027 TEXT:
+DL:7378395/
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>8EjcrAG05TRwK</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:MUF MSID:BRKR-190515-20:05:56 FROM:BC41127 TO:BC41027 TEXT:RE: 0613
+HC BC20578 
+BC41027 
+SNME:SAMSON/G1:MERRY/DOB:19841010
+
+2019051520055620190515200556
+
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>AEjcrAG02TRwK</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:DUF MSID:BRKR-190515-20:05:57 FROM:BC41127 TO:BC41028 TEXT:
+ODN:7378395/
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>8Ejcr7201Rx2e</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:MUF MSID:BRKR-190515-20:05:56 FROM:BC41127 TO:BC41028 TEXT:RE: 0602
+HC BC93552 
+BC41028 
+LIC:HA349N
+
+2019051520055620190515200556
+
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>AEjcrAG03TRwK</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:DUF MSID:BRKR-190515-20:05:57 FROM:BC41127 TO:BC41027 TEXT:
+DL:7378395/DATE:190515/
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>AEjcrBs02VWfo</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:DUF MSID:BRKR-190515-20:05:57 FROM:BC41127 TO:BC41027 TEXT:
+DL:3133534/DATE:190515/
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>AEjcrDU01efQo</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:DUF MSID:BRKR-190515-20:05:58 FROM:BC41127 TO:BC41027 TEXT:
+DL:6956974/
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>AEjcrDU010fCI</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:DUF MSID:BRKR-190515-20:05:59 FROM:BC41127 TO:BC41027 TEXT:
+DL:3133534/
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>AEjcrBs01VWfo</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:DUF MSID:BRKR-190515-20:05:57 FROM:BC41127 TO:BC41027 TEXT:
+DL:3133534/
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>AEjcrF6020fCI</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:DUF MSID:BRKR-190515-20:05:59 FROM:BC41127 TO:BC41027 TEXT:
+DL:3133534/DATE:190515/
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>AEjcsKq01THGa</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:DUF MSID:BRKR-190515-20:06:01 FROM:BC41127 TO:BC41027 TEXT:
+DL:5359731/
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>AEjcsKq02THGa</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:DUF MSID:BRKR-190515-20:06:01 FROM:BC41127 TO:BC41027 TEXT:
+DL:5359731/DATE:190515/
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>8EjcsMS01NbH0</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:MUF MSID:BRKR-190515-20:06:02 FROM:BC41127 TO:BC41028 TEXT:RE: 0653
+HC BC91965 
+BC41028 
+LIC:EG019H
+
+2019051520060220190515200602
+
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>8EjcsO4015n7a</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:MUF MSID:BRKR-190515-20:06:03 FROM:BC41127 TO:BC41028 TEXT:RE: 0659
+HC BC12205 
+BC41028 
+LIC:FR566F
+
+2019051520060320190515200603
+
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>AEjcsPg022XUE</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:DUF MSID:BRKR-190515-20:06:04 FROM:BC41127 TO:BC41027 TEXT:
+DL:5993160/DATE:190515/
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>AEjcsUW01aTVg</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:DUF MSID:BRKR-190515-20:06:07 FROM:BC41127 TO:BC41027 TEXT:
+DL:8666194/
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>AEjcsUW02aTVg</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:DUF MSID:BRKR-190515-20:06:07 FROM:BC41127 TO:BC41027 TEXT:
+DL:8666194/DATE:190515/
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>8EjcsW801A8CS</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:MUF MSID:BRKR-190515-20:06:08 FROM:BC41127 TO:BC41028 TEXT:RE: 0707
+HC BC10208 
+BC41028 
+RNS:TOWNSEND/G1:GORDON/G2:/DOB:19480107
+
+2019051520060720190515200608
+
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>AEjcsW802dAz0</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:DUF MSID:BRKR-190515-20:06:08 FROM:BC41127 TO:BC41027 TEXT:
+DL:6301397/DATE:190515/
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>AEjcsW8025jRc</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:DUF MSID:BRKR-190515-20:06:08 FROM:BC41127 TO:BC41027 TEXT:
+DL:8894204/DATE:190515/
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>8Ejcsca01G7vm</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:MUF MSID:BRKR-190515-20:06:12 FROM:BC41127 TO:BC41027 TEXT:RE: 0739
+HC BC40960 
+BC41027 
+SNME:QUARK/G1:DOWNY/DOB:19631026
+
+2019051520061220190515200612
+
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>AEjcseC010qCk</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:DUF MSID:BRKR-190515-20:06:13 FROM:BC41127 TO:BC41027 TEXT:
+DL:6096530/
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>AEjcsfo01SB5M</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:DUF MSID:BRKR-190515-20:06:14 FROM:BC41127 TO:BC41027 TEXT:
+DL:6838514/
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>AEjcsfo02SB5M</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:DUF MSID:BRKR-190515-20:06:14 FROM:BC41127 TO:BC41027 TEXT:
+DL:6838514/DATE:190515/
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>AEjcske01N7Aq</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:DUF MSID:BRKR-190515-20:06:17 FROM:BC41127 TO:BC41027 TEXT:
+DL:6645894/
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>8EjcsmG01Q9fs</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:MUF MSID:BRKR-190515-20:06:18 FROM:BC41127 TO:BC41028 TEXT:RE: 0808
+HC BC35073 
+BC41028 
+LIC:HP338P
+
+2019051520061820190515200618
+
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>AEjcsmG01Gdo2</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:DUF MSID:BRKR-190515-20:06:18 FROM:BC41127 TO:BC41027 TEXT:
+DL:7378395/
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>AEjcsr601Q9c8</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:DUF MSID:BRKR-190515-20:06:22 FROM:BC41127 TO:BC41027 TEXT:
+DL:7807207/
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>8Ejcsvw019xr2</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:MUF MSID:BRKR-190515-20:06:24 FROM:BC41127 TO:BC41028 TEXT:RE: 0840
+HC BC41003 
+BC41028 
+LIC:GR557K
+
+2019051520062420190515200624
+
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>8Ejcsvw01OySm</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:MUF MSID:BRKR-190515-20:06:25 FROM:BC41127 TO:BC41028 TEXT:RE: 0843
+HC BC91070 
+BC41028 
+LIC:DK574R
+
+2019051520062420190515200624
+
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>AEjcsxY02DaR4</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:DUF MSID:BRKR-190515-20:06:25 FROM:BC41127 TO:BC41027 TEXT:
+DL:3026477/DATE:190515/
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>AEjct0m01XHP6</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:DUF MSID:BRKR-190515-20:06:27 FROM:BC41127 TO:BC41027 TEXT:
+DL:3626866/
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>AEjct5c01dm96</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:DUF MSID:BRKR-190515-20:06:30 FROM:BC41127 TO:BC41027 TEXT:
+DL:6075828/
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>8EjctAS013NGG</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:MUF MSID:BRKR-190515-20:06:34 FROM:BC41127 TO:BC41028 TEXT:RE: 0937
+HC BC35200 
+BC41028 
+LIC:AX083P
+
+2019051520063320190515200633
+
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>AEjctDg026prY</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:DUF MSID:BRKR-190515-20:06:38 FROM:BC41127 TO:BC41027 TEXT:
+DL:7378395/DATE:190515/
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>AEjctIW01d7K4</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:DUF MSID:BRKR-190515-20:06:38 FROM:BC41127 TO:BC41027 TEXT:
+DL:7410322/
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>AEjctIW02d7K4</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:DUF MSID:BRKR-190515-20:06:40 FROM:BC41127 TO:BC41027 TEXT:
+DL:7410322/DATE:190515/
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>8EjctOy01REug</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:MUF MSID:BRKR-190515-20:06:42 FROM:BC41127 TO:BC41028 TEXT:RE: 1004
+HC BC92026 
+BC41028 
+LIC:EF578L
+
+2019051520064220190515200642
+
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>AEjctTo02cVw6</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:DUF MSID:BRKR-190515-20:06:46 FROM:BC41127 TO:BC41027 TEXT:
+DL:3140872/DATE:190515/
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>8EjctVQ01REte</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:MUF MSID:BRKR-190515-20:06:47 FROM:BC41127 TO:BC41027 TEXT:RE: 1038
+HC BC10360 
+BC41027 
+SNME:EDMUNSTION/G1:JACKSON/DOB:19800731
+
+2019051520064720190515200647
+
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>8Ejctbs02aCzw</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:MUF MSID:BRKR-190515-20:06:50 FROM:BC41127 TO:BC41027 TEXT:RE: 1056
+HC BC35206 
+BC41027 
+SNME:PETERSON/G1:MIKEL:/DOB:19790326
+
+2019051520065020190515200650
+
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>8Ejctf601Eddy</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:MUF MSID:BRKR-190515-20:06:52 FROM:BC41127 TO:BC41028 TEXT:RE: 1068
+HC BC91071 
+BC41028 
+LIC:GJ034F
+
+2019051520065220190515200652
+
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>HEjctlY01Bj78</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:DUF MSID:BRKR-190515-20:06:56 FROM:BC41127 TO:BC41027 TEXT:
+DL:1683128/
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>AEjcuuW01dfOG</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:DUF MSID:BRKR-190515-20:07:00 FROM:BC41127 TO:BC41027 TEXT:
+DL:7490600/
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>AEjcuuW02KdiK</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:DUF MSID:BRKR-190515-20:07:00 FROM:BC41127 TO:BC41027 TEXT:
+DL:0510616/DATE:190515/
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>AEjcv0y01RcaM</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:DUF MSID:BRKR-190515-20:07:04 FROM:BC41127 TO:BC41027 TEXT:
+DL:9238128/
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>8Ejcv0y01QTJc</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:MUF MSID:BRKR-190515-20:07:05 FROM:BC41127 TO:BC41028 TEXT:RE: 1161
+HC BC35087 
+BC41028 
+LIC:DH061J
+
+2019051520070420190515200704
+
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>8Ejcv2a01K5X6</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:MUF MSID:BRKR-190515-20:07:05 FROM:BC41127 TO:BC41028 TEXT:RE: 1168
+HC BC35087 
+BC41028 
+LIC:LY0265
+
+2019051520070520190515200705
+
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>8Ejcv7Q017QOi</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:MUF MSID:BRKR-190515-20:07:09 FROM:BC41127 TO:BC41028 TEXT:RE: 1200
+HC BC10644 
+BC41028 
+LIC:HS612L
+
+2019051520070820190515200708
+
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>AEjcvAe01aeGm</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:DUF MSID:BRKR-190515-20:07:10 FROM:BC41127 TO:BC41027 TEXT:
+DL:7799325/
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>AEjcvDs01bfmu</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:DUF MSID:BRKR-190515-20:07:12 FROM:BC41127 TO:BC41027 TEXT:
+DL:4282775/
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>AEjcvDs019ZtO</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:DUF MSID:BRKR-190515-20:07:13 FROM:BC41127 TO:BC41028 SUBJ:19-826 TEXT:
+G1:SAHARSH/DOB:19960828/
+SNME:BARANASON/
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>AEjcvDs02bCVa</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:DUF MSID:BRKR-190515-20:07:13 FROM:BC41127 TO:BC41027 TEXT:
+DL:0886415/DATE:190515/
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>8EjcvH601HL96</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:MUF MSID:BRKR-190515-20:07:15 FROM:BC41127 TO:BC41028 TEXT:RE: 1242
+HC BC92632 
+BC41028 
+LIC:GH031N
+
+2019051520071420190515200714
+
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>8EjcvNY01ZvSO</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:MUF MSID:BRKR-190515-20:07:18 FROM:BC41127 TO:BC41028 TEXT:RE: 1283
+HC BC92026 
+BC41028 
+LIC:104PMA
+
+2019051520071820190515200718
+
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>8EjcvPA01RRwe</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:MUF MSID:BRKR-190515-20:07:19 FROM:BC41127 TO:BC41028 TEXT:RE: 1290
+HC BC93054 
+BC41028 
+LIC:EF4736
+
+2019051520071920190515200719
+
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>8EjcvQm01aeHw</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:MUF MSID:BRKR-190515-20:07:20 FROM:BC41127 TO:BC41028 TEXT:RE: 1298
+HC BC92319 
+BC41028 
+LIC:680PAV
+
+2019051520072020190515200720
+
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>AEjcvXE02C6H0</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:DUF MSID:BRKR-190515-20:07:24 FROM:BC41127 TO:BC41027 TEXT:
+DL:8773800/DATE:190515/
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>AEjcvXE01FyvK</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:DUF MSID:BRKR-190515-20:07:24 FROM:BC41127 TO:BC41027 TEXT:
+DL:0149823/
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>AEjcvYq01QQK0</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:DUF MSID:BRKR-190515-20:07:27 FROM:BC41127 TO:BC41027 TEXT:
+DL:3056279/
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>AEjcvYq02QQK0</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:DUF MSID:BRKR-190515-20:07:28 FROM:BC41127 TO:BC41027 TEXT:
+DL:3056279/DATE:190515/
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>AEjcviW01C7Bw</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:DUF MSID:BRKR-190515-20:07:31 FROM:BC41127 TO:BC41027 TEXT:
+DL:6908090/
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>AEjcw0G02TNY8</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:DUF MSID:BRKR-190515-20:07:42 FROM:BC41127 TO:BC41028 TEXT:
+ODN:6064450/
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>AEjcwEm03buEk</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:DUF MSID:BRKR-190515-20:07:51 FROM:BC41127 TO:BC41027 SUBJ:DL INFO AJ11331717 TEXT:
+DL:4564415/
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>8EjcwLE01Bpc8</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:MUF MSID:BRKR-190515-20:07:55 FROM:BC41127 TO:BC41028 TEXT:RE: 1588
+HC BC11487 
+BC41028 
+LIC:928GTA
+
+2019051520075520190515200755
+
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>AEjcwQ401BpcI</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:DUF MSID:BRKR-190515-20:07:58 FROM:BC41127 TO:BC41027 TEXT:
+DL:6659038/
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>8EjcxVo01GWdE</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:MUF MSID:BRKR-190515-20:08:00 FROM:BC41127 TO:BC41028 TEXT:RE: 1654
+HC BC35320 
+BC41028 
+LIC:650XVP
+
+2019051520080020190515200800
+
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>8EjcxVo01Rtds</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:MUF MSID:BRKR-190515-20:08:00 FROM:BC41127 TO:BC41028 TEXT:RE: 1663
+HC BC92319 
+BC41028 
+LIC:860PAV
+
+2019051520080020190515200800
+
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>AEjcxae01C0Ae</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:DUF MSID:BRKR-190515-20:08:03 FROM:BC41127 TO:BC41027 TEXT:
+DL:8874708/
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>AEjcxae02IYOQ</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:DUF MSID:BRKR-190515-20:08:03 FROM:BC41127 TO:BC41027 TEXT:
+DL:8788782/DATE:190515/
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>AEjcxcG01YA6S</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:DUF MSID:BRKR-190515-20:08:04 FROM:BC41127 TO:BC41027 TEXT:
+DL:5759750/
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>8EjcxcG01THIu</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:MUF MSID:BRKR-190515-20:08:04 FROM:BC41127 TO:BC41028 TEXT:RE: 1686
+HC BC94213 
+BC41028 
+LIC:LM3470
+
+2019051520080420190515200804
+
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>AEjcxae026OQo</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:DUF MSID:BRKR-190515-20:08:04 FROM:BC41127 TO:BC41027 TEXT:
+DL:3936736/DATE:190515/
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>AEjcxfU01Mj66</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:DUF MSID:BRKR-190515-20:08:06 FROM:BC41127 TO:BC41027 TEXT:
+DL:8100195/
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>AEjcxh6020H7u</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:DUF MSID:BRKR-190515-20:08:08 FROM:BC41127 TO:BC41027 TEXT:
+DL:5093208/DATE:190515/
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>8Ejcxii01fGMw</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:MUF MSID:BRKR-190515-20:08:08 FROM:BC41127 TO:BC41028 TEXT:RE: 1719
+HC BC91523 
+BC41028 
+LIC:599NPL
+
+2019051520080820190515200808
+
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>AEjcxnY02W4ky</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:DUF MSID:BRKR-190515-20:08:12 FROM:BC41127 TO:BC41027 TEXT:
+DL:3133534/DATE:190515/
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>AEjcxpA01ZoQK</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:DUF MSID:BRKR-190515-20:08:12 FROM:BC41127 TO:BC41027 TEXT:
+DL:3857640/
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>AEjcxvc01R4WE</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:DUF MSID:BRKR-190515-20:08:16 FROM:BC41127 TO:BC41027 TEXT:
+DL:9090673/
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>AEjcxvc03R4WE</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:DUF MSID:BRKR-190515-20:08:17 FROM:BC41127 TO:BC41027 TEXT:
+DL:9090673/DATE:190515/
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>8EjcxxE01Bq9k</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:MUF MSID:BRKR-190515-20:08:18 FROM:BC41127 TO:BC41028 TEXT:RE: 1801
+HC BC21214 
+BC41028 
+LIC:NH7606
+
+2019051520081720190515200817
+
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>AEjcy2401dAhg</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:DUF MSID:BRKR-190515-20:08:20 FROM:BC41127 TO:BC41027 TEXT:
+DL:8196928/
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>AEjcy3g01IzRk</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:DUF MSID:BRKR-190515-20:08:21 FROM:BC41127 TO:BC41027 TEXT:
+DL:7871457/
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>AEjcy3g01BqA4</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:DUF MSID:BRKR-190515-20:08:21 FROM:BC41127 TO:BC41027 TEXT:
+DL:9550785/
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>AEjcyA802DO0U</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:DUF MSID:BRKR-190515-20:08:25 FROM:BC41127 TO:BC41027 TEXT:
+DL:7510756/DATE:190515/
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>AEjcyA801dAi0</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:DUF MSID:BRKR-190515-20:08:25 FROM:BC41127 TO:BC41027 TEXT:
+DL:0896165/
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>8EjcyBk01LRt6</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:MUF MSID:BRKR-190515-20:08:27 FROM:BC41127 TO:BC41027 TEXT:RE: 1847
+HC BC10629 
+BC41027 
+SNME:TESTEY/G1:CAIN/DOB:20030905
+
+2019051520082620190515200826
+
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>8EjcyEy01JraO</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:MUF MSID:BRKR-190515-20:08:28 FROM:BC41127 TO:BC41028 TEXT:RE: 1861
+HC BC91315 
+BC41028 
+LIC:EJ131G
+
+2019051520082820190515200828
+
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>AEjcyLQ01VLgO</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:DUF MSID:BRKR-190515-20:08:32 FROM:BC41127 TO:BC41027 TEXT:
+DL:5756784/
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>8EjcyQG01PIjK</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:MUF MSID:BRKR-190515-20:08:35 FROM:BC41127 TO:BC41029 TEXT:RE: 1926
+UN BC10208 
+BC41029 
+SNME:TOWNSEND/G1:PETER/G2:VINCENT/
+DOB:19621105/REMARKS:XXXXX-INVESTIGATION/
+
+2019051520083520190515200835
+
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>AEjcyRs02CWE2</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:DUF MSID:BRKR-190515-20:08:36 FROM:BC41127 TO:BC41027 TEXT:
+DL:5013388/DATE:190515/
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>8EjcyTU01Gg1Y</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:MUF MSID:BRKR-190515-20:08:37 FROM:BC41127 TO:BC41028 TEXT:RE: 1960
+HC BC94184 
+BC41028 
+LIC:Y11713
+
+2019051520083720190515200837
+
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>AEjcyYK01BZ5s</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:DUF MSID:BRKR-190515-20:08:40 FROM:BC41127 TO:BC41027 TEXT:
+DL:7227331/
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>8Ejcyem017RMq</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:MUF MSID:BRKR-190515-20:08:44 FROM:BC41127 TO:BC41028 TEXT:RE: 2024
+HC BC41031 
+BC41028 
+LIC:FH270J
+
+2019051520084420190515200844
+
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>AEjcyi001ONN8</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:DUF MSID:BRKR-190515-20:08:47 FROM:BC41127 TO:BC41027 TEXT:
+DL:7771527/
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>8Ejcyjc015mwE</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:MUF MSID:BRKR-190515-20:08:47 FROM:BC41127 TO:BC41028 TEXT:RE: 2054
+HC BC35076 
+BC41028 
+LIC:PB579A
+
+2019051520084720190515200847
+
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>AEjcyoS0282j4</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:DUF MSID:BRKR-190515-20:08:50 FROM:BC41127 TO:BC41027 TEXT:
+DL:5273927/DATE:190515/
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>AEjcyuu01UNY6</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:DUF MSID:BRKR-190515-20:08:54 FROM:BC41127 TO:BC41027 TEXT:
+DL:5332414/
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>8Ejcyy8020Z8m</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:MUF MSID:BRKR-190515-20:08:57 FROM:BC41127 TO:BC41027 TEXT:RE: 2131
+HC BC11548 
+BC41027 
+SNME:BLAKE/G1:DONALD/AGE:30
+
+2019051520085620190515200857
+
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>AEjcz1M023NE4</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:DUF MSID:BRKR-190515-20:08:58 FROM:BC41127 TO:BC41027 TEXT:
+DL:4504455/DATE:190515/
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>8Ejd0AK01aWWM</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:MUF MSID:BRKR-190515-20:09:03 FROM:BC41127 TO:BC41027 TEXT:RE: 2175
+HC BC11056 
+BC41027 
+SNME:VAGNER/G1:ROBERT/DOB:19880614
+
+2019051520090220190515200902
+
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>AEjd0Bw01H76i</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:DUF MSID:BRKR-190515-20:09:03 FROM:BC41127 TO:BC41027 TEXT:
+DL:8277653/
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>8Ejd0FA01REpe</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:MUF MSID:BRKR-190515-20:09:05 FROM:BC41127 TO:BC41028 TEXT:RE: 2187
+HC BC35076 
+BC41028 
+LIC:019HKR
+
+2019051520090520190515200905
+
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>AEjd0IO02GDxC</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:DUF MSID:BRKR-190515-20:09:07 FROM:BC41127 TO:BC41027 TEXT:
+DL:0016130/DATE:190515/
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>AEjd0IO02eRHK</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:DUF MSID:BRKR-190515-20:09:08 FROM:BC41127 TO:BC41027 TEXT:
+DL:3265601/DATE:190515/
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>8Ejd0NE01eDsE</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:MUF MSID:BRKR-190515-20:09:10 FROM:BC41127 TO:BC41028 TEXT:RE: 2233
+HC BC35076 
+BC41028 
+LIC:PN584B
+
+2019051520091020190515200910
+
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>8Ejd0Tg01byjU</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:MUF MSID:BRKR-190515-20:09:15 FROM:BC41127 TO:BC41028 TEXT:RE: 2268
+HC BC35076 
+BC41028 
+LIC:HJ6651
+
+2019051520091420190515200914
+
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>AEjd0a801GWh2</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:DUF MSID:BRKR-190515-20:09:18 FROM:BC41127 TO:BC41027 TEXT:
+DL:5202910/
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>8Ejd0a802ZUMM</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:MUF MSID:BRKR-190515-20:09:18 FROM:BC41127 TO:BC41027 TEXT:RE: 2282
+HC BC10536 
+BC41027 
+SNME:BATON/G1:TOM/AGE:31
+
+2019051520091820190515200918
+
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>AEjd0ga01WApS</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:DUF MSID:BRKR-190515-20:09:22 FROM:BC41127 TO:BC41027 TEXT:
+DL:3193685/
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>AEjd0lQ01cRr0</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:DUF MSID:BRKR-190515-20:09:25 FROM:BC41127 TO:BC41027 TEXT:
+DL:6729543/
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>AEjd0lQ02cRr0</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:DUF MSID:BRKR-190515-20:09:25 FROM:BC41127 TO:BC41027 TEXT:
+DL:6729543/DATE:190515/
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>AEjd0n201RthC</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:DUF MSID:BRKR-190515-20:09:26 FROM:BC41127 TO:BC41027 TEXT:
+DL:3597388/
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>8Ejd0n201REti</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:MUF MSID:BRKR-190515-20:09:26 FROM:BC41127 TO:BC41028 TEXT:RE: 2349
+HC BC92836 
+BC41028 
+LIC:2246FW
+
+2019051520092620190515200926
+
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>AEjd0n202RthC</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:DUF MSID:BRKR-190515-20:09:26 FROM:BC41127 TO:BC41027 TEXT:
+DL:3597388/DATE:190515/
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>AEjd0rs01VLgg</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:DUF MSID:BRKR-190515-20:09:29 FROM:BC41127 TO:BC41027 TEXT:
+DL:7353381/
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>AEjd0yK01K556</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:DUF MSID:BRKR-190515-20:09:33 FROM:BC41127 TO:BC41027 TEXT:
+DL:2549952/
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>AEjd1BE0295g0</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:DUF MSID:BRKR-190515-20:09:41 FROM:BC41127 TO:BC41027 TEXT:
+DL:8571987/DATE:190515/
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>8Ejd1JI01IzR2</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:MUF MSID:BRKR-190515-20:09:46 FROM:BC41127 TO:BC41028 TEXT:RE: 2504
+HC BC92004 
+BC41028 
+LIC:EP113M
+
+2019051520094620190515200946
+
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>8Ejd1JI017Acu</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:MUF MSID:BRKR-190515-20:09:47 FROM:BC41127 TO:BC41028 TEXT:RE: 2505
+HC BC93181 
+BC41028 
+VIN:1FTEW1EF3GKF29092
+
+2019051520094620190515200946
+
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>AEjd1O801BP5c</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:DUF MSID:BRKR-190515-20:09:49 FROM:BC41127 TO:BC41027 TEXT:
+DL:6725462/
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>AEjd1RM017AdI</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:DUF MSID:BRKR-190515-20:09:51 FROM:BC41127 TO:BC41027 TEXT:
+DL:6103097/
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>AEjd1RM027AdI</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:DUF MSID:BRKR-190515-20:09:51 FROM:BC41127 TO:BC41027 TEXT:
+DL:6103097/DATE:190515/
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>AEjd1RM01MfUq</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:DUF MSID:BRKR-190515-20:09:51 FROM:BC41127 TO:BC41027 TEXT:
+DL:6103097/
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>8Ejd1RM01cmx6</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:MUF MSID:BRKR-190515-20:09:52 FROM:BC41127 TO:BC41028 TEXT:RE: 2561
+HC BC91568 
+BC41028 
+LIC:FE399L
+
+2019051520095120190515200951
+
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>8Ejd1RM02Fg8U</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:MUF MSID:BRKR-190515-20:09:52 FROM:BC41127 TO:BC41029 TEXT:RE: 2560
+UN BC91293 
+BC41029 
+SNME:THOMPSON/G1:THOMAZ/G2:JOSEPH/
+DOB:19960421/REMARKS:XXXXX-YYYYY-ZZZZZ-AAAA/
+
+2019051520095120190515200951
+
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>AEjd1RM02MfUq</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:DUF MSID:BRKR-190515-20:09:53 FROM:BC41127 TO:BC41027 TEXT:
+DL:6103097/DATE:190515/
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>AEjd1Ua01ZkR8</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:DUF MSID:BRKR-190515-20:09:54 FROM:BC41127 TO:BC41027 TEXT:
+DL:9379428/
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>AEjd1Xo01Gm5Q</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:DUF MSID:BRKR-190515-20:09:55 FROM:BC41127 TO:BC41027 TEXT:
+DL:7656589/
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>8Ejd1Xo01H77M</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:MUF MSID:BRKR-190515-20:09:55 FROM:BC41127 TO:BC41028 TEXT:RE: 2610
+HC BC11538 
+BC41028 
+LIC:HD952J
+
+2019051520095520190515200955
+
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>AEjd1ce014P6Y</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:DUF MSID:BRKR-190515-20:09:58 FROM:BC41127 TO:BC41027 TEXT:
+DL:0925495/
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>AEjd1ce024P6Y</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:DUF MSID:BRKR-190515-20:09:58 FROM:BC41127 TO:BC41027 TEXT:
+DL:0925495/DATE:190515/
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>AEjd1ce02Gx5C</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:DUF MSID:BRKR-190515-20:09:58 FROM:BC41127 TO:BC41027 TEXT:
+DL:6067137/DATE:190515/
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>8Ejd2lc01X0Za</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:MUF MSID:BRKR-190515-20:10:02 FROM:BC41127 TO:BC41028 TEXT:RE: 2662
+HC BC41014 
+BC41028 
+LIC:MC9130/LIC:MC9142/LIC:MT3070
+
+2019051520100220190515201002
+
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>AEjd2nE01d7VI</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:DUF MSID:BRKR-190515-20:10:03 FROM:BC41127 TO:BC41027 TEXT:
+DL:4282775/
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>8Ejd2nE05d7VI</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:MUF MSID:BRKR-190515-20:10:03 FROM:BC41127 TO:BC41027 TEXT:RE: 2695
+HC BC91293 
+BC41027 
+SNME:MACDOUGALL/G1:MARY/G2:ANNE/DOB:19641022
+
+2019051520100320190515201003
+
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>8Ejd2nE05d7VI</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:MUF MSID:BRKR-190515-20:10:03 FROM:BC41127 TO:BC41029 TEXT:RE: 2695
+UN BC91293 
+BC41029 
+SNME:MACDOUGALL/G1:ANNE/G2:MARY/
+DOB:19641022/REMARKS:ABCDEF/
+
+2019051520100320190515201003
+
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>||-268477267||||||P||||||||y||||||||||</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:DUF MSID:BRKR-190515-20:10:05 FROM:AB91859 TO:BC41027 TEXT:
+DL:4382203
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>AEjd2s401HL9y</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:DUF MSID:BRKR-190515-20:10:06 FROM:BC41127 TO:BC41027 TEXT:
+DL:3318617/
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>8Ejd2wu01HL8Y</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:MUF MSID:BRKR-190515-20:10:09 FROM:BC41127 TO:BC41028 TEXT:RE: 2763
+HC BC90444 
+BC41028 
+LIC:MY3315
+
+2019051520100920190515201009
+
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>AEjd308026bFw</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:DUF MSID:BRKR-190515-20:10:11 FROM:BC41127 TO:BC41027 TEXT:
+DL:3681503/DATE:190515/
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>8Ejd31k01NbEo</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:MUF MSID:BRKR-190515-20:10:12 FROM:BC41127 TO:BC41028 TEXT:RE: 2782
+HC BC91315 
+BC41028 
+LIC:MY3315
+
+2019051520101220190515201012
+
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>AEjd33M020qB8</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:DUF MSID:BRKR-190515-20:10:13 FROM:BC41127 TO:BC41027 TEXT:
+DL:6466449/DATE:190515/
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>AEjd33M021zos</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:DUF MSID:BRKR-190515-20:10:13 FROM:BC41127 TO:BC41027 TEXT:
+DL:5345696/DATE:190515/
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>AEjd36a02QjmS</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:DUF MSID:BRKR-190515-20:10:16 FROM:BC41127 TO:BC41027 TEXT:
+DL:6466449/DATE:190515/
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>MSGID/fd60d47e776e11e99139ac1e020900000000000000000000.NLTRAN/UQ.USORI/VTCBP6500.QTYPE/L.NLCTL/*NN53811541</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:MUF MSID:BRKR-190515-20:10:19 FROM:IC80300 TO:BC41027 TEXT:RE: 2886
+HC IC80300 
+BC41027 
+SNME:LAM/G1:DELBERT/DOB:19481001
+
+2019051520101920190515201019
+
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>8Ejd3Ee01fQem</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:MUF MSID:BRKR-190515-20:10:20 FROM:BC41127 TO:BC41028 TEXT:RE: 2863
+HC BC92302 
+BC41028 
+LIC:HX8951
+
+2019051520102020190515201020
+
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>AEjd3L601GWec</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:DUF MSID:BRKR-190515-20:10:24 FROM:BC41127 TO:BC41027 TEXT:
+DL:6932174/
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>8Ejd3Pw01SS9y</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:MUF MSID:BRKR-190515-20:10:27 FROM:BC41127 TO:BC41028 TEXT:RE: 2969
+HC BC92041 
+BC41028 
+LIC:FG822V
+
+2019051520102720190515201027
+
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>AEjd3rM01ZkRe</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:DUF MSID:BRKR-190515-20:10:44 FROM:BC41127 TO:BC41028 SUBJ:VT ENTRY TEXT:
+ODN:3414280/
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>8Ejd42e01DNQO</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:MUF MSID:BRKR-190515-20:10:52 FROM:BC41127 TO:BC41028 TEXT:RE: 3152
+HC BC91201 
+BC41028 
+LIC:611FJA
+
+2019051520105120190515201051
+
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>AEjd47U01DNQU</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:DUF MSID:BRKR-190515-20:10:54 FROM:BC41127 TO:BC41027 TEXT:
+DL:3711184/
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>8Ejd4Ai01Prgc</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:MUF MSID:BRKR-190515-20:10:56 FROM:BC41127 TO:BC41027 TEXT:RE: 3173
+HC BC92260 
+BC41027 
+SNME:HILL/G1:PHILLIP/DOB:19750414
+
+2019051520105620190515201056
+
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>8Ejd4Dw01bIgC</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:MUF MSID:BRKR-190515-20:10:58 FROM:BC41127 TO:BC41028 TEXT:RE: 3191
+HC BC94365 
+BC41028 
+LIC:HD952J
+
+2019051520105820190515201058
+
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>8Ejd4FY01e6CM</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:MUF MSID:BRKR-190515-20:10:59 FROM:BC41127 TO:BC41028 TEXT:RE: 3198
+HC BC94885 
+BC41028 
+LIC:GW617G
+
+2019051520105920190515201059
+
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>AEjd5LI025F0a</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:DUF MSID:BRKR-190515-20:11:01 FROM:BC41127 TO:BC41027 TEXT:
+DL:6067137/DATE:190515/
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>8Ejd5Mu01StB0</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:MUF MSID:BRKR-190515-20:11:02 FROM:BC41127 TO:BC41028 TEXT:RE: 3223
+HC BC91394 
+BC41028 
+LIC:MM9813
+
+2019051520110220190515201102
+
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>8Ejd5OW01WAnO</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:MUF MSID:BRKR-190515-20:11:03 FROM:BC41127 TO:BC41028 TEXT:RE: 3229
+HC BC91115 
+BC41028 
+LIC:981MHF
+
+2019051520110320190515201103
+
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>AEjd5OW018oeI</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:DUF MSID:BRKR-190515-20:11:03 FROM:BC41127 TO:BC41027 TEXT:
+DL:2549952/
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>AEjd5Rk01CpJw</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:DUF MSID:BRKR-190515-20:11:05 FROM:BC41127 TO:BC41027 TEXT:
+DL:0043234/
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>8Ejd5TM014qtk</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:MUF MSID:BRKR-190515-20:11:06 FROM:BC41127 TO:BC41028 TEXT:RE: 3266
+HC BC20441 
+BC41028 
+LIC:KK3642
+
+2019051520110620190515201106
+
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>8Ejd5Wa015W3E</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:MUF MSID:BRKR-190515-20:11:08 FROM:BC41127 TO:BC41028 TEXT:RE: 3280
+HC BC11150 
+BC41028 
+LIC:GP023B
+
+2019051520110820190515201108
+
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>AEjd5OW028oeI</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:DUF MSID:BRKR-190515-20:11:09 FROM:BC41127 TO:BC41027 TEXT:
+DL:2549952/DATE:190515/
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>HEjd5Zo012NU8</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:DUF MSID:BRKR-190515-20:11:10 FROM:BC41127 TO:BC41028 SUBJ:SA19-11763 TEXT:
+ODN:2151676/
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>AEjd5Zo01QZme</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:DUF MSID:BRKR-190515-20:11:11 FROM:BC41127 TO:BC41027 TEXT:
+DL:7133541/
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>AEjd5Wa01WAoK</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:DUF MSID:BRKR-190515-20:11:13 FROM:BC41127 TO:BC41027 TEXT:
+DL:7321134/
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>AEjd5Q802ZQLs</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:DUF MSID:BRKR-190515-20:11:15 FROM:BC41127 TO:BC41027 TEXT:
+DL:8370327/DATE:190515/
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>AEjd5Rk02CpJw</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:DUF MSID:BRKR-190515-20:11:15 FROM:BC41127 TO:BC41027 TEXT:
+DL:0043234/DATE:190515/
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>AEjd5Wa02WAoK</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:DUF MSID:BRKR-190515-20:11:17 FROM:BC41127 TO:BC41027 TEXT:
+DL:7321134/DATE:190515/
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>AEjd5YC02ZkUA</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:DUF MSID:BRKR-190515-20:11:18 FROM:BC41127 TO:BC41027 TEXT:
+DL:9213450/DATE:190515/
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>8Ejd5wO01ZkSa</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:MUF MSID:BRKR-190515-20:11:24 FROM:BC41127 TO:BC41028 TEXT:RE: 3519
+HC BC91315 
+BC41028 
+LIC:CT225J
+
+2019051520112420190515201124
+
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>AEjd62q01TzPW</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:DUF MSID:BRKR-190515-20:11:28 FROM:BC41127 TO:BC41027 TEXT:
+DL:5175502/
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>MSGID/28634f1c776f11e99139ac1e020900000000000000000000.NLTRAN/XQ.USORI/VACBP1500.QTYPE/L.NLCTL/*NN53820740</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:MUF MSID:BRKR-190515-20:11:31 FROM:IC80300 TO:BC41028 TEXT:RE: 3389
+HC IC80300 
+BC41028 
+LIC:EL179D
+
+2019051520113120190515201131
+
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>8Ejd6CW01Eh9u</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:MUF MSID:BRKR-190515-20:11:34 FROM:BC41127 TO:BC41028 TEXT:RE: 3607
+HC BC11513 
+BC41028 
+LIC:PX589M
+
+2019051520113420190515201134
+
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>FEjd6Fk01ZXNm</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:MUF MSID:BRKR-190515-20:11:36 FROM:BC41127 TO:BC41028 TEXT:RE: 3625
+HC BC41173 
+BC41028 
+LIC:PD915D
+
+2019051520113620190515201136
+
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>||492||||||P||2c008||58082||||y||||bc||inv||2c008, cst ostby jared (bf itu 587 888 52||||</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:MUF MSID:BRKR-190515-20:11:38 FROM:AB91859 TO:BC41028 TEXT:RE: 3646
+HC AB91859 
+BC41028 
+LIC:GS027S
+
+2019051520113720190515201137
+
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>AEjd6Iy02EAM4</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:DUF MSID:BRKR-190515-20:11:38 FROM:BC41127 TO:BC41027 TEXT:
+DL:5070995/DATE:190515/
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>8Ejd6Ka01W4l2</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:MUF MSID:BRKR-190515-20:11:40 FROM:BC41127 TO:BC41028 TEXT:RE: 3659
+HC BC90285 
+BC41028 
+LIC:KR7106
+
+2019051520113920190515201140
+
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>8Ejd6PQ02PiMg</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:MUF MSID:BRKR-190515-20:11:42 FROM:BC41127 TO:BC41027 TEXT:RE: 3678
+HC BC92454 
+BC41027 
+SNME:WOODS/G1:HENRY/DOB:19950304
+
+2019051520114220190515201142
+
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>AEjd6R2017RPw</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:DUF MSID:BRKR-190515-20:11:43 FROM:BC41127 TO:BC41027 TEXT:
+DL:7353976/
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>AEjd6R2027RPw</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:DUF MSID:BRKR-190515-20:11:43 FROM:BC41127 TO:BC41027 TEXT:
+DL:7353976/DATE:190515/
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>AEjd6R202W4k4</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:DUF MSID:BRKR-190515-20:11:43 FROM:BC41127 TO:BC41027 TEXT:
+DL:2384842/DATE:190515/
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>8Ejd6dw01XjOC</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:MUF MSID:BRKR-190515-20:11:52 FROM:BC41127 TO:BC41028 TEXT:RE: 3810
+HC BC11521 
+BC41028 
+LIC:804TRV
+
+2019051520115120190515201151
+
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>AEjd6hA02EJcm</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:DUF MSID:BRKR-190515-20:11:54 FROM:BC41127 TO:BC41027 TEXT:
+DL:2043558/DATE:190515/
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>AEjd6kO02IDpW</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:DUF MSID:BRKR-190515-20:11:55 FROM:BC41127 TO:BC41027 TEXT:
+DL:6591983/DATE:190515/
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>AEjd6m002bQ3o</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:DUF MSID:BRKR-190515-20:11:56 FROM:BC41127 TO:BC41027 TEXT:
+DL:8527582/DATE:190515/
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>8Ejd7uy01SB5u</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:MUF MSID:BRKR-190515-20:12:00 FROM:BC41127 TO:BC41028 TEXT:RE: 3876
+HC BC92553 
+BC41028 
+LIC:PL904A
+
+2019051520120020190515201200
+
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>8Ejd7zo01Q7jq</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:MUF MSID:BRKR-190515-20:12:03 FROM:BC41127 TO:BC41028 TEXT:RE: 3910
+HC BC94499 
+BC41028 
+LIC:DC0211
+
+2019051520120220190515201203
+
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>AEjd7zo021pPY</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:DUF MSID:BRKR-190515-20:12:03 FROM:BC41127 TO:BC41027 TEXT:
+DL:9022622/DATE:190515/
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>8Ejd7zo015Wgc</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:MUF MSID:BRKR-190515-20:12:03 FROM:BC41127 TO:BC41028 TEXT:RE: 3917
+HC BC35200 
+BC41028 
+LIC:CN004B
+
+2019051520120320190515201203
+
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>8Ejd89U01EaMm</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:MUF MSID:BRKR-190515-20:12:10 FROM:BC41127 TO:BC41028 TEXT:RE: 3966
+HC BC11423 
+BC41028 
+LIC:168TED
+
+2019051520120920190515201209
+
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>AEjd8Ci01dK4g</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:DUF MSID:BRKR-190515-20:12:12 FROM:BC41127 TO:BC41027 TEXT:
+DL:3606296/
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>AEjd8Fw02Ornw</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:DUF MSID:BRKR-190515-20:12:13 FROM:BC41127 TO:BC41027 TEXT:
+DL:8191051/DATE:190515/
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>||2420||||||P||3f003||52395||||y||||bc||inv||3f003, cpl gaal kevin (in lake louise til||||</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:MUF MSID:BRKR-190515-20:12:15 FROM:AB92017 TO:BC41028 TEXT:RE: 4008
+HC AB92017 
+BC41028 
+LIC:HP521B
+
+2019051520121520190515201215
+
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>MSGID/43a91c84776f11e99139ac1e020900000000000000000000.NLTRAN/UQ.USORI/VTCBP6500.QTYPE/L.NLCTL/*NN53819464</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:MUF MSID:BRKR-190515-20:12:17 FROM:IC80300 TO:BC41027 TEXT:RE: 3904
+HC IC80300 
+BC41027 
+SNME:ABC/G1:BOB/DOB:19670427
+
+2019051520121720190515201217
+
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>MSGID/4400b336776f11e99139ac1e020900000000000000000000.NLTRAN/UQ.USORI/VTCBP6500.QTYPE/L.NLCTL/*NN53819468</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:MUF MSID:BRKR-190515-20:12:17 FROM:IC80300 TO:BC41027 TEXT:RE: 3906
+HC IC80300 
+BC41027 
+SNME:DEAN/G1:JAMES/DOB:19670427
+
+2019051520121720190515201217
+
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>MSGID/4402511e776f11e99139ac1e020900000000000000000000.NLTRAN/UQ.USORI/VTCBP6500.QTYPE/L.NLCTL/*NN53819469</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:MUF MSID:BRKR-190515-20:12:17 FROM:IC80300 TO:BC41027 TEXT:RE: 3907
+HC IC80300 
+BC41027 
+SNME:ABC/G1:BOB/DOB:19670427
+
+2019051520121720190515201217
+
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>8Ejd8au017RMA</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:MUF MSID:BRKR-190515-20:12:26 FROM:BC41127 TO:BC41028 TEXT:RE: 4094
+HC BC41003 
+BC41028 
+LIC:LA5868
+
+2019051520122620190515201226
+
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>8Ejd8e801Gg1e</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:MUF MSID:BRKR-190515-20:12:28 FROM:BC41127 TO:BC41028 TEXT:RE: 4105
+HC BC94074 
+BC41028 
+LIC:PM764G
+
+2019051520122820190515201228
+
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>FEjd8fk01C7D4</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:MUF MSID:BRKR-190515-20:12:29 FROM:BC41127 TO:BC41027 TEXT:RE: 4115
+HC BC41100 
+BC41027 
+SNME:KLIPSCH/G1:LEN/DOB:19880508
+
+2019051520122920190515201229
+
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>AEjd8fk02TzOi</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:DUF MSID:BRKR-190515-20:12:29 FROM:BC41127 TO:BC41027 TEXT:
+DL:7432886/DATE:190515/
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>AEjd8iy02BI4M</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:DUF MSID:BRKR-190515-20:12:32 FROM:BC41127 TO:BC41027 TEXT:
+DL:6629779/DATE:190515/
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>8Ejd8xU01Erhq</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:MUF MSID:BRKR-190515-20:12:41 FROM:BC41127 TO:BC41028 TEXT:RE: 4211
+HC BC90285 
+BC41028 
+LIC:LC6429
+
+2019051520124020190515201240
+
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>AEjd93w025W2W</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:DUF MSID:BRKR-190515-20:12:44 FROM:BC41127 TO:BC41027 TEXT:
+DL:8988728/DATE:190515/
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>AEjd93w02IDGq</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:DUF MSID:BRKR-190515-20:12:45 FROM:BC41127 TO:BC41027 TEXT:
+DL:8619141/DATE:190515/
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>AEjd97A0EOkxg</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:DUF MSID:BRKR-190515-20:12:46 FROM:BC41127 TO:BC41028 SUBJ:AB5184 FOR ACCD ENTRY TEXT:
+RVL:845513634081303/
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>MSGID/5546001a776f11e99139ac1e020900000000000000000000.NLTRAN/UQ.USORI/VTCBP6500.QTYPE/L.NLCTL/*NN53825740</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:MUF MSID:BRKR-190515-20:12:46 FROM:IC80300 TO:BC41027 TEXT:RE: 4202
+HC IC80300 
+BC41027 
+SNME:FUNK/G1:LEE/DOB:19810525
+
+2019051520124620190515201246
+
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>AEjd9Gq013ul8</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:DUF MSID:BRKR-190515-20:12:52 FROM:BC41127 TO:BC41027 TEXT:
+DL:8619141/
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>AEjd9Gq033ul8</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:DUF MSID:BRKR-190515-20:12:53 FROM:BC41127 TO:BC41027 TEXT:
+DL:8619141/DATE:190515/
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>8EjdAWG028Xbs</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:MUF MSID:BRKR-190515-20:13:00 FROM:BC41127 TO:BC41027 TEXT:RE: 4376
+HC BC90624 
+BC41027 
+SNME:BRYCE/G1:TYLER/DOB:19980304
+
+2019051520130020190515201300
+
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>AEjdB2W01GjKm</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:DUF MSID:BRKR-190515-20:13:20 FROM:BC41127 TO:BC41027 TEXT:
+DL:7422865/
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>8EjdB7M1PO9eO</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:MUF MSID:BRKR-190515-20:13:23 FROM:BC41127 TO:BC41027 TEXT:RE: 4596
+HC BC11820 
+BC41027 
+SNME:BROWN/G1:RICHARD/DOB:19770810
+
+2019051520132220190515201323
+
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>AEjdBFQ01IYfO</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:DUF MSID:BRKR-190515-20:13:28 FROM:BC41127 TO:BC41028 SUBJ:19-10826 TEXT:
+LIC:FV665B/
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>AEjdBKG015n6S</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:DUF MSID:BRKR-190515-20:13:31 FROM:BC41127 TO:BC41027 TEXT:
+DL:0897881/
+]]></MsgFFmt></Body></Envelope>
+<?xml version="1.0" encoding="ISO-8859-1"?><Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><CPICVer>1.4</CPICVer><UDF>8EjdBfE01DNSE</UDF><MsgSrvc msgActn="Receive"/></Header><Body><MsgFFmt><![CDATA[SN:M00001-0001 MT:MUF MSID:BRKR-190515-20:13:44 FROM:BC41127 TO:BC41028 TEXT:RE: 4765
+HC BC91186 
+BC41028 
+LIC:ES805C
+
+2019051520134420190515201344
+
+]]></MsgFFmt></Body></Envelope>

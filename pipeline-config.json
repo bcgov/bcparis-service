@@ -20,7 +20,10 @@
 				"cloudProvider": "ocp",
 				"project": "xqb2qz-dev",
 				"type": "recreate",
-				"replicas": "1"
+				"replicas": "1",
+				"testing": {
+                    "enable": false
+                }
 			},
 			"ocpTestDeployment": {
 				"env": "test",

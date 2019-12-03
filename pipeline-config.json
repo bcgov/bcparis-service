@@ -1,6 +1,5 @@
 {
 	"externalConfig": {
-		"branch": "develop",
 		"credentials": "bcparis-jenkins-github"
 	},
 	"ciConfig": {

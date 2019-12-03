@@ -1,3 +1,3 @@
 #!groovy
-@Library('iamp-jenkins-shared-lib@develop') _
+@Library('iamp-jenkins-shared-lib@v1.1.1') _
 IampSpringServiceTLSInternalPipeline()

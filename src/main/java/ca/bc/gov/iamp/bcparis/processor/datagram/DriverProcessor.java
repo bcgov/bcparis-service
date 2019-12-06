@@ -40,7 +40,7 @@ public class DriverProcessor implements DatagramProcessor{
 			
 			List<String> responseParsed = requests.parallelStream()
 					.map(request -> icbcRepository.requestDetails(message, request))
-					.map( icbcResponse -> parseDriverResponse(icbcResponse))
+					.map( icbcResponse -> messageService.parseDriverResponse(icbcResponse))
 					.collect(Collectors.toList());
 				
 			final String response = String.join("\n\n", responseParsed); 
@@ -52,7 +52,7 @@ public class DriverProcessor implements DatagramProcessor{
 				
 		}catch (ICBCRestException e) {
 			String content = messageService.parseResponseError(e.getResponseContent());
-			content = parseDriverResponse(content);
+			content =  messageService.parseDriverResponse(content);
 			content = messageService.buildResponse(body, content);
 			body.setMsgFFmt(content);
 			throw e;
@@ -88,13 +88,5 @@ public class DriverProcessor implements DatagramProcessor{
 		return result;
 	}
 
-	private String parseDriverResponse(String icbcResponse) {
-		final String NEW_LINE = "\n";
-		icbcResponse = icbcResponse
-				.replaceAll("\\]\"", NEW_LINE)		// ]” are converted to newline
-				.replaceAll("\\]\\\\\"", NEW_LINE) 	// ]/” are converted to newline
-				.replaceAll("[^\\x00-\\x7F]+", "");
-		return messageService.escape(icbcResponse);
-	}
 	
 }

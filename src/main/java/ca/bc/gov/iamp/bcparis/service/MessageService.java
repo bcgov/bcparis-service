@@ -37,10 +37,10 @@ public class MessageService {
 	
 	public String buildResponse(final Body body, final String icbcResponse) {
 		
-		final String from = body.getCDATAAttribute("FROM");
-		final String to = body.getCDATAAttribute("TO");	
-		final String text = body.getCDATAAttribute("TEXT");
-		final String re = body.getCDATAAttribute("RE");
+		final String from = this.parseDriverResponse(body.getCDATAAttribute("FROM"));
+		final String to = this.parseDriverResponse(body.getCDATAAttribute("TO"));
+		final String text = this.parseDriverResponse(body.getCDATAAttribute("TEXT"));
+		final String re = this.parseDriverResponse(body.getCDATAAttribute("RE"));
 		
 		return schema
 				.replace("${from}", to)
@@ -76,6 +76,15 @@ public class MessageService {
 		
 		return Arrays.stream(detailsParsed.split("\n"))
 			.map( s->s.trim() ).collect(Collectors.joining("\n"));
+	}
+
+	public String parseDriverResponse(String icbcResponse) {
+		final String NEW_LINE = "\n";
+		icbcResponse = icbcResponse
+				.replaceAll("\\]\"", NEW_LINE)		// ]” are converted to newline
+				.replaceAll("\\]\\\\\"", NEW_LINE) 	// ]/” are converted to newline
+				.replaceAll("[^\\x00-\\x7F]+", "");
+		return this.escape(icbcResponse);
 	}
 	
 	private String cutFromSOAPResponse(final String message, final String start, final String end) {

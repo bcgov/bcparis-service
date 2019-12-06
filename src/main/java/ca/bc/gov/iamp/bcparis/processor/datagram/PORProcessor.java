@@ -58,7 +58,7 @@ public class PORProcessor {
 		}catch (PORRestException e) {
 			String content = messageService.parseResponseError(e.getResponseContent());
 			content = messageService.escape(content);
-			content = messageService.buildResponse(body, content);
+			content = buildResponse(message, content);
 			body.setMsgFFmt(content);
 			throw e;
 		}

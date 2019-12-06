@@ -42,11 +42,11 @@ public class VehicleProcessor implements DatagramProcessor{
 		
 			List<String> responseParsed = requests.parallelStream()
 				.map(request -> icbcRepository.requestDetails(message, request))
-				.map( icbcResponse -> parseVehicleResponse(icbcResponse))
+				.map( icbcResponse -> messageService.parseVehicleResponse(icbcResponse))
 				.collect(Collectors.toList());
 		
 			final String response = String.join("\n\n", responseParsed); 
-			final String msgFFmt = messageService.buildResponse(body, response);
+			final String msgFFmt = messageService.buildVehicleResponse(body, response);
 			
 			body.setMsgFFmt(msgFFmt);
 			
@@ -55,8 +55,8 @@ public class VehicleProcessor implements DatagramProcessor{
 			
 		}catch (ICBCRestException e) {
 			String content = messageService.parseResponseError(e.getResponseContent());
-			content = parseVehicleResponse(content);
-			content = messageService.buildResponse(body, content);
+			content = messageService.parseVehicleResponse(content);
+			content = messageService.buildVehicleResponse(body, content);
 			body.setMsgFFmt(content);
 			throw e;
 		}
@@ -145,16 +145,7 @@ public class VehicleProcessor implements DatagramProcessor{
 		return ( query.toUpperCase().startsWith("RVL") || query.toUpperCase().startsWith("RNS"))
 			? "JISTRN2" : "JISTRAN";
 	}
-	
-	private String parseVehicleResponse(String icbcResponse) {
-		final String NEW_LINE = "\n";
-		icbcResponse = icbcResponse
-				.replaceAll("\\$\"", NEW_LINE)	// $” are converted to newline
-				.replaceAll("\\$\\\\\"", NEW_LINE)	// $\” are converted to newline
-				.replaceAll("[^\\x00-\\x7F]+", "");
-		return messageService.escape(icbcResponse);
-	}
-	
+
 	/**
 	 * Returns Local Time in ICBC format
 	 * @return

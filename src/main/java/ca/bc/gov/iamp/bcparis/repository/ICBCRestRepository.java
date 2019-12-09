@@ -23,74 +23,65 @@ import ca.bc.gov.iamp.bcparis.repository.rest.BaseRest;
 @Repository
 public class ICBCRestRepository extends BaseRest {
 
-    private final Logger log = LoggerFactory.getLogger(ICBCRestRepository.class);
+	private final Logger log = LoggerFactory.getLogger(ICBCRestRepository.class);
 
-    @Value("${endpoint.icbc.rest}")
-    private String icbcUrl;
+	@Value("${endpoint.icbc.rest}")
+	private String icbcUrl;
 
-    @Value("${endpoint.icbc.rest.header.imsUserId}")
-    private String imsUserId;
+	@Value("${endpoint.icbc.rest.header.imsUserId}")
+	private String imsUserId;
 
-    @Value("${endpoint.icbc.rest.header.imsCredential}")
-    private String imsCredential;
+	@Value("${endpoint.icbc.rest.header.imsCredential}")
+	private String imsCredential;
 
-    @Value("${endpoint.icbc.rest.path.transaction}")
-    private String pathTransaction;
+	@Value("${endpoint.icbc.rest.path.transaction}")
+	private String pathTransaction;
 
-    @Value("${endpoint.icbc.rest.header.username}")
-    private String username;
+	@Value("${endpoint.icbc.rest.header.username}")
+	private String username;
 
-    @Value("${endpoint.icbc.rest.header.password}")
-    private String password;
+	@Value("${endpoint.icbc.rest.header.password}")
+	private String password;
 
-    @NewSpan("icbc")
-    public String requestDetails(final Layer7Message l7message, IMSRequest ims) {
-        try {
-            final String URL = icbcUrl + pathTransaction;
-            log.debug(String.format("Calling ICBC Rest Service. URL=%s, IMS=%s", URL, ims.imsRequest));
+	@NewSpan("icbc")
+	public String requestDetails(final Layer7Message l7message, IMSRequest ims) {
+		try {
+			final String URL = icbcUrl + pathTransaction;
+			log.debug(String.format("Calling ICBC Rest Service. URL=%s, IMS=%s", URL, ims.imsRequest ));
+			
+			HttpEntity<?> httpEntity = new HttpEntity<IMSRequest>(ims,  getHeaders(l7message, username, password));
+			
+			ResponseEntity<IMSResponse> response = getRestTemplate().postForEntity(URL, httpEntity, IMSResponse.class);
+			
+			assertResponse(HttpStatus.OK, response.getStatusCode(), response.getBody().toString() );
+			
+			return response.getBody().getImsResponse();
+		}catch (HttpServerErrorException e) {
+			throw new ICBCRestException(
+				String.format("Message=%s\n Response Body=%s", e.getLocalizedMessage(), e.getResponseBodyAsString()),
+				e.getResponseBodyAsString(), e);
+		}
+		catch (Exception e) {
+			throw new ICBCRestException(
+				String.format("Message=%s", e.getLocalizedMessage()), 
+				e.getLocalizedMessage(), e);
+		}
+	}
 
-            HttpEntity<?> httpEntity = new HttpEntity<IMSRequest>(ims, getHeaders(l7message, username, password));
-
-            ResponseEntity<IMSResponse> response = getRestTemplate().postForEntity(URL, httpEntity, IMSResponse.class);
-
-            assertResponse(HttpStatus.OK, response.getStatusCode(), response.getBody().toString());
-
-            return response.getBody().getImsResponse();
-        } catch (HttpServerErrorException e) {
-            throw new ICBCRestException(
-                    String.format("Message=%s\n Response Body=%s", e.getLocalizedMessage(), e.getResponseBodyAsString()),
-                    e.getResponseBodyAsString(), e);
-        } catch (Exception e) {
-            throw new ICBCRestException(
-                    String.format("Message=%s", e.getLocalizedMessage()),
-                    e.getLocalizedMessage(), e);
-        }
-    }
-
-    public HttpHeaders getHeaders(final Layer7Message l7message, final String username, final String password) {
-        HttpHeaders headers = getHeadersWithBasicAuth(username, password);
-        headers.add("imsUserId", imsUserId);
-        headers.add("imsCredential", imsCredential);
-        headers.add("auditTransactionId", generateAuditTransactionId(l7message));
-        return headers;
-    }
-
-    private String generateAuditTransactionId(final Layer7Message l7message) {
-
-        if (l7message != null && l7message.getEnvelope() != null && l7message.getEnvelope().getMqmd() != null) {
-            MQMD mqmd = l7message.getEnvelope().getMqmd();
-            String messageIdByte = mqmd.getMessageIdByte();
-            String correlationIdByte = mqmd.getCorrelationIdByte();
-            if (messageIdByte != null && !messageIdByte.isEmpty()) {
-                messageIdByte = messageIdByte.replaceAll("\\s+", "");
-                return messageIdByte;
-            } else if(correlationIdByte !=null && !correlationIdByte.isEmpty()) {
-                correlationIdByte = correlationIdByte.replaceAll("\\s+", "");
-                return correlationIdByte;
-            }
-
-        }
-        return UUID.randomUUID().toString();
-    }
+	private HttpHeaders getHeaders(final Layer7Message l7message, final String username, final String password) {
+		HttpHeaders headers = getHeadersWithBasicAuth(username, password);
+		headers.add("imsUserId", imsUserId);
+		headers.add("imsCredential", imsCredential);
+		headers.add("auditTransactionId", generateAuditTransactionId(l7message));
+		return headers;
+	}
+	
+	private String generateAuditTransactionId(final Layer7Message l7message){
+		if(l7message != null && l7message.getEnvelope() != null  && l7message.getEnvelope().getMqmd() != null){
+			MQMD mqmd = l7message.getEnvelope().getMqmd();
+			return String.format("[messageIdByte:%s | correlationIdByte:%s] ", mqmd.getMessageIdByte(), mqmd.getCorrelationIdByte());
+		}
+		return UUID.randomUUID().toString();
+	}
 
 }

@@ -36,13 +36,13 @@ public class MessageService {
 	}
 
 	public String buildResponse(final Body body, final String icbcResponse) {
-		final String from = this.parseResponse(body.getCDATAAttribute("FROM"));
-		final String to = this.parseResponse(body.getCDATAAttribute("TO"));
+		final String receiver = this.parseResponse(body.getCDATAAttribute("FROM")); //This becomes the receiver of the message
+		final String sender = this.parseResponse(body.getCDATAAttribute("TO")); //This will become the sender
 		final String text = this.parseResponse(body.getCDATAAttribute("TEXT"));
 		final String re = this.parseResponse(body.getCDATAAttribute("RE"));
 		return schema
-				.replace("${from}", to) //TODO: Clarify why from is to and to is from. This may be a variable name change.
-				.replace("${to}", from)
+				.replace("${from}", sender)
+				.replace("${to}", receiver)
 				.replace("${text}", text)
 				.replace("${re}",  body.containAttribute("RE") ? "RE:" + re : "")
 				.replace("${icbc_response}", icbcResponse);

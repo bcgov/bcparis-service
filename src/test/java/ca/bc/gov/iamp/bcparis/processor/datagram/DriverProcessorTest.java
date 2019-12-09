@@ -73,7 +73,43 @@ public class DriverProcessorTest {
 				"       ";
 		Assert.assertEquals(expectedParsed, icbcResponse.getEnvelope().getBody().getMsgFFmt());
 	}
-	
+
+
+	@Test
+	public void process_special_chars() {
+		final String mockICBCResponse = TestUtil.readFile("ICBC/response-driver-special-chars");
+		final Layer7Message message = BCPARISTestUtil.getMessageDriverSNME();
+
+		Mockito.when(icbc.requestDetails(Mockito.any(Layer7Message.class), Mockito.any(IMSRequest.class)))
+				.thenReturn(mockICBCResponse);
+
+		final Layer7Message icbcResponse = processor.process(message);
+		final String expectedParsed = "SEND MT:M\n" +
+				"FMT:Y\n" +
+				"FROM:BC41027\n" +
+				"TO:BC41127\n" +
+				"TEXT:RE: 0509\n" +
+				"\n" +
+				" HC  BC41027\n" +
+				"BC41127\n" +
+				"RE  SNME:SMITH/G1:JANE/G2:MARY/DOB:19000101/SEX:F\n" +
+				"BCDL: 7088384       STATUS: NORMAL            PRIMARY DL STATUS:   NONE\n" +
+				"SMITH, JUDY MADELINE                          LEARNER DL STATUS:   NONE\n" +
+				"M/A BOX 195                                   TEMPORARY DL STATUS: NONE\n" +
+				"DUNCAN BC\n" +
+				"5175 TZOUHALEM RD                             LICENCE TYPE:CLIENT STUB\n" +
+				"V9L 3X3\n" +
+				"                                                OTHER JUR DL:\n" +
+				"                                                DL#:\n" +
+				"DOB: 1900-01-01  SEX: F     KEYWORD: TEST DATA\n" +
+				"EYE COLOUR:             HAIR COLOUR:\n" +
+				"    HEIGHT: 000 CM           WEIGHT:    0.0 KG\n" +
+				"\n" +
+				"\n" +
+				"END OF DRIVING RECORD.\n";
+		Assert.assertEquals(expectedParsed, icbcResponse.getEnvelope().getBody().getMsgFFmt());
+	}
+
 	@Test
 	public void create_ims_using_CNME_success() {
 		final Layer7Message message = BCPARISTestUtil.getMessageDriverSNME();

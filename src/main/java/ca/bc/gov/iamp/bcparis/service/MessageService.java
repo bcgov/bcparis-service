@@ -34,17 +34,15 @@ public class MessageService {
 		
 		throw new InvalidMessage("No valid query. Valid params: " + validAttributes);
 	}
-	
+
 	public String buildResponse(final Body body, final String icbcResponse) {
-		
-		final String from = body.getCDATAAttribute("FROM");
-		final String to = body.getCDATAAttribute("TO");	
-		final String text = body.getCDATAAttribute("TEXT");
-		final String re = body.getCDATAAttribute("RE");
-		
+		final String receiver = this.parseResponse(body.getCDATAAttribute("FROM")); //This becomes the receiver of the message
+		final String sender = this.parseResponse(body.getCDATAAttribute("TO")); //This will become the sender
+		final String text = this.parseResponse(body.getCDATAAttribute("TEXT"));
+		final String re = this.parseResponse(body.getCDATAAttribute("RE"));
 		return schema
-				.replace("${from}", to)
-				.replace("${to}", from)
+				.replace("${from}", sender)
+				.replace("${to}", receiver)
 				.replace("${text}", text)
 				.replace("${re}",  body.containAttribute("RE") ? "RE:" + re : "")
 				.replace("${icbc_response}", icbcResponse);
@@ -77,7 +75,19 @@ public class MessageService {
 		return Arrays.stream(detailsParsed.split("\n"))
 			.map( s->s.trim() ).collect(Collectors.joining("\n"));
 	}
-	
+
+	public String parseResponse(String icbcResponse) {
+		final String NEW_LINE = "\n";
+		icbcResponse = icbcResponse
+				.replaceAll("[^\\x00-\\x7F]+", "")
+				.replaceAll("\\\\u[0-9][0-9][0-9][0-9]", "")
+				.replaceAll("\\]\"", NEW_LINE)		// ]” are converted to newline
+				.replaceAll("\\]\\\\\"", NEW_LINE) 	// ]/” are converted to newline
+				.replaceAll("\\$\"", NEW_LINE)	// $” are converted to newline
+				.replaceAll("\\$\\\\\"", NEW_LINE);	// $\” are converted to newline
+
+		return this.escape(icbcResponse);
+	}
 	private String cutFromSOAPResponse(final String message, final String start, final String end) {
 		final int beginIndex = message.indexOf(start);
 		final int endIndex = message.indexOf(end);

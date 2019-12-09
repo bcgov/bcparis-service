@@ -73,6 +73,45 @@ public class VehicleProcessorTest {
 				"     CONTACT VEHICLE REGISTRATION &amp; LICENCING AT ICBC\n";
 		Assert.assertEquals(expectedParsed, icbcResponse.getEnvelope().getBody().getMsgFFmt());
 	}
+	@Test
+	public void proccess_success_specail_chars() {
+
+		final String mockICBCResponse = TestUtil.readFile("ICBC/response-vehicle-special-chars");
+		final Layer7Message message = BCPARISTestUtil.getMessageVehicleVIN();
+
+		Mockito.when(icbc.requestDetails(Mockito.any(Layer7Message.class), Mockito.any(IMSRequest.class)))
+				.thenReturn(mockICBCResponse);
+
+		final Layer7Message icbcResponse = processor.process(message);
+		String expectedParsed = "SEND MT:M\n" +
+				"FMT:Y\n" +
+				"FROM:BC41028\n" +
+				"TO:BC41127\n" +
+				"TEXT:RE: 2505\n" +
+				"\n" +
+				"HC BC41028\n" +
+				"BC41127\n" +
+				"RE VIN:110025/P:Y/RSVP:16\n" +
+				"FULL VIN           MAKE        MODEL  YEAR  REG\n" +
+				"AAAAP2450BY110025  DODGE       2WHDR  1981  07940335\n" +
+				"AAAAB23S9CK110025  DODGE              1982  07945896\n" +
+				"AAAAA21C634110025  SUZUKI      FORSA  1984  08021345\n" +
+				"AAAAY3187J5110025  CHEVROLET   CORVT  1988  10043896\n" +
+				"AAAAA35S2L5110025  SUZUKI      SWIFT  1990  06485491\n" +
+				"AAAAA34S0L5110025  SUZUKI      SWIFT  1990  06716641\n" +
+				"AAAAF52H7M1110025  SKIPPER            1991  06950618\n" +
+				"AAAAG0704PH110025  VOLKSWAGEN  TRANS  1993  08520937\n" +
+				"AAAAT2939SC110025  SPECIAL     SP&amp;SP  1995  09501294\n" +
+				"AAAAF13C6XU110025  TOYOTA      SIENA  1999  08946364\n" +
+				"AAAAC124X27110025  CHEVROLET   CAVAL  2002  00718278\n" +
+				"AAAAT18X75K110025  CHEVROLET   BLAZR  2005  02936978\n" +
+				"AAAAM72D95U110025  HYUNDAI     TUSON  2005  03053788\n" +
+				"AAAAT923475110025  TOYOTA      YARIS  2007  03743005\n" +
+				"AAAAA16458H110025  HONDA       CIVIC  2008  02381256\n" +
+				"     THERE ARE MORE POSSIBLE HITS.\n" +
+				"     CONTACT VEHICLE REGISTRATION &amp; LICENCING AT ICBC\n";
+		Assert.assertEquals(expectedParsed, icbcResponse.getEnvelope().getBody().getMsgFFmt());
+	}
 	
 	@Test
 	public void create_ims_using_VIN_success() {

@@ -41,7 +41,7 @@ public class MessageService {
 		final String text = this.parseResponse(body.getCDATAAttribute("TEXT"));
 		final String re = this.parseResponse(body.getCDATAAttribute("RE"));
 		return schema
-				.replace("${from}", to) // Why though
+				.replace("${from}", to) //TODO: Clarify why from is to and to is from. This may be a variable name change.
 				.replace("${to}", from)
 				.replace("${text}", text)
 				.replace("${re}",  body.containAttribute("RE") ? "RE:" + re : "")

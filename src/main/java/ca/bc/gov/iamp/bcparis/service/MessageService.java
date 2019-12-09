@@ -34,25 +34,14 @@ public class MessageService {
 		
 		throw new InvalidMessage("No valid query. Valid params: " + validAttributes);
 	}
-	public String buildVehicleResponse(final Body body, final String icbcResponse) {
-		final String from = this.parseVehicleResponse(body.getCDATAAttribute("FROM"));
-		final String to = this.parseVehicleResponse(body.getCDATAAttribute("TO"));
-		final String text = this.parseVehicleResponse(body.getCDATAAttribute("TEXT"));
-		final String re = this.parseVehicleResponse(body.getCDATAAttribute("RE"));
-		return this.buildResponse(from, to , text, re, body, icbcResponse);
-	}
 
-	public String buildDriverResponse(final Body body, final String icbcResponse) {
-		final String from = this.parseDriverResponse(body.getCDATAAttribute("FROM"));
-		final String to = this.parseDriverResponse(body.getCDATAAttribute("TO"));
-		final String text = this.parseDriverResponse(body.getCDATAAttribute("TEXT"));
-		final String re = this.parseDriverResponse(body.getCDATAAttribute("RE"));
-		return this.buildResponse(from, to , text, re, body, icbcResponse);
-	}
-
-	private String buildResponse(String from, String to, String text, String re,Body body, String icbcResponse) {
+	public String buildResponse(final Body body, final String icbcResponse) {
+		final String from = this.parseResponse(body.getCDATAAttribute("FROM"));
+		final String to = this.parseResponse(body.getCDATAAttribute("TO"));
+		final String text = this.parseResponse(body.getCDATAAttribute("TEXT"));
+		final String re = this.parseResponse(body.getCDATAAttribute("RE"));
 		return schema
-				.replace("${from}", to)
+				.replace("${from}", to) // Why though
 				.replace("${to}", from)
 				.replace("${text}", text)
 				.replace("${re}",  body.containAttribute("RE") ? "RE:" + re : "")
@@ -87,24 +76,16 @@ public class MessageService {
 			.map( s->s.trim() ).collect(Collectors.joining("\n"));
 	}
 
-	public String parseDriverResponse(String icbcResponse) {
+	public String parseResponse(String icbcResponse) {
 		final String NEW_LINE = "\n";
 		icbcResponse = icbcResponse
 				.replaceAll("[^\\x00-\\x7F]+", "")
 				.replaceAll("\\\\u[0-9][0-9][0-9][0-9]", "")
 				.replaceAll("\\]\"", NEW_LINE)		// ]” are converted to newline
-				.replaceAll("\\]\\\\\"", NEW_LINE); 	// ]/” are converted to newline
-
-		return this.escape(icbcResponse);
-	}
-
-	public String parseVehicleResponse(String icbcResponse) {
-		final String NEW_LINE = "\n";
-		icbcResponse = icbcResponse
-				.replaceAll("[^\\x00-\\x7F]+", "")
-				.replaceAll("\\\\u[0-9][0-9][0-9][0-9]", "")
+				.replaceAll("\\]\\\\\"", NEW_LINE) 	// ]/” are converted to newline
 				.replaceAll("\\$\"", NEW_LINE)	// $” are converted to newline
 				.replaceAll("\\$\\\\\"", NEW_LINE);	// $\” are converted to newline
+
 		return this.escape(icbcResponse);
 	}
 	private String cutFromSOAPResponse(final String message, final String start, final String end) {

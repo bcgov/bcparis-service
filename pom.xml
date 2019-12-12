@@ -7,7 +7,7 @@
 	<groupId>ca.bc.gov.bcparis</groupId>
 	<artifactId>bcparis-service</artifactId>
 	<name>BCPARIS Legacy Migration</name>
-	<version>1.0.2</version>
+	<version>1.0.3</version>
 
 	<parent>
 		<groupId>ca.bc.gov.iamp</groupId>

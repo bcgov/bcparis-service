@@ -30,8 +30,7 @@ public class MessageApi {
 	private ResponseEntity<Object> message( @RequestBody Layer7Message message ){
 		
 		log.info("Message received");
-		log.debug("Message content:\n" + message);
-		
+
 		context.setRequestObject(message);
 		
 		Object response = processor.processMessage(message);

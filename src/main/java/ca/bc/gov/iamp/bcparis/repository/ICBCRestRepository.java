@@ -47,7 +47,6 @@ public class ICBCRestRepository extends BaseRest {
     public String requestDetails(final Layer7Message l7message, IMSRequest ims) {
         try {
             final String URL = icbcUrl + pathTransaction;
-            log.debug(String.format("Calling ICBC Rest Service. URL=%s, IMS=%s", URL, ims.imsRequest));
 
             HttpEntity<?> httpEntity = new HttpEntity<IMSRequest>(ims, getHeaders(l7message, username, password));
 

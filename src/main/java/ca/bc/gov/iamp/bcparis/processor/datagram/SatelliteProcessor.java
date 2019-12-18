@@ -69,21 +69,6 @@ public class SatelliteProcessor {
 		
 		//BC41028 JISTRAN Single Lic
 		service.sendMessage(SCHEMA, VEHICLE_TO_URI, "LIC:PCG829/H");
-		
-		//BC41028 JISTRAN Single Reg
-		service.sendMessage(SCHEMA, VEHICLE_TO_URI, "REG:2156746");
-		
-		//BC41028 JISTRAN Single 8 digit Reg
-		service.sendMessage(SCHEMA, VEHICLE_TO_URI, "REG:02156746");
-		
-		//BC41028 JISTRAN string out commands
-		service.sendMessage(SCHEMA, VEHICLE_TO_URI, "LIC:233AWB/H/LIC:GVW143/H/LIC:007FJR/H/LIC:JXX477/");
-		
-		//BC41028 JISTRN2 RVL
-		service.sendMessage(SCHEMA, VEHICLE_TO_URI, "RVL:314208701580602/");
-		
-		//BC41028 JISTRN2 RNS
-		service.sendMessage(SCHEMA, VEHICLE_TO_URI, "RNS:SMITH/G1:JOHN/G2:/DOB:/");
 	}
 	
 	private void sendDriverMessages() {
@@ -91,15 +76,6 @@ public class SatelliteProcessor {
 		
 		//BC41027 DL:02000000 - No DATE:
 		service.sendMessage(SCHEMA, DRIVER_TO_URI, "DL:0200000");
-		
-		//BC41027  Single Lic - Null in Prod DL:4529693/DATE:20070122
-		service.sendMessage(SCHEMA, DRIVER_TO_URI, "DL:4529693/DATE:20070122");
-		
-		//BC41027 SNME
-		service.sendMessage(SCHEMA, DRIVER_TO_URI, "SNME:SMITH/G1:JOHN/");
-		
-		//BC41027 SNME with dob SEX
-		service.sendMessage(SCHEMA, DRIVER_TO_URI, "SNME:SMITH/G1:JOHN/DOB:19601208/SEX:M");
 	}
 	
 	private void sendPorMessages() {
@@ -107,12 +83,6 @@ public class SatelliteProcessor {
 		
 		//BC41029 - Cline - S
 		service.sendMessage(SCHEMA, POR_TO_URI, "SNME:CLINE/G1:Brian/G2:Edward");
-		
-		//BC41029 - Cline - P
-		service.sendMessage(SCHEMA, POR_TO_URI, "SNME:CLINE/G1:Drista");
-		
-		//BC41029 SNME:SMITH/G1:John
-		service.sendMessage(SCHEMA, POR_TO_URI, "SNME:SMITH/G1:John");
 	}
 
 	public void test(String uri, String query) {

@@ -27,9 +27,6 @@ public class BaseRest {
 	}
 	
 	public void assertResponse(final HttpStatus expected, final HttpStatus received, final String body) {
-		log.debug(String.format("Rest response-code=%s", received));
-		log.debug(String.format("Rest response-body=%s", body));
-		
 		if( received != expected) {
 			throw new ResponseCodeNotExpected(String.format(errorMessage, received, body));
 		}

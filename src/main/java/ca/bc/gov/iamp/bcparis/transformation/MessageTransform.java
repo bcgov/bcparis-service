@@ -24,8 +24,6 @@ public class MessageTransform {
 		message = removeCDATA(message);
 		message = parseCDATA(message);
 
-		log.debug("Message parsing completed. CDATA=" + message.getEnvelope().getBody().getCDATAAttributes());
-
 		return message;
 	}
 

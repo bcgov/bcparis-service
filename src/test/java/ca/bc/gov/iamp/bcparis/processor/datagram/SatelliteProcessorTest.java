@@ -41,23 +41,13 @@ public class SatelliteProcessorTest {
 	public void send_satellite_messages_success() {
 		
 		final List<String> expectedDriver = Arrays.asList(
-				"DL:0200000", 
-				"DL:4529693/DATE:20070122", 
-				"SNME:SMITH/G1:JOHN/", 
-				"SNME:SMITH/G1:JOHN/DOB:19601208/SEX:M");
+				"DL:0200000");
 		
 		final List<String> expectedVehicle = Arrays.asList(
-				"LIC:PCG829/H", 
-				"REG:2156746", 
-				"REG:02156746", 
-				"LIC:233AWB/H/LIC:GVW143/H/LIC:007FJR/H/LIC:JXX477/",
-				"RVL:314208701580602/",
-				"RNS:SMITH/G1:JOHN/G2:/DOB:/");
+				"LIC:PCG829/H");
 		
 		final List<String> expectedPOR = Arrays.asList(
-				"SNME:CLINE/G1:Brian/G2:Edward", 
-				"SNME:CLINE/G1:Drista", 
-				"SNME:SMITH/G1:John");
+				"SNME:CLINE/G1:Brian/G2:Edward");
 		
 		processor.sendSatelliteMessages();
 		

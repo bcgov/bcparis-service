@@ -31,3 +31,6 @@ hs_err_pid*
 *local.properties
 *local.yaml
 
+# ignore pom backup file
+
+pom.xml.versionsBackup

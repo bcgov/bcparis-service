@@ -1,17 +1,51 @@
-bcparis-service
-==================
+# bcparis-service
 
 The bcparis-service is standalone restfull service which process messages using others different systems.
 
+## Build
+
+Clone [iamp-commons](https://github.com/bcgov-c/iamp-commons)
+
+```
+git clone https://github.com/bcgov-c/iamp-commons.git
+```
+
+Install common-metrics
+
+```
+cd common-metrics
+mvn install
+```
+
+Install spring-boot-api-service
+
+```
+cd spring-boot-api-service
+mvn install
+```
+
+install [com.splunk.logging:splunk-library-javalogging](https://github.com/splunk/splunk-library-javalogging) v 1.6.2
+
+clone this repository 
+
+```
+git clone https://github.com/splunk/splunk-library-javalogging
+git checkout tags/1.6.2
+cd splunk-library-javalogging
+mvn install
+```
+
 
 ### Type of processed messages
+
 - POR - Oracle Protection Order Registry BC41029
 - Driver - ICBC BC41027
 - Vehicle - ICBC BC41028
 - Satellite - Check Performance/Round trip execution time
 
 ### Message Sample
-```
+
+```json
 {
    "Envelope":{
       "Header":{
@@ -47,11 +81,13 @@ The bcparis-service is standalone restfull service which process messages using 
 ```
 
 ### SWAGGER Endpoint
+
 Available on DEV environment.
 https://bcparis-service-xqb2qz-dev.pathfinder.bcgov/swagger-ui.html
 
 
 ### Endpoints
+
 **Message Endpoint**
 **PUT /api/v1/message**
 Process a message.
@@ -67,11 +103,25 @@ Send a Satellite Message.
 Send all the 13 Satellite Messages.
 
 ### High Level Design and Messages
+
 For more information about the High Level Design  and Messages check the confluence page.
 [https://justice.gov.bc.ca/wiki/display/APILM/7.3+High+Level+Design](https://justice.gov.bc.ca/wiki/display/APILM/7.3+High+Level+Design)
 
 
+## Versioning
+
+We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [release on this repository](https://github.com/bcgov/bcparis-service/releases). 
+
+### Update Version
+
+Run
+
+```
+mvn versions:set -DartifactId=*  -DgroupId=*
+```
+
 ### Copyright
+
  ```
 Copyright 2019 Province of British Columbia
 

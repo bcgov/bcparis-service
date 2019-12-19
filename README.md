@@ -26,8 +26,6 @@ mvn install
 
 install [com.splunk.logging:splunk-library-javalogging](https://github.com/splunk/splunk-library-javalogging) v 1.6.2
 
-clone this repository 
-
 ```
 git clone https://github.com/splunk/splunk-library-javalogging
 git checkout tags/1.6.2
@@ -35,6 +33,13 @@ cd splunk-library-javalogging
 mvn install
 ```
 
+clone this repository
+
+```
+git clone https://github.com/bcgov/bcparis-service
+cd bcparis-service
+mvn install
+```
 
 ### Type of processed messages
 

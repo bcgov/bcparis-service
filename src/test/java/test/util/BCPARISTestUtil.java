@@ -18,7 +18,16 @@ public class BCPARISTestUtil {
 	public static Layer7Message getMessageDriverMultipleParams() {
 		return getMessage("cdata/sample-driver-multiple-params");
 	}
-	
+
+	public static Layer7Message getInvalidDriverQuery() {
+		return getMessage("cdata/sample-invalid-driver");
+	}
+
+	public static Layer7Message getInvalidVehicleQuery() {
+		return getMessage("cdata/sample-invalid-vehicle");
+	}
+
+
 	public static Layer7Message getMessageVehicleVIN() {
 		return getMessage("cdata/sample-vehicle-vin");
 	}

@@ -29,13 +29,10 @@ public class MessageService {
 			result.addAll(body.getAttributeList(paramName));
 		}
 
-		if(result.size() > 0)
-			return result;
-		
-		throw new InvalidMessage("No valid query. Valid params: " + validAttributes);
+		return result;
 	}
 
-	public String buildResponse(final Body body, final String icbcResponse) {
+	public String buildResponse(final Body body, final String message) {
 		final String receiver = this.parseResponse(body.getCDATAAttribute("FROM")); //This becomes the receiver of the message
 		final String sender = this.parseResponse(body.getCDATAAttribute("TO")); //This will become the sender
 		final String text = this.parseResponse(body.getCDATAAttribute("TEXT"));
@@ -45,7 +42,7 @@ public class MessageService {
 				.replace("${to}", receiver)
 				.replace("${text}", text)
 				.replace("${re}",  body.containAttribute("RE") ? "RE:" + re : "")
-				.replace("${icbc_response}", icbcResponse);
+				.replace("${icbc_response}", message);
 	}
 	
 	public String escape(String message) {

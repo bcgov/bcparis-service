@@ -186,6 +186,19 @@ public class VehicleProcessorTest {
 	}
 
 	@Test
+	public void invalid_query() {
+		final Layer7Message message = BCPARISTestUtil.getInvalidVehicleQuery();
+
+		ArgumentCaptor<IMSRequest> argument = ArgumentCaptor.forClass(IMSRequest.class);
+		Mockito.when(icbc.requestDetails(Mockito.any(Layer7Message.class), argument.capture())).thenReturn("ICBC Response");
+
+		processor.process(message);
+
+		int count = StringUtils.countOccurrencesOf(message.getEnvelope().getBody().getMsgFFmt(), "Unable to parse/formatting error");
+		Assert.assertEquals(1, count);
+	}
+
+	@Test
 	public void error_during_ICBC_call() {
 		String errorContent = TestUtil.readFile("ICBC/response-error-2.xml");
 		

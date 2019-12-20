@@ -32,20 +32,20 @@ public class DriverProcessor implements DatagramProcessor{
 	
 	public Layer7Message process(Layer7Message message) {
 		log.info("Processing Driver message.");
-		
-		Body body = message.getEnvelope().getBody();
+
 		List<IMSRequest> requests = createIMSContent(message);
-		
+		if (requests.isEmpty()) {
+			message.getEnvelope().getBody().setMsgFFmt(messageService.buildResponse(message.getEnvelope().getBody(), "Unable to parse/formatting error"));
+			log.warn("Processing Driver: Unable to parse/formatting error");
+			return message;
+		}
 		try {
 			
 			List<String> responseParsed = requests.parallelStream()
 					.map(request -> icbcRepository.requestDetails(message, request))
 					.map( icbcResponse -> messageService.parseResponse(icbcResponse))
 					.collect(Collectors.toList());
-				
-			final String response = String.join("\n\n", responseParsed); 
-			final String msgFFmt = messageService.buildResponse(body, response);
-			body.setMsgFFmt(msgFFmt);
+			message.getEnvelope().getBody().setMsgFFmt(messageService.buildResponse(message.getEnvelope().getBody(), String.join("\n\n", responseParsed)));
 				
 			log.info("Driver message processing completed.");
 			return message;
@@ -53,8 +53,8 @@ public class DriverProcessor implements DatagramProcessor{
 		}catch (ICBCRestException e) {
 			String content = messageService.parseResponseError(e.getResponseContent());
 			content =  messageService.parseResponse(content);
-			content = messageService.buildResponse(body, content);
-			body.setMsgFFmt(content);
+			content = messageService.buildResponse(message.getEnvelope().getBody(), content);
+			message.getEnvelope().getBody().setMsgFFmt(content);
 			throw e;
 		}
 	}

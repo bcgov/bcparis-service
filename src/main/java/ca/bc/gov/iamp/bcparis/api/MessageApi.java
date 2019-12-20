@@ -35,16 +35,9 @@ public class MessageApi {
 
 		context.setRequestObject(message);
 		Object response = null;
-		try {
-			response = processor.processMessage(message);
-		} catch (InvalidMessage e) {
-			String respMessage =  String.format("%s %s",message.getEnvelope().getBody().getMsgFFmt(),"Unable to parse/formatting error");
 
-			message.getEnvelope().getBody().setMsgFFmt(respMessage);
-			response = message;
-		}
+		response = processor.processMessage(message);
 
-		
 		return ResponseEntity.ok(response);
 	}
 

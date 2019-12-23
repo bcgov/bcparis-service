@@ -1,0 +1,108 @@
+<form theme="dark">
+  <label>BC-PARIS</label>
+  <fieldset submitButton="false">
+    <input type="time" token="field1">
+      <label></label>
+      <default>
+        <earliest>-24h@h</earliest>
+        <latest>now</latest>
+      </default>
+    </input>
+    <input type="dropdown" token="env">
+      <label>environment</label>
+      <choice value="prod_paris">PROD</choice>
+      <choice value="test_paris">TEST</choice>
+      <initialValue>prod_paris</initialValue>
+      <default>prod_paris</default>
+    </input>
+  </fieldset>
+  <row>
+    <panel>
+      <title>Overall Activity</title>
+      <chart>
+        <search>
+          <query>index="$env$" properties.traceId!=NULL
+| timechart 
+dc(properties.traceId) AS distinctSpans BY severity</query>
+          <earliest>$field1.earliest$</earliest>
+          <latest>$field1.latest$</latest>
+        </search>
+        <option name="charting.chart">line</option>
+        <option name="charting.drilldown">none</option>
+        <option name="refresh.display">progressbar</option>
+      </chart>
+    </panel>
+  </row>
+  <row>
+    <panel>
+      <title>Composition by Severity</title>
+      <chart>
+        <search>
+          <query>index="$env$" properties.traceId != NULL
+| stats count(properties.traceId) AS Total By severity</query>
+          <earliest>$field1.earliest$</earliest>
+          <latest>$field1.latest$</latest>
+        </search>
+        <option name="charting.chart">pie</option>
+        <option name="charting.drilldown">none</option>
+        <option name="refresh.display">progressbar</option>
+      </chart>
+    </panel>
+    <panel>
+      <title>Total Request During Selected Period</title>
+      <single>
+        <search>
+          <query>index="prod_paris"  | stats dc(properties.traceId)</query>
+          <earliest>$field1.earliest$</earliest>
+          <latest>$field1.latest$</latest>
+        </search>
+        <option name="drilldown">none</option>
+      </single>
+    </panel>
+    <panel>
+      <title>Distribution by Type</title>
+      <chart>
+        <search>
+          <query>index="prod_paris" message="Processing*" | rex field=message "^Processing\s(?&lt;type&gt;.*)\smessage\.$" | stats count by type</query>
+          <earliest>$field1.earliest$</earliest>
+          <latest>$field1.latest$</latest>
+        </search>
+        <option name="charting.chart">column</option>
+        <option name="charting.drilldown">none</option>
+      </chart>
+    </panel>
+  </row>
+  <row>
+    <panel id="panel_error_log">
+      <title>Error in Period</title>
+      <html>
+         <style>
+           #panel_error_log .dashboard-panel {
+              border: 1px solid #d9534f!important;
+            }
+            
+            #panel_error_log  .panel-title {
+              color: #d9534f;
+            }
+         </style>
+      </html>
+      <table>
+        <search>
+          <query>index="$env$" properties.traceId!=NULL severity="ERROR"
+| dedup properties.traceId properties.messageId severity exception
+| table properties.traceId properties.messageId severity exception
+| fields properties.traceId properties.messageId severity exception
+| rename properties.traceId as "OpenTrace Id" properties.messageId as "Message Id" severity as "Status"</query>
+          <earliest>$field1.earliest$</earliest>
+          <latest>$field1.latest$</latest>
+        </search>
+        <option name="count">10</option>
+        <option name="drilldown">row</option>
+        <option name="refresh.display">progressbar</option>
+        <drilldown>
+          <link target="_blank">[zipkin-url]/zipkin/traces/$row.OpenTrace Id$</link>
+        </drilldown>
+      </table>
+    </panel>
+  </row>
+</form>

@@ -117,7 +117,7 @@ Set up the environment varialbles
 
 edit the application configuration and 
 
-Configure all the environment variables in `.env.template` file
+Configure all the environment variables in `.env.template` file.
 
 use the [SOAP UI collection](src/test/soapui/bcparis-service-soapui-project.xml) to interact with the service.
 Set up the project url to `http://localhost:8080`

@@ -34,3 +34,8 @@ hs_err_pid*
 # ignore pom backup file
 
 pom.xml.versionsBackup
+
+config
+
+# environemnt variables
+.env

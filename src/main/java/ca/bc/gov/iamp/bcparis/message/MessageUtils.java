@@ -34,12 +34,10 @@ public class MessageUtils {
     }};
 
     public static String GetValue(String message, String key) {
-
+        if (StringUtils.isEmpty(message)) return null;
         message = removeKnownEnd(message);
 
         HashSet<String> knownTokens = buildKnownTokens(key);
-
-        if (StringUtils.isEmpty(message)) return null;
 
         int startIndex = message.indexOf(key + SEMICOLLON);
         if (startIndex == -1) return null;

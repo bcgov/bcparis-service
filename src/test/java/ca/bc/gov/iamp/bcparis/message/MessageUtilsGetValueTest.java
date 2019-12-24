@@ -6,6 +6,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 
+import java.text.MessageFormat;
 import java.util.Arrays;
 import java.util.Collection;
 
@@ -16,12 +17,14 @@ public class MessageUtilsGetValueTest {
     public static Collection<Object[]> data() {
         return Arrays.asList(new Object[][]{
                 {
-                  "DL: TEST DL SNME: test smne TEXT: test text FLC: test flc",
+                  "DL: TEST DL SNME: test smne TEXT: test text FLC: test flcVIN:REG:",
                   new String [][] {
                           {"DL", " TEST DL "},
                           {"SNME", " test smne "},
                           {"TEXT", " test text "},
-                          {"FLC", " test flc"}
+                          {"FLC", " test flc"},
+                          {"VIN", ""},
+                          {"REG", ""}
                   }
                 },
                 {
@@ -31,11 +34,10 @@ public class MessageUtilsGetValueTest {
                                 {"DL", " 7088384       STATUS: NORMAL            PRIMARY DL STATUS:   NONE]\\\"SMITH, JUDY MADELINE                          LEARNER DL STATUS:   NONE]\\\"M/A BOX 195                                   TEMPORARY DL STATUS: NONE]\\\"DUNCAN BC]\\\"5175 TZOUHALEM RD                             LICENCE TYPE:CLIENT STUB]\\\"V9L 3X3]\\\"                                                OTHER JUR DL:]\\"}}
                 },
                 {
-                        "\rSN:M00001-0001 MT:MUF MSID:BRKR-191220-18:10:04\nFROM:BC41127\nTO:BC41027\nTEXT:BCPARIS Diagnostic Test SOAPUI 443 qwe20190703102453\nHC BC41127 BC41028 G1:JEREMY/ 2019120410145020191204101450\n  \r",
+                        "\\u000?345 <XMl>?>[[CDATA: \rSN:M00001-0001 MT:MUF MSID:BRKR-191220-18:10:04\nFROM:BC41127\nTO:BC41027\nTEXT:BCPARIS Diagnostic Test SOAPUI 443 qwe20190703102453\nHC BC41127 BC41028 G1:JEREMY/ 2019120410145020191204101450\n  \r",
                         new String[][]{
-                                {"RE", ""}
+                                {"RE", null}
                         }
-
                 }
         });
     }
@@ -56,7 +58,7 @@ public class MessageUtilsGetValueTest {
             String result = MessageUtils.GetValue(this.input, expected[i][0]);
 
             Assert.assertEquals(
-                    "Attribute Value different from input",
+                    MessageFormat.format("Attribute [{0}] Value different from input", expected[i][0]),
                     expected[i][1],
                     result);
         }

@@ -28,22 +28,20 @@ public class MessageServiceTest {
 		Assert.assertEquals(1,StringUtils.countOccurrencesOf(result, "FROM:BC41028\n"));
 		Assert.assertEquals(1,StringUtils.countOccurrencesOf(result, "TO:BC41127\n"));
 		Assert.assertEquals(1,StringUtils.countOccurrencesOf(result, "TEXT:RE: 8261\r\nHC BC11422\r\nBC41028\n\n"));
-		Assert.assertEquals(1,StringUtils.countOccurrencesOf(result, "FMT:Y\n"));
 		Assert.assertEquals(1,StringUtils.countOccurrencesOf(result,"Error"));
 	}
 	@Test
 	public void test_build_error_driver_response_with() {
-		final Layer7Message message = BCPARISTestUtil.getInvalidVehicleQuery();
+		final Layer7Message message = BCPARISTestUtil.getInvalidDriverQuery();
 		MessageService service = new MessageService();
 		String result = service.buildErrorResponse(message.getEnvelope().getBody(),"Error");
 
 
 		Assert.assertEquals(1, StringUtils.countOccurrencesOf(result, "SEND MT:M\n"));
 		Assert.assertEquals(1,StringUtils.countOccurrencesOf(result, "FMT:Y\n"));
-		Assert.assertEquals(1,StringUtils.countOccurrencesOf(result, "FROM:BC41028\n"));
+		Assert.assertEquals(1,StringUtils.countOccurrencesOf(result, "FROM:BC41027\n"));
 		Assert.assertEquals(1,StringUtils.countOccurrencesOf(result, "TO:BC41127\n"));
-		Assert.assertEquals(1,StringUtils.countOccurrencesOf(result, "TEXT: 8261\r\nHC BC11422\r\nBC41028\n\n"));
-		Assert.assertEquals(1,StringUtils.countOccurrencesOf(result, "FMT:Y\n"));
+		Assert.assertEquals(1,StringUtils.countOccurrencesOf(result, "TEXT:\\n\n\n"));
 		Assert.assertEquals(1,StringUtils.countOccurrencesOf(result,"Error"));
 	}
 }

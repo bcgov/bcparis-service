@@ -16,12 +16,14 @@ public class MessageUtilsEdgeCaseGetValueTest {
 
     @Test
     public void WithEmptyStringShouldReturnEmptyString() {
-        MessageUtils.GetValue("", Keys.REQUEST_SCHEMA_FROM_KEY);
+        String result = MessageUtils.GetValue("", Keys.REQUEST_SCHEMA_FROM_KEY);
+        Assert.assertNull(result);
     }
 
     @Test
     public void WithNullStringShouldReturnNullString() {
-        MessageUtils.GetValue(null, Keys.REQUEST_SCHEMA_FROM_KEY);
+        String result = MessageUtils.GetValue(null, Keys.REQUEST_SCHEMA_FROM_KEY);
+        Assert.assertNull(result);
     }
 
 }

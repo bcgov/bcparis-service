@@ -41,10 +41,10 @@ public class MessageUtils {
             throw new IllegalArgumentException("Key is not a known token.");
         }
 
-        if (StringUtils.isEmpty(message)) return "";
+        if (StringUtils.isEmpty(message)) return null;
 
         int startIndex = message.indexOf(key + SEMICOLLON);
-        if (startIndex == -1) return "";
+        if (startIndex == -1) return null;
 
         startIndex += key.length() + 1;
 

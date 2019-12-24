@@ -50,10 +50,10 @@ public class MessageService {
 
 	public String buildErrorResponse(final Body body, final String errorMessage) {
 		return schema
-				.replace("${from}", MessageUtils.GetValue(body.getMsgFFmt(),Keys.RESPONSE_SCHEMA_TO_KEY)) //Swap from and to for response
-				.replace("${to}", MessageUtils.GetValue(body.getMsgFFmt(),Keys.RESPONSE_SCHEMA_FROM_KEY)) //Swap from and to for response
-				.replace("${text}",  MessageUtils.GetValue(body.getMsgFFmt(),Keys.RESPONSE_SCHEMA_TEXT_KEY))
-				.replace("${re}",   MessageUtils.GetValue(body.getMsgFFmt(),Keys.RESPONSE_SCHEMA_RE_KEY))
+				.replace("${from}", MessageUtils.GetValue(body.getMsgFFmt(),Keys.REQUEST_SCHEMA_TO_KEY)) //Swap from and to for response
+				.replace("${to}", MessageUtils.GetValue(body.getMsgFFmt(),Keys.REQUEST_SCHEMA_FROM_KEY)) //Swap from and to for response
+				.replace("${text}",  MessageUtils.GetValue(body.getMsgFFmt(),Keys.REQUEST_SCHEMA_TEXT_KEY))
+				.replace("${re}",   MessageUtils.GetValue(body.getMsgFFmt(),Keys.REQUEST_SCHEMA_RE_KEY))
 				.replace("${icbc_response}", errorMessage);
 	}
 

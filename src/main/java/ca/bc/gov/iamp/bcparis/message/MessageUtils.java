@@ -8,30 +8,32 @@ import java.util.Set;
 
 public class MessageUtils {
 
-    public static final String SEMICOLLON = ":";
+    private static final String SEMICOLLON = ":";
+
+    private static HashSet<String> KNOWN_TOKENS = new HashSet<String>() {{
+        add(Keys.REQUEST_SCHEMA_SN_KEY);
+        add(Keys.REQUEST_SCHEMA_MT_KEY);
+        add(Keys.REQUEST_SCHEMA_MSID_KEY);
+        add(Keys.REQUEST_SCHEMA_FROM_KEY);
+        add(Keys.REQUEST_SCHEMA_TO_KEY);
+        add(Keys.REQUEST_SCHEMA_SUBJ_KEY);
+        add(Keys.REQUEST_SCHEMA_TEXT_KEY);
+        add(Keys.REQUEST_SCHEMA_RE_KEY);
+        add(Keys.REQUEST_SCHEMA_SNME_KEY);
+        add(Keys.REQUEST_SCHEMA_DL_KEY);
+        add(Keys.REQUEST_SCHEMA_LIC_KEY);
+        add(Keys.REQUEST_SCHEMA_ODN_KEY);
+        add(Keys.REQUEST_SCHEMA_FLC_KEY);
+        add(Keys.REQUEST_SCHEMA_VIN_KEY);
+        add(Keys.REQUEST_SCHEMA_REG_KEY);
+        add(Keys.REQUEST_SCHEMA_RNS_KEY);
+        add(Keys.REQUEST_SCHEMA_RVL_KEY);
+        add(Keys.REQUEST_SCHEMA_TEST_RNS_KEY);
+    }};
 
     public static String GetValue(String message, String key) {
 
-        HashSet<String> knownTokens = new HashSet<String>() {{
-            add(Keys.REQUEST_SCHEMA_SN_KEY);
-            add(Keys.REQUEST_SCHEMA_MT_KEY);
-            add(Keys.REQUEST_SCHEMA_MSID_KEY);
-            add(Keys.REQUEST_SCHEMA_FROM_KEY);
-            add(Keys.REQUEST_SCHEMA_TO_KEY);
-            add(Keys.REQUEST_SCHEMA_SUBJ_KEY);
-            add(Keys.REQUEST_SCHEMA_TEXT_KEY);
-            add(Keys.REQUEST_SCHEMA_RE_KEY);
-            add(Keys.REQUEST_SCHEMA_SNME_KEY);
-            add(Keys.REQUEST_SCHEMA_DL_KEY);
-            add(Keys.REQUEST_SCHEMA_LIC_KEY);
-            add(Keys.REQUEST_SCHEMA_ODN_KEY);
-            add(Keys.REQUEST_SCHEMA_FLC_KEY);
-            add(Keys.REQUEST_SCHEMA_VIN_KEY);
-            add(Keys.REQUEST_SCHEMA_REG_KEY);
-            add(Keys.REQUEST_SCHEMA_RNS_KEY);
-            add(Keys.REQUEST_SCHEMA_RVL_KEY);
-            add(Keys.REQUEST_SCHEMA_TEST_RNS_KEY);
-        }};
+        HashSet<String> knownTokens = new HashSet<>(KNOWN_TOKENS);
 
         if (knownTokens.contains(key)) {
             knownTokens.remove(key);

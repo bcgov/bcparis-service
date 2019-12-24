@@ -1,5 +1,6 @@
 package ca.bc.gov.iamp.bcparis.service;
 
+import java.text.MessageFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -23,6 +24,13 @@ public class MessageService {
 			  "TEXT:${text}${re}" + NEW_LINE +
 			  NEW_LINE +
 			  "${icbc_response}";
+	private final String messageFormat = "SEND MT:M" + NEW_LINE +
+			"FMT:Y" + NEW_LINE +
+			"FROM:{0}" + NEW_LINE +
+			"TO:{1}" + NEW_LINE +
+			"TEXT:{2}{3}" + NEW_LINE +
+			NEW_LINE +
+			"{4}";
 
 	public List<String> getQueryAttributesList(Body body, List<String> validAttributes) {
 		final List<String> result = new ArrayList<>();
@@ -52,12 +60,7 @@ public class MessageService {
 		final String sender = MessageUtils.GetValue(body.getMsgFFmt(),Keys.REQUEST_SCHEMA_TO_KEY); //This will become the sender
 		final String text = MessageUtils.GetValue(body.getMsgFFmt(),Keys.REQUEST_SCHEMA_TEXT_KEY);
 		final String re = MessageUtils.GetValue(body.getMsgFFmt(),Keys.REQUEST_SCHEMA_RE_KEY);
-		return schema
-				.replace("${from}", sender != null ? sender : "")
-				.replace("${to}", receiver != null ? receiver : "")
-				.replace("${text}", text != null ? text : "")
-				.replace("${re}", re != null ? re : "")
-				.replace("${icbc_response}", errorMessage);
+		return MessageFormat.format(messageFormat, (sender != null ? sender : ""),(receiver != null ? receiver : ""), (text != null ? text : ""),(re != null ? String.format("RE:%s", re) : ""), errorMessage);
 	}
 
 	public String escape(String message) {

@@ -10,7 +10,6 @@ public class MessageUtils {
 
     public static final String SEMICOLLON = ":";
 
-
     public static String GetValue(String message, String key) {
 
         HashSet<String> knownTokens = new HashSet<String>() {{
@@ -42,10 +41,14 @@ public class MessageUtils {
 
         if (StringUtils.isEmpty(message)) return "";
 
-        int startIndex = message.indexOf(key + SEMICOLLON) + key.length() + 1;
+        int startIndex = message.indexOf(key + SEMICOLLON);
+        if (startIndex == -1) return "";
+
+        startIndex += key.length() + 1;
+
         int currentEndIndex = message.length();
 
-        if (startIndex == -1) return "";
+
 
         for (String token : knownTokens) {
 

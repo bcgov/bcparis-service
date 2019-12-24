@@ -17,10 +17,10 @@ public class MessageUtils {
             add("MT");
             add("MSID");
             add(Keys.RESPONSE_SCHEMA_FROM_KEY);
-            add("TO");
+            add(Keys.RESPONSE_SCHEMA_TO_KEY);
             add("SUBJ");
-            add("TEXT");
-            add("RE");
+            add(Keys.RESPONSE_SCHEMA_TEXT_KEY);
+            add(Keys.RESPONSE_SCHEMA_RE_KEY);
             add("SNME");
             add("DL");
             add("LIC");

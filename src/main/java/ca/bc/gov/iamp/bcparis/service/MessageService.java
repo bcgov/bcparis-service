@@ -5,10 +5,13 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import ca.bc.gov.iamp.bcparis.Keys;
+import ca.bc.gov.iamp.bcparis.message.MessageUtils;
 import org.springframework.stereotype.Service;
 
 import ca.bc.gov.iamp.bcparis.exception.message.InvalidMessage;
 import ca.bc.gov.iamp.bcparis.model.message.body.Body;
+
 
 @Service
 public class MessageService {
@@ -44,7 +47,16 @@ public class MessageService {
 				.replace("${re}",  body.containAttribute("RE") ? "RE:" + re : "")
 				.replace("${icbc_response}", message);
 	}
-	
+
+	public String buildErrorResponse(final Body body, final String errorMessage) {
+		return schema
+				.replace("${from}", MessageUtils.GetValue(body.getMsgFFmt(),Keys.RESPONSE_SCHEMA_TO_KEY)) //Swap from and to for response
+				.replace("${to}", MessageUtils.GetValue(body.getMsgFFmt(),Keys.RESPONSE_SCHEMA_FROM_KEY)) //Swap from and to for response
+				.replace("${text}",  MessageUtils.GetValue(body.getMsgFFmt(),Keys.RESPONSE_SCHEMA_TEXT_KEY))
+				.replace("${re}",   MessageUtils.GetValue(body.getMsgFFmt(),Keys.RESPONSE_SCHEMA_RE_KEY))
+				.replace("${icbc_response}", errorMessage);
+	}
+
 	public String escape(String message) {
 		return message
 				.replaceAll("&", "&amp;")

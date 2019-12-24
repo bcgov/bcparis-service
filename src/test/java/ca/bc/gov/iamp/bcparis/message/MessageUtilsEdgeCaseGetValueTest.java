@@ -16,12 +16,12 @@ public class MessageUtilsEdgeCaseGetValueTest {
 
     @Test
     public void WithEmptyStringShouldReturnEmptyString() {
-        MessageUtils.GetValue("", Keys.RESPONSE_SCHEMA_FROM_KEY);
+        MessageUtils.GetValue("", Keys.REQUEST_SCHEMA_FROM_KEY);
     }
 
     @Test
     public void WithNullStringShouldReturnNullString() {
-        MessageUtils.GetValue(null, Keys.RESPONSE_SCHEMA_FROM_KEY);
+        MessageUtils.GetValue(null, Keys.REQUEST_SCHEMA_FROM_KEY);
     }
 
 }

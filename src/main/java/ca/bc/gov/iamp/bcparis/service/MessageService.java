@@ -53,10 +53,10 @@ public class MessageService {
 		final String text = MessageUtils.GetValue(body.getMsgFFmt(),Keys.REQUEST_SCHEMA_TEXT_KEY);
 		final String re = MessageUtils.GetValue(body.getMsgFFmt(),Keys.REQUEST_SCHEMA_RE_KEY);
 		return schema
-				.replace("${from}", sender.isEmpty() ? "" : sender)
-				.replace("${to}", receiver.isEmpty() ? "" : receiver)
-				.replace("${text}", text.isEmpty() ? "" : text)
-				.replace("${re}", re.isEmpty() ? "": re)
+				.replace("${from}", sender != null ? sender : "")
+				.replace("${to}", receiver != null ? receiver : "")
+				.replace("${text}", text != null ? text : "")
+				.replace("${re}", re != null ? re : "")
 				.replace("${icbc_response}", errorMessage);
 	}
 

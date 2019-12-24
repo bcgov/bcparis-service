@@ -35,16 +35,9 @@ public class MessageUtils {
 
     public static String GetValue(String message, String key) {
 
-        message = message.replaceAll(STRING_END_ONE, "");
-        message = message.replaceAll(STRING_END_TWO, "");
+        message = removeKnownEnd(message);
 
-        HashSet<String> knownTokens = new HashSet<>(KNOWN_TOKENS);
-
-        if (knownTokens.contains(key)) {
-            knownTokens.remove(key);
-        } else {
-            throw new IllegalArgumentException("Key is not a known token.");
-        }
+        HashSet<String> knownTokens = buildKnownTokens(key);
 
         if (StringUtils.isEmpty(message)) return null;
 
@@ -68,6 +61,19 @@ public class MessageUtils {
 
         return message.substring(startIndex, currentEndIndex).replaceAll("\\s+$", "");
 
+    }
+
+    private static String removeKnownEnd(String message) {
+        message = message.replaceAll(STRING_END_ONE, "");
+        return message.replaceAll(STRING_END_TWO, "");
+    }
+
+    private static HashSet<String> buildKnownTokens(String token) {
+        if (!KNOWN_TOKENS.contains(token)) throw new IllegalArgumentException("Key is not a known token.");
+
+        HashSet<String> result = new HashSet<>(KNOWN_TOKENS);
+        result.remove(token);
+        return result;
     }
 
 }

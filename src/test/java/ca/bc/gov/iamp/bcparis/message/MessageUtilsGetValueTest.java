@@ -224,6 +224,29 @@ public class MessageUtilsGetValueTest {
                                 {Keys.REQUEST_SCHEMA_RVL_KEY, null},
                                 {Keys.REQUEST_SCHEMA_TEST_RNS_KEY, null}
                         }
+                },
+                {
+                        FakeCData.SAMPLE_VEHICLE_LIC,
+                        new String[][]{
+                                {Keys.REQUEST_SCHEMA_FROM_KEY, "BC41127"},
+                                {Keys.REQUEST_SCHEMA_TO_KEY, "BC41028"},
+                                {Keys.REQUEST_SCHEMA_TEXT_KEY, ""},
+                                {Keys.REQUEST_SCHEMA_RE_KEY, " 8261\nHC BC11422 \nBC41028"},
+                                {Keys.REQUEST_SCHEMA_SN_KEY, "M00001-0001"},
+                                {Keys.REQUEST_SCHEMA_MT_KEY, "MUF"},
+                                {Keys.REQUEST_SCHEMA_MSID_KEY, "BRKR-190515-20:02:04"},
+                                {Keys.REQUEST_SCHEMA_SUBJ_KEY, null},
+                                {Keys.REQUEST_SCHEMA_SNME_KEY, null},
+                                {Keys.REQUEST_SCHEMA_DL_KEY, null},
+                                {Keys.REQUEST_SCHEMA_LIC_KEY, "PN890H\n\n2019051520020420190515200204"},
+                                {Keys.REQUEST_SCHEMA_ODN_KEY, null},
+                                {Keys.REQUEST_SCHEMA_FLC_KEY, null},
+                                {Keys.REQUEST_SCHEMA_VIN_KEY, null},
+                                {Keys.REQUEST_SCHEMA_REG_KEY, null},
+                                {Keys.REQUEST_SCHEMA_RNS_KEY, null},
+                                {Keys.REQUEST_SCHEMA_RVL_KEY, null},
+                                {Keys.REQUEST_SCHEMA_TEST_RNS_KEY, null}
+                        }
                 }
         });
     }

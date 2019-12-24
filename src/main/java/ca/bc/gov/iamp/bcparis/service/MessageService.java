@@ -24,13 +24,7 @@ public class MessageService {
 			  "TEXT:${text}${re}" + NEW_LINE +
 			  NEW_LINE +
 			  "${icbc_response}";
-	private final String messageFormat = "SEND MT:M" + NEW_LINE +
-			"FMT:Y" + NEW_LINE +
-			"FROM:{0}" + NEW_LINE +
-			"TO:{1}" + NEW_LINE +
-			"TEXT:{2}{3}" + NEW_LINE +
-			NEW_LINE +
-			"{4}";
+	private final String messageFormat = "SEND MT:M\nFMT:Y\nFROM:{0}\nTO:{1}\nTEXT:{2}{3}\n\n{4}";
 
 	public List<String> getQueryAttributesList(Body body, List<String> validAttributes) {
 		final List<String> result = new ArrayList<>();

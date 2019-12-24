@@ -155,6 +155,29 @@ public class MessageUtilsGetValueTest {
                                 {Keys.REQUEST_SCHEMA_RVL_KEY, null},
                                 {Keys.REQUEST_SCHEMA_TEST_RNS_KEY, null}
                         }
+                },
+                {
+                        FakeCData.SAMPLE_POR,
+                        new String[][]{
+                                {Keys.REQUEST_SCHEMA_FROM_KEY, "BC41127"},
+                                {Keys.REQUEST_SCHEMA_TO_KEY, "BC41029"},
+                                {Keys.REQUEST_SCHEMA_TEXT_KEY, ""},
+                                {Keys.REQUEST_SCHEMA_RE_KEY, " 0509\nHC BC40940\nBC41027"},
+                                {Keys.REQUEST_SCHEMA_SN_KEY, "M00001-0001"},
+                                {Keys.REQUEST_SCHEMA_MT_KEY, "MUF"},
+                                {Keys.REQUEST_SCHEMA_MSID_KEY, "BRKR-190515-20:05:48"},
+                                {Keys.REQUEST_SCHEMA_SUBJ_KEY, null},
+                                {Keys.REQUEST_SCHEMA_SNME_KEY, "WISKIN/G1:TOMAS/G2:GEORGE/G3:ALPHONSE/DOB:20050505\n\n2019051520054820190515200548"},
+                                {Keys.REQUEST_SCHEMA_DL_KEY, null},
+                                {Keys.REQUEST_SCHEMA_LIC_KEY, null},
+                                {Keys.REQUEST_SCHEMA_ODN_KEY, null},
+                                {Keys.REQUEST_SCHEMA_FLC_KEY, null},
+                                {Keys.REQUEST_SCHEMA_VIN_KEY, null},
+                                {Keys.REQUEST_SCHEMA_REG_KEY, null},
+                                {Keys.REQUEST_SCHEMA_RNS_KEY, null},
+                                {Keys.REQUEST_SCHEMA_RVL_KEY, null},
+                                {Keys.REQUEST_SCHEMA_TEST_RNS_KEY, null}
+                        }
                 }
         });
     }

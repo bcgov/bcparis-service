@@ -60,7 +60,7 @@ public class MessageService {
 		final String sender = MessageUtils.GetValue(body.getMsgFFmt(),Keys.REQUEST_SCHEMA_TO_KEY); //This will become the sender
 		final String text = MessageUtils.GetValue(body.getMsgFFmt(),Keys.REQUEST_SCHEMA_TEXT_KEY);
 		final String re = MessageUtils.GetValue(body.getMsgFFmt(),Keys.REQUEST_SCHEMA_RE_KEY);
-		return MessageFormat.format(messageFormat, (sender != null ? sender : ""),(receiver != null ? receiver : ""), (text != null ? text : ""),(re != null ? String.format("RE:%s", re) : ""), errorMessage);
+		return MessageFormat.format(messageFormat, sender, receiver, text,(re != null ? String.format("RE:%s", re):""), errorMessage);
 	}
 
 	public String escape(String message) {

@@ -29,6 +29,13 @@ public class MessageUtilsGetValueTest {
                         new String[][]{
                                 {"SNME", "SMITH/G1:JANE/G2:MARY/DOB:19000101/SEX:F]\\\"BC"},
                                 {"DL", " 7088384       STATUS: NORMAL            PRIMARY DL STATUS:   NONE]\\\"SMITH, JUDY MADELINE                          LEARNER DL STATUS:   NONE]\\\"M/A BOX 195                                   TEMPORARY DL STATUS: NONE]\\\"DUNCAN BC]\\\"5175 TZOUHALEM RD                             LICENCE TYPE:CLIENT STUB]\\\"V9L 3X3]\\\"                                                OTHER JUR DL:]\\"}}
+                },
+                {
+                        "\rSN:M00001-0001 MT:MUF MSID:BRKR-191220-18:10:04\nFROM:BC41127\nTO:BC41027\nTEXT:BCPARIS Diagnostic Test SOAPUI 443 qwe20190703102453\nHC BC41127 BC41028 G1:JEREMY/ 2019120410145020191204101450\n  \r",
+                        new String[][]{
+                                {"RE", ""}
+                        }
+
                 }
         });
     }

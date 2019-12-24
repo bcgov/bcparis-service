@@ -9,6 +9,8 @@ import java.util.Set;
 public class MessageUtils {
 
     private static final String SEMICOLLON = ":";
+    private static final String STRING_END_ONE = "]]>$";
+    private static final String STRING_END_TWO = "\n$";
 
     private static HashSet<String> KNOWN_TOKENS = new HashSet<String>() {{
         add(Keys.REQUEST_SCHEMA_SN_KEY);
@@ -32,6 +34,9 @@ public class MessageUtils {
     }};
 
     public static String GetValue(String message, String key) {
+
+        message = message.replaceAll(STRING_END_ONE, "");
+        message = message.replaceAll(STRING_END_TWO, "");
 
         HashSet<String> knownTokens = new HashSet<>(KNOWN_TOKENS);
 
@@ -61,7 +66,7 @@ public class MessageUtils {
             }
         }
 
-        return message.substring(startIndex, currentEndIndex);
+        return message.substring(startIndex, currentEndIndex).replaceAll("\\s+$", "");
 
     }
 

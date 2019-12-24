@@ -21,9 +21,9 @@ public class MessageUtilsGetValueTest {
                 {
                         "DL: TEST DL SNME: test smne TEXT: test text FLC: test flcVIN:REG:",
                         new String[][]{
-                                {"DL", " TEST DL "},
-                                {"SNME", " test smne "},
-                                {"TEXT", " test text "},
+                                {"DL", " TEST DL"},
+                                {"SNME", " test smne"},
+                                {"TEXT", " test text"},
                                 {"FLC", " test flc"},
                                 {"VIN", ""},
                                 {"REG", ""}
@@ -44,16 +44,16 @@ public class MessageUtilsGetValueTest {
                 {
                         FakeCData.SAMPLE_DRIVER_DL,
                         new String[][]{
-                                {Keys.REQUEST_SCHEMA_FROM_KEY, "BC41127 "},
-                                {Keys.REQUEST_SCHEMA_TO_KEY, "BC41027 "},
+                                {Keys.REQUEST_SCHEMA_FROM_KEY, "BC41127"},
+                                {Keys.REQUEST_SCHEMA_TO_KEY, "BC41027"},
                                 {Keys.REQUEST_SCHEMA_TEXT_KEY, ""},
                                 {Keys.REQUEST_SCHEMA_RE_KEY, null},
-                                {Keys.REQUEST_SCHEMA_SN_KEY, "M00001-0001 "},
-                                {Keys.REQUEST_SCHEMA_MT_KEY, "DUF "},
-                                {Keys.REQUEST_SCHEMA_MSID_KEY, "BRKR-190515-20:02:07 "},
+                                {Keys.REQUEST_SCHEMA_SN_KEY, "M00001-0001"},
+                                {Keys.REQUEST_SCHEMA_MT_KEY, "DUF"},
+                                {Keys.REQUEST_SCHEMA_MSID_KEY, "BRKR-190515-20:02:07"},
                                 {Keys.REQUEST_SCHEMA_SUBJ_KEY, null},
                                 {Keys.REQUEST_SCHEMA_SNME_KEY, null},
-                                {Keys.REQUEST_SCHEMA_DL_KEY, "3559874\\n]]>"},
+                                {Keys.REQUEST_SCHEMA_DL_KEY, "3559874"},
                                 {Keys.REQUEST_SCHEMA_LIC_KEY, null},
                                 {Keys.REQUEST_SCHEMA_ODN_KEY, null},
                                 {Keys.REQUEST_SCHEMA_FLC_KEY, null},

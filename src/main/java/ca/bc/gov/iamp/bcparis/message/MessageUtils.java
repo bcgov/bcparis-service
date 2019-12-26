@@ -11,6 +11,7 @@ public class MessageUtils {
     private static final String SEMICOLLON = ":";
     private static final String STRING_END_ONE = "]]>$";
     private static final String STRING_END_TWO = "\n$";
+    private static final String TOKEN_REGEX = "\\s+\\w+:.*";
 
     private static HashSet<String> KNOWN_TOKENS = new HashSet<String>() {{
         add(Keys.REQUEST_SCHEMA_SN_KEY);
@@ -34,23 +35,23 @@ public class MessageUtils {
     }};
 
     public static String GetValue(String message, String key) {
-        if (StringUtils.isEmpty(message)) return null;
-        message = removeKnownEnd(message);
 
-        HashSet<String> knownTokens = buildKnownTokens(key);
+        if (StringUtils.isEmpty(message)) return null;
+
+        message = removeKnownEnd(message);
 
         int startIndex = message.indexOf(key + SEMICOLLON);
         if (startIndex == -1) return null;
 
         startIndex += key.length() + 1;
 
+        message = message.substring(startIndex);
+
         int currentEndIndex = message.length();
 
-        for (String token : knownTokens) {
+        for (String token : KNOWN_TOKENS) {
 
-            int tokenIndex = message.indexOf(token + SEMICOLLON);
-
-            if(tokenIndex == -1) continue;
+            int tokenIndex = message.indexOf(token + SEMICOLLON, startIndex);
 
             if (tokenIndex < currentEndIndex && tokenIndex >= startIndex) {
                 currentEndIndex = tokenIndex;
@@ -64,14 +65,6 @@ public class MessageUtils {
     private static String removeKnownEnd(String message) {
         message = message.replaceAll(STRING_END_ONE, "");
         return message.replaceAll(STRING_END_TWO, "");
-    }
-
-    private static HashSet<String> buildKnownTokens(String token) {
-        if (!KNOWN_TOKENS.contains(token)) throw new IllegalArgumentException("Key is not a known token.");
-
-        HashSet<String> result = new HashSet<>(KNOWN_TOKENS);
-        result.remove(token);
-        return result;
     }
 
 }

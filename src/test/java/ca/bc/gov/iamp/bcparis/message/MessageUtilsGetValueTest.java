@@ -19,7 +19,7 @@ public class MessageUtilsGetValueTest {
     public static Collection<Object[]> data() {
         return Arrays.asList(new Object[][]{
                 {
-                        "DL: TEST DL SNME: test smne TEXT: test text FLC: test flcVIN:REG:",
+                        "DL: TEST DL SNME: test smne TEXT: test text FLC: test flc VIN:REG:",
                         new String[][]{
                                 {"DL", " TEST DL"},
                                 {"SNME", " test smne"},

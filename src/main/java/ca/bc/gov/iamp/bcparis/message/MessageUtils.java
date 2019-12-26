@@ -35,6 +35,8 @@ public class MessageUtils {
 
     public static String GetValue(String message, String key) {
 
+        if(!KNOWN_TOKENS.contains(key)) throw new IllegalArgumentException("key must be a known token");
+
         if (StringUtils.isEmpty(message)) return null;
 
         message = removeKnownEnd(message);
@@ -57,13 +59,7 @@ public class MessageUtils {
             }
         }
 
-        message = message.substring(0, currentEndIndex);
-
-        String[] results = message.split("\n");
-
-        if(results.length == 0) return "";
-
-        return results[0].replaceAll("\\s+$", "");
+        return message.substring(0, currentEndIndex).replaceAll("\\s+$", "");
 
 
     }

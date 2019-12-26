@@ -11,7 +11,6 @@ public class MessageUtils {
     private static final String SEMICOLLON = ":";
     private static final String STRING_END_ONE = "]]>$";
     private static final String STRING_END_TWO = "\n$";
-    private static final String TOKEN_REGEX = "\\s+\\w+:.*";
 
     private static HashSet<String> KNOWN_TOKENS = new HashSet<String>() {{
         add(Keys.REQUEST_SCHEMA_SN_KEY);
@@ -51,14 +50,21 @@ public class MessageUtils {
 
         for (String token : KNOWN_TOKENS) {
 
-            int tokenIndex = message.indexOf(token + SEMICOLLON, startIndex);
+            int tokenIndex = message.indexOf(token + SEMICOLLON);
 
-            if (tokenIndex < currentEndIndex && tokenIndex >= startIndex) {
+            if (tokenIndex < currentEndIndex && tokenIndex >= 0) {
                 currentEndIndex = tokenIndex;
             }
         }
 
-        return message.substring(startIndex, currentEndIndex).replaceAll("\\s+$", "");
+        message = message.substring(0, currentEndIndex);
+
+        String[] results = message.split("\n");
+
+        if(results.length == 0) return "";
+
+        return results[0].replaceAll("\\s+$", "");
+
 
     }
 

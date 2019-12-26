@@ -3,17 +3,25 @@ package ca.bc.gov.iamp.bcparis.message;
 
 import ca.bc.gov.iamp.bcparis.FakeCData;
 import ca.bc.gov.iamp.bcparis.Keys;
+import ca.bc.gov.iamp.bcparis.model.message.body.Body;
+import ca.bc.gov.iamp.bcparis.util.RegexTokenizer;
 import org.junit.Assert;
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.ErrorCollector;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 
 import java.text.MessageFormat;
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.List;
 
 @RunWith(Parameterized.class)
 public class MessageUtilsGetValueTest {
+
+    @Rule
+    public ErrorCollector collector = new ErrorCollector();
 
     @Parameterized.Parameters
     public static Collection<Object[]> data() {
@@ -27,18 +35,6 @@ public class MessageUtilsGetValueTest {
                                 {"FLC", " test flc"},
                                 {"VIN", ""},
                                 {"REG", ""}
-                        }
-                },
-                {
-                        "HC  BC41027]\\\"BC41127]\\\"RE SNME:SMITH/G1:JANE/G2:MARY/DOB:19000101/SEX:F]\\\"BCDL: 7088384       STATUS: NORMAL            PRIMARY DL STATUS:   NONE]\\\"SMITH, JUDY MADELINE                          LEARNER DL STATUS:   NONE]\\\"M/A BOX 195                                   TEMPORARY DL STATUS: NONE]\\\"DUNCAN BC]\\\"5175 TZOUHALEM RD                             LICENCE TYPE:CLIENT STUB]\\\"V9L 3X3]\\\"                                                OTHER JUR DL:]\\",
-                        new String[][]{
-                                {"SNME", "SMITH/G1:JANE/G2:MARY/DOB:19000101/SEX:F]\\\"BC"},
-                                {"DL", " 7088384       STATUS: NORMAL            PRIMARY DL STATUS:   NONE]\\\"SMITH, JUDY MADELINE                          LEARNER DL STATUS:   NONE]\\\"M/A BOX 195                                   TEMPORARY DL STATUS: NONE]\\\"DUNCAN BC]\\\"5175 TZOUHALEM RD                             LICENCE TYPE:CLIENT STUB]\\\"V9L 3X3]\\\"                                                OTHER JUR DL:]\\"}}
-                },
-                {
-                        "\\u000?345 <XMl>?>[[CDATA: \rSN:M00001-0001 MT:MUF MSID:BRKR-191220-18:10:04\nFROM:BC41127\nTO:BC41027\nTEXT:BCPARIS Diagnostic Test SOAPUI 443 qwe20190703102453\nHC BC41127 BC41028 G1:JEREMY/ 2019120410145020191204101450\n  \r",
-                        new String[][]{
-                                {"RE", null}
                         }
                 },
                 {
@@ -93,12 +89,12 @@ public class MessageUtilsGetValueTest {
                                 {Keys.REQUEST_SCHEMA_FROM_KEY, "BC41127"},
                                 {Keys.REQUEST_SCHEMA_TO_KEY, "BC41027"},
                                 {Keys.REQUEST_SCHEMA_TEXT_KEY, ""},
-                                {Keys.REQUEST_SCHEMA_RE_KEY, " 0509\nHC BC40940\nBC41027"},
+                                {Keys.REQUEST_SCHEMA_RE_KEY, " 0509"},
                                 {Keys.REQUEST_SCHEMA_SN_KEY, "M00001-0001"},
                                 {Keys.REQUEST_SCHEMA_MT_KEY, "MUF"},
                                 {Keys.REQUEST_SCHEMA_MSID_KEY, "BRKR-190515-20:05:48"},
                                 {Keys.REQUEST_SCHEMA_SUBJ_KEY, null},
-                                {Keys.REQUEST_SCHEMA_SNME_KEY, "NEWMAN/G1:OLDSON/G2:MIKE/DOB:19900214\n\n2019051520054820190515200548"},
+                                {Keys.REQUEST_SCHEMA_SNME_KEY, "NEWMAN/G1:OLDSON/G2:MIKE/DOB:19900214"},
                                 {Keys.REQUEST_SCHEMA_DL_KEY, null},
                                 {Keys.REQUEST_SCHEMA_LIC_KEY, null},
                                 {Keys.REQUEST_SCHEMA_ODN_KEY, null},
@@ -139,7 +135,7 @@ public class MessageUtilsGetValueTest {
                                 {Keys.REQUEST_SCHEMA_FROM_KEY, "BC41127"},
                                 {Keys.REQUEST_SCHEMA_TO_KEY, "BC41028"},
                                 {Keys.REQUEST_SCHEMA_TEXT_KEY, ""},
-                                {Keys.REQUEST_SCHEMA_RE_KEY, " 8261\nHC BC11422\nBC41028"},
+                                {Keys.REQUEST_SCHEMA_RE_KEY, " 8261"},
                                 {Keys.REQUEST_SCHEMA_SN_KEY, "M00001-0001"},
                                 {Keys.REQUEST_SCHEMA_MT_KEY, "MUF"},
                                 {Keys.REQUEST_SCHEMA_MSID_KEY, "BRKR-190515-20:02:04"},
@@ -162,12 +158,12 @@ public class MessageUtilsGetValueTest {
                                 {Keys.REQUEST_SCHEMA_FROM_KEY, "BC41127"},
                                 {Keys.REQUEST_SCHEMA_TO_KEY, "BC41029"},
                                 {Keys.REQUEST_SCHEMA_TEXT_KEY, ""},
-                                {Keys.REQUEST_SCHEMA_RE_KEY, " 0509\nHC BC40940\nBC41027"},
+                                {Keys.REQUEST_SCHEMA_RE_KEY, " 0509"},
                                 {Keys.REQUEST_SCHEMA_SN_KEY, "M00001-0001"},
                                 {Keys.REQUEST_SCHEMA_MT_KEY, "MUF"},
                                 {Keys.REQUEST_SCHEMA_MSID_KEY, "BRKR-190515-20:05:48"},
                                 {Keys.REQUEST_SCHEMA_SUBJ_KEY, null},
-                                {Keys.REQUEST_SCHEMA_SNME_KEY, "WISKIN/G1:TOMAS/G2:GEORGE/G3:ALPHONSE/DOB:20050505\n\n2019051520054820190515200548"},
+                                {Keys.REQUEST_SCHEMA_SNME_KEY, "WISKIN/G1:TOMAS/G2:GEORGE/G3:ALPHONSE/DOB:20050505"},
                                 {Keys.REQUEST_SCHEMA_DL_KEY, null},
                                 {Keys.REQUEST_SCHEMA_LIC_KEY, null},
                                 {Keys.REQUEST_SCHEMA_ODN_KEY, null},
@@ -190,7 +186,7 @@ public class MessageUtilsGetValueTest {
                                 {Keys.REQUEST_SCHEMA_MT_KEY, "MUF"},
                                 {Keys.REQUEST_SCHEMA_MSID_KEY, "BRKR-190820-16:26:19"},
                                 {Keys.REQUEST_SCHEMA_SUBJ_KEY, null},
-                                {Keys.REQUEST_SCHEMA_SNME_KEY, "SMITH/G1:JOHN/\n \n2019082020261920190820202619"},
+                                {Keys.REQUEST_SCHEMA_SNME_KEY, "SMITH/G1:JOHN/"},
                                 {Keys.REQUEST_SCHEMA_DL_KEY, null},
                                 {Keys.REQUEST_SCHEMA_LIC_KEY, null},
                                 {Keys.REQUEST_SCHEMA_ODN_KEY, null},
@@ -213,7 +209,7 @@ public class MessageUtilsGetValueTest {
                                 {Keys.REQUEST_SCHEMA_MT_KEY, "MUF"},
                                 {Keys.REQUEST_SCHEMA_MSID_KEY, "BRKR-190820-16:26:19"},
                                 {Keys.REQUEST_SCHEMA_SUBJ_KEY, null},
-                                {Keys.REQUEST_SCHEMA_SNME_KEY, "SMITH/G1:JOHN/\n \n2019082020261920190820202619"},
+                                {Keys.REQUEST_SCHEMA_SNME_KEY, "SMITH/G1:JOHN/"},
                                 {Keys.REQUEST_SCHEMA_DL_KEY, null},
                                 {Keys.REQUEST_SCHEMA_LIC_KEY, null},
                                 {Keys.REQUEST_SCHEMA_ODN_KEY, null},
@@ -231,14 +227,14 @@ public class MessageUtilsGetValueTest {
                                 {Keys.REQUEST_SCHEMA_FROM_KEY, "BC41127"},
                                 {Keys.REQUEST_SCHEMA_TO_KEY, "BC41028"},
                                 {Keys.REQUEST_SCHEMA_TEXT_KEY, ""},
-                                {Keys.REQUEST_SCHEMA_RE_KEY, " 8261\nHC BC11422 \nBC41028"},
+                                {Keys.REQUEST_SCHEMA_RE_KEY, " 8261"},
                                 {Keys.REQUEST_SCHEMA_SN_KEY, "M00001-0001"},
                                 {Keys.REQUEST_SCHEMA_MT_KEY, "MUF"},
                                 {Keys.REQUEST_SCHEMA_MSID_KEY, "BRKR-190515-20:02:04"},
                                 {Keys.REQUEST_SCHEMA_SUBJ_KEY, null},
                                 {Keys.REQUEST_SCHEMA_SNME_KEY, null},
                                 {Keys.REQUEST_SCHEMA_DL_KEY, null},
-                                {Keys.REQUEST_SCHEMA_LIC_KEY, "PN890H\n\n2019051520020420190515200204"},
+                                {Keys.REQUEST_SCHEMA_LIC_KEY, "PN890H"},
                                 {Keys.REQUEST_SCHEMA_ODN_KEY, null},
                                 {Keys.REQUEST_SCHEMA_FLC_KEY, null},
                                 {Keys.REQUEST_SCHEMA_VIN_KEY, null},
@@ -266,11 +262,42 @@ public class MessageUtilsGetValueTest {
 
             String result = MessageUtils.GetValue(this.input, expected[i][0]);
 
+            String oldResult = executeOldAlgo(this.input, this.expected[i][0]);
+
+
+            if(result == null && oldResult.equals("")) {
+            } else {
+                try {
+                    Assert.assertEquals(MessageFormat.format("Attribute [{0}] new result did not produced same:", expected[i][0]), oldResult, result);
+                } catch (Throwable t) {
+                    collector.addError(t);
+                }
+            }
+
+
             Assert.assertEquals(
                     MessageFormat.format("Attribute [{0}] Value different from input", expected[i][0]),
                     expected[i][1],
                     result);
         }
+
+    }
+
+    public String executeOldAlgo(String text, String key) {
+        List<String> delimiters = Arrays.asList("SN:", "MT:", "MSID:", "FROM:", "TO:", "SUBJ:", "TEXT:", "RE:",
+                "TestRNS:", // Satellite test
+                "SNME:", //POR and Driver
+                "DL:",	//Driver
+                "LIC:", "ODN:", "TAG:", "FLC:", "VIN:", "REG:", "RNS:", "RVL:", // Vehicle
+                "\\n","\\\\n", "\n\n", "\\\\n\\\\n"); // New line and New line escaped (backslash)
+
+        List<String> result = new RegexTokenizer(text, delimiters).getTokens();
+
+        Body body = new Body();
+
+        body.setCdataAttributes(result);
+
+        return body.getCDATAAttribute(key);
 
     }
 

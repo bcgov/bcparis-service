@@ -2,6 +2,19 @@
 
 The bcparis-service is standalone restfull service which process messages using others different systems.
 
+# Project Structure
+
+    .
+    ├── .github                     # github realated sources.
+    ├── .splunk                     # splunk related sources.
+    ├── src                         # java source files.
+    ├── .env.template               # a template with environment variables.
+    ├── Jenkinsfile                 # Deployment file for openshift
+    ├── LICENCE                     # Apache Licence
+    ├── pipline-config.json         #
+    ├── pom.xml                     # Maven POM file
+    └── README.md                   # This file
+
 ## Build
 
 Clone [iamp-commons](https://github.com/bcgov-c/iamp-commons)

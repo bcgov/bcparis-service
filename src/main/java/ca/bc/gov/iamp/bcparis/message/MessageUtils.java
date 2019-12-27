@@ -41,13 +41,31 @@ public class MessageUtils {
 
         message = removeKnownEnd(message);
 
-        int startIndex = message.indexOf(key + SEMICOLLON);
+        message = removeToToken(message, key);
+
+        if(message == null) return null;
+
+        int currentEndIndex = getEndIndex(message);
+
+        return message.substring(0, currentEndIndex).replaceAll("\\s+$", "");
+
+    }
+
+    private static String removeKnownEnd(String message) {
+        message = message.replaceAll(STRING_END_ONE, "");
+        return message.replaceAll(STRING_END_TWO, "");
+    }
+
+    private static String removeToToken(String message, String token) {
+        int startIndex = message.indexOf(token + SEMICOLLON);
         if (startIndex == -1) return null;
 
-        startIndex += key.length() + 1;
+        startIndex += token.length() + 1;
 
-        message = message.substring(startIndex);
+        return message.substring(startIndex);
+    }
 
+    private static int getEndIndex(String message) {
         int currentEndIndex = message.length();
 
         for (String token : KNOWN_TOKENS) {
@@ -57,18 +75,12 @@ public class MessageUtils {
             if (tokenIndex < currentEndIndex && tokenIndex >= 0) {
                 currentEndIndex = tokenIndex;
             }
+
+            if(message.indexOf(":") > currentEndIndex) break;
         }
 
-        return message.substring(0, currentEndIndex).replaceAll("\\s+$", "");
-
-
+        return currentEndIndex;
     }
-
-    private static String removeKnownEnd(String message) {
-        message = message.replaceAll(STRING_END_ONE, "");
-        return message.replaceAll(STRING_END_TWO, "");
-    }
-
 }
 
 

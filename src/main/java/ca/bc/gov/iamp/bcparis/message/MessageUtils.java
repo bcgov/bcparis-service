@@ -33,9 +33,40 @@ public class MessageUtils {
         add(Keys.REQUEST_SCHEMA_TEST_RNS_KEY);
     }};
 
+
+    /**
+     * Extract the attribute value based on a give token
+     * Known tokens includes:
+     * <ul>
+     *  <li>FROM
+     *  <li>TO
+     *  <li>TEXT
+     *  <li>RE
+     *  <li>SN
+     *  <li>MT
+     *  <li>MSID
+     *  <li>SUBJ
+     *  <li>SNME
+     *  <li>DL
+     *  <li>LIC
+     *  <li>ODN
+     *  <li>FLC
+     *  <li>VIN
+     *  <li>REG
+     *  <li>RNS
+     *  <li>RVL
+     *  <li>TestRNS
+     * </ul>
+     *
+     * @param message the source message
+     * @param key     a known key
+     * @return the value of the attribute
+     * @throws IllegalArgumentException if the key is not a known key
+     * @since 1.0.20
+     */
     public static String GetValue(String message, String key) {
 
-        if(!KNOWN_TOKENS.contains(key)) throw new IllegalArgumentException("key must be a known token");
+        if (!KNOWN_TOKENS.contains(key)) throw new IllegalArgumentException("key must be a known token");
 
         if (StringUtils.isEmpty(message)) return null;
 
@@ -43,11 +74,9 @@ public class MessageUtils {
 
         message = removeToToken(message, key);
 
-        if(message == null) return null;
+        if (message == null) return null;
 
-        int currentEndIndex = getEndIndex(message);
-
-        return message.substring(0, currentEndIndex).replaceAll("\\s+$", "");
+        return message.substring(0, getEndIndex(message)).replaceAll("\\s+$", "");
 
     }
 
@@ -76,7 +105,7 @@ public class MessageUtils {
                 currentEndIndex = tokenIndex;
             }
 
-            if(message.indexOf(":") > currentEndIndex) break;
+            if (message.indexOf(":") > currentEndIndex) break;
         }
 
         return currentEndIndex;

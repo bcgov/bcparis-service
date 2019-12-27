@@ -1,5 +1,6 @@
 package test.util;
 
+import ca.bc.gov.iamp.bcparis.FakeCData;
 import ca.bc.gov.iamp.bcparis.model.message.Envelope;
 import ca.bc.gov.iamp.bcparis.model.message.Layer7Message;
 import ca.bc.gov.iamp.bcparis.model.message.body.Body;
@@ -7,7 +8,7 @@ import ca.bc.gov.iamp.bcparis.transformation.MessageTransform;
 
 public class BCPARISTestUtil {
 
-	public static Layer7Message getMessageDriverSNME() {		
+	public static Layer7Message getMessageDriverSNME() {
 		return getMessage("cdata/sample-driver-snme");
 	}
 	
@@ -24,7 +25,7 @@ public class BCPARISTestUtil {
 	}
 
 	public static Layer7Message getInvalidVehicleQuery() {
-		return getMessage("cdata/sample-invalid-vehicle");
+		return getFakeMessage(FakeCData.SAMPLE_INVALID_VEHICLE);
 	}
 
 
@@ -73,5 +74,18 @@ public class BCPARISTestUtil {
 		body.setMsgFFmt(msgFFmt);
 		return body;
 	}
-	
+
+	private static Layer7Message getFakeMessage(String cdata) {
+		MessageTransform transform = new MessageTransform();
+		return transform.parse(Layer7Message.builder()
+				.envelope(Envelope.builder().body(loadFromFake(cdata)).build())
+				.build());
+	}
+
+	public static Body loadFromFake(String data) {
+		final Body body = new Body();
+		body.setMsgFFmt(data);
+		return body;
+	}
+
 }

@@ -27,7 +27,7 @@ public class MessageServiceTest {
 		Assert.assertTrue(result.contains("FMT:Y\n"));
 		Assert.assertTrue(result.contains("FROM:BC41028\n"));
 		Assert.assertTrue(result.contains("TO:BC41127\n"));
-		Assert.assertTrue(result.contains("TEXT:RE: 8261\r\nHC BC11422\r\nBC41028\n\n"));
+		Assert.assertTrue(result.contains("TEXT:RE: 8261\nHC BC11422\nBC41028\n\n"));
 		Assert.assertTrue(result.contains("Error"));
 	}
 	@Test

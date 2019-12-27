@@ -37,7 +37,7 @@ public class VehicleProcessor implements DatagramProcessor{
 
 		List<IMSRequest> requests = createIMSContent(message);
 		if (requests.isEmpty()) {
-			message.getEnvelope().getBody().setMsgFFmt(messageService.buildResponse(message.getEnvelope().getBody(), "Unable to parse/formatting error"));
+			message.getEnvelope().getBody().setMsgFFmt(messageService.buildErrorResponse(message.getEnvelope().getBody(), "Unable to parse/formatting error"));
 			log.warn("Processing Vehicle: Unable to parse/formatting error");
 			return message;
 		}

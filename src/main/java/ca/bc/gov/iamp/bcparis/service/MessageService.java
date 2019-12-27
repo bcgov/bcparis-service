@@ -1,14 +1,17 @@
 package ca.bc.gov.iamp.bcparis.service;
 
+import java.text.MessageFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import ca.bc.gov.iamp.bcparis.Keys;
+import ca.bc.gov.iamp.bcparis.message.MessageUtils;
 import org.springframework.stereotype.Service;
 
-import ca.bc.gov.iamp.bcparis.exception.message.InvalidMessage;
 import ca.bc.gov.iamp.bcparis.model.message.body.Body;
+
 
 @Service
 public class MessageService {
@@ -21,6 +24,7 @@ public class MessageService {
 			  "TEXT:${text}${re}" + NEW_LINE +
 			  NEW_LINE +
 			  "${icbc_response}";
+	private final String messageFormat = "SEND MT:M\nFMT:Y\nFROM:{0}\nTO:{1}\nTEXT:{2}{3}\n\n{4}";
 
 	public List<String> getQueryAttributesList(Body body, List<String> validAttributes) {
 		final List<String> result = new ArrayList<>();
@@ -44,7 +48,15 @@ public class MessageService {
 				.replace("${re}",  body.containAttribute("RE") ? "RE:" + re : "")
 				.replace("${icbc_response}", message);
 	}
-	
+
+	public String buildErrorResponse(final Body body, final String errorMessage) {
+		final String receiver = MessageUtils.GetValue(body.getMsgFFmt(),Keys.REQUEST_SCHEMA_FROM_KEY); //This becomes the receiver of the message
+		final String sender = MessageUtils.GetValue(body.getMsgFFmt(),Keys.REQUEST_SCHEMA_TO_KEY); //This will become the sender
+		final String text = MessageUtils.GetValue(body.getMsgFFmt(),Keys.REQUEST_SCHEMA_TEXT_KEY);
+		final String re = MessageUtils.GetValue(body.getMsgFFmt(),Keys.REQUEST_SCHEMA_RE_KEY);
+		return MessageFormat.format(messageFormat, sender, receiver, text,(re != null ? String.format("RE:%s", re):""), errorMessage);
+	}
+
 	public String escape(String message) {
 		return message
 				.replaceAll("&", "&amp;")

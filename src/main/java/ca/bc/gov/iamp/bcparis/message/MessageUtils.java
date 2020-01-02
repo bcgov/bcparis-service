@@ -7,35 +7,41 @@ import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
 
+/**
+ * Helper class to manipulate ICBC Message
+ */
 public class MessageUtils {
 
-    private static final String SEMICOLLON = ":";
+
+    private MessageUtils() { }
+
+    private static final String SEMICOLON = ":";
     private static final String STRING_END_ONE = "]]>$";
     private static final String STRING_END_TWO = "\n$";
 
     private static final Set<String> KNOWN_TOKENS;
 
     static {
-        HashSet<String> known_tokens = new HashSet<>();
-        known_tokens.add(Keys.REQUEST_SCHEMA_SN_KEY);
-        known_tokens.add(Keys.REQUEST_SCHEMA_MT_KEY);
-        known_tokens.add(Keys.REQUEST_SCHEMA_MSID_KEY);
-        known_tokens.add(Keys.REQUEST_SCHEMA_FROM_KEY);
-        known_tokens.add(Keys.REQUEST_SCHEMA_TO_KEY);
-        known_tokens.add(Keys.REQUEST_SCHEMA_SUBJ_KEY);
-        known_tokens.add(Keys.REQUEST_SCHEMA_TEXT_KEY);
-        known_tokens.add(Keys.REQUEST_SCHEMA_RE_KEY);
-        known_tokens.add(Keys.REQUEST_SCHEMA_SNME_KEY);
-        known_tokens.add(Keys.REQUEST_SCHEMA_DL_KEY);
-        known_tokens.add(Keys.REQUEST_SCHEMA_LIC_KEY);
-        known_tokens.add(Keys.REQUEST_SCHEMA_ODN_KEY);
-        known_tokens.add(Keys.REQUEST_SCHEMA_FLC_KEY);
-        known_tokens.add(Keys.REQUEST_SCHEMA_VIN_KEY);
-        known_tokens.add(Keys.REQUEST_SCHEMA_REG_KEY);
-        known_tokens.add(Keys.REQUEST_SCHEMA_RNS_KEY);
-        known_tokens.add(Keys.REQUEST_SCHEMA_RVL_KEY);
-        known_tokens.add(Keys.REQUEST_SCHEMA_TEST_RNS_KEY);
-        KNOWN_TOKENS = Collections.unmodifiableSet(known_tokens);
+        HashSet<String> knownTokens = new HashSet<>();
+        knownTokens.add(Keys.REQUEST_SCHEMA_SN_KEY);
+        knownTokens.add(Keys.REQUEST_SCHEMA_MT_KEY);
+        knownTokens.add(Keys.REQUEST_SCHEMA_MSID_KEY);
+        knownTokens.add(Keys.REQUEST_SCHEMA_FROM_KEY);
+        knownTokens.add(Keys.REQUEST_SCHEMA_TO_KEY);
+        knownTokens.add(Keys.REQUEST_SCHEMA_SUBJ_KEY);
+        knownTokens.add(Keys.REQUEST_SCHEMA_TEXT_KEY);
+        knownTokens.add(Keys.REQUEST_SCHEMA_RE_KEY);
+        knownTokens.add(Keys.REQUEST_SCHEMA_SNME_KEY);
+        knownTokens.add(Keys.REQUEST_SCHEMA_DL_KEY);
+        knownTokens.add(Keys.REQUEST_SCHEMA_LIC_KEY);
+        knownTokens.add(Keys.REQUEST_SCHEMA_ODN_KEY);
+        knownTokens.add(Keys.REQUEST_SCHEMA_FLC_KEY);
+        knownTokens.add(Keys.REQUEST_SCHEMA_VIN_KEY);
+        knownTokens.add(Keys.REQUEST_SCHEMA_REG_KEY);
+        knownTokens.add(Keys.REQUEST_SCHEMA_RNS_KEY);
+        knownTokens.add(Keys.REQUEST_SCHEMA_RVL_KEY);
+        knownTokens.add(Keys.REQUEST_SCHEMA_TEST_RNS_KEY);
+        KNOWN_TOKENS = Collections.unmodifiableSet(knownTokens);
     }
 
     /**
@@ -68,7 +74,7 @@ public class MessageUtils {
      * @throws IllegalArgumentException if the key is not a known key
      * @since 1.0.20
      */
-    public static String GetValue(String message, String key) {
+    public static String getValue(String message, String key) {
 
         if (!KNOWN_TOKENS.contains(key)) throw new IllegalArgumentException("key must be a known token");
 
@@ -90,7 +96,7 @@ public class MessageUtils {
     }
 
     private static String removeToToken(String message, String token) {
-        int startIndex = message.indexOf(token + SEMICOLLON);
+        int startIndex = message.indexOf(token + SEMICOLON);
         if (startIndex == -1) return null;
 
         startIndex += token.length() + 1;
@@ -103,13 +109,13 @@ public class MessageUtils {
 
         for (String token : KNOWN_TOKENS) {
 
-            int tokenIndex = message.indexOf(token + SEMICOLLON);
+            int tokenIndex = message.indexOf(token + SEMICOLON);
 
             if (tokenIndex < currentEndIndex && tokenIndex >= 0) {
                 currentEndIndex = tokenIndex;
             }
 
-            if (message.indexOf(":") > currentEndIndex) break;
+            if (message.indexOf(SEMICOLON) > currentEndIndex) break;
         }
 
         return currentEndIndex;

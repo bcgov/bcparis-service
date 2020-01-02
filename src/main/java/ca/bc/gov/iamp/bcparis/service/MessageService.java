@@ -50,10 +50,10 @@ public class MessageService {
 	}
 
 	public String buildErrorResponse(final Body body, final String errorMessage) {
-		final String receiver = MessageUtils.GetValue(body.getMsgFFmt(),Keys.REQUEST_SCHEMA_FROM_KEY); //This becomes the receiver of the message
-		final String sender = MessageUtils.GetValue(body.getMsgFFmt(),Keys.REQUEST_SCHEMA_TO_KEY); //This will become the sender
-		final String text = MessageUtils.GetValue(body.getMsgFFmt(),Keys.REQUEST_SCHEMA_TEXT_KEY);
-		final String re = MessageUtils.GetValue(body.getMsgFFmt(),Keys.REQUEST_SCHEMA_RE_KEY);
+		final String receiver = MessageUtils.getValue(body.getMsgFFmt(),Keys.REQUEST_SCHEMA_FROM_KEY); //This becomes the receiver of the message
+		final String sender = MessageUtils.getValue(body.getMsgFFmt(),Keys.REQUEST_SCHEMA_TO_KEY); //This will become the sender
+		final String text = MessageUtils.getValue(body.getMsgFFmt(),Keys.REQUEST_SCHEMA_TEXT_KEY);
+		final String re = MessageUtils.getValue(body.getMsgFFmt(),Keys.REQUEST_SCHEMA_RE_KEY);
 		return MessageFormat.format(messageFormat, sender, receiver, text,(re != null ? String.format("RE:%s", re):""), errorMessage);
 	}
 

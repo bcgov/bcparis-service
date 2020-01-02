@@ -260,7 +260,7 @@ public class MessageUtilsGetValueTest {
 
         for (int i = 0; i < expected.length; i++) {
 
-            String result = MessageUtils.GetValue(this.input, expected[i][0]);
+            String result = MessageUtils.getValue(this.input, expected[i][0]);
 
             String oldResult = executeOldAlgo(this.input, this.expected[i][0]);
 

@@ -3,6 +3,7 @@ package ca.bc.gov.iamp.bcparis.message;
 import ca.bc.gov.iamp.bcparis.Keys;
 import org.springframework.util.StringUtils;
 
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -12,26 +13,30 @@ public class MessageUtils {
     private static final String STRING_END_ONE = "]]>$";
     private static final String STRING_END_TWO = "\n$";
 
-    private static HashSet<String> KNOWN_TOKENS = new HashSet<String>() {{
-        add(Keys.REQUEST_SCHEMA_SN_KEY);
-        add(Keys.REQUEST_SCHEMA_MT_KEY);
-        add(Keys.REQUEST_SCHEMA_MSID_KEY);
-        add(Keys.REQUEST_SCHEMA_FROM_KEY);
-        add(Keys.REQUEST_SCHEMA_TO_KEY);
-        add(Keys.REQUEST_SCHEMA_SUBJ_KEY);
-        add(Keys.REQUEST_SCHEMA_TEXT_KEY);
-        add(Keys.REQUEST_SCHEMA_RE_KEY);
-        add(Keys.REQUEST_SCHEMA_SNME_KEY);
-        add(Keys.REQUEST_SCHEMA_DL_KEY);
-        add(Keys.REQUEST_SCHEMA_LIC_KEY);
-        add(Keys.REQUEST_SCHEMA_ODN_KEY);
-        add(Keys.REQUEST_SCHEMA_FLC_KEY);
-        add(Keys.REQUEST_SCHEMA_VIN_KEY);
-        add(Keys.REQUEST_SCHEMA_REG_KEY);
-        add(Keys.REQUEST_SCHEMA_RNS_KEY);
-        add(Keys.REQUEST_SCHEMA_RVL_KEY);
-        add(Keys.REQUEST_SCHEMA_TEST_RNS_KEY);
-    }};
+    private static final Set<String> KNOWN_TOKENS;
+
+    static {
+        HashSet<String> known_tokens = new HashSet<>();
+        known_tokens.add(Keys.REQUEST_SCHEMA_SN_KEY);
+        known_tokens.add(Keys.REQUEST_SCHEMA_MT_KEY);
+        known_tokens.add(Keys.REQUEST_SCHEMA_MSID_KEY);
+        known_tokens.add(Keys.REQUEST_SCHEMA_FROM_KEY);
+        known_tokens.add(Keys.REQUEST_SCHEMA_TO_KEY);
+        known_tokens.add(Keys.REQUEST_SCHEMA_SUBJ_KEY);
+        known_tokens.add(Keys.REQUEST_SCHEMA_TEXT_KEY);
+        known_tokens.add(Keys.REQUEST_SCHEMA_RE_KEY);
+        known_tokens.add(Keys.REQUEST_SCHEMA_SNME_KEY);
+        known_tokens.add(Keys.REQUEST_SCHEMA_DL_KEY);
+        known_tokens.add(Keys.REQUEST_SCHEMA_LIC_KEY);
+        known_tokens.add(Keys.REQUEST_SCHEMA_ODN_KEY);
+        known_tokens.add(Keys.REQUEST_SCHEMA_FLC_KEY);
+        known_tokens.add(Keys.REQUEST_SCHEMA_VIN_KEY);
+        known_tokens.add(Keys.REQUEST_SCHEMA_REG_KEY);
+        known_tokens.add(Keys.REQUEST_SCHEMA_RNS_KEY);
+        known_tokens.add(Keys.REQUEST_SCHEMA_RVL_KEY);
+        known_tokens.add(Keys.REQUEST_SCHEMA_TEST_RNS_KEY);
+        KNOWN_TOKENS = Collections.unmodifiableSet(known_tokens);
+    }
 
 
     /**

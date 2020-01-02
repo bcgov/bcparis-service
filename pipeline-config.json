@@ -3,15 +3,88 @@
 		"credentials": "bcparis-jenkins-github"
 	},
 	"ciConfig": {
-		"stages": {
-			"codeArchiveStage": {
-				"id": "archive",
-				"engine": {
-					"credentials": "bcparis-jenkins-nexus"
-				}
-			}
-		}
-	},
+        "stages": {
+            "codeBuildStage": {
+                "engine": {
+                    "configDir": "external-config/build/maven",
+                    "goals": "clean install",
+                    "credentials": "",
+                    "type": "maven",
+                    "id": "",
+                    "params": "-DskipTests=true",
+                    "name": ""
+                },
+                "id": "build",
+                "requiresConfirmation": false,
+                "name": "Build",
+                "enable": true
+            },
+            "codeTestStage": {
+                "engine": {
+                    "configDir": "",
+                    "goals": "test",
+                    "credentials": "",
+                    "type": "maven",
+                    "id": "",
+                    "params": "",
+                    "name": ""
+                },
+                "id": "test",
+                "requiresConfirmation": false,
+                "name": "Test",
+                "enable": true
+            },
+            "codeQualityStage": {
+                "engine": {
+                    "configDir": "",
+                    "goals": "sonar:sonar",
+                    "credentials": "",
+                    "type": "sonar",
+                    "id": "",
+                    "params": "-DskipTests=true",
+                    "name": ""
+                },
+                "sonarGatewayTimeoutUnit": "MINUTES",
+                "id": "quality",
+                "sonarGatewayTimeout": 10,
+                "sonarGatewayConfigName": "sonar",
+                "requiresConfirmation": false,
+                "name": "Quality Scanning",
+                "sonarConfigName": "sonar",
+                "enable": true
+            },
+            "codeSecurityStage": {
+                "engine": {
+                    "configDir": "",
+                    "goals": "dependency-check:check",
+                    "credentials": "",
+                    "type": "maven",
+                    "id": "",
+                    "params": "-DskipTests=true",
+                    "name": ""
+                },
+                "id": "security",
+                "requiresConfirmation": false,
+                "name": "Dependencies Scanning",
+                "enable": true
+            },
+            "codeArchiveStage": {
+                "engine": {
+                    "configDir": "",
+                    "goals": "deploy",
+                    "credentials": "bcparis-jenkins-nexus",
+                    "type": "maven",
+                    "id": "",
+                    "params": "-DskipTests=true",
+                    "name": ""
+                },
+                "id": "archive",
+                "requiresConfirmation": false,
+                "name": "Archive",
+                "enable": true
+            }
+        }
+    },
 	"cdConfig": {
 		"deployments": {
 			"ocpDevDeployment": {

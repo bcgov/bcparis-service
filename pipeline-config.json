@@ -46,7 +46,7 @@
                 },
                 "sonarGatewayTimeoutUnit": "MINUTES",
                 "id": "quality",
-                "sonarGatewayTimeout": 10,
+                "sonarGatewayTimeout": 120,
                 "sonarGatewayConfigName": "sonar",
                 "requiresConfirmation": false,
                 "name": "Quality Scanning",

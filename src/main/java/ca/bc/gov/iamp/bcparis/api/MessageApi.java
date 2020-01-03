@@ -16,6 +16,13 @@ import ca.bc.gov.iamp.bcparis.model.message.Layer7Message;
 import ca.bc.gov.iamp.bcparis.processor.MessageProcessor;
 import ca.bc.gov.iamp.bcparis.util.RequestContext;
 
+/**
+ * The message API Controller accepts request to search drivers, vehicles or por and return information.
+ *
+ * There is a global exception handler ca.bc.gov.iamp.api.exception.handling.CustomRestExceptionHandler that handles any exception thrown.
+ * There is a local exception handler ca.bc.gov.iamp.bcparis.api.exception.ExceptionHandlerController that handles known ICBC, layer7 or POR exception (an email is send in this case)
+ *
+ */
 @RestController
 @RequestMapping("/api/v1/message")
 public class MessageApi {

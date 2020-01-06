@@ -52,23 +52,25 @@ dc(properties.traceId) AS distinctSpans BY severity</query>
       <title>Total Request During Selected Period</title>
       <single>
         <search>
-          <query>index="prod_paris"  | stats dc(properties.traceId)</query>
+          <query>index="$env$"  | stats dc(properties.traceId)</query>
           <earliest>$field1.earliest$</earliest>
           <latest>$field1.latest$</latest>
         </search>
         <option name="drilldown">none</option>
+        <option name="refresh.display">progressbar</option>
       </single>
     </panel>
     <panel>
       <title>Distribution by Type</title>
       <chart>
         <search>
-          <query>index="prod_paris" message="Processing*" | rex field=message "^Processing\s(?&lt;type&gt;.*)\smessage\.$" | stats count by type</query>
+          <query>index="$env$" message="Processing*" | rex field=message "^Processing\s(?&lt;type&gt;.*)\smessage\.$" | stats count by type</query>
           <earliest>$field1.earliest$</earliest>
           <latest>$field1.latest$</latest>
         </search>
         <option name="charting.chart">column</option>
         <option name="charting.drilldown">none</option>
+        <option name="refresh.display">progressbar</option>
       </chart>
     </panel>
   </row>
@@ -76,7 +78,7 @@ dc(properties.traceId) AS distinctSpans BY severity</query>
     <panel id="panel_error_log">
       <title>Error in Period</title>
       <html>
-         <style>
+        <style>
            #panel_error_log .dashboard-panel {
               border: 1px solid #d9534f!important;
             }
@@ -84,7 +86,7 @@ dc(properties.traceId) AS distinctSpans BY severity</query>
             #panel_error_log  .panel-title {
               color: #d9534f;
             }
-         </style>
+        </style>
       </html>
       <table>
         <search>
@@ -102,6 +104,43 @@ dc(properties.traceId) AS distinctSpans BY severity</query>
         <drilldown>
           <link target="_blank">[zipkin-url]/zipkin/traces/$row.OpenTrace Id$</link>
         </drilldown>
+      </table>
+    </panel>
+    <panel>
+      <title>Client Errors (ICBC, Layer7, POR)</title>
+      <table>
+        <title>client errors</title>
+        <search>
+          <query>index="$env$"
+| spath logger 
+| search logger="ca.bc.gov.iamp.bcparis.api.exception.ExceptionHandlerController"
+| spath "properties.messageId" 
+| eval timestamp=strftime(_time,"%Y-%m-%d %H:%M:%S")
+| table timestamp severity host properties.messageId
+| rename severity as level host as pod properties.messageId as messageId</query>
+          <earliest>$field1.earliest$</earliest>
+          <latest>$field1.latest$</latest>
+        </search>
+        <option name="drilldown">none</option>
+        <option name="refresh.display">progressbar</option>
+      </table>
+    </panel>
+  </row>
+  <row>
+    <panel>
+      <title>Transaction Count by Pod</title>
+      <table>
+        <search>
+          <query>index="$env$" properties.traceId!=NULL
+| dedup properties.traceId 
+| stats count by host
+| rename host as pod count as "Total Transaction"</query>
+          <earliest>$field1.earliest$</earliest>
+          <latest>$field1.latest$</latest>
+        </search>
+        <option name="count">10</option>
+        <option name="drilldown">none</option>
+        <option name="refresh.display">progressbar</option>
       </table>
     </panel>
   </row>

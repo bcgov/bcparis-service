@@ -120,7 +120,7 @@ Restart
 
 Run Mvn install
 
-If you are experiencing error in the code run Files > Invalidate Caches/Restart.
+If you are experiencing errors in the code, run Files > Invalidate Caches/Restart.
 also you can do Right click > Maven > Reimport
 
 Set up the environment variables

@@ -1,6 +1,6 @@
 # bcparis-service
 
-The bcparis-service is standalone restfull service which process messages using others different systems.
+The bcparis-service is standalone restful service which process messages using others different systems.
 
 ## Build
 
@@ -17,6 +17,13 @@ cd common-metrics
 mvn install
 ```
 
+Install root-pom found in the iamp-commons root directory
+
+```
+cd ..
+mvn install
+```
+
 Install spring-boot-api-service
 
 ```
@@ -28,8 +35,8 @@ install [com.splunk.logging:splunk-library-javalogging](https://github.com/splun
 
 ```
 git clone https://github.com/splunk/splunk-library-javalogging
-git checkout tags/1.6.2
 cd splunk-library-javalogging
+git checkout tags/1.6.2
 mvn install
 ```
 
@@ -58,7 +65,7 @@ docker run --name test-mysql -p 3306:3306 -e MYSQL_ROOT_PASSWORD=<set_password> 
 Create a `config` folder at the root of the solution
 
 ```bash
-mkdif config
+mkdir config
 ```
 
 Add a new file `logback.xml` in the config
@@ -107,7 +114,7 @@ add the following content to the file
 
 Install [LomBok](https://projectlombok.org/) plugin from marketplace
 
-> File > Settings > Pluggins > Search in repositories > LomBok
+> File > Settings > Plugins > Search in repositories > LomBok
 
 Restart
 
@@ -116,7 +123,7 @@ Run Mvn install
 If you are experiencing error in the code run Files > Invalidate Caches/Restart.
 also you can do Right click > Maven > Reimport
 
-Set up the environment varialbles
+Set up the environment variables
 
 edit the application configuration and 
 

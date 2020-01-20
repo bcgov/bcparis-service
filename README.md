@@ -6,13 +6,29 @@ The bcparis-service is standalone restful service which process messages using o
 
 Clone [iamp-commons](https://github.com/bcgov-c/iamp-commons)
 
-```
+```bash
 git clone https://github.com/bcgov-c/iamp-commons.git
 ```
 
+
+Install spring-parent
+
+```bash
+cd spring-parent
+mvn install
+```
+
+Install spring-boot-parent
+
+```bash
+cd spring-boot-parent
+mvn install
+```
+
+
 Install common-metrics
 
-```
+```bash
 cd common-metrics
 mvn install
 ```
@@ -26,14 +42,14 @@ mvn install
 
 Install spring-boot-api-service
 
-```
+```bash
 cd spring-boot-api-service
 mvn install
 ```
 
 install [com.splunk.logging:splunk-library-javalogging](https://github.com/splunk/splunk-library-javalogging) v 1.6.2
 
-```
+```bash
 git clone https://github.com/splunk/splunk-library-javalogging
 cd splunk-library-javalogging
 git checkout tags/1.6.2
@@ -42,7 +58,7 @@ mvn install
 
 clone this repository
 
-```
+```bash
 git clone https://github.com/bcgov/bcparis-service
 cd bcparis-service
 mvn install

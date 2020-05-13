@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import ca.bc.gov.iamp.api.exception.ApiRuntimeException;
-import ca.bc.gov.iamp.api.exception.handling.ApiError;
+import ca.bc.gov.iamp.bcparis.api.exception.ApiRuntimeException;
+import ca.bc.gov.iamp.bcparis.api.exception.handling.ApiError;
 import ca.bc.gov.iamp.bcparis.exception.icbc.ICBCRestException;
 import ca.bc.gov.iamp.bcparis.exception.layer7.Layer7RestException;
 import ca.bc.gov.iamp.bcparis.exception.message.InvalidMessage;

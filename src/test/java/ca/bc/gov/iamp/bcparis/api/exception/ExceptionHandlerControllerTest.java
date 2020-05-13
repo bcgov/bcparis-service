@@ -11,7 +11,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.client.HttpServerErrorException;
 
-import ca.bc.gov.iamp.api.exception.handling.ApiError;
+import ca.bc.gov.iamp.bcparis.api.exception.handling.ApiError;
 import ca.bc.gov.iamp.bcparis.model.message.Layer7Message;
 import ca.bc.gov.iamp.bcparis.repository.query.IMSRequest;
 import ca.bc.gov.iamp.bcparis.service.EmailService;

@@ -2,61 +2,43 @@
 
 The bcparis-service is standalone restful service which process messages using others different systems.
 
-## Build
+## Building and Running the App Locally
 
-Clone [iamp-commons](https://github.com/bcgov-c/iamp-commons)
-
-```bash
-git clone https://github.com/bcgov-c/iamp-commons.git
-```
-
-
-Install spring-parent
-
-```bash
-cd spring-parent
-mvn install
-```
-
-Install spring-boot-parent
-
-```bash
-cd spring-boot-parent
-mvn install
-```
-
-
-Install common-metrics
-
-```bash
-cd common-metrics
-mvn install
-```
-
-Install root-pom found in the iamp-commons root directory
-
-```
-cd ..
-mvn install
-```
-
-Install spring-boot-api-service
-
-```bash
-cd spring-boot-api-service
-mvn install
-```
-
-install [com.splunk.logging:splunk-library-javalogging](https://github.com/splunk/splunk-library-javalogging) v 1.6.2
+First, you will need to install [com.splunk.logging:splunk-library-javalogging](https://github.com/splunk/splunk-library-javalogging) v 1.6.2
 
 ```bash
 git clone https://github.com/splunk/splunk-library-javalogging
 cd splunk-library-javalogging
 git checkout tags/1.6.2
+```
+
+Open the `pom.xml` file inside the root directory of the `splunk-library-javalogging` project and modify this:
+```bash
+<repositories>
+  <repository>
+    <id>splunk-artifactory</id>
+    <name>Splunk Releases</name>
+    <url>http://splunk.artifactoryonline.com/splunk/ext-releases-local</url>
+  </repository>
+</repositories>
+```
+to:
+```bash
+<repositories>
+  <repository>
+    <id>splunk-artifactory</id>
+    <name>Splunk Releases</name>
+    <url>https://splunk.artifactoryonline.com/artifactory/ext-releases-local</url>
+  </repository>
+</repositories>
+```
+
+Then run:
+```bash
 mvn install
 ```
 
-clone this repository
+Then, clone this repository and install dependencies:
 
 ```bash
 git clone https://github.com/bcgov/bcparis-service
@@ -64,18 +46,10 @@ cd bcparis-service
 mvn install
 ```
 
-## Contributing
-
-Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests to us.
-
-## Run locally
-
-Build the application using the [Build](#Build)
-
 Install [MySql](https://www.mysql.com/), bellow is an example for running mysql on docker
 
 ```bash
-docker run --name test-mysql -p 3306:3306 -e MYSQL_ROOT_PASSWORD=<set_password> -e MYSQL_DATABASE=metastore -d mysql:latest
+docker run --name test-mysql -p 3306:3306 -e MYSQL_ROOT_PASSWORD=<SPRING_DATASOURCE_PASSWORD> -e MYSQL_DATABASE=metastore -d mysql:latest
 ```
 
 Create a `config` folder at the root of the solution
@@ -91,7 +65,7 @@ cd config
 touch logback.xml
 ```
 
-add the following content to the file
+Add the following content to the file
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -132,21 +106,16 @@ Install [LomBok](https://projectlombok.org/) plugin from marketplace
 
 > File > Settings > Plugins > Search in repositories > LomBok
 
-Restart
+Restart and run `mvn install`
 
-Run Mvn install
+If you are experiencing errors in the code, run Files > Invalidate Caches/Restart. Also, you can do Right click > Maven > Reimport.
 
-If you are experiencing errors in the code, run Files > Invalidate Caches/Restart.
-also you can do Right click > Maven > Reimport
+### Environment variables
 
-Set up the environment variables
+Edit the application configuration and configure all the environment variables in the `.env.template` file.
 
-edit the application configuration and 
-
-Configure all the environment variables in `.env.template` file.
-
-use the [SOAP UI collection](src/test/soapui/bcparis-service-soapui-project.xml) to interact with the service.
-Set up the project url to `http://localhost:8080`
+Use the [SOAP UI collection](src/test/soapui/bcparis-service-soapui-project.xml) to interact with the service.
+Set up the project url to: `http://localhost:8080`
 
 ### Type of processed messages
 
@@ -197,7 +166,6 @@ Set up the project url to `http://localhost:8080`
 Available on DEV environment.
 https://bcparis-service-xqb2qz-dev.pathfinder.bcgov/swagger-ui.html
 
-
 ### Endpoints
 
 **Message Endpoint**
@@ -218,7 +186,6 @@ Send all the 13 Satellite Messages.
 
 For more information about the High Level Design  and Messages check the confluence page.
 [https://justice.gov.bc.ca/wiki/display/APILM/7.3+High+Level+Design](https://justice.gov.bc.ca/wiki/display/APILM/7.3+High+Level+Design)
-
 
 ## Versioning
 

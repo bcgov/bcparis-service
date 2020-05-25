@@ -140,7 +140,6 @@
 				<version>${logstash.version}</version>
 			</dependency>
 
-
 			<dependency>
 				<groupId>com.google.guava</groupId>
 				<artifactId>guava</artifactId>
@@ -585,5 +584,384 @@
 			</plugin>
 		</plugins>
 	</build>
+
+	<profiles>
+		<profile>
+
+			<id>openshift</id>
+
+			<repositories>
+				<repository>
+					<id>splunk-artifactory</id>
+					<name>Splunk Releases</name>
+					<url>http://splunk.jfrog.io/splunk/ext-releases-local</url>
+				</repository>
+			</repositories>
+
+			<dependencies>
+				<dependency>
+					<groupId>com.splunk.logging</groupId>
+					<artifactId>splunk-library-javalogging</artifactId>
+					<version>${splunk.version}</version>
+				</dependency>
+			</dependencies>
+
+		</profile>
+		<profile>
+			<id>enable-deployable-src-artifacts</id>
+			<!-- This profile will be automatically activated if the directory "src"
+                exists in the root of the project -->
+			<activation>
+				<file>
+					<exists>src</exists>
+				</file>
+			</activation>
+
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-install-plugin</artifactId>
+						<configuration>
+							<skip>false</skip>
+						</configuration>
+					</plugin>
+
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-deploy-plugin</artifactId>
+						<configuration>
+							<skip>false</skip>
+						</configuration>
+					</plugin>
+
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-release-plugin</artifactId>
+						<configuration>
+						</configuration>
+					</plugin>
+				</plugins>
+
+			</build>
+		</profile>
+
+		<profile>
+			<id>enable-build-java-artifacts</id>
+			<!-- This profile will be automatically activated if the directory "src"
+                exists in the root of the project -->
+			<activation>
+				<file>
+					<exists>src/main/java</exists>
+				</file>
+			</activation>
+
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-compiler-plugin</artifactId>
+						<configuration>
+							<skip>false</skip>
+						</configuration>
+					</plugin>
+
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-source-plugin</artifactId>
+						<configuration>
+							<skipSource>false</skipSource>
+						</configuration>
+					</plugin>
+
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-javadoc-plugin</artifactId>
+						<configuration>
+							<skip>true</skip>
+						</configuration>
+					</plugin>
+
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-surefire-plugin</artifactId>
+					</plugin>
+
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-surefire-report-plugin</artifactId>
+					</plugin>
+
+					<plugin>
+						<groupId>org.jacoco</groupId>
+						<artifactId>jacoco-maven-plugin</artifactId>
+						<configuration>
+							<skip>false</skip>
+						</configuration>
+					</plugin>
+
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-jar-plugin</artifactId>
+						<configuration>
+							<skip>false</skip>
+						</configuration>
+					</plugin>
+				</plugins>
+
+				<resources>
+					<resource>
+						<directory>src/main/resources</directory>
+						<filtering>true</filtering>
+					</resource>
+				</resources>
+			</build>
+		</profile>
+
+		<profile>
+			<id>maven-debug</id>
+
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-antrun-plugin</artifactId>
+						<version>${version.maven-antrun-plugin}</version>
+						<executions>
+							<execution>
+								<phase>validate</phase>
+								<goals>
+									<goal>run</goal>
+								</goals>
+								<configuration>
+									<target>
+										<property environment="env"/>
+										<echo>Displaying value of all properties...</echo>
+										<echoproperties/>
+									</target>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+
+		<profile>
+			<id>version-replacer</id>
+
+			<build>
+				<plugins>
+
+					<!-- This plugin has one execution configured to replace the version
+                        of the module. -->
+					<plugin>
+						<groupId>com.google.code.maven-replacer-plugin</groupId>
+						<artifactId>replacer</artifactId>
+						<version>${version.maven-replacer-plugin}</version>
+						<executions>
+							<execution>
+								<id>replace-module-version</id>
+								<!--<phase>none</phase> -->
+								<goals>
+									<goal>replace</goal>
+								</goals>
+								<configuration>
+									<basedir>.</basedir>
+									<!--<basedir></basedir> -->
+									<file>pom.xml</file>
+									<!--<filesToInclude>*/**/pom.xml</filesToInclude> -->
+									<includes>
+										<include>pom.xml</include>
+										<include>*/**/pom.xml</include>
+									</includes>
+									<ignoreMissingFile>false</ignoreMissingFile>
+									<ignoreErrors>false</ignoreErrors>
+									<replacements>
+										<replacement>
+											<xpath>/project/version/text()</xpath>
+											<token>(.+)</token>
+											<value>${app.version}</value>
+										</replacement>
+									</replacements>
+									<regex>true</regex>
+									<regexFlags>
+										<regexFlag>MULTILINE</regexFlag>
+									</regexFlags>
+								</configuration>
+							</execution>
+
+							<execution>
+								<id>replace-parent-version</id>
+								<!--<phase>none</phase> -->
+								<goals>
+									<goal>replace</goal>
+								</goals>
+								<configuration>
+									<basedir>.</basedir>
+									<!--<basedir></basedir> -->
+									<file>pom.xml</file>
+									<!--<filesToInclude>*/**/pom.xml</filesToInclude> -->
+									<includes>
+										<include>*/**/pom.xml</include>
+									</includes>
+									<excludes>
+										<exclude>parent/pom.xml</exclude>
+									</excludes>
+									<ignoreMissingFile>false</ignoreMissingFile>
+									<ignoreErrors>false</ignoreErrors>
+									<replacements>
+										<replacement>
+											<xpath>/project/parent/version/text()</xpath>
+											<token>(.+)</token>
+											<value>${app.version}</value>
+										</replacement>
+									</replacements>
+									<regex>true</regex>
+									<regexFlags>
+										<regexFlag>MULTILINE</regexFlag>
+									</regexFlags>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+
+		<!--Enables the production of HTML versions of the Surefire reports. The
+            output directory and names were selected to facilitate the storage of the
+            reports as Bamboo build artifacts which allows the reports to be downloaded
+            from the Bamboo plan console -->
+		<profile>
+			<id>enable-html-surefire-reports</id>
+			<activation>
+				<activeByDefault>false</activeByDefault>
+			</activation>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-surefire-report-plugin</artifactId>
+						<configuration>
+							<!--session.executionRootDirectory is directory from which mvn command
+                                is invoked -->
+							<outputDirectory>${session.executionRootDirectory}/test-reports</outputDirectory>
+							<outputName>${project.artifactId}-${project.version}-surefire-report</outputName>
+						</configuration>
+						<executions>
+							<execution>
+								<phase>test</phase>
+								<goals>
+									<goal>report-only</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+		<profile>
+			<id>enable-maven-jaxb2-plugin</id>
+
+			<activation>
+				<file>
+					<exists>src/main/resources/xml</exists>
+				</file>
+			</activation>
+
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.jvnet.jaxb2.maven2</groupId>
+						<artifactId>maven-jaxb2-plugin</artifactId>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+
+
+		<profile>
+			<id>enable-soapui-maven-plugin</id>
+
+			<activation>
+				<file>
+					<exists>src</exists>
+				</file>
+			</activation>
+
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>com.smartbear.soapui</groupId>
+						<artifactId>soapui-maven-plugin</artifactId>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+
+
+		<profile>
+			<id>enable-spring-boot-maven-plugin</id>
+			<!-- This profile will be automatically activated if the directory "bin"
+                exists in the root of the project -->
+			<!-- A bin folder assumes this is the main app module that generates the
+                executable binaries. -->
+			<activation>
+				<file>
+					<exists>src/main/java</exists>
+				</file>
+			</activation>
+
+			<build>
+				<plugins>
+
+					<plugin>
+						<groupId>org.springframework.boot</groupId>
+						<artifactId>spring-boot-maven-plugin</artifactId>
+						<executions>
+							<execution>
+								<id>generate-build-info</id>
+							</execution>
+							<execution>
+								<id>repackage-fat_jarwar</id>
+								<configuration>
+									<skip>true</skip>
+								</configuration>
+							</execution>
+							<execution>
+								<id>repackage-fat_jarwar_as_unix_binary</id>
+								<configuration>
+									<skip>false</skip>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+
+		<profile>
+			<id>enable-rpm-maven-plugin</id>
+
+			<activation>
+				<os>
+					<family>Linux</family>
+				</os>
+				<file>
+					<exists>rpm</exists>
+				</file>
+			</activation>
+
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.codehaus.mojo</groupId>
+						<artifactId>rpm-maven-plugin</artifactId>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
 
 </project>

@@ -66,7 +66,7 @@
 		<maven-springboot-plugin.version>${springboot.version}</maven-springboot-plugin.version>
 
 		<springframework.version>5.2.3.RELEASE</springframework.version>
-		<spring-security.version>5.2.1.RELEASE</spring-security.version>
+		<spring-security.version>5.2.4.RELEASE</spring-security.version>
 		<spring-test.version>${springframework.version}</spring-test.version>
 		<metrics-spring.version>3.1.3</metrics-spring.version>
 
@@ -425,12 +425,39 @@
 			<artifactId>logstash-logback-encoder</artifactId>
 		</dependency>
 
-		<!-- try adding log4-j-core dependency -->
 		<!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-core -->
 		<dependency>
 			<groupId>org.apache.logging.log4j</groupId>
 			<artifactId>log4j-core</artifactId>
 			<version>2.13.2</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-api -->
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-api</artifactId>
+			<version>2.13.2</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.dom4j/dom4j -->
+		<dependency>
+			<groupId>org.dom4j</groupId>
+			<artifactId>dom4j</artifactId>
+			<version>2.1.3</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-config-client -->
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-config-client</artifactId>
+			<version>2.1.7.RELEASE</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.apache.tomcat.embed/tomcat-embed-core -->
+		<dependency>
+			<groupId>org.apache.tomcat.embed</groupId>
+			<artifactId>tomcat-embed-core</artifactId>
+			<version>9.0.31</version>
 		</dependency>
 
 	</dependencies>

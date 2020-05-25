@@ -155,13 +155,6 @@
 				<version>${logstash.version}</version>
 			</dependency>
 
-			<!-- Splunk -->
-			<dependency>
-				<groupId>com.splunk.logging</groupId>
-				<artifactId>splunk-library-javalogging</artifactId>
-				<version>${splunk.version}</version>
-			</dependency>
-
 			<dependency>
 				<groupId>com.google.guava</groupId>
 				<artifactId>guava</artifactId>
@@ -927,6 +920,27 @@
 	</build>
 
 	<profiles>
+		<profile>
+
+			<id>openshift</id>
+
+			<repositories>
+				<repository>
+					<id>splunk-artifactory</id>
+					<name>Splunk Releases</name>
+					<url>http://splunk.jfrog.io/splunk/ext-releases-local</url>
+				</repository>
+			</repositories>
+
+			<dependencies>
+				<dependency>
+					<groupId>com.splunk.logging</groupId>
+					<artifactId>splunk-library-javalogging</artifactId>
+					<version>${splunk.version}</version>
+				</dependency>
+			</dependencies>
+
+		</profile>
 		<profile>
 			<id>enable-deployable-src-artifacts</id>
 			<!-- This profile will be automatically activated if the directory "src"

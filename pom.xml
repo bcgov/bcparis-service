@@ -460,6 +460,13 @@
 			<version>9.0.31</version>
 		</dependency>
 
+		<!-- https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-config-client -->
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-config-client</artifactId>
+			<version>2.1.7.RELEASE</version>
+		</dependency>
+
 	</dependencies>
 
 	<build>

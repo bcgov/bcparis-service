@@ -81,21 +81,6 @@
 		<guava.version>29.0-jre</guava.version>
 	</properties>
 
-	<distributionManagement>
-		<repository>
-			<id>releases</id>
-			<name>Releases Repository</name>
-			<url>https://nexus-iamp.pathfinder.gov.bc.ca/repository/maven-releases/</url>
-			<layout>default</layout>
-		</repository>
-		<snapshotRepository>
-			<id>snapshots</id>
-			<name>Snapshots Repository</name>
-			<url>https://nexus-iamp.pathfinder.gov.bc.ca/repository/maven-snapshots/</url>
-			<layout>default</layout>
-		</snapshotRepository>
-	</distributionManagement>
-
 	<dependencyManagement>
 		<dependencies>
 			<dependency>

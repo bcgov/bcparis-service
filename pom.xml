@@ -140,6 +140,7 @@
 				<version>${logstash.version}</version>
 			</dependency>
 
+
 			<dependency>
 				<groupId>com.google.guava</groupId>
 				<artifactId>guava</artifactId>
@@ -318,6 +319,17 @@
 			<artifactId>spring-security-core</artifactId>
 		</dependency>
 
+		<dependency>
+			<groupId>org.apache.cxf</groupId>
+			<artifactId>cxf-core</artifactId>
+			<version>3.2.6</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.cxf</groupId>
+			<artifactId>cxf-xjc-plugin</artifactId>
+			<version>3.2.3</version>
+		</dependency>
+
 		<!-- Enabling health checks and metrics -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -400,6 +412,16 @@
 		<dependency>
 			<groupId>net.logstash.logback</groupId>
 			<artifactId>logstash-logback-encoder</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-access</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>net.rakugakibox.spring.boot</groupId>
+			<artifactId>logback-access-spring-boot-starter</artifactId>
+			<version>2.7.1</version>
 		</dependency>
 
 		<!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-core -->

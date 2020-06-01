@@ -262,13 +262,6 @@
 
 	<dependencies>
 
-		<!-- Spring Cloud Config -->
-		<dependency>
-			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-config</artifactId>
-			<version>2.1.7.RELEASE</version>
-		</dependency>
-
 		<!-- Quartz for satellite job -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -334,18 +327,6 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-actuator</artifactId>
-		</dependency>
-
-		<!-- Micormeter core dependecy -->
-		<dependency>
-			<groupId>io.micrometer</groupId>
-			<artifactId>micrometer-core</artifactId>
-		</dependency>
-
-		<!-- Micrometer Prometheus registry -->
-		<dependency>
-			<groupId>io.micrometer</groupId>
-			<artifactId>micrometer-registry-prometheus</artifactId>
 		</dependency>
 
 		<!-- Enabling distributed tracing -->
@@ -465,14 +446,6 @@
 			<artifactId>tomcat-embed-websocket</artifactId>
 			<version>9.0.35</version>
 		</dependency>
-
-		<!-- https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-config-client -->
-		<dependency>
-			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-config-client</artifactId>
-			<version>2.1.7.RELEASE</version>
-		</dependency>
-
 	</dependencies>
 
 	<profiles>

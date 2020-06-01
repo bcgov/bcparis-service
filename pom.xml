@@ -262,13 +262,6 @@
 
 	<dependencies>
 
-		<!-- Spring Cloud Config -->
-		<dependency>
-			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-config</artifactId>
-			<version>2.1.7.RELEASE</version>
-		</dependency>
-
 		<!-- Quartz for satellite job -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -335,17 +328,6 @@
 			<groupId>org.apache.cxf</groupId>
 			<artifactId>cxf-core</artifactId>
 			<version>3.2.6</version>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.cxf</groupId>
-			<artifactId>cxf-xjc-plugin</artifactId>
-			<version>3.2.3</version>
-		</dependency>
-
-		<!-- Enabling health checks and metrics -->
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-actuator</artifactId>
 		</dependency>
 
 		<!-- Enabling distributed tracing -->
@@ -465,14 +447,6 @@
 			<artifactId>tomcat-embed-websocket</artifactId>
 			<version>9.0.35</version>
 		</dependency>
-
-		<!-- https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-config-client -->
-		<dependency>
-			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-config-client</artifactId>
-			<version>2.1.7.RELEASE</version>
-		</dependency>
-
 	</dependencies>
 
 	<profiles>

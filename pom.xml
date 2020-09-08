@@ -78,7 +78,7 @@
 		<logstash.version>5.3</logstash.version>
 		<splunk.version>1.7.1</splunk.version>
 		<httpclient.version>4.5.7</httpclient.version>
-		<guava.version>27.1-jre</guava.version>
+		<guava.version>29.0-jre</guava.version>
 	</properties>
 
 	<distributionManagement>

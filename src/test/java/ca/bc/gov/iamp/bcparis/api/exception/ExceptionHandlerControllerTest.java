@@ -42,15 +42,6 @@ public class ExceptionHandlerControllerTest {
 		Assert.assertEquals("Message", error.getBody().getErrors().get(0));
 		Assert.assertEquals(HttpStatus.BAD_REQUEST, error.getBody().getStatus());
 	}
-	
-//	@Test
-//	public void httpServerError_success() {
-//		ResponseEntity<ApiError> error = controller.httpServerError(new HttpServerErrorException(HttpStatus.NOT_FOUND, "Message"));
-//		
-//		Mockito.verify(emailService, Mockito.times(1)).sendEmail(Mockito.anyString());
-//		Assert.assertEquals("org.springframework.web.client.HttpServerErrorException", error.getBody().getMessage());
-//		Assert.assertEquals(HttpStatus.INTERNAL_SERVER_ERROR, error.getBody().getStatus());
-//	}
 
 	@Test
 	public void restExceptions_success() {

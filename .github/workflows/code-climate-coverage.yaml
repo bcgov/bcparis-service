@@ -11,7 +11,12 @@ jobs:
     name: Create, format and upload Java coverage artifact
     runs-on: ubuntu-latest
     
-    steps:  
+    steps:
+      
+      # Checkout Project
+      - name: Checkout File Submission Repository
+        uses: actions/checkout@v2
+      
       # Get Code Climate binary
       - name: Download Code Climate Binary
         run: curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter

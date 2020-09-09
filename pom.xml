@@ -28,7 +28,7 @@
 
 
 		<!-- ========= Maven Plugins Versions ========= -->
-		<maven-help-plugin.version>2.2</maven-help-plugin.version>
+		<maven-help-plugin.version>3.2.0</maven-help-plugin.version>
 		<maven-javadoc-plugin.version>3.2.0</maven-javadoc-plugin.version>
 		<maven-properties-plugin.version>1.0.0</maven-properties-plugin.version>
 		<maven-source-plugin.version>3.0.1</maven-source-plugin.version>

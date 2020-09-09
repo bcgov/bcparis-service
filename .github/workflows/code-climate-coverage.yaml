@@ -77,4 +77,6 @@ jobs:
         run: |
           JACOCO_SOURCE_PATH=${{ github.workspace }}/src/main/java ./cc-test-reporter format-coverage ${{github.workspace}}/target/site/jacoco/jacoco.xml --input-type jacoco --output coverage/bcparis-codeclimate.json;
 
-   
+      # Upload total coverage report to Code Climate
+      - name: Upload coverage report to Code Climate
+        run: ./cc-test-reporter upload-coverage -i coverage/bcparis-codeclimate.json

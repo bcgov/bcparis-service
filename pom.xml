@@ -61,7 +61,7 @@
 		<springboot.version>2.2.3.RELEASE</springboot.version>
 		<springcloud.version>Greenwich.RELEASE</springcloud.version>
 		<swagger-springmvc.version>1.0.2</swagger-springmvc.version>
-		<springfox.version>2.9.2</springfox.version>
+		<springfox.version>3.0.0</springfox.version>
 
 		<maven-springboot-plugin.version>${springboot.version}</maven-springboot-plugin.version>
 

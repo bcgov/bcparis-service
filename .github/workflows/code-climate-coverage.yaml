@@ -75,6 +75,6 @@ jobs:
       # Formatting the BACKEND coverage reports generated (dynamically)
       - name: Format BACKEND coverage reports
         run: |
-          ./cc-test-reporter format-coverage ${{github.workspace}}/src/main/java/ca/bc/gov/iamp/bcparis/target/site/jacoco/jacoco.xml --input-type jacoco --output coverage/bcparis-codeclimate.json;
+          ./cc-test-reporter format-coverage ${{github.workspace}}/target/site/jacoco/jacoco.xml --input-type jacoco --output coverage/bcparis-codeclimate.json;
 
    

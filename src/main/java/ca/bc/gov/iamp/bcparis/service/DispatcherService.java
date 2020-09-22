@@ -10,7 +10,6 @@ import ca.bc.gov.iamp.bcparis.model.MessageType;
 import ca.bc.gov.iamp.bcparis.model.message.Layer7Message;
 import ca.bc.gov.iamp.bcparis.processor.datagram.DriverProcessor;
 import ca.bc.gov.iamp.bcparis.processor.datagram.PORProcessor;
-import ca.bc.gov.iamp.bcparis.processor.datagram.SatelliteProcessor;
 import ca.bc.gov.iamp.bcparis.processor.datagram.VehicleProcessor;
 
 @Service
@@ -26,9 +25,6 @@ public class DispatcherService {
 	
 	@Autowired
 	private PORProcessor PORProcessor;
-	
-	@Autowired
-	private SatelliteProcessor satelliteProcessor;
 	
 	public Object dispatch(Layer7Message message) {
 		
@@ -50,10 +46,6 @@ public class DispatcherService {
 			case POR: {
 				log.info("Message dispatched to POR processor.");
 				return PORProcessor.process( message ); 
-			}
-			case SATELLITE: {
-				log.info("Message dispatched to Satellite processor.");
-				return satelliteProcessor.process( message ); 
 			}
 			default: throw new InvalidMessageType("Invalid Message type");
 		}

@@ -26,7 +26,7 @@ public class Layer7Message implements Serializable{
 	
 	@JsonProperty(value="Envelope")
 	private Envelope envelope;
-	
+
 	@JsonIgnore
 	public MessageType getMessageType() {
 

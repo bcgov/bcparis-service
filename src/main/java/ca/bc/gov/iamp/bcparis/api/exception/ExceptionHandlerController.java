@@ -55,8 +55,7 @@ public class ExceptionHandlerController {
 	public ResponseEntity<Layer7Message> restExceptions(RuntimeException e) {
 		log.error(e.getMessage(), e);
 		emailService.sendEmail(e.getMessage());
-		return new ResponseEntity<Layer7Message>(
-			(Layer7Message) context.getRequestObject(), HttpStatus.INTERNAL_SERVER_ERROR);
+		return new ResponseEntity(context.getRequestObject(), HttpStatus.INTERNAL_SERVER_ERROR);
 	}
 	
 	public void satelliteException(Exception e) {

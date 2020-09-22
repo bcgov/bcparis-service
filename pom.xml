@@ -26,47 +26,15 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
-
-		<!-- ========= Maven Plugins Versions ========= -->
-		<maven-help-plugin.version>2.2</maven-help-plugin.version>
-		<maven-javadoc-plugin.version>3.2.0</maven-javadoc-plugin.version>
-		<maven-properties-plugin.version>1.0.0</maven-properties-plugin.version>
-		<maven-source-plugin.version>3.0.1</maven-source-plugin.version>
-		<maven-resources-plugin.version>3.0.2</maven-resources-plugin.version>
-		<maven-clean-plugin.version>2.5</maven-clean-plugin.version>
-		<maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
-		<maven-surefire-plugin.version>2.18.1</maven-surefire-plugin.version>
-		<maven-jar-plugin.version>3.0.2</maven-jar-plugin.version>
-		<maven-war-plugin.version>3.1.0</maven-war-plugin.version>
-		<maven-rpm-plugin.version>2.1.5</maven-rpm-plugin.version>
-		<maven-antrun-plugin.version>1.8</maven-antrun-plugin.version>
-		<maven-install-plugin.version>2.5.2</maven-install-plugin.version>
-		<maven-deploy-plugin.version>2.8.2</maven-deploy-plugin.version>
-		<maven-enforcer-plugin.version>1.4.1</maven-enforcer-plugin.version>
-		<maven-jacoco-plugin.version>0.7.9</maven-jacoco-plugin.version>
-		<codehaus-versions-maven-plugin.version>2.8.1</codehaus-versions-maven-plugin.version>
-		<codehaus-versions-maven-plugin.rulesUri>${user.home}/.m2/maven-version-rules.xml
-		</codehaus-versions-maven-plugin.rulesUri>
-
-		<maven-jaxb2-plugin.version>0.12.3</maven-jaxb2-plugin.version>
-		<soapui-maven-plugin.version>5.4.0</soapui-maven-plugin.version>
-		<dependency-check-maven.version>5.2.1</dependency-check-maven.version>
-		<!-- skip excessive CVE update checks for a designated duration in hours -->
-		<dependency-check-maven.cveValidForHours>12</dependency-check-maven.cveValidForHours>
-		<!-- typical PCI scanning requirements are to FAIL at CVSS >= 4.0 -->
-		<dependency-check-maven.failBuildOnCVSS>4</dependency-check-maven.failBuildOnCVSS>
-		<dependency-check-maven.suppressionFile>${user.home}/.m2/dependency-check-suppressions.xml
-		</dependency-check-maven.suppressionFile>
-
 		<springboot.version>2.2.3.RELEASE</springboot.version>
 		<springcloud.version>Greenwich.RELEASE</springcloud.version>
 		<swagger-springmvc.version>1.0.2</swagger-springmvc.version>
-		<springfox.version>2.9.2</springfox.version>
+		<springfox.version>3.0.0</springfox.version>
 
 		<maven-springboot-plugin.version>${springboot.version}</maven-springboot-plugin.version>
 
 		<springframework.version>5.2.3.RELEASE</springframework.version>
-		<spring-security.version>5.3.4.RELEASE</spring-security.version>
+		<spring-security.version>5.2.4.RELEASE</spring-security.version>
 		<spring-test.version>${springframework.version}</spring-test.version>
 		<metrics-spring.version>3.1.3</metrics-spring.version>
 
@@ -76,25 +44,10 @@
 		<slf4j.version>1.7.25</slf4j.version>
 		<logback.version>1.2.3</logback.version>
 		<logstash.version>5.3</logstash.version>
-		<splunk.version>1.7.1</splunk.version>
 		<httpclient.version>4.5.7</httpclient.version>
 		<guava.version>29.0-jre</guava.version>
-	</properties>
 
-	<distributionManagement>
-		<repository>
-			<id>releases</id>
-			<name>Releases Repository</name>
-			<url>https://nexus-iamp.pathfinder.gov.bc.ca/repository/maven-releases/</url>
-			<layout>default</layout>
-		</repository>
-		<snapshotRepository>
-			<id>snapshots</id>
-			<name>Snapshots Repository</name>
-			<url>https://nexus-iamp.pathfinder.gov.bc.ca/repository/maven-snapshots/</url>
-			<layout>default</layout>
-		</snapshotRepository>
-	</distributionManagement>
+	</properties>
 
 	<dependencyManagement>
 		<dependencies>
@@ -155,12 +108,6 @@
 				<version>${logstash.version}</version>
 			</dependency>
 
-			<!-- Splunk -->
-			<dependency>
-				<groupId>com.splunk.logging</groupId>
-				<artifactId>splunk-library-javalogging</artifactId>
-				<version>${splunk.version}</version>
-			</dependency>
 
 			<dependency>
 				<groupId>com.google.guava</groupId>
@@ -273,17 +220,15 @@
 				<version>${springboot.version}</version>
 				<scope>test</scope>
 			</dependency>
-
+			<dependency>
+				<groupId>javax.xml.bind</groupId>
+				<artifactId>jaxb-api</artifactId>
+				<version>2.3.0</version>
+			</dependency>
 		</dependencies>
 	</dependencyManagement>
 
 	<dependencies>
-
-		<!-- Spring Cloud Config -->
-		<dependency>
-			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-config</artifactId>
-		</dependency>
 
 		<!-- Quartz for satellite job -->
 		<dependency>
@@ -299,14 +244,8 @@
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
-			<version>8.0.17</version>
+			<version>8.0.21</version>
 		</dependency>
-        
-        <dependency>
-            <groupId>com.splunk.logging</groupId>
-            <artifactId>splunk-library-javalogging</artifactId>
-            <version>1.6.2</version>
-        </dependency>
 
 		<dependency>
 			<groupId>commons-io</groupId>
@@ -341,22 +280,22 @@
 			<artifactId>spring-security-core</artifactId>
 		</dependency>
 
+		<dependency>
+			<groupId>org.apache.cxf</groupId>
+			<artifactId>cxf-core</artifactId>
+			<version>3.2.6</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.cxf</groupId>
+			<artifactId>cxf-xjc-plugin</artifactId>
+			<version>3.2.3</version>
+		</dependency>
+
 		<!-- Enabling health checks and metrics -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-actuator</artifactId>
-		</dependency>
-
-		<!-- Micormeter core dependecy -->
-		<dependency>
-			<groupId>io.micrometer</groupId>
-			<artifactId>micrometer-core</artifactId>
-		</dependency>
-
-		<!-- Micrometer Prometheus registry -->
-		<dependency>
-			<groupId>io.micrometer</groupId>
-			<artifactId>micrometer-registry-prometheus</artifactId>
 		</dependency>
 
 		<!-- Enabling distributed tracing -->
@@ -424,813 +363,138 @@
 			<groupId>net.logstash.logback</groupId>
 			<artifactId>logstash-logback-encoder</artifactId>
 		</dependency>
+
+		<dependency>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-access</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>net.rakugakibox.spring.boot</groupId>
+			<artifactId>logback-access-spring-boot-starter</artifactId>
+			<version>2.7.1</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-core -->
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-core</artifactId>
+			<version>2.13.2</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-api -->
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-api</artifactId>
+			<version>2.13.2</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-to-slf4j -->
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-to-slf4j</artifactId>
+			<version>2.13.2</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.dom4j/dom4j -->
+		<dependency>
+			<groupId>org.dom4j</groupId>
+			<artifactId>dom4j</artifactId>
+			<version>2.1.3</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.apache.tomcat.embed/tomcat-embed-core -->
+		<dependency>
+			<groupId>org.apache.tomcat.embed</groupId>
+			<artifactId>tomcat-embed-core</artifactId>
+			<version>9.0.35</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.apache.tomcat.embed/tomcat-embed-websocket -->
+		<dependency>
+			<groupId>org.apache.tomcat.embed</groupId>
+			<artifactId>tomcat-embed-websocket</artifactId>
+			<version>9.0.35</version>
+		</dependency>
 	</dependencies>
-
-	<build>
-		<testResources>
-			<testResource>
-				<directory>src/test/resources</directory>
-				<filtering>true</filtering>
-			</testResource>
-		</testResources>
-
-		<pluginManagement>
-			<plugins>
-				<plugin>
-					<groupId>org.apache.maven.plugins</groupId>
-					<artifactId>maven-help-plugin</artifactId>
-					<version>${maven-help-plugin.version}</version>
-				</plugin>
-
-				<plugin>
-					<groupId>org.codehaus.mojo</groupId>
-					<artifactId>properties-maven-plugin</artifactId>
-					<version>${maven-properties-plugin.version}</version>
-				</plugin>
-
-				<plugin>
-					<groupId>org.apache.maven.plugins</groupId>
-					<artifactId>maven-source-plugin</artifactId>
-					<version>${maven-source-plugin.version}</version>
-					<configuration>
-					</configuration>
-					<executions>
-						<execution>
-							<id>attach-sources</id>
-							<phase>verify</phase>
-							<goals>
-								<goal>jar-no-fork</goal>
-							</goals>
-						</execution>
-					</executions>
-				</plugin>
-
-				<plugin>
-					<groupId>org.apache.maven.plugins</groupId>
-					<artifactId>maven-resources-plugin</artifactId>
-					<version>${maven-resources-plugin.version}</version>
-				</plugin>
-
-				<plugin>
-					<groupId>org.apache.maven.plugins</groupId>
-					<artifactId>maven-clean-plugin</artifactId>
-					<version>${maven-clean-plugin.version}</version>
-				</plugin>
-
-				<plugin>
-					<groupId>org.apache.maven.plugins</groupId>
-					<artifactId>maven-compiler-plugin</artifactId>
-					<version>${maven-compiler-plugin.version}</version>
-					<configuration>
-						<source>${java.version}</source>
-						<target>${java.version}</target>
-					</configuration>
-				</plugin>
-
-				<plugin>
-					<groupId>org.apache.maven.plugins</groupId>
-					<artifactId>maven-javadoc-plugin</artifactId>
-					<version>${maven-javadoc-plugin.version}</version>
-					<configuration>
-						<javadocExecutable>${java.home}/./../bin</javadocExecutable>
-						<!-- Disabling javadoc formatting check for Java 8 -->
-						<additionalparam>-Xdoclint:none</additionalparam>
-					</configuration>
-					<executions>
-						<execution>
-							<id>attach-javadoc</id>
-							<phase>verify</phase>
-							<goals>
-								<goal>jar</goal>
-							</goals>
-						</execution>
-					</executions>
-				</plugin>
-
-				<!-- Extend the default jar plugin config to force generation of a MANIFEST
-                    file. -->
-				<plugin>
-					<groupId>org.apache.maven.plugins</groupId>
-					<artifactId>maven-jar-plugin</artifactId>
-					<version>${maven-jar-plugin.version}</version>
-					<configuration>
-						<skip>true</skip>
-						<archive>
-							<addMavenDescriptor>true</addMavenDescriptor>
-							<manifest>
-								<useUniqueVersions>false</useUniqueVersions>
-								<addClasspath>true</addClasspath>
-								<addDefaultImplementationEntries>true</addDefaultImplementationEntries>
-								<addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
-								<classpathPrefix>lib/</classpathPrefix>
-								<classpathLayoutType>simple</classpathLayoutType>
-							</manifest>
-						</archive>
-					</configuration>
-				</plugin>
-
-				<!-- Extend the default war plugin config to generate a Manifest file
-                    with all info inside. -->
-				<plugin>
-					<groupId>org.apache.maven.plugins</groupId>
-					<artifactId>maven-war-plugin</artifactId>
-					<version>${maven-war-plugin.version}</version>
-					<configuration>
-						<warSourceDirectory>${project.basedir}/src/main/webapp</warSourceDirectory>
-						<!--<packagingExcludes>WEB-INF/lib/*</packagingExcludes> -->
-						<!--<archiveClasses>true</archiveClasses> -->
-						<outputDirectory>${project.build.directory}/webapps</outputDirectory>
-						<failOnMissingWebXml>false</failOnMissingWebXml>
-						<!--<webXml>${project.basedir}/src/main/webapp/WEB-INF/web.xml</webXml> -->
-						<archive>
-							<addMavenDescriptor>true</addMavenDescriptor>
-							<manifest>
-								<addClasspath>true</addClasspath>
-								<addDefaultImplementationEntries>true</addDefaultImplementationEntries>
-								<addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
-								<classpathPrefix>lib/</classpathPrefix>
-								<classpathLayoutType>simple</classpathLayoutType>
-							</manifest>
-						</archive>
-					</configuration>
-					<executions>
-						<execution>
-							<id>default-war</id>
-							<phase>package</phase>
-							<goals>
-								<goal>war</goal>
-								<goal>exploded</goal>
-							</goals>
-							<configuration>
-								<!--<skip>true</skip> -->
-							</configuration>
-						</execution>
-					</executions>
-				</plugin>
-
-				<plugin>
-					<groupId>org.apache.maven.plugins</groupId>
-					<artifactId>maven-surefire-plugin</artifactId>
-					<version>${maven-surefire-plugin.version}</version>
-					<inherited>true</inherited>
-					<configuration>
-						<skip>${skipTests}</skip>
-						<includes>
-							<include>**/*Test*.java</include>
-						</includes>
-					</configuration>
-					<executions>
-						<execution>
-							<configuration>
-								<!--<forkMode>never</forkMode> -->
-								<argLine>${argLine} -Xmx512m</argLine>
-							</configuration>
-							<id>default-test</id>
-							<phase>test</phase>
-							<goals>
-								<goal>test</goal>
-							</goals>
-						</execution>
-					</executions>
-				</plugin>
-
-				<plugin>
-					<groupId>org.apache.maven.plugins</groupId>
-					<artifactId>maven-surefire-report-plugin</artifactId>
-					<version>${maven-surefire-plugin.version}</version>
-				</plugin>
-
-				<plugin>
-					<groupId>org.jacoco</groupId>
-					<artifactId>jacoco-maven-plugin</artifactId>
-					<version>${maven-jacoco-plugin.version}</version>
-					<configuration>
-						<skip>true</skip>
-						<destFile>${basedir}/target/coverage-reports/jacoco-unit.exec</destFile>
-						<dataFile>${basedir}/target/coverage-reports/jacoco-unit.exec</dataFile>
-					</configuration>
-					<executions>
-						<execution>
-							<id>default-prepare-agent</id>
-							<goals>
-								<goal>prepare-agent</goal>
-							</goals>
-						</execution>
-						<execution>
-							<id>default-report</id>
-							<phase>prepare-package</phase>
-							<goals>
-								<goal>report</goal>
-							</goals>
-						</execution>
-					</executions>
-				</plugin>
-
-				<plugin>
-					<!-- To check dependencies update run the command: -->
-					<!-- mvn versions::display-dependency-updates -->
-					<groupId>org.codehaus.mojo</groupId>
-					<artifactId>versions-maven-plugin</artifactId>
-					<version>${codehaus-versions-maven-plugin.version}</version>
-					<configuration>
-						<outputFile>outdated-dependencies.txt</outputFile>
-						<rulesUri>${codehaus-versions-maven-plugin.rulesUri}</rulesUri>
-					</configuration>
-				</plugin>
-
-				<plugin>
-					<groupId>org.apache.maven.plugins</groupId>
-					<artifactId>maven-install-plugin</artifactId>
-					<version>${maven-install-plugin.version}</version>
-				</plugin>
-
-				<plugin>
-					<groupId>org.apache.maven.plugins</groupId>
-					<artifactId>maven-deploy-plugin</artifactId>
-					<version>${maven-deploy-plugin.version}</version>
-				</plugin>
-
-				<plugin>
-					<groupId>org.apache.maven.plugins</groupId>
-					<artifactId>maven-enforcer-plugin</artifactId>
-					<version>${maven-enforcer-plugin.version}</version>
-					<executions>
-						<execution>
-							<id>enforce-versions</id>
-							<goals>
-								<goal>enforce</goal>
-							</goals>
-							<configuration>
-								<!--<fail>false</fail> -->
-								<!-- By default it's set to true -->
-								<!--<failFast>true</failFast> -->
-								<!-- Fails on the first rule that doesn't pass -->
-								<rules>
-									<requireMavenVersion>
-										<version>[${maven.version},)</version>
-									</requireMavenVersion>
-									<requireJavaVersion>
-										<version>[${java.version},)</version>
-									</requireJavaVersion>
-									<!--<requireProperty> -->
-									<!--<level>WARN</level> -->
-									<!-- will only display a warning but does not fail the build -->
-									<!--<property>project.groupId</property> <regex>com\.opticca\.services</regex>
-                                        <regexMessage>groupId must be com.opticca.services</regexMessage> </requireProperty> -->
-									<banDistributionManagement>
-										<message>Only the parent-pom can define distribution
-											management
-										</message>
-										<!--Message seems ignored for this rule but this might get fixed
-                                            later -->
-									</banDistributionManagement>
-									<requireNoRepositories>
-										<message>Only the parent-pom must define repositories</message>
-									</requireNoRepositories>
-									<banDuplicatePomDependencyVersions>
-										<message>The same dependency is declared with more than 1
-											version
-										</message>
-									</banDuplicatePomDependencyVersions>
-									<requireReleaseDeps>
-										<!--<searchTransitive>false</searchTransitive> -->
-										<onlyWhenRelease>true</onlyWhenRelease>
-										<failWhenParentIsSnapshot>true</failWhenParentIsSnapshot>
-										<message>Snapshots are not allowed for production releases</message>
-										<!--<excludes> <exclude>org.apache.maven:maven-core</exclude> <exclude>org.apache.maven.plugins:*</exclude>
-                                            </excludes> -->
-									</requireReleaseDeps>
-								</rules>
-							</configuration>
-						</execution>
-					</executions>
-				</plugin>
-
-				<plugin>
-					<groupId>org.jvnet.jaxb2.maven2</groupId>
-					<artifactId>maven-jaxb2-plugin</artifactId>
-					<version>${maven-jaxb2-plugin.version}</version>
-					<executions>
-						<execution>
-							<id>xsd-generate</id>
-							<goals>
-								<goal>generate</goal>
-							</goals>
-							<configuration>
-								<generateDirectory>${project.build.directory}/generated-sources</generateDirectory>
-								<schemaDirectory>src/main/resources/xml</schemaDirectory>
-								<extension>true</extension>
-							</configuration>
-						</execution>
-					</executions>
-				</plugin>
-
-				<plugin>
-					<groupId>com.smartbear.soapui</groupId>
-					<artifactId>soapui-maven-plugin</artifactId>
-					<version>${soapui-maven-plugin.version}</version>
-					<configuration>
-						<projectFile>${soapui.project}</projectFile>
-						<printReport>true</printReport>
-						<outputFolder>${basedir}/target/soapui-output</outputFolder>
-						<junitReport>true</junitReport>
-						<soapuiProperties>
-							<property>
-								<name>soapui.properties</name>
-								<value>${soapui.properties}</value>
-							</property>
-						</soapuiProperties>
-					</configuration>
-					<dependencies>
-						<dependency>
-							<groupId>edu.stanford.nlp</groupId>
-							<artifactId>stanford-corenlp</artifactId>
-							<version>3.9.1</version>
-						</dependency>
-						<dependency>
-							<groupId>com.jgoodies</groupId>
-							<artifactId>forms</artifactId>
-							<version>1.2.1</version>
-						</dependency>
-					</dependencies>
-				</plugin>
-
-				<plugin>
-					<groupId>org.owasp</groupId>
-					<artifactId>dependency-check-maven</artifactId>
-					<version>${dependency-check-maven.version}</version>
-					<configuration>
-						<assemblyAnalyzerEnabled>false</assemblyAnalyzerEnabled>
-						<!-- skip excessive CVE update checks for a designated duration in hours -->
-						<cveValidForHours>${dependency-check-maven.cveValidForHours}</cveValidForHours>
-						<!-- typical PCI scanning requirements are to FAIL at CVSS >= 4.0 -->
-						<failBuildOnCVSS>${dependency-check-maven.failBuildOnCVSS}</failBuildOnCVSS>
-						<suppressionFile>${dependency-check-maven.suppressionFile}</suppressionFile>
-					</configuration>
-					<executions>
-						<execution>
-							<goals>
-								<goal>check</goal>
-							</goals>
-						</execution>
-					</executions>
-				</plugin>
-
-				<plugin>
-					<groupId>org.springframework.boot</groupId>
-					<artifactId>spring-boot-maven-plugin</artifactId>
-					<version>${maven-springboot-plugin.version}</version>
-					<executions>
-						<execution>
-							<id>generate-build-info</id>
-							<phase>generate-resources</phase>
-							<goals>
-								<goal>build-info</goal>
-							</goals>
-							<configuration>
-								<additionalProperties>
-									<encoding.source>${project.build.sourceEncoding}</encoding.source>
-									<encoding.output>${project.reporting.outputEncoding}</encoding.output>
-									<!--<java.source.name>${java.runtime.name}</java.source.name> <java.source.version>${java.runtime.version}</java.source.version>
-                                        <java.target>${java.version}</java.target> <module.name>${demo.module.name}</module.name> -->
-								</additionalProperties>
-							</configuration>
-						</execution>
-						<execution>
-							<id>repackage-fat_jarwar</id>
-							<phase>package</phase>
-							<goals>
-								<goal>repackage</goal>
-							</goals>
-							<configuration>
-								<skip>true</skip>
-								<finalName>${project.build.finalName}-deployable</finalName>
-								<excludeDevtools>false</excludeDevtools>
-							</configuration>
-						</execution>
-						<execution>
-							<id>repackage-fat_jarwar_as_unix_binary</id>
-							<phase>package</phase>
-							<goals>
-								<goal>repackage</goal>
-							</goals>
-							<configuration>
-								<skip>true</skip>
-								<finalName>${project.build.finalName}-bin</finalName>
-								<executable>true</executable>
-								<excludeDevtools>true</excludeDevtools>
-							</configuration>
-						</execution>
-					</executions>
-				</plugin>
-
-				<plugin>
-					<groupId>org.codehaus.mojo</groupId>
-					<artifactId>rpm-maven-plugin</artifactId>
-					<version>${maven-rpm-plugin.version}</version>
-					<extensions>true</extensions>
-					<executions>
-						<execution>
-							<id>generate-rpm</id>
-							<goals>
-								<goal>attached-rpm</goal>
-							</goals>
-							<phase>package</phase>
-						</execution>
-					</executions>
-					<configuration>
-						<group>Development</group>
-						<description>Maven RPM Package</description>
-						<mappings>
-							<mapping>
-								<directory>/${app.home}/bin/</directory>
-								<!--This is the directory where the files in this mapping will be
-                                    installed when the package is installed. This value must start with / -->
-								<artifact />
-
-							</mapping>
-							<!--Shawn Sterling from Sourced requested we remove this to avoid
-                                Transaction Check Error. Said wasn't needed. <mapping> <directory>/etc/init.d/</directory>
-                                </mapping> -->
-
-						</mappings>
-					</configuration>
-				</plugin>
-			</plugins>
-		</pluginManagement>
-
-		<plugins>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-enforcer-plugin</artifactId>
-			</plugin>
-
-			<plugin>
-				<!-- To check dependencies update run the command: -->
-				<!-- mvn versions::display-dependency-updates -->
-				<groupId>org.codehaus.mojo</groupId>
-				<artifactId>versions-maven-plugin</artifactId>
-				<inherited>true</inherited>
-			</plugin>
-		</plugins>
-	</build>
 
 	<profiles>
 		<profile>
-			<id>enable-deployable-src-artifacts</id>
-			<!-- This profile will be automatically activated if the directory "src"
-                exists in the root of the project -->
-			<activation>
-				<file>
-					<exists>src</exists>
-				</file>
-			</activation>
 
-			<build>
-				<plugins>
-					<plugin>
-						<groupId>org.apache.maven.plugins</groupId>
-						<artifactId>maven-install-plugin</artifactId>
-						<configuration>
-							<skip>false</skip>
-						</configuration>
-					</plugin>
+			<id>openshift</id>
 
-					<plugin>
-						<groupId>org.apache.maven.plugins</groupId>
-						<artifactId>maven-deploy-plugin</artifactId>
-						<configuration>
-							<skip>false</skip>
-						</configuration>
-					</plugin>
+			<repositories>
+				<repository>
+					<id>splunk-artifactory</id>
+					<name>Splunk Releases</name>
+					<url>https://splunk.jfrog.io/artifactory/ext-releases-local/</url>
+				</repository>
+			</repositories>
 
-					<plugin>
-						<groupId>org.apache.maven.plugins</groupId>
-						<artifactId>maven-release-plugin</artifactId>
-						<configuration>
-						</configuration>
-					</plugin>
-				</plugins>
+			<dependencies>
+				<dependency>
+					<groupId>com.splunk.logging</groupId>
+					<artifactId>splunk-library-javalogging</artifactId>
+					<version>1.7.1</version>
+				</dependency>
+			</dependencies>
 
-			</build>
-		</profile>
-
-		<profile>
-			<id>enable-build-java-artifacts</id>
-			<!-- This profile will be automatically activated if the directory "src"
-                exists in the root of the project -->
-			<activation>
-				<file>
-					<exists>src/main/java</exists>
-				</file>
-			</activation>
-
-			<build>
-				<plugins>
-					<plugin>
-						<groupId>org.apache.maven.plugins</groupId>
-						<artifactId>maven-compiler-plugin</artifactId>
-						<configuration>
-							<skip>false</skip>
-						</configuration>
-					</plugin>
-
-					<plugin>
-						<groupId>org.apache.maven.plugins</groupId>
-						<artifactId>maven-source-plugin</artifactId>
-						<configuration>
-							<skipSource>false</skipSource>
-						</configuration>
-					</plugin>
-
-					<plugin>
-						<groupId>org.apache.maven.plugins</groupId>
-						<artifactId>maven-javadoc-plugin</artifactId>
-						<configuration>
-							<skip>true</skip>
-						</configuration>
-					</plugin>
-
-					<plugin>
-						<groupId>org.apache.maven.plugins</groupId>
-						<artifactId>maven-surefire-plugin</artifactId>
-					</plugin>
-
-					<plugin>
-						<groupId>org.apache.maven.plugins</groupId>
-						<artifactId>maven-surefire-report-plugin</artifactId>
-					</plugin>
-
-					<plugin>
-						<groupId>org.jacoco</groupId>
-						<artifactId>jacoco-maven-plugin</artifactId>
-						<configuration>
-							<skip>false</skip>
-						</configuration>
-					</plugin>
-
-					<plugin>
-						<groupId>org.apache.maven.plugins</groupId>
-						<artifactId>maven-jar-plugin</artifactId>
-						<configuration>
-							<skip>false</skip>
-						</configuration>
-					</plugin>
-				</plugins>
-
-				<resources>
-					<resource>
-						<directory>src/main/resources</directory>
-						<filtering>true</filtering>
-					</resource>
-				</resources>
-			</build>
-		</profile>
-
-		<profile>
-			<id>maven-debug</id>
-
-			<build>
-				<plugins>
-					<plugin>
-						<groupId>org.apache.maven.plugins</groupId>
-						<artifactId>maven-antrun-plugin</artifactId>
-						<version>${version.maven-antrun-plugin}</version>
-						<executions>
-							<execution>
-								<phase>validate</phase>
-								<goals>
-									<goal>run</goal>
-								</goals>
-								<configuration>
-									<target>
-										<property environment="env"/>
-										<echo>Displaying value of all properties...</echo>
-										<echoproperties/>
-									</target>
-								</configuration>
-							</execution>
-						</executions>
-					</plugin>
-				</plugins>
-			</build>
-		</profile>
-
-		<profile>
-			<id>version-replacer</id>
-
-			<build>
-				<plugins>
-
-					<!-- This plugin has one execution configured to replace the version
-                        of the module. -->
-					<plugin>
-						<groupId>com.google.code.maven-replacer-plugin</groupId>
-						<artifactId>replacer</artifactId>
-						<version>${version.maven-replacer-plugin}</version>
-						<executions>
-							<execution>
-								<id>replace-module-version</id>
-								<!--<phase>none</phase> -->
-								<goals>
-									<goal>replace</goal>
-								</goals>
-								<configuration>
-									<basedir>.</basedir>
-									<!--<basedir></basedir> -->
-									<file>pom.xml</file>
-									<!--<filesToInclude>*/**/pom.xml</filesToInclude> -->
-									<includes>
-										<include>pom.xml</include>
-										<include>*/**/pom.xml</include>
-									</includes>
-									<ignoreMissingFile>false</ignoreMissingFile>
-									<ignoreErrors>false</ignoreErrors>
-									<replacements>
-										<replacement>
-											<xpath>/project/version/text()</xpath>
-											<token>(.+)</token>
-											<value>${app.version}</value>
-										</replacement>
-									</replacements>
-									<regex>true</regex>
-									<regexFlags>
-										<regexFlag>MULTILINE</regexFlag>
-									</regexFlags>
-								</configuration>
-							</execution>
-
-							<execution>
-								<id>replace-parent-version</id>
-								<!--<phase>none</phase> -->
-								<goals>
-									<goal>replace</goal>
-								</goals>
-								<configuration>
-									<basedir>.</basedir>
-									<!--<basedir></basedir> -->
-									<file>pom.xml</file>
-									<!--<filesToInclude>*/**/pom.xml</filesToInclude> -->
-									<includes>
-										<include>*/**/pom.xml</include>
-									</includes>
-									<excludes>
-										<exclude>parent/pom.xml</exclude>
-									</excludes>
-									<ignoreMissingFile>false</ignoreMissingFile>
-									<ignoreErrors>false</ignoreErrors>
-									<replacements>
-										<replacement>
-											<xpath>/project/parent/version/text()</xpath>
-											<token>(.+)</token>
-											<value>${app.version}</value>
-										</replacement>
-									</replacements>
-									<regex>true</regex>
-									<regexFlags>
-										<regexFlag>MULTILINE</regexFlag>
-									</regexFlags>
-								</configuration>
-							</execution>
-						</executions>
-					</plugin>
-				</plugins>
-			</build>
-		</profile>
-
-		<!--Enables the production of HTML versions of the Surefire reports. The
-            output directory and names were selected to facilitate the storage of the
-            reports as Bamboo build artifacts which allows the reports to be downloaded
-            from the Bamboo plan console -->
-		<profile>
-			<id>enable-html-surefire-reports</id>
-			<activation>
-				<activeByDefault>false</activeByDefault>
-			</activation>
-			<build>
-				<plugins>
-					<plugin>
-						<groupId>org.apache.maven.plugins</groupId>
-						<artifactId>maven-surefire-report-plugin</artifactId>
-						<configuration>
-							<!--session.executionRootDirectory is directory from which mvn command
-                                is invoked -->
-							<outputDirectory>${session.executionRootDirectory}/test-reports</outputDirectory>
-							<outputName>${project.artifactId}-${project.version}-surefire-report</outputName>
-						</configuration>
-						<executions>
-							<execution>
-								<phase>test</phase>
-								<goals>
-									<goal>report-only</goal>
-								</goals>
-							</execution>
-						</executions>
-					</plugin>
-				</plugins>
-			</build>
-		</profile>
-		<profile>
-			<id>enable-maven-jaxb2-plugin</id>
-
-			<activation>
-				<file>
-					<exists>src/main/resources/xml</exists>
-				</file>
-			</activation>
-
-			<build>
-				<plugins>
-					<plugin>
-						<groupId>org.jvnet.jaxb2.maven2</groupId>
-						<artifactId>maven-jaxb2-plugin</artifactId>
-					</plugin>
-				</plugins>
-			</build>
-		</profile>
-
-
-		<profile>
-			<id>enable-soapui-maven-plugin</id>
-
-			<activation>
-				<file>
-					<exists>src</exists>
-				</file>
-			</activation>
-
-			<build>
-				<plugins>
-					<plugin>
-						<groupId>com.smartbear.soapui</groupId>
-						<artifactId>soapui-maven-plugin</artifactId>
-					</plugin>
-				</plugins>
-			</build>
-		</profile>
-
-
-		<profile>
-			<id>enable-spring-boot-maven-plugin</id>
-			<!-- This profile will be automatically activated if the directory "bin"
-                exists in the root of the project -->
-			<!-- A bin folder assumes this is the main app module that generates the
-                executable binaries. -->
-			<activation>
-				<file>
-					<exists>src/main/java</exists>
-				</file>
-			</activation>
-
-			<build>
-				<plugins>
-
-					<plugin>
-						<groupId>org.springframework.boot</groupId>
-						<artifactId>spring-boot-maven-plugin</artifactId>
-						<executions>
-							<execution>
-								<id>generate-build-info</id>
-							</execution>
-							<execution>
-								<id>repackage-fat_jarwar</id>
-								<configuration>
-									<skip>true</skip>
-								</configuration>
-							</execution>
-							<execution>
-								<id>repackage-fat_jarwar_as_unix_binary</id>
-								<configuration>
-									<skip>false</skip>
-								</configuration>
-							</execution>
-						</executions>
-					</plugin>
-				</plugins>
-			</build>
-		</profile>
-
-		<profile>
-			<id>enable-rpm-maven-plugin</id>
-
-			<activation>
-				<os>
-					<family>Linux</family>
-				</os>
-				<file>
-					<exists>rpm</exists>
-				</file>
-			</activation>
-
-			<build>
-				<plugins>
-					<plugin>
-						<groupId>org.codehaus.mojo</groupId>
-						<artifactId>rpm-maven-plugin</artifactId>
-					</plugin>
-				</plugins>
-			</build>
 		</profile>
 	</profiles>
+	<build>
+		<plugins>
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>1.8</source>
+					<target>1.8</target>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+				<executions>
+					<execution>
+						<goals>
+							<goal>repackage</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<!--jacoco code coverage-->
+			<plugin>
+				<groupId>org.jacoco</groupId>
+				<artifactId>jacoco-maven-plugin</artifactId>
+				<version>0.8.4</version>
+				<executions>
+					<execution>
+						<goals>
+							<goal>prepare-agent</goal>
+						</goals>
+					</execution>
+					<!-- attached to Maven test phase -->
+					<execution>
+						<id>report</id>
+						<phase>test</phase>
+						<goals>
+							<goal>report</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+				<version>3.1.2</version>
+				<configuration>
+					<archive>
+						<addMavenDescriptor>false</addMavenDescriptor>
+						<manifest>
+							<addDefaultEntries>true</addDefaultEntries>
+						</manifest>
+					</archive>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
 
 </project>

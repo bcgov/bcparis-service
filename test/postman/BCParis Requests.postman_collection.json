@@ -1,0 +1,501 @@
+{
+	"info": {
+		"_postman_id": "9c7f0510-e26a-4ff9-afa7-c631bf88fc79",
+		"name": "BCParis Requests",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Dev",
+			"item": [
+				{
+					"name": "message vehicle",
+					"protocolProfileBehavior": {
+						"strictSSL": false
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "\r\n{\r\n   \"Envelope\":{\r\n      \"Header\":{\r\n         \"Origin\":{\r\n            \"QName\":\"CPIC.MSG.AGENCY.REMOTE\",\r\n            \"QMgrName\":\"BMVQ3VIC\"\r\n         },\r\n         \"CPICVer\":\"1.4\",\r\n         \"UDF\":\"BCPARISTEST\",\r\n         \"Priority\":\"1\",\r\n         \"Routing\":{\r\n            \"QName\":\"CPIC.MSG.BMVQ3VIC\",\r\n            \"QMgrName\":\"BMVQ3VIC\"\r\n         },\r\n         \"MsgSrvc\":{\r\n            \"msgActn\":\"Receive\"\r\n         }\r\n      },\r\n      \"Body\":{\r\n         \"MsgFFmt\":\"<![CDATA[SN:M00001-0001 MT:MUF MSID:BRKR-190515-20:09:47 FROM:BC41127 TO:BC41028 TEXT:RE: 2505\\nHC BC93181 \\nBC41028 \\nLIC:812DHR\\\\/ 13JUN18\\\\\\\\11:05:13\\n]]>\"\r\n      },\r\n      \"MQMD\":{\r\n         \"feedback\":\"0\",\r\n         \"replyToQueueManagerName\":\"CBQ3\",\r\n         \"messageIdByte\":\"41 4D 51 20 43 42 51 33 20 20 20 20 20 20 20 20 D9 BF 03 5D 85 20 6E 23\",\r\n         \"messageType\":\"8\",\r\n         \"format\":\"MQSTR\",\r\n         \"replyToQueueName\":\"CPIC.RPT.MSG\",\r\n         \"correlationIdByte\":\"41 4D 51 20 42 4D 56 51 33 56 49 43 20 20 20 20 5D 0A D2 81 20 38 61 02\"\r\n      }\r\n   }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://bcparis-service-xqb2qz-dev.pathfinder.gov.bc.ca/api/v1/message",
+							"protocol": "https",
+							"host": [
+								"bcparis-service-xqb2qz-dev",
+								"pathfinder",
+								"gov",
+								"bc",
+								"ca"
+							],
+							"path": [
+								"api",
+								"v1",
+								"message"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "message drivers license",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "\r\n{\r\n   \"Envelope\":{\r\n      \"Header\":{\r\n         \"Origin\":{\r\n            \"QName\":\"CPIC.MSG.AGENCY.REMOTE\",\r\n            \"QMgrName\":\"BMVQ3VIC\"\r\n         },\r\n         \"CPICVer\":\"1.4\",\r\n         \"UDF\":\"BCPARISTEST\",\r\n         \"Priority\":\"1\",\r\n         \"Routing\":{\r\n            \"QName\":\"CPIC.MSG.BMVQ3VIC\",\r\n            \"QMgrName\":\"BMVQ3VIC\"\r\n         },\r\n         \"MsgSrvc\":{\r\n            \"msgActn\":\"Receive\"\r\n         }\r\n      },\r\n      \"Body\":{\r\n         \"MsgFFmt\":\"<![CDATA[SN:M00001-0001 MT:DUF MSID:BRKR-190515-20:02:07 FROM:BC41127 TO:BC41027 TEXT:DL:3559874\\n]]>\"\r\n      },\r\n      \"MQMD\":{\r\n         \"feedback\":\"0\",\r\n         \"replyToQueueManagerName\":\"CBQ3\",\r\n         \"messageIdByte\":\"41 4D 51 20 43 42 51 33 20 20 20 20 20 20 20 20 D9 BF 03 5D 85 20 6E 23\",\r\n         \"messageType\":\"8\",\r\n         \"format\":\"MQSTR\",\r\n         \"replyToQueueName\":\"CPIC.RPT.MSG\",\r\n         \"correlationIdByte\":\"41 4D 51 20 42 4D 56 51 33 56 49 43 20 20 20 20 5D 0A D2 81 20 38 61 02\"\r\n      }\r\n   }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://bcparis-service-xqb2qz-dev.pathfinder.gov.bc.ca/api/v1/message",
+							"protocol": "https",
+							"host": [
+								"bcparis-service-xqb2qz-dev",
+								"pathfinder",
+								"gov",
+								"bc",
+								"ca"
+							],
+							"path": [
+								"api",
+								"v1",
+								"message"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "message por",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "\r\n{\r\n   \"Envelope\":{\r\n      \"Header\":{\r\n         \"Origin\":{\r\n            \"QName\":\"CPIC.MSG.AGENCY.REMOTE\",\r\n            \"QMgrName\":\"BMVQ3VIC\"\r\n         },\r\n         \"CPICVer\":\"1.4\",\r\n         \"UDF\":\"BCPARISTEST\",\r\n         \"Priority\":\"1\",\r\n         \"Routing\":{\r\n            \"QName\":\"CPIC.MSG.BMVQ3VIC\",\r\n            \"QMgrName\":\"BMVQ3VIC\"\r\n         },\r\n         \"MsgSrvc\":{\r\n            \"msgActn\":\"Receive\"\r\n         }\r\n      },\r\n      \"Body\":{\r\n         \"MsgFFmt\":\"<![CDATA[SN:M00001-0001 MT:MUF MSID:BRKR-190515-20:09:47 FROM:BC41127 TO:BC41028 TEXT:RE: 2505\\nHC BC93181 \\nBC41028 \\nLIC:812DHR\\\\/ 13JUN18\\\\\\\\11:05:13\\n]]>\"\r\n      },\r\n      \"MQMD\":{\r\n         \"feedback\":\"0\",\r\n         \"replyToQueueManagerName\":\"CBQ3\",\r\n         \"messageIdByte\":\"41 4D 51 20 43 42 51 33 20 20 20 20 20 20 20 20 D9 BF 03 5D 85 20 6E 23\",\r\n         \"messageType\":\"8\",\r\n         \"format\":\"MQSTR\",\r\n         \"replyToQueueName\":\"CPIC.RPT.MSG\",\r\n         \"correlationIdByte\":\"41 4D 51 20 42 4D 56 51 33 56 49 43 20 20 20 20 5D 0A D2 81 20 38 61 02\"\r\n      }\r\n   }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://bcparis-service-xqb2qz-dev.pathfinder.gov.bc.ca/api/v1/message",
+							"protocol": "https",
+							"host": [
+								"bcparis-service-xqb2qz-dev",
+								"pathfinder",
+								"gov",
+								"bc",
+								"ca"
+							],
+							"path": [
+								"api",
+								"v1",
+								"message"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Local Dev",
+			"item": [
+				{
+					"name": "message vehicle",
+					"protocolProfileBehavior": {
+						"strictSSL": false
+					},
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "\r\n{\r\n   \"Envelope\":{\r\n      \"Header\":{\r\n         \"Origin\":{\r\n            \"QName\":\"CPIC.MSG.AGENCY.REMOTE\",\r\n            \"QMgrName\":\"BMVQ3VIC\"\r\n         },\r\n         \"CPICVer\":\"1.4\",\r\n         \"UDF\":\"BCPARISTEST\",\r\n         \"Priority\":\"1\",\r\n         \"Routing\":{\r\n            \"QName\":\"CPIC.MSG.BMVQ3VIC\",\r\n            \"QMgrName\":\"BMVQ3VIC\"\r\n         },\r\n         \"MsgSrvc\":{\r\n            \"msgActn\":\"Receive\"\r\n         }\r\n      },\r\n      \"Body\":{\r\n         \"MsgFFmt\":\"<![CDATA[SN:M00001-0001 MT:MUF MSID:BRKR-190515-20:09:47 FROM:BC41127 TO:BC41028 TEXT:RE: 2505\\nHC BC93181 \\nBC41028 \\nLIC:812DHR\\\\/ 13JUN18\\\\\\\\11:05:13\\n]]>\"\r\n      },\r\n      \"MQMD\":{\r\n         \"feedback\":\"0\",\r\n         \"replyToQueueManagerName\":\"CBQ3\",\r\n         \"messageIdByte\":\"41 4D 51 20 43 42 51 33 20 20 20 20 20 20 20 20 D9 BF 03 5D 85 20 6E 23\",\r\n         \"messageType\":\"8\",\r\n         \"format\":\"MQSTR\",\r\n         \"replyToQueueName\":\"CPIC.RPT.MSG\",\r\n         \"correlationIdByte\":\"41 4D 51 20 42 4D 56 51 33 56 49 43 20 20 20 20 5D 0A D2 81 20 38 61 02\"\r\n      }\r\n   }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/message",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"message"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "message drivers license",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "\r\n{\r\n   \"Envelope\":{\r\n      \"Header\":{\r\n         \"Origin\":{\r\n            \"QName\":\"CPIC.MSG.AGENCY.REMOTE\",\r\n            \"QMgrName\":\"BMVQ3VIC\"\r\n         },\r\n         \"CPICVer\":\"1.4\",\r\n         \"UDF\":\"BCPARISTEST\",\r\n         \"Priority\":\"1\",\r\n         \"Routing\":{\r\n            \"QName\":\"CPIC.MSG.BMVQ3VIC\",\r\n            \"QMgrName\":\"BMVQ3VIC\"\r\n         },\r\n         \"MsgSrvc\":{\r\n            \"msgActn\":\"Receive\"\r\n         }\r\n      },\r\n      \"Body\":{\r\n         \"MsgFFmt\":\"<![CDATA[SN:M00001-0001 MT:DUF MSID:BRKR-190515-20:02:07 FROM:BC41127 TO:BC41027 TEXT:DL:3559874\\n]]>\"\r\n      },\r\n      \"MQMD\":{\r\n         \"feedback\":\"0\",\r\n         \"replyToQueueManagerName\":\"CBQ3\",\r\n         \"messageIdByte\":\"41 4D 51 20 43 42 51 33 20 20 20 20 20 20 20 20 D9 BF 03 5D 85 20 6E 23\",\r\n         \"messageType\":\"8\",\r\n         \"format\":\"MQSTR\",\r\n         \"replyToQueueName\":\"CPIC.RPT.MSG\",\r\n         \"correlationIdByte\":\"41 4D 51 20 42 4D 56 51 33 56 49 43 20 20 20 20 5D 0A D2 81 20 38 61 02\"\r\n      }\r\n   }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/message",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"message"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "message por",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "\r\n{\r\n   \"Envelope\":{\r\n      \"Header\":{\r\n         \"Origin\":{\r\n            \"QName\":\"CPIC.MSG.AGENCY.REMOTE\",\r\n            \"QMgrName\":\"BMVQ3VIC\"\r\n         },\r\n         \"CPICVer\":\"1.4\",\r\n         \"UDF\":\"BCPARISTEST\",\r\n         \"Priority\":\"1\",\r\n         \"Routing\":{\r\n            \"QName\":\"CPIC.MSG.BMVQ3VIC\",\r\n            \"QMgrName\":\"BMVQ3VIC\"\r\n         },\r\n         \"MsgSrvc\":{\r\n            \"msgActn\":\"Receive\"\r\n         }\r\n      },\r\n      \"Body\":{\r\n         \"MsgFFmt\":\"<![CDATA[SN:M00001-0001 MT:MUF MSID:BRKR-190515-20:09:47 FROM:BC41127 TO:BC41028 TEXT:RE: 2505\\nHC BC93181 \\nBC41028 \\nLIC:812DHR\\\\/ 13JUN18\\\\\\\\11:05:13\\n]]>\"\r\n      },\r\n      \"MQMD\":{\r\n         \"feedback\":\"0\",\r\n         \"replyToQueueManagerName\":\"CBQ3\",\r\n         \"messageIdByte\":\"41 4D 51 20 43 42 51 33 20 20 20 20 20 20 20 20 D9 BF 03 5D 85 20 6E 23\",\r\n         \"messageType\":\"8\",\r\n         \"format\":\"MQSTR\",\r\n         \"replyToQueueName\":\"CPIC.RPT.MSG\",\r\n         \"correlationIdByte\":\"41 4D 51 20 42 4D 56 51 33 56 49 43 20 20 20 20 5D 0A D2 81 20 38 61 02\"\r\n      }\r\n   }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/message",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"message"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Test",
+			"item": [
+				{
+					"name": "message vehicle",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "{{test_password}}",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "{{test_username}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"Envelope\": {\r\n    \"Header\": {\r\n        \"Origin\": {\r\n            \"QName\": \"CPIC.MSG.AGENCY.REMOTE\",\r\n            \"QMgrName\": \"BMVQ3VIC\"\r\n        },\r\n        \"CPICVer\": \"1.4\",\r\n        \"UDF\": \"BCPARISTEST\",\r\n        \"Routing\": {\r\n            \"QName\": \"CPIC.MSG.BMVQ3VIC\",\r\n            \"QMgrName\": \"BMVQ3VIC\"\r\n        },\r\n        \"MsgSrvc\": {\"msgActn\": \"Receive\"}\r\n    },\r\n    \"Body\": {\"MsgFFmt\": \"<![CDATA[\\rSN:M00001-0001 MT:MUF MSID:BRKR-191220-18:10:04\\nFROM:BC41127\\nTO:BC41027\\nTEXT:BCPARIS Diagnostic Test SOAPUI 443 qwe20190703102453\\nHC BC41127 BC41028 G1:JEREMY/ 2019120410145020191204101450\\n  \\r]]>\"},\r\n    \"MQMD\": {\r\n       \"feedback\": \"0\",\r\n        \"replyToQueueManagerName\": \"CBQ3\",\r\n        \"messageIdByte\": \"QU1RIENCUTMgICAgICAgIG+MwV3mRD8o\",\r\n        \"messageType\": \"8\",\r\n        \"format\": \"MQSTR\",\r\n        \"replyToQueueName\": \"CPIC.RPT.MSG\",\r\n        \"correlationIdByte\": \"QU1RIEJNVlEzVklDICAgIF3oW8UgZc4C\"\r\n    }\r\n}} \r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://wsgw.test.jag.gov.bc.ca/iamp/bcparis-service/api/v1/message",
+							"protocol": "https",
+							"host": [
+								"wsgw",
+								"test",
+								"jag",
+								"gov",
+								"bc",
+								"ca"
+							],
+							"path": [
+								"iamp",
+								"bcparis-service",
+								"api",
+								"v1",
+								"message"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "message drivers license",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "{{test_password}}",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "{{test_username}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"Envelope\": {\r\n    \"Header\": {\r\n        \"Origin\": {\r\n            \"QName\": \"CPIC.MSG.AGENCY.REMOTE\",\r\n            \"QMgrName\": \"BMVQ3VIC\"\r\n        },\r\n        \"CPICVer\": \"1.4\",\r\n        \"UDF\": \"BCPARISTEST\",\r\n        \"Routing\": {\r\n            \"QName\": \"CPIC.MSG.BMVQ3VIC\",\r\n            \"QMgrName\": \"BMVQ3VIC\"\r\n        },\r\n        \"MsgSrvc\": {\"msgActn\": \"Receive\"}\r\n    },\r\n    \"Body\": {\"MsgFFmt\": \"<![CDATA[\\rSN:M00001-0001 MT:MUF MSID:BRKR-191220-18:10:04\\nFROM:BC41127\\nTO:BC41027\\nTEXT:BCPARIS Diagnostic Test SOAPUI 443 qwe20190703102453\\nHC BC41127 BC41028 G1:JEREMY/ 2019120410145020191204101450\\n  \\r]]>\"},\r\n    \"MQMD\": {\r\n       \"feedback\": \"0\",\r\n        \"replyToQueueManagerName\": \"CBQ3\",\r\n        \"messageIdByte\": \"QU1RIENCUTMgICAgICAgIG+MwV3mRD8o\",\r\n        \"messageType\": \"8\",\r\n        \"format\": \"MQSTR\",\r\n        \"replyToQueueName\": \"CPIC.RPT.MSG\",\r\n        \"correlationIdByte\": \"QU1RIEJNVlEzVklDICAgIF3oW8UgZc4C\"\r\n    }\r\n}} \r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://wsgw.test.jag.gov.bc.ca/iamp/bcparis-service/api/v1/message",
+							"protocol": "https",
+							"host": [
+								"wsgw",
+								"test",
+								"jag",
+								"gov",
+								"bc",
+								"ca"
+							],
+							"path": [
+								"iamp",
+								"bcparis-service",
+								"api",
+								"v1",
+								"message"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "message por",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "{{test_password}}",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "{{test_username}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"Envelope\": {\r\n    \"Header\": {\r\n        \"Origin\": {\r\n            \"QName\": \"CPIC.MSG.AGENCY.REMOTE\",\r\n            \"QMgrName\": \"BMVQ3VIC\"\r\n        },\r\n        \"CPICVer\": \"1.4\",\r\n        \"UDF\": \"BCPARISTEST\",\r\n        \"Routing\": {\r\n            \"QName\": \"CPIC.MSG.BMVQ3VIC\",\r\n            \"QMgrName\": \"BMVQ3VIC\"\r\n        },\r\n        \"MsgSrvc\": {\"msgActn\": \"Receive\"}\r\n    },\r\n    \"Body\": {\"MsgFFmt\": \"<![CDATA[SN:M00001-0001 MT:MUF MSID:BRKR-190515-20:09:47 FROM:BC41127 TO:BC41028 TEXT:RE: 2505\\nHC BC93181 \\nBC41028 \\nLIC:812DHR\\\\/ 13JUN18\\\\\\\\11:05:13\\n]]>\"},\r\n    \"MQMD\": {\r\n       \"feedback\": \"0\",\r\n        \"replyToQueueManagerName\": \"CBQ3\",\r\n        \"messageIdByte\": \"QU1RIENCUTMgICAgICAgIG+MwV3mRD8o\",\r\n        \"messageType\": \"8\",\r\n        \"format\": \"MQSTR\",\r\n        \"replyToQueueName\": \"CPIC.RPT.MSG\",\r\n        \"correlationIdByte\": \"QU1RIEJNVlEzVklDICAgIF3oW8UgZc4C\"\r\n    }\r\n}} \r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://wsgw.test.jag.gov.bc.ca/iamp/bcparis-service/api/v1/message",
+							"protocol": "https",
+							"host": [
+								"wsgw",
+								"test",
+								"jag",
+								"gov",
+								"bc",
+								"ca"
+							],
+							"path": [
+								"iamp",
+								"bcparis-service",
+								"api",
+								"v1",
+								"message"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Health",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://bc-paris-nginx-service-xqb2qz-dev.pathfinder.gov.bc.ca/health",
+					"protocol": "https",
+					"host": [
+						"bc-paris-nginx-service-xqb2qz-dev",
+						"pathfinder",
+						"gov",
+						"bc",
+						"ca"
+					],
+					"path": [
+						"health"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "basic",
+		"basic": [
+			{
+				"key": "password",
+				"value": "{{dev_password}}",
+				"type": "string"
+			},
+			{
+				"key": "username",
+				"value": "{{dev_username}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "8fbadd65-2c16-4d0f-ab6d-fb4c92a32452",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "f7893a91-eda0-40f7-8688-6a6baeeef9be",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"protocolProfileBehavior": {}
+}

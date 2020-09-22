@@ -22,7 +22,7 @@ docker run --name test-mysql -p 3306:3306 -e MYSQL_ROOT_PASSWORD=admin -e MYSQL_
 
 Set the following environment variables or edit this file `src\main\resources\application.properties`
 
-Run
+Run:
 
 ```bash
 mvn spring-boot:run

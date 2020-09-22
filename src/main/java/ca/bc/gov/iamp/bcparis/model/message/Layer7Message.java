@@ -27,10 +27,6 @@ public class Layer7Message implements Serializable{
 	@JsonProperty(value="Envelope")
 	private Envelope envelope;
 
-	@JsonProperty(value="BCParis")
-	private String message = "De-coupled";
-
-
 	@JsonIgnore
 	public MessageType getMessageType() {
 

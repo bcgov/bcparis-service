@@ -285,6 +285,7 @@
 			<artifactId>cxf-core</artifactId>
 			<version>3.2.6</version>
 		</dependency>
+
 		<dependency>
 			<groupId>org.apache.cxf</groupId>
 			<artifactId>cxf-xjc-plugin</artifactId>

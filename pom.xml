@@ -293,9 +293,8 @@
 
 		<!-- Enabling health checks and metrics -->
 		<dependency>
-			<groupId>org.apache.cxf</groupId>
-			<artifactId>cxf-core</artifactId>
-			<version>3.2.6</version>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-actuator</artifactId>
 		</dependency>
 
 		<!-- Enabling distributed tracing -->

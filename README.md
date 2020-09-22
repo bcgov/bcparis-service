@@ -20,7 +20,7 @@ Create a MySql docker container:
 docker run --name test-mysql -p 3306:3306 -e MYSQL_ROOT_PASSWORD=admin -e MYSQL_DATABASE=metastore -d mysql:latest
 ```
 
-Set the following environement variables or edit this file `src\main\resources\application.properties`
+Set the following environment variables or edit this file `src\main\resources\application.properties`
 
 Run
 

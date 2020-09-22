@@ -6,41 +6,7 @@ The bcparis-service is standalone restful service which process messages using o
 
 ## Building and Running the App Locally
 
-First, you will need to install [com.splunk.logging:splunk-library-javalogging](https://github.com/splunk/splunk-library-javalogging) v 1.6.2
-
-```bash
-git clone https://github.com/splunk/splunk-library-javalogging
-cd splunk-library-javalogging
-git checkout tags/1.6.2
-```
-
-Open the `pom.xml` file inside the root directory of the `splunk-library-javalogging` project and modify this:
-```bash
-<repositories>
-  <repository>
-    <id>splunk-artifactory</id>
-    <name>Splunk Releases</name>
-    <url>http://splunk.artifactoryonline.com/splunk/ext-releases-local</url>
-  </repository>
-</repositories>
-```
-to:
-```bash
-<repositories>
-  <repository>
-    <id>splunk-artifactory</id>
-    <name>Splunk Releases</name>
-    <url>https://splunk.artifactoryonline.com/artifactory/ext-releases-local</url>
-  </repository>
-</repositories>
-```
-
-Then run:
-```bash
-mvn install
-```
-
-Then, clone this repository and install dependencies:
+Clone this repository and install dependencies:
 
 ```bash
 git clone https://github.com/bcgov/bcparis-service
@@ -48,59 +14,43 @@ cd bcparis-service
 mvn install
 ```
 
-Install [MySql](https://www.mysql.com/), bellow is an example for running mysql on docker
+Create a MySql docker container:
 
 ```bash
-docker run --name test-mysql -p 3306:3306 -e MYSQL_ROOT_PASSWORD=<SPRING_DATASOURCE_PASSWORD> -e MYSQL_DATABASE=metastore -d mysql:latest
+docker run --name test-mysql -p 3306:3306 -e MYSQL_ROOT_PASSWORD=admin -e MYSQL_DATABASE=metastore -d mysql:latest
 ```
 
-Create a `config` folder at the root of the solution
+Set the following environment variables or edit this file `src\main\resources\application.properties`
+
+Run:
 
 ```bash
-mkdir config
+mvn spring-boot:run
 ```
 
-Add a new file `logback.xml` in the config
+### Configuration
 
-```bash
-cd config
-touch logback.xml
-```
-
-Add the following content to the file
-
-```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<configuration scan="true">
-    <include resource="org/springframework/boot/logging/logback/defaults.xml"/>
-    <springProperty scope="context" name="custom-pattern" source="logging.pattern.custom" />
-    <property name="CONSOLE_LOG_PATTERN" value="%clr(%d{yyyy-MM-dd HH:mm:ss.SSS}){faint} %clr(${LOG_LEVEL_PATTERN:-%5p}) ${custom-pattern} %clr(${PID:- }){magenta} %clr(---){faint} %clr([%15.15t]){faint} %clr(%-40.40logger{39}){cyan} %clr(:){faint} %m%n${LOG_EXCEPTION_CONVERSION_WORD:-%wEx}"/>
-    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
-        <encoder>
-            <pattern>${CONSOLE_LOG_PATTERN}</pattern>
-        </encoder>
-    </appender>
-    <root level="INFO">
-        <appender-ref ref="CONSOLE" />
-    </root>
-    <springProperty scope="context" name="splunk-url" source="splunk.hec.url"/>
-    <springProperty scope="context" name="splunk-token" source="splunk.hec.token"/>
-    <springProperty scope="context" name="application-name" source="spring.application.name"/>
-    <appender name="splunk" class="com.splunk.logging.HttpEventCollectorLogbackAppender">
-        <url>${splunk-url}</url>
-        <token>${splunk-token}</token>
-        <source>${application-name}</source>
-        <host>${HOSTNAME}</host>
-        <disableCertificateValidation>true</disableCertificateValidation>
-        <layout class="ch.qos.logback.classic.PatternLayout">
-            <pattern>%msg</pattern>
-        </layout>
-    </appender>
-    <root level="INFO">
-        <appender-ref ref="splunk"/>
-    </root>
-</configuration>
-```
+| Environment Variable | Type | Description | Notes |
+| --- | --- | --- | --- |
+| POR_REST_ENDPOINT | String | String | POR Rest Endpoint | |
+| ENDPOINT_POR_REST_USERNAME | String | POR ORDS UserName | |
+| ENDPOINT_POR_REST_PASSWORD | String | POR ORDS Password | |
+| ENDPOINT_LAYER7_REST_HEADER_USERNAME | String | Layer7 Mq Password | |
+| ENDPOINT_LAYER7_REST_HEADER_PASSWORD | String | Layer7 Mq Password | |
+| LAYER7_REST_ENDPOINT | String | Layer 7 Mq Password | |
+| ENDPOINT_ICBC_REST_HEADER_IMSUSERID | String | ICBC headers userId | |
+| ENDPOINT_ICBC_REST_HEADER_IMSCREDENTIAL | String | ICBC headers userId | |
+| ENDPOINT_ICBC_REST_HEADER_USERNAME | String | ICBC headers username | |
+| ENDPOINT_ICBC_REST_HEADER_PASSWORD | String | ICBC headers password | |
+| ENDPOINT_IAMP_EMAIL_SERVICE_REST_USERNAME | String | Email Service username | |
+| ENDPOINT_IAMP_EMAIL_SERVICE_REST_PASSWORD | String | Email Service username | |
+| EMAIL_SERVICE_RECEIVER | String | Email Service username | |
+| EMAIL_SERVICE_ENDPOINT | String | Email service endpont | |
+| ENDPOINT_IAMP_EMAIL_SERVICE_REST_PASSWORD | String | Email Service username | |
+| METASTOREURL | String | mysql host | |
+| SPRING_DATASOURCE_USERNAME | String | mysql username | |
+| SPRING_DATASOURCE_PASSWORD | String | mysql password | |
+| ICBC_REST_ENDPOINT | String | | |
 
 ### IntelliJ
 
@@ -111,13 +61,6 @@ Install [LomBok](https://projectlombok.org/) plugin from marketplace
 Restart and run `mvn install`
 
 If you are experiencing errors in the code, run Files > Invalidate Caches/Restart. Also, you can do Right click > Maven > Reimport.
-
-### Environment variables
-
-Edit the application configuration and configure all the environment variables in the `.env.template` file.
-
-Use the [SOAP UI collection](src/test/soapui/bcparis-service-soapui-project.xml) to interact with the service.
-Set up the project url to: `http://localhost:8080`
 
 ### Type of processed messages
 

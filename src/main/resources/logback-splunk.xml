@@ -10,7 +10,7 @@
     <appender name="http" class="com.splunk.logging.HttpEventCollectorLogbackAppender">
         <url>${SPLUNK_URL}</url>
         <token>${SPLUNK_TOKEN}</token>
-        <source>${DPS_TENANT}-email-worker</source>
+        <source>bcparis-api</source>
         <sourcetype>bcparis-logs</sourcetype>
         <middleware>HttpEventCollectorUnitTestMiddleware</middleware>
         <disableCertificateValidation>true</disableCertificateValidation>

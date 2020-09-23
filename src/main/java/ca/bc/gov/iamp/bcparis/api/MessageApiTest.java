@@ -22,10 +22,10 @@ public class MessageApiTest {
 
 
     @PostMapping( path="/layer7", consumes=MediaType.APPLICATION_JSON_VALUE)
-    private ResponseEntity<String> testPutMessageLayer7( @RequestBody Layer7Message message ){
+    public ResponseEntity<String> testPutMessageLayer7( @RequestBody Layer7Message message ){
         final String response = layer7Repository.sendMessage(message);
         return ResponseEntity.ok(response);
     }
-    
+
 
 }

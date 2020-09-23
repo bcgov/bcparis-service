@@ -37,6 +37,7 @@ mvn spring-boot:run
 | POR_REST_ENDPOINT | String | String | POR Rest Endpoint | |
 | ENDPOINT_POR_REST_USERNAME | String | POR ORDS UserName | |
 | ENDPOINT_POR_REST_PASSWORD | String | POR ORDS Password | |
+| POR_REST_CPIC_ENDPOINT | String | POR path | |
 | ENDPOINT_LAYER7_REST_HEADER_USERNAME | String | Layer7 Mq Password | |
 | ENDPOINT_LAYER7_REST_HEADER_PASSWORD | String | Layer7 Mq Password | |
 | LAYER7_REST_ENDPOINT | String | Layer 7 Mq Password | |

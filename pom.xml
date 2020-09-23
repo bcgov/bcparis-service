@@ -25,7 +25,7 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
-		<springboot.version>2.2.3.RELEASE</springboot.version>
+		<springboot.version>2.3.4.RELEASE</springboot.version>
 		<springcloud.version>Greenwich.RELEASE</springcloud.version>
 		<swagger-springmvc.version>1.0.2</swagger-springmvc.version>
 		<springfox.version>3.0.0</springfox.version>

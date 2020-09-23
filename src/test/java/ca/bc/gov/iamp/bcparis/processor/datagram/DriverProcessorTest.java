@@ -1,5 +1,6 @@
 package ca.bc.gov.iamp.bcparis.processor.datagram;
 
+import ca.bc.gov.iamp.bcparis.message.DriverProcessor;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Rule;

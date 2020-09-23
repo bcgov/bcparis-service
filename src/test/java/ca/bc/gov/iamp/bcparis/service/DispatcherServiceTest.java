@@ -1,5 +1,8 @@
 package ca.bc.gov.iamp.bcparis.service;
 
+import ca.bc.gov.iamp.bcparis.message.DriverProcessor;
+import ca.bc.gov.iamp.bcparis.message.PORProcessor;
+import ca.bc.gov.iamp.bcparis.message.VehicleProcessor;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.InjectMocks;
@@ -8,9 +11,6 @@ import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 
 import ca.bc.gov.iamp.bcparis.model.message.Layer7Message;
-import ca.bc.gov.iamp.bcparis.processor.datagram.DriverProcessor;
-import ca.bc.gov.iamp.bcparis.processor.datagram.PORProcessor;
-import ca.bc.gov.iamp.bcparis.processor.datagram.VehicleProcessor;
 import test.util.BCPARISTestUtil;
 
 public class DispatcherServiceTest {

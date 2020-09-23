@@ -1,7 +1,9 @@
-package ca.bc.gov.iamp.bcparis.processor.datagram;
+package ca.bc.gov.iamp.bcparis.message;
 
 import java.util.List;
 
+import ca.bc.gov.iamp.bcparis.model.MessageType;
+import ca.bc.gov.iamp.bcparis.service.MessageService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,10 +14,9 @@ import ca.bc.gov.iamp.bcparis.model.message.Layer7Message;
 import ca.bc.gov.iamp.bcparis.model.message.body.Body;
 import ca.bc.gov.iamp.bcparis.model.por.POROutput;
 import ca.bc.gov.iamp.bcparis.repository.PORRestRepository;
-import ca.bc.gov.iamp.bcparis.service.MessageService;
 
 @Service
-public class PORProcessor {
+public class PORProcessor implements DatagramProcessor {
 
 	private final Logger log = LoggerFactory.getLogger(PORProcessor.class);
 
@@ -24,7 +25,12 @@ public class PORProcessor {
 	
 	@Autowired
 	private MessageService messageService;
-	
+
+	@Override
+	public MessageType getType() {
+		return MessageType.POR;
+	}
+
 	public Layer7Message process(Layer7Message message) {
 		log.info("Processing POR message.");
 		Body body = message.getEnvelope().getBody();

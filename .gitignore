@@ -37,7 +37,5 @@ hs_err_pid*
 
 pom.xml.versionsBackup
 
-logback.*
-
 # environemnt variables
 .env

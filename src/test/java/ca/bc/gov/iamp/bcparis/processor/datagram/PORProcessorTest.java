@@ -20,6 +20,8 @@ import ca.bc.gov.iamp.bcparis.service.MessageService;
 import test.util.BCPARISTestUtil;
 import test.util.TestUtil;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
 public class PORProcessorTest {
 
 	@InjectMocks
@@ -37,24 +39,22 @@ public class PORProcessorTest {
 	
 	@Test
 	public void proccess_success() {
-		final String expected = "SEND MT:M\n" + 
-				"FMT:Y\n" + 
-				"FROM:BC41029\n" + 
-				"TO:BC41127\n" + 
-				"TEXT:RE: 0509\\nHC BC40940\\nBC41027\\nSNME:WISKIN/G1:TOMAS/G2:GEORGE/G3:ALPHONSE/DOB:20050505\\n\\n2019051520054820190515200548\n" + 
-				"\n" + 
-				"0 Records Found, a maximum of 100 will be returned.\n" + 
-				"  OrderNo Effective  Role Sex  SNME, G1 G2 G3 DOB (T)Termination\n" + 
-				"  \n" + 
-				"Role: (D)efendant, (P)rotected, (H)older or (I)nterested Party\n" + 
-				"Call 1-888-000-9999 for more information.\n" + 
-				"";
+		final String expected = "SEND MT:M\n" +
+				"FMT:Y\n" +
+				"FROM:BC41029\n" +
+				"TO:BC41127\n" +
+				"TEXT:RE: 0509\\nHC BC40940\\nBC41027\\nSNME:WISKIN/G1:TOMAS/G2:GEORGE/G3:ALPHONSE/DOB:20050505\\n\\n2019051520054820190515200548\n" +
+				"\n" +
+				"0 Records Found, a maximum of 100 will be returned.\n" +
+				"  OrderNo Effective  Role Sex  SNME, G1 G2 G3 DOB (T)Termination\n" +
+				"  \n" +
+				"Role: (D)efendant, (P)rotected, (H)older or (I)nterested Party\n" +
+				"Call 1-888-000-9999 for more information.\n";
 		
 		Mockito.when(repo.callPOR("WISKIN", "TOMAS", "GEORGE", "ALPHONSE", "20050505")).thenReturn(getPOROutput());
 		
 		Layer7Message message = processor.process(BCPARISTestUtil.getMessagePOR());
-		
-		//Assert.assertEquals(expected, message.getEnvelope().getBody().getMsgFFmt());
+		assertThat(expected).isEqualToNormalizingNewlines(message.getEnvelope().getBody().getMsgFFmt());
 	}
 	
 	private POROutput getPOROutput() {
@@ -78,7 +78,7 @@ public class PORProcessorTest {
 		
 		Mockito.when(repo.callPOR(Mockito.anyString(), Mockito.anyString(), Mockito.anyString(), Mockito.anyString(), Mockito.anyString()))
 			.thenThrow(new PORRestException("", errorContent, null) );
-		
+
 		try {
 			processor.process(message);
 		}catch (Exception e) {

@@ -10,7 +10,6 @@ import org.mockito.MockitoAnnotations;
 import ca.bc.gov.iamp.bcparis.model.message.Layer7Message;
 import ca.bc.gov.iamp.bcparis.processor.datagram.DriverProcessor;
 import ca.bc.gov.iamp.bcparis.processor.datagram.PORProcessor;
-import ca.bc.gov.iamp.bcparis.processor.datagram.SatelliteProcessor;
 import ca.bc.gov.iamp.bcparis.processor.datagram.VehicleProcessor;
 import test.util.BCPARISTestUtil;
 
@@ -27,9 +26,6 @@ public class DispatcherServiceTest {
 	
 	@Mock
 	private PORProcessor por;
-	
-	@Mock
-	private SatelliteProcessor satellite;
 	
 	@Before
     public void initMocks(){
@@ -56,12 +52,5 @@ public class DispatcherServiceTest {
 		service.dispatch(message);
 		Mockito.verify(por, Mockito.times(1)).process(message);
 	}
-	
-	@Test
-	public void dispatch_satellite_success() {
-		final Layer7Message message = BCPARISTestUtil.getMessageSatelliteRoundTrip();
-		service.dispatch(message);	
-		Mockito.verify(satellite, Mockito.times(1)).process(message);
-	}
-	
+
 }

@@ -8,9 +8,9 @@ BcParis Api is a restfull api that accept Driver, Vehicle and POR(Protection Ord
 
 | Type | Code | Description |
 | --- | --- | --- |
-| POR | BC41029 | Protection Order Registry query |
 | Driver | BC41027 | Driver query |
 | Vehicle | BC41028 | Protection query |
+| POR | BC41029 | Protection Order Registry query |
 
 ## Get Started
 

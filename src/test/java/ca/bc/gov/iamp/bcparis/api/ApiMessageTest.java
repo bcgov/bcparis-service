@@ -20,7 +20,7 @@ public class ApiMessageTest {
     private static final String MESSAGE_RESULT = "RESULT";
 
     @InjectMocks
-    MessageApiTest sut= new MessageApiTest();
+    MessageApiTest sut = new MessageApiTest();
 
     @Mock
     Layer7MessageRepository layer7MessageRepositoryMock;
@@ -31,8 +31,8 @@ public class ApiMessageTest {
     }
 
     @Test
-    @DisplayName("Test method executes")
-    public void testMethodExecutes() {
+    @DisplayName("Test Api return expected result")
+    public void testApiReturnsExpected() {
 
         Mockito.when(layer7MessageRepositoryMock.sendMessage(any())).thenReturn(MESSAGE_RESULT);
 

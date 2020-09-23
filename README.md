@@ -2,9 +2,17 @@
 
 # bcparis-service
 
-The bcparis-service is standalone restful service which process messages using others different systems.
+BcParis Api is a restfull api that accept Driver, Vehicle and POR(Protection Order Registry) query.
 
-## Building and Running the App Locally
+## Messages
+
+| Type | Code | Description |
+| --- | --- | --- |
+| Driver | BC41027 | Driver query |
+| Vehicle | BC41028 | Protection query |
+| POR | BC41029 | Protection Order Registry query |
+
+## Get Started
 
 Clone this repository and install dependencies:
 
@@ -14,13 +22,7 @@ cd bcparis-service
 mvn install
 ```
 
-Create a MySql docker container:
-
-```bash
-docker run --name test-mysql -p 3306:3306 -e MYSQL_ROOT_PASSWORD=admin -e MYSQL_DATABASE=metastore -d mysql:latest
-```
-
-Set the following environment variables or edit this file `src\main\resources\application.properties`
+Set the following [environment variables](#environment-variables) or edit this file `src\main\resources\application.properties`
 
 Run:
 
@@ -28,7 +30,7 @@ Run:
 mvn spring-boot:run
 ```
 
-### Configuration
+### Environment Variables
 
 | Environment Variable | Type | Description | Notes |
 | --- | --- | --- | --- |
@@ -52,24 +54,13 @@ mvn spring-boot:run
 | SPRING_DATASOURCE_PASSWORD | String | mysql password | |
 | ICBC_REST_ENDPOINT | String | | |
 
-### IntelliJ
+### Endpoints
 
-Install [LomBok](https://projectlombok.org/) plugin from marketplace
+#### Message Endpoint
 
-> File > Settings > Plugins > Search in repositories > LomBok
+**PUT** /api/v1/message - Process a message.
 
-Restart and run `mvn install`
-
-If you are experiencing errors in the code, run Files > Invalidate Caches/Restart. Also, you can do Right click > Maven > Reimport.
-
-### Type of processed messages
-
-- POR - Oracle Protection Order Registry BC41029
-- Driver - ICBC BC41027
-- Vehicle - ICBC BC41028
-- Satellite - Check Performance/Round trip execution time
-
-### Message Sample
+##### Payload Sample
 
 ```json
 {
@@ -106,26 +97,23 @@ If you are experiencing errors in the code, run Files > Invalidate Caches/Restar
 }
 ```
 
-### SWAGGER Endpoint
+#### Test Endpoints
 
-Available on DEV environment.
-https://bcparis-service-xqb2qz-dev.pathfinder.bcgov/swagger-ui.html
+**POST** /api/v1/message/test/layer7 - Send a message to Layer 7.
 
-### Endpoints
+#### Swagger UI
 
-**Message Endpoint**
-**PUT /api/v1/message**
-Process a message.
+[https://localhost:8080/swagger-ui.html](https://localhost:8080/swagger-ui.html)
 
-**Test Endpoints**
-**POST /api/v1/message/test/layer7**
-Send a message to Layer 7.
+### IntelliJ
 
-**POST /api/v1/message/test/satellite**
-Send a Satellite Message.
+Install [LomBok](https://projectlombok.org/) plugin from marketplace
 
-**POST /api/v1/message/test/satellite/all**
-Send all the 13 Satellite Messages.
+> File > Settings > Plugins > Search in repositories > LomBok
+
+Restart and run `mvn install`
+
+If you are experiencing errors in the code, run Files > Invalidate Caches/Restart. Also, you can do Right click > Maven > Reimport.
 
 ### High Level Design and Messages
 
@@ -144,7 +132,7 @@ Run
 mvn versions:set -DartifactId=*  -DgroupId=*
 ```
 
-### Copyright
+## Copyright
 
  ```
 Copyright 2019 Province of British Columbia

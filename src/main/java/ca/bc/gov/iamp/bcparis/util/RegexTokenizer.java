@@ -37,13 +37,4 @@ public class RegexTokenizer {
 		return indexes;
 	}
 	
-	public static void main(String[] args) {
-		String message = "LIC:233AWB/H/LIC:GVW143/H/LIC:007F" + 
-				"JR/H/LIC:JXX477/REG:957167" + 
-				"/VIN:1GNEL19W1XB163160/VIN:163160/P:Y/VIN:163160/P:Y/RSVP:16";
-		
-		RegexTokenizer tokenizer = new RegexTokenizer(message, Arrays.asList("LIC:", "REG:", "VIN:"));
-		
-		System.out.println(tokenizer.getTokens());
-	}
 }

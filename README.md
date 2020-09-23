@@ -49,9 +49,6 @@ mvn spring-boot:run
 | EMAIL_SERVICE_RECEIVER | String | Email Service username | |
 | EMAIL_SERVICE_ENDPOINT | String | Email service endpont | |
 | ENDPOINT_IAMP_EMAIL_SERVICE_REST_PASSWORD | String | Email Service username | |
-| METASTOREURL | String | mysql host | |
-| SPRING_DATASOURCE_USERNAME | String | mysql username | |
-| SPRING_DATASOURCE_PASSWORD | String | mysql password | |
 | ICBC_REST_ENDPOINT | String | | |
 
 ### Endpoints

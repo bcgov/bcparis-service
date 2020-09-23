@@ -2,7 +2,7 @@
 
 # bcparis-service
 
-BcParis Api is a restfull api that accepts Driver, Vehicle and POR (Protection Order Registry) queries.
+BCParis API is a restful API that accepts Driver, Vehicle and POR (Protection Order Registry) queries.
 
 ## Messages
 

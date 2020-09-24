@@ -19,6 +19,9 @@ public class Keys {
     public static final String REQUEST_SCHEMA_REG_KEY = "REG";
     public static final String REQUEST_SCHEMA_RNS_KEY = "RNS";
     public static final String REQUEST_SCHEMA_RVL_KEY = "RVL";
+    public static final String MDC_MESSAGE_ID_KEY = "messageId";
+    public static final String MDC_CORRELATION_ID_KEY = "correlationId";
+    public static final String MDC_DATA_KEY = "mdcData";
     // TODO: REMOVE TOKEN AFTER SATELLITE SERVICE IS DEPRECATED
     public static final String REQUEST_SCHEMA_TEST_RNS_KEY = "TestRNS";
 

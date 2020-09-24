@@ -1,0 +1,176 @@
+  
+apiVersion: v1
+kind: Template
+labels:
+  template: bc-paris-api-pipeline-template
+metadata:
+  annotations:
+    openshift.io/display-name: BC Paris Pipeline Template
+    description: |-
+      This is a template for an OpenShift Jenkins Pipeline.
+    iconClass: icon-jenkins
+    tags: instant-app,jenkins
+  name: pipeline-build-template
+parameters:
+  - description: The name assigned to all of the frontend objects defined in this template.
+    displayName: Name
+    name: appName
+    required: true
+    value: bc-paris-api
+  - description: Openshift namespace prefix
+    displayName: Namespace Prefix
+    name: namespacePrefix
+    required: true
+    value: xqb2qz
+  - description: URL to Github Repository
+    displayName: Github URL
+    name: githubURL
+    required: true
+    value: https://github.com/bcgov/bcparis-service
+objects:
+  - apiVersion: v1
+    kind: BuildConfig
+    metadata:
+      labels:
+        application: ${appName}
+        template: master-build-pipeline
+      name: ${appName}-pipeline
+      namespace: ${namespacePrefix}-tools
+    spec:
+      failedBuildsHistoryLimit: 5
+      nodeSelector: {}
+      output: {}
+      postCommit: {}
+      resources: {}
+      runPolicy: Serial
+      source:
+        git:
+          ref: master
+          uri: ${githubURL}
+        type: Git
+      strategy:
+        jenkinsPipelineStrategy:
+          env:
+            - name: APP_NAME
+              value: ${appName}
+            - name: JENKINS_POD
+              value: maven
+            - name: TOOLS_NAMESPACE
+              value: ${namespacePrefix}-tools
+            - name: DEV_NAMESPACE
+              value: ${namespacePrefix}-dev
+            - name: TEST_NAMESPACE
+              value: ${namespacePrefix}-test
+            - name: PROD_NAMESPACE
+              value: ${namespacePrefix}-prod
+          jenkinsfile: |-
+            try {
+                node("${JENKINS_POD}") {
+
+                    // Build Image
+                    stage("Build ${APP_NAME}") {
+                        openshift.withCluster() {
+                            openshift.withProject() {
+                                sh 'oc start-build ${APP_NAME} -n ${TOOLS_NAMESPACE} --wait' 
+                            }
+                        }
+                    }
+
+                    // Tag Image for Dev
+                    stage('Promote to DEV') {
+                        openshift.withCluster() {
+                            openshift.withProject(){
+                                sh "echo Tagging image for DEV"
+                                sh 'oc tag ${APP_NAME}:latest ${APP_NAME}:dev'
+                            }
+                        }
+                    }
+
+                    stage("Deploy to DEV") {
+                        openshift.withCluster() {
+                            openshift.withProject() {
+                                sh 'echo Wait for Demo app to rollout completely.'
+                                sh 'oc rollout status -n ${DEV_NAMESPACE} dc/${APP_NAME} --watch'
+                            }
+                        }
+                    }
+
+                    // Tag Image for Test
+                    stage('Promote to TEST') {
+                        timeout(time: 10, unit: 'MINUTES') {
+                            script {
+                                input message: 'Promote application to Test?'
+                            }
+                        }
+                        openshift.withCluster() {
+                            openshift.withProject() {
+                                sh "echo Tagging image for TEST"
+                                sh 'oc tag ${APP_NAME}:latest ${APP_NAME}:test'
+                            }
+                        }
+                    }
+
+                    stage("Deploy to TEST") {
+                        openshift.withCluster() {
+                            openshift.withProject() {
+                                sh 'echo Wait for Demo app to rollout completely.'
+                                sh 'oc rollout status -n ${TEST_NAMESPACE} dc/${APP_NAME} --watch'
+                            }
+                        }
+                    }
+
+                    // Tag Image for Prod
+                    stage('Promote to PROD') {
+                        timeout(time: 10, unit: 'MINUTES') {
+                            script {
+                                input message: 'Promote application to Prod?'
+                            }
+                        }
+                        openshift.withCluster() {
+                            openshift.withProject() {
+                                sh 'echo Checking out Repository'
+                                git url: ${githubURL}
+
+                                sh '''           
+                                    echo Checkout Git Repo for Latest Tag
+                                    echo Grab latest tag
+                                    export GIT_VERSION_TAG=\$(git describe --tags $(git rev-list --tags --max-count=1))
+                                    echo "${GIT_VERSION_TAG}"
+                                    echo Tagging image for PROD
+                                    oc tag "${APP_NAME}":latest "${APP_NAME}":prod
+                                    oc tag "${APP_NAME}":latest "${APP_NAME}":"${GIT_VERSION_TAG}"
+                                '''                
+                            }
+                        }
+                    }
+
+                    stage("Deploy to PROD") {
+                        openshift.withCluster() {
+                            openshift.withProject() {
+                                sh 'echo Wait for Demo app to rollout completely.'
+                                sh 'oc rollout status -n ${PROD_NAMESPACE} dc/${APP_NAME} --watch'
+                            }
+                        }
+                    }
+
+                }
+
+            } catch (err) {
+                echo "in catch block"
+                currentBuild.result = 'FAILURE'
+                env.ERR = "${err}"
+                node {
+                    sh "curl -XPOST '${LIFECYCLE_WEBHOOK}' -H 'Content-type: application/json' --data '{\"username\":\"The Pipe Lion\",\"icon_emoji\":\":lion_face:\",\"text\": \"${APP_NAME} Pipeline Failure - ${ERR}\"}'"
+                }
+                echo "Caught: ${err}"
+                throw err
+            }
+        type: JenkinsPipeline
+      successfulBuildsHistoryLimit: 5
+      triggers:
+        - type: ConfigChange
+        - github:
+            secret: '${GITHUB_WEBHOOK_SECRET}'
+          type: GitHub
+    status:
+      lastVersion: 0

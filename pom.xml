@@ -26,7 +26,7 @@
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
 		<springboot.version>2.3.4.RELEASE</springboot.version>
-		<springcloud.version>Greenwich.RELEASE</springcloud.version>
+		<springcloud.version>Hoxton.SR8</springcloud.version>
 		<swagger-springmvc.version>1.0.2</swagger-springmvc.version>
 		<springfox.version>3.0.0</springfox.version>
 
@@ -395,7 +395,7 @@
 		<dependency>
 			<groupId>org.apache.tomcat.embed</groupId>
 			<artifactId>tomcat-embed-websocket</artifactId>
-			<version>9.0.35</version>
+			<version>9.0.38</version>
 		</dependency>
 	</dependencies>
 
@@ -416,7 +416,7 @@
 				<dependency>
 					<groupId>com.splunk.logging</groupId>
 					<artifactId>splunk-library-javalogging</artifactId>
-					<version>1.7.1</version>
+					<version>1.8.0</version>
 				</dependency>
 			</dependencies>
 

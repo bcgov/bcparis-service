@@ -31,28 +31,24 @@ public class LoggingFilter implements Filter {
             if (l7message != null) {
                 messageId = l7message.getEnvelope().getMqmd().getMessageIdByte();
                 correlationId = l7message.getEnvelope().getMqmd().getCorrelationIdByte();
-
             }
-        } catch (Exception ex) {
-            log.warn("Failed to parse request body at logging filter", ex);
-        }
-
-
-        // Logging
-        try {
 
             MDC.put("messageId", messageId);
             MDC.put("correlationId", correlationId);
             MDC.put("mdcData", String.format("[msgId:%s, corlId:%s]", messageId, correlationId));
 
             chain.doFilter(copiedRequest, response);
+        } catch (Exception ex) {
+            log.warn("Failed to parse request body at logging filter");
         } finally {
             MDC.clear();
         }
+
     }
 
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
+
     }
 
     @Override

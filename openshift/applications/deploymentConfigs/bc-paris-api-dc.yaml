@@ -1,0 +1,170 @@
+apiVersion: v1
+kind: Template
+labels:
+  template: bc-paris-api-pipeline-template
+metadata:
+  annotations:
+    openshift.io/display-name: BC Paris Pipeline Template
+    description: |-
+      This is a template for an OpenShift Jenkins Pipeline.
+    iconClass: icon-jenkins
+    tags: instant-app,jenkins
+  name: pipeline-build-template
+parameters:
+  - description: The name assigned to all of the frontend objects defined in this template.
+    displayName: Name
+    name: appName
+    required: true
+    value: bc-paris-api
+  - description: Openshift namespace prefix
+    displayName: Namespace Prefix
+    name: namespacePrefix
+    required: true
+    value: xqb2qz
+  - description: URL to Github Repository
+    displayName: Github URL
+    name: githubURL
+    required: true
+    value: https://github.com/bcgov/bcparis-service
+objects:
+  - apiVersion: apps.openshift.io/v1
+    kind: DeploymentConfig
+    metadata:
+      annotations:
+        kubectl.kubernetes.io/last-applied-configuration: >
+          {"apiVersion":"apps.openshift.io/v1","kind":"DeploymentConfig","metadata":{"annotations":{},"creationTimestamp":null,"labels":{"app":"bc-paris-api"},"name":"bc-paris-api","namespace":"xqb2qz-dev"},"spec":{"replicas":2,"selector":{"io.kompose.service":"bc-paris-api"},"strategy":{"resources":{}},"template":{"metadata":{"creationTimestamp":null,"labels":{"io.kompose.service":"bc-paris-api"}},"spec":{"containers":[{"image":"","name":"bc-paris-api","ports":[{"containerPort":8080}],"resources":{"limits":{"cpu":"250m","memory":"1Gi"},"requests":{"cpu":"100m","memory":"256Mi"}}}],"restartPolicy":"Always"}},"test":false,"triggers":[{"type":"ConfigChange"},{"imageChangeParams":{"automatic":true,"containerNames":["bc-paris-api"],"from":{"kind":"ImageStreamTag","name":"bc-paris-api:dev","namespace":"xqb2qz-tools"}},"type":"ImageChange"}]},"status":{}}
+      generation: 0
+      labels:
+        app: ${appName}
+      name: ${appName}
+      namespace: ${namespacePrefix}-dev
+    spec:
+      replicas: 1
+      revisionHistoryLimit: 10
+      selector:
+        io.kompose.service: bc-paris-api
+      strategy:
+        activeDeadlineSeconds: 21600
+        resources: {}
+        rollingParams:
+          intervalSeconds: 1
+          maxSurge: 25%
+          maxUnavailable: 25%
+          timeoutSeconds: 600
+          updatePeriodSeconds: 1
+        type: Rolling
+      template:
+        metadata:
+          creationTimestamp: null
+          labels:
+            io.kompose.service: ${appName}
+        spec:
+          containers:
+            - env:
+                - name: JAVA_OPTIONS
+                  value: '-XshowSettings:vm -Xms256m -Xmx900m'
+                - name: NAMESPACE
+                  value: ${namespacePrefix}-dev
+                - name: spring_profiles_active
+                  value: 'test,splunk'
+              envFrom:
+                - secretRef:
+                    name: email-dev
+                - secretRef:
+                    name: endpoints-dev
+                - secretRef:
+                    name: layer7-dev
+                - secretRef:
+                    name: service-keystore-dev
+                - secretRef:
+                    name: splunk-dev
+                - secretRef:
+                    name: rest-endpoints-dev
+              image: >-
+                docker-registry.default.svc:5000/xqb2qz-tools/bc-paris-api@sha256:3918533b2e376df9b56fc69ecec341896ff112c772dcc0b3530f1e568bc5c9de
+              imagePullPolicy: IfNotPresent
+              livenessProbe:
+                failureThreshold: 3
+                httpGet:
+                  path: /actuator/health
+                  port: 8080
+                  scheme: HTTP
+                initialDelaySeconds: 70
+                periodSeconds: 10
+                successThreshold: 1
+                timeoutSeconds: 10
+              name: ${appName}
+              ports:
+                - containerPort: 8080
+                  protocol: TCP
+              readinessProbe:
+                failureThreshold: 3
+                httpGet:
+                  path: /actuator/health
+                  port: 8080
+                  scheme: HTTP
+                initialDelaySeconds: 50
+                periodSeconds: 10
+                successThreshold: 1
+                timeoutSeconds: 10
+              resources:
+                limits:
+                  cpu: '2'
+                  memory: 2Gi
+                requests:
+                  cpu: 500m
+                  memory: 1Gi
+              terminationMessagePath: /dev/termination-log
+              terminationMessagePolicy: File
+              volumeMounts:
+                - mountPath: /deployments/config/
+                  name: volume-swwra
+          dnsPolicy: ClusterFirst
+          restartPolicy: Always
+          schedulerName: default-scheduler
+          securityContext: {}
+          terminationGracePeriodSeconds: 30
+          volumes: {}
+      test: false
+      triggers:
+        - imageChangeParams:
+            automatic: true
+            containerNames:
+              - ${appName}
+            from:
+              kind: ImageStreamTag
+              name: '${appName}:dev'
+              namespace: ${namespacePrefix}-tools
+            lastTriggeredImage: >-
+              docker-registry.default.svc:5000/${namespacePrefix}-tools/${appName}@sha256:3918533b2e376df9b56fc69ecec341896ff112c772dcc0b3530f1e568bc5c9de
+          type: ImageChange
+        - type: ConfigChange
+    status:
+      availableReplicas: 1
+      conditions:
+        - lastTransitionTime: '2020-09-24T18:52:33Z'
+          lastUpdateTime: '2020-09-24T18:52:33Z'
+          message: Deployment config has minimum availability.
+          status: 'True'
+          type: Available
+        - lastTransitionTime: '2020-09-24T18:57:19Z'
+          lastUpdateTime: '2020-09-24T18:57:24Z'
+          message: replication controller "bc-paris-api-30" successfully rolled out
+          reason: NewReplicationControllerAvailable
+          status: 'True'
+          type: Progressing
+      details:
+        causes:
+          - imageTrigger:
+              from:
+                kind: DockerImage
+                name: >-
+                  docker-registry.default.svc:5000/xqb2qz-tools/bc-paris-api@sha256:3918533b2e376df9b56fc69ecec341896ff112c772dcc0b3530f1e568bc5c9de
+            type: ImageChange
+        message: image change
+      latestVersion: 30
+      observedGeneration: 0
+      readyReplicas: 1
+      replicas: 1
+      unavailableReplicas: 0
+      updatedReplicas: 1

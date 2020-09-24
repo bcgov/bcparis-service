@@ -11,6 +11,8 @@ import javax.servlet.*;
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 
+import static ca.bc.gov.iamp.bcparis.Keys.*;
+
 
 @Component
 public class LoggingFilter implements Filter {
@@ -28,18 +30,18 @@ public class LoggingFilter implements Filter {
 
             l7message = new ObjectMapper().readValue(copiedRequest.getRequestBody(), Layer7Message.class);
             if (l7message != null) {
-                MDC.put("messageId", l7message.getEnvelope().getMqmd().getMessageIdByte());
-                MDC.put("correlationId", l7message.getEnvelope().getMqmd().getCorrelationIdByte());
-                MDC.put("mdcData", String.format("[msgId:%s, corlId:%s]", l7message.getEnvelope().getMqmd().getMessageIdByte(), l7message.getEnvelope().getMqmd().getCorrelationIdByte()));
+                MDC.put(MDC_MESSAGE_ID_KEY, l7message.getEnvelope().getMqmd().getMessageIdByte());
+                MDC.put(MDC_CORRELATION_ID_KEY, l7message.getEnvelope().getMqmd().getCorrelationIdByte());
+                MDC.put(MDC_DATA_KEY, String.format("[msgId:%s, corlId:%s]", l7message.getEnvelope().getMqmd().getMessageIdByte(), l7message.getEnvelope().getMqmd().getCorrelationIdByte()));
             }
 
             chain.doFilter(copiedRequest, response);
         } catch (Exception ex) {
             log.warn("Failed to parse request body at logging filter");
         } finally {
-            MDC.remove("messageId");
-            MDC.remove("correlationId");
-            MDC.remove("mdcData");
+            MDC.remove(MDC_MESSAGE_ID_KEY);
+            MDC.remove(MDC_CORRELATION_ID_KEY);
+            MDC.remove(MDC_DATA_KEY);
         }
 
     }

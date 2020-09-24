@@ -271,7 +271,7 @@
 		<dependency>
 			<groupId>org.apache.cxf</groupId>
 			<artifactId>cxf-xjc-plugin</artifactId>
-			<version>3.2.3</version>
+			<version>3.3.1</version>
 		</dependency>
 
 		<!-- Enabling health checks and metrics -->

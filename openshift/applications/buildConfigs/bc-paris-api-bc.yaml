@@ -1,0 +1,73 @@
+apiVersion: v1
+kind: Template
+labels:
+  template: bc-paris-api-build-template
+metadata:
+  annotations:
+    openshift.io/display-name: BC Paris Build Template
+    description: |-
+      This is a template for an OpenShift Build.
+    iconClass: icon-jenkins
+    tags: instant-app,jenkins
+  name: build-template
+parameters:
+  - description: The name assigned to all of the frontend objects defined in this template.
+    displayName: Name
+    name: appName
+    required: true
+    value: bc-paris-api
+  - description: Openshift namespace prefix
+    displayName: Namespace Prefix
+    name: namespacePrefix
+    required: true
+    value: xqb2qz
+  - description: URL to Github Repository
+    displayName: Github URL
+    name: githubURL
+    required: true
+    value: https://github.com/bcgov/bcparis-service
+objects:
+  - apiVersion: build.openshift.io/v1
+    kind: BuildConfig
+    metadata:
+      annotations:
+        description: Defines how to build the application
+      labels:
+        app: ${appName}
+        template: master-build-pipeline
+      name: ${appName}
+      namespace: ${namespacePrefix}-tools
+    spec:
+      completionDeadlineSeconds: 1800
+      failedBuildsHistoryLimit: 5
+      nodeSelector: null
+      output:
+        to:
+          kind: ImageStreamTag
+          name: '${appName}:latest'
+      postCommit: {}
+      resources:
+        limits:
+          cpu: '4'
+          memory: 4Gi
+        requests:
+          cpu: '1'
+          memory: 1Gi
+      runPolicy: Serial
+      source:
+        contextDir: /
+        git:
+          ref: master
+          uri: ${githubURL}
+        type: Git
+      strategy:
+        sourceStrategy:
+          from:
+            kind: ImageStreamTag
+            name: 'java:8'
+            namespace: openshift
+        type: Source
+      successfulBuildsHistoryLimit: 5
+      triggers: []
+    status:
+      lastVersion: 0

@@ -1,0 +1,51 @@
+  
+apiVersion: v1
+kind: Template
+labels:
+  template: bc-paris-api-route-template
+metadata:
+  annotations:
+    openshift.io/display-name: BC Paris Route Template
+    description: |-
+      This is a template for an OpenShift Route.
+    iconClass: icon-jenkins
+    tags: instant-app,jenkins
+  name: pipeline-build-template
+parameters:
+  - description: The name assigned to all of the frontend objects defined in this template.
+    displayName: Name
+    name: appName
+    required: true
+    value: bc-paris-api
+  - description: Openshift namespace prefix
+    displayName: Namespace Prefix
+    name: namespacePrefix
+    required: true
+    value: xqb2qz
+  objects:
+  - apiVersion: route.openshift.io/v1
+    kind: Route
+    metadata:
+      labels:
+        app: ${appName}
+        template: meta-service
+      name: ${appName}
+      namespace: ${namespacePrefix}-dev
+    spec:
+      host: ${appName}-${namespacePrefix}-dev.pathfinder.gov.bc.ca
+      port:
+        targetPort: http
+      to:
+        kind: Service
+        name: ${appName}
+        weight: 100
+      wildcardPolicy: None
+    status:
+      ingress:
+        - conditions:
+            - lastTransitionTime: '2020-09-22T22:36:41Z'
+              status: 'True'
+              type: Admitted
+          host: ${appName}-${namespacePrefix}-dev.pathfinder.gov.bc.ca
+          routerName: router
+          wildcardPolicy: None

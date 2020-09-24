@@ -21,27 +21,25 @@ public class LoggingFilter implements Filter {
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
 
         HttpRequestWrapper copiedRequest = new HttpRequestWrapper((HttpServletRequest) request);
-        Layer7Message l7message = null;
-        String messageId = null;
-        String correlationId = null;
+        Layer7Message l7message;
 
         // Message parsing
         try {
+
             l7message = new ObjectMapper().readValue(copiedRequest.getRequestBody(), Layer7Message.class);
             if (l7message != null) {
-                messageId = l7message.getEnvelope().getMqmd().getMessageIdByte();
-                correlationId = l7message.getEnvelope().getMqmd().getCorrelationIdByte();
+                MDC.put("messageId", l7message.getEnvelope().getMqmd().getMessageIdByte());
+                MDC.put("correlationId", l7message.getEnvelope().getMqmd().getCorrelationIdByte());
+                MDC.put("mdcData", String.format("[msgId:%s, corlId:%s]", l7message.getEnvelope().getMqmd().getMessageIdByte(), l7message.getEnvelope().getMqmd().getCorrelationIdByte()));
             }
-
-            MDC.put("messageId", messageId);
-            MDC.put("correlationId", correlationId);
-            MDC.put("mdcData", String.format("[msgId:%s, corlId:%s]", messageId, correlationId));
 
             chain.doFilter(copiedRequest, response);
         } catch (Exception ex) {
             log.warn("Failed to parse request body at logging filter");
         } finally {
-            MDC.clear();
+            MDC.remove("messageId");
+            MDC.remove("correlationId");
+            MDC.remove("mdcData");
         }
 
     }

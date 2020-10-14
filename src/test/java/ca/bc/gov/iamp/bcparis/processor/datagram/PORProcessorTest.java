@@ -2,6 +2,7 @@ package ca.bc.gov.iamp.bcparis.processor.datagram;
 
 import java.util.ArrayList;
 
+import ca.bc.gov.iamp.bcparis.message.PORProcessor;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;

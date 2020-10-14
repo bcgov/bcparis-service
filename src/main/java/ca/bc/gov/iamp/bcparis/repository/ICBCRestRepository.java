@@ -87,7 +87,6 @@ public class ICBCRestRepository extends BaseRest {
                 correlationIdByte = correlationIdByte.replaceAll("\\s+", "");
                 return correlationIdByte;
             }
-
         }
         return UUID.randomUUID().toString();
     }

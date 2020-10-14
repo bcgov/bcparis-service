@@ -1,5 +1,5 @@
 	
-package ca.bc.gov.iamp.bcparis.processor.datagram;
+package ca.bc.gov.iamp.bcparis.message;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -8,6 +8,8 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import ca.bc.gov.iamp.bcparis.model.MessageType;
+import ca.bc.gov.iamp.bcparis.service.MessageService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +21,6 @@ import ca.bc.gov.iamp.bcparis.model.message.Layer7Message;
 import ca.bc.gov.iamp.bcparis.model.message.body.Body;
 import ca.bc.gov.iamp.bcparis.repository.ICBCRestRepository;
 import ca.bc.gov.iamp.bcparis.repository.query.IMSRequest;
-import ca.bc.gov.iamp.bcparis.service.MessageService;
 
 @Service
 public class VehicleProcessor implements DatagramProcessor{
@@ -31,7 +32,12 @@ public class VehicleProcessor implements DatagramProcessor{
 	
 	@Autowired
 	private MessageService messageService;
-	
+
+	@Override
+	public MessageType getType() {
+		return MessageType.VEHICLE;
+	}
+
 	public Layer7Message process(Layer7Message message) {
 		log.info("Processing Vehicle message.");
 

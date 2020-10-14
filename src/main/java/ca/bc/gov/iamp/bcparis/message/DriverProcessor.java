@@ -1,12 +1,14 @@
 
 
-package ca.bc.gov.iamp.bcparis.processor.datagram;
+package ca.bc.gov.iamp.bcparis.message;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import ca.bc.gov.iamp.bcparis.model.MessageType;
+import ca.bc.gov.iamp.bcparis.service.MessageService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +19,6 @@ import ca.bc.gov.iamp.bcparis.model.message.Layer7Message;
 import ca.bc.gov.iamp.bcparis.model.message.body.Body;
 import ca.bc.gov.iamp.bcparis.repository.ICBCRestRepository;
 import ca.bc.gov.iamp.bcparis.repository.query.IMSRequest;
-import ca.bc.gov.iamp.bcparis.service.MessageService;
 
 @Service
 public class DriverProcessor implements DatagramProcessor{
@@ -29,7 +30,12 @@ public class DriverProcessor implements DatagramProcessor{
 	
 	@Autowired
 	private MessageService messageService;
-	
+
+	@Override
+	public MessageType getType() {
+		return MessageType.DRIVER;
+	}
+
 	public Layer7Message process(Layer7Message message) {
 		log.info("Processing Driver message.");
 

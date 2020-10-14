@@ -36,5 +36,5 @@ public class RegexTokenizer {
 			indexes.add(matcher.start());
 		return indexes;
 	}
-	
+
 }

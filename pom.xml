@@ -44,7 +44,7 @@
 		<logback.version>1.2.3</logback.version>
 		<logstash.version>6.4</logstash.version>
 		<httpclient.version>4.5.13</httpclient.version>
-		<guava.version>29.0-jre</guava.version>
+		<guava.version>30.0-jre</guava.version>
 
 	</properties>
 

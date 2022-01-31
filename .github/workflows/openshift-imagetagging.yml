@@ -31,7 +31,7 @@ jobs:
     with:
       image_stream_name: jrcc-${{ github.event.inputs.app }}
       source_image_tag: ${{ github.event.inputs.imageSourceEnv }}
-      image_tags: ${{ github.event.inputs.imageTargetEnv }},${{ needs.app-version.outputs.app-version }}" 
+      image_tags: ${{ github.event.inputs.imageTargetEnv }},${{ needs.app-version.outputs.app-version }}
     secrets:
       openshift_namespace: ${{ secrets.OPENSHIFT_LICENSE_PLATE_SILVER }}-tools
       openshift_server_url: ${{ secrets.OPENSHIFT_SERVER_URL_SILVER }}

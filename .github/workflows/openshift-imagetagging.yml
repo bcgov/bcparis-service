@@ -29,7 +29,7 @@ jobs:
     needs:
       - app-version
     with:
-      image_stream_name: jrcc-${{ github.event.inputs.app }}
+      image_stream_name: ${{ github.event.inputs.app }}
       source_image_tag: ${{ github.event.inputs.imageSourceEnv }}
       image_tags: ${{ github.event.inputs.imageTargetEnv }},${{ needs.app-version.outputs.app-version }}
     secrets:

@@ -18,13 +18,9 @@ on:
 
 jobs:
 
-  app-version:
-    uses: SierraSystems/reusable-workflows/.github/workflows/java-maven-app-version.yml@main
-    with:
-      working_directory: .
-
   build-image:
     uses: SierraSystems/reusable-workflows/.github/workflows/openshift-source-to-image.yml@main
+    
     with:
       build_config_name: ${{ github.event.inputs.app }}
       image_tags: ${{ github.event.inputs.env }}

@@ -19,10 +19,6 @@ on:
         environment: ${{ inputs.target_env }}
 
 jobs:
-
-  build:
-    runs-on: ubuntu-latest
-    
   
   git-commitversion:
     uses: SierraSystems/reusable-workflows/.github/workflows/get-github-commitversion.yml@feature/bcparisupgrade

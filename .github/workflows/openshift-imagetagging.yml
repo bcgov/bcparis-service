@@ -41,6 +41,7 @@ jobs:
   label-pods:
     uses: SierraSystems/reusable-workflows/.github/workflows/openshift-dc-pods-labelling.yml@feature/bcparisupgrade
     needs:
+      - git-commitversion
       - promote-image
     with:
       app: ${{ github.event.inputs.app }}

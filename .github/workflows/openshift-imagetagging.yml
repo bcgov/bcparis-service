@@ -16,7 +16,6 @@ on:
             imageTargetEnv:
                 description: 'Target Release Env'
                 required: true
-        environment: ${{ inputs.target_env }}
 
 jobs:
   

@@ -24,7 +24,7 @@ jobs:
     with:
       working_directory: .
 
-  promote_image:
+  promote-image:
     uses: SierraSystems/reusable-workflows/.github/workflows/openshift-tag-image.yml@main
     needs:
       - git-commitversion
@@ -37,3 +37,16 @@ jobs:
       openshift_server_url: ${{ secrets.OPENSHIFT_SERVER_URL_SILVER }}
       openshift_token: ${{ secrets.OPENSHIFT_SA_PIPELINE_TOKEN_SILVER }}
       openshift_external_repository: ${{ secrets.OPENSHIFT_EXTERNAL_REPOSITORY_SILVER }}
+
+  label-pods:
+    uses: SierraSystems/reusable-workflows/.github/workflows/openshift-dc-pods-labelling.yml@feature/bcparisupgrade
+    needs:
+      - git-commitversion
+    with:
+      app: ${{ github.event.inputs.app }}
+      target_env: ${{ github.event.inputs.imageTargetEnv }}
+      label: ${{ needs.git-commitversion.outputs.github-release-version }}
+    secrets:
+      openshift_namespace: ${{ secrets.OPENSHIFT_LICENSE_PLATE_SILVER }}-tools
+      openshift_server_url: ${{ secrets.OPENSHIFT_SERVER_URL_SILVER }}
+      openshift_sa_env_deployer_token: ${{ secrets.OPENSHIFT_SA_PIPELINE_TOKEN_SILVER }}

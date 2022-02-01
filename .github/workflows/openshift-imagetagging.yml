@@ -19,19 +19,19 @@ on:
 
 jobs:
 
-  app-version:
-    uses: SierraSystems/reusable-workflows/.github/workflows/java-maven-app-version.yml@main
+  git-commitversion:
+    uses: SierraSystems/reusable-workflows/.github/workflows/get-github-commitversion.yml@feature/bcparisupgrade
     with:
       working_directory: .
 
   promote_image:
     uses: SierraSystems/reusable-workflows/.github/workflows/openshift-tag-image.yml@main
     needs:
-      - app-version
+      - git-commitversion
     with:
       image_stream_name: ${{ github.event.inputs.app }}
       source_image_tag: ${{ github.event.inputs.imageSourceEnv }}
-      image_tags: ${{ github.event.inputs.imageTargetEnv }},${{ needs.app-version.outputs.app-version }}
+      image_tags: ${{ github.event.inputs.imageTargetEnv }},${{ needs.git-commitversion.outputs.github-release-version }}
     secrets:
       openshift_namespace: ${{ secrets.OPENSHIFT_LICENSE_PLATE_SILVER }}-tools
       openshift_server_url: ${{ secrets.OPENSHIFT_SERVER_URL_SILVER }}

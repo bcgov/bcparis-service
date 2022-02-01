@@ -47,6 +47,6 @@ jobs:
       target_env: ${{ github.event.inputs.imageTargetEnv }}
       label: ${{ needs.git-commitversion.outputs.github-release-version }}
     secrets:
-      openshift_namespace: ${{ secrets.OPENSHIFT_LICENSE_PLATE_SILVER }}-tools
+      openshift_namespace: ${{ secrets.OPENSHIFT_LICENSE_PLATE_SILVER }}
       openshift_server_url: ${{ secrets.OPENSHIFT_SERVER_URL_SILVER }}
       openshift_sa_env_deployer_token: ${{ secrets.OPENSHIFT_SA_ENV_DEPLOYER_TOKEN }}

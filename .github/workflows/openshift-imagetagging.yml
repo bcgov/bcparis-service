@@ -16,9 +16,14 @@ on:
             imageTargetEnv:
                 description: 'Target Release Env'
                 required: true
+        environment: ${{ inputs.target_env }}
 
 jobs:
 
+  build:
+    runs-on: ubuntu-latest
+    
+  
   git-commitversion:
     uses: SierraSystems/reusable-workflows/.github/workflows/get-github-commitversion.yml@feature/bcparisupgrade
     with:
@@ -49,4 +54,4 @@ jobs:
     secrets:
       openshift_namespace: ${{ secrets.OPENSHIFT_LICENSE_PLATE_SILVER }}-tools
       openshift_server_url: ${{ secrets.OPENSHIFT_SERVER_URL_SILVER }}
-      openshift_sa_env_deployer_token: ${{ secrets.OPENSHIFT_SA_PIPELINE_TOKEN_SILVER }}
+      openshift_sa_env_deployer_token: ${{ secrets.OPENSHIFT_SA_ENV_DEPLOYER_TOKEN }}

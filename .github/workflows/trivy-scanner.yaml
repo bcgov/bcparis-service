@@ -16,7 +16,7 @@ on:
 jobs:
 
   build-push-image:
-    uses: SierraSystems/reusable-workflows/.github/workflows/trivy-scanning-s2i.yml@master
+    uses: SierraSystems/reusable-workflows/.github/workflows/trivy-scanning-s2i.yml@main
     with:
       build_config_name: bc-paris-api-trivy
       imagestream_name: bc-paris-api

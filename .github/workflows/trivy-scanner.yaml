@@ -10,8 +10,7 @@ on:
     branches:
       - main
   workflow_dispatch:
-    branches:
-      - main
+    branches: [main, feature/devopsupgrade]
 
 jobs:
 
@@ -22,6 +21,6 @@ jobs:
       source_image_tag: trivy
     secrets:
       openshift_namespace: ${{ secrets.OPENSHIFT_LICENSE_PLATE_SILVER }}-tools
-      openshift_sa_deployer_name: ${{ secrets.OPENSHIFT_SERVER_URL_SILVER }}
-      openshift_sa_tools_deployer_token: ${{ secrets.OPENSHIFT_SA_PIPELINE_TOKEN_SILVER }}
+      openshift_sa_name: ${{ secrets.OPENSHIFT_SA_NAME }}
+      openshift_sa_password: ${{ secrets.OPENSHIFT_SA_PASSWORD }}
       openshift_external_repository: ${{ secrets.OPENSHIFT_EXTERNAL_REPOSITORY_SILVER }}

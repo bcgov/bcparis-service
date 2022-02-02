@@ -19,20 +19,33 @@ on:
                 default: 'dev'
 
 jobs:
+
+  promote-image:
+    uses: SierraSystems/reusable-workflows/.github/workflows/openshift-tag-image.yml@main
+    with:
+      image_stream_name: ${{ github.event.inputs.app }}
+      source_image_tag: ${{ github.event.inputs.imageSourceEnv }}
+      image_tags: ${{ github.event.inputs.imageTargetEnv }}
+    secrets:
+      openshift_namespace: ${{ secrets.OPENSHIFT_LICENSE_PLATE_SILVER }}-tools
+      openshift_server_url: ${{ secrets.OPENSHIFT_SERVER_URL_SILVER }}
+      openshift_token: ${{ secrets.OPENSHIFT_SA_PIPELINE_TOKEN_SILVER }}
+      openshift_external_repository: ${{ secrets.OPENSHIFT_EXTERNAL_REPOSITORY_SILVER }}
   
   git-commitversion:
     uses: SierraSystems/reusable-workflows/.github/workflows/get-github-commitversion.yml@feature/bcparisupgrade
     with:
       working_directory: .
 
-  promote-image:
+  backup-image:
+    if: ${{ (github.event.inputs.imageTargetEnv != 'dev') }}
     uses: SierraSystems/reusable-workflows/.github/workflows/openshift-tag-image.yml@main
     needs:
       - git-commitversion
     with:
       image_stream_name: ${{ github.event.inputs.app }}
       source_image_tag: ${{ github.event.inputs.imageSourceEnv }}
-      image_tags: ${{ github.event.inputs.imageTargetEnv }},${{ needs.git-commitversion.outputs.github-release-version }}
+      image_tags: ${{ needs.git-commitversion.outputs.github-release-version }}
     secrets:
       openshift_namespace: ${{ secrets.OPENSHIFT_LICENSE_PLATE_SILVER }}-tools
       openshift_server_url: ${{ secrets.OPENSHIFT_SERVER_URL_SILVER }}
@@ -40,10 +53,10 @@ jobs:
       openshift_external_repository: ${{ secrets.OPENSHIFT_EXTERNAL_REPOSITORY_SILVER }}
 
   label-pods:
+    if: ${{ (github.event.inputs.imageTargetEnv != 'dev') }}
     uses: SierraSystems/reusable-workflows/.github/workflows/openshift-dc-pods-labelling.yml@feature/bcparisupgrade
     needs:
       - git-commitversion
-      - promote-image
     with:
       app: ${{ github.event.inputs.app }}
       target_env: ${{ github.event.inputs.imageTargetEnv }}

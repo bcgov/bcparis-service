@@ -10,12 +10,13 @@ on:
     branches:
       - main
   workflow_dispatch:
-    branches: [main, feature/devopsupgrade]
+    branches:
+      - main
 
 jobs:
 
   build-push-image:
-    uses: SierraSystems/reusable-workflows/.github/workflows/trivy-scanning-s2i.yml@feature/devopsupgrade
+    uses: SierraSystems/reusable-workflows/.github/workflows/trivy-scanning-s2i.yml@master
     with:
       build_config_name: bc-paris-api-trivy
       imagestream_name: bc-paris-api

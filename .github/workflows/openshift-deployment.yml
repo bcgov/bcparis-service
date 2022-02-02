@@ -33,7 +33,7 @@ jobs:
       openshift_external_repository: ${{ secrets.OPENSHIFT_EXTERNAL_REPOSITORY_SILVER }}
   
   git-commitversion:
-    uses: SierraSystems/reusable-workflows/.github/workflows/get-github-commitversion.yml@feature/bcparisupgrade
+    uses: SierraSystems/reusable-workflows/.github/workflows/get-github-commitversion.yml@main
     with:
       working_directory: .
 
@@ -54,7 +54,7 @@ jobs:
 
   label-pods:
     if: ${{ (github.event.inputs.imageTargetEnv != 'dev') }}
-    uses: SierraSystems/reusable-workflows/.github/workflows/openshift-dc-pods-labelling.yml@feature/bcparisupgrade
+    uses: SierraSystems/reusable-workflows/.github/workflows/openshift-dc-pods-labelling.yml@main
     needs:
       - git-commitversion
     with:

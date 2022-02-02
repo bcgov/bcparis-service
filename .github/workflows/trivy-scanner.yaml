@@ -18,6 +18,7 @@ jobs:
     uses: SierraSystems/reusable-workflows/.github/workflows/trivy-scanning-s2i.yml@feature/devopsupgrade
     with:
       build_config_name: bc-paris-api-trivy
+      imagestream_name: bc-paris-api
       source_image_tag: trivy
     secrets:
       openshift_namespace: ${{ secrets.OPENSHIFT_LICENSE_PLATE_SILVER }}-tools

@@ -10,8 +10,7 @@ on:
     branches:
       - main
   workflow_dispatch:
-    branches:
-      - main
+    branches: [main, feature/devopsupgrade]
 
 jobs:
 

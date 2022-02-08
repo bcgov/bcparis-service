@@ -30,7 +30,6 @@ jobs:
     needs:
       - build-push-image
     with:
-      build_config_name: bc-paris-api
       imagestream_name: bc-paris-api
       source_image_tag: latest
     secrets:

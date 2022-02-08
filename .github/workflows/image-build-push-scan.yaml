@@ -16,7 +16,7 @@ on:
 jobs:
 
   build-push-image:
-    uses: SierraSystems/reusable-workflows/.github/workflows/openshift-source-to-image.yml@feature/devopsupgrade
+    uses: SierraSystems/reusable-workflows/.github/workflows/openshift-source-to-image.yml@main
     with:
       build_config_name: bc-paris-api
     secrets:
@@ -26,9 +26,10 @@ jobs:
       openshift_external_repository: ${{ secrets.OPENSHIFT_EXTERNAL_REPOSITORY_SILVER }}
   
   trivy-scan-image:
-    uses: SierraSystems/reusable-workflows/.github/workflows/trivy-scanning-s2i.yml@feature/devopsupgrade
+    uses: SierraSystems/reusable-workflows/.github/workflows/trivy-scanning-s2i.yml@main
+    needs:
+      - build-push-image
     with:
-      build_config_name: bc-paris-api
       imagestream_name: bc-paris-api
       source_image_tag: latest
     secrets:

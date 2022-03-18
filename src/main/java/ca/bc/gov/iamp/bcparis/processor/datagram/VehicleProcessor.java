@@ -116,14 +116,14 @@ public class VehicleProcessor implements DatagramProcessor{
 		
 		String rnsQuery = String.format("RNS:%s/%s/%s/%s", surname, g1, g2, dob);
 		
-		if(!StringUtils.isEmpty(rsvp))
+		if(StringUtils.hasLength(rsvp))
 			rnsQuery += "/RSVP:" + rsvp;
 		
 		return rnsQuery;
 	}
 	
 	private String formatDate(String date) {
-		if(!StringUtils.isEmpty(date)) {
+		if(StringUtils.hasLength(date)) {
 			return String.format("%s-%s-%s", date.substring(0, 4), date.substring(4, 6),  date.substring(6, 8));
 		}
 		return "";
@@ -153,7 +153,7 @@ public class VehicleProcessor implements DatagramProcessor{
 	 * 		ddMMMyy\HH:mm:ss
 	 */
 	private String getLocalTimeNowICBCFormat() {
-		return LocalDateTime.now().format(DateTimeFormatter.ofPattern("ddMMMyy\\HH:mm:ss")).toString();
+		return LocalDateTime.now().format(DateTimeFormatter.ofPattern("ddMMMyy\\HH:mm:ss"));
 	}
 
 }

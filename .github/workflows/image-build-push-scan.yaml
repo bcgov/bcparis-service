@@ -6,12 +6,15 @@ on:
   push:
     branches:
       - main
+      - master
   pull_request:
     branches:
       - main
+      - master
   workflow_dispatch:
     branches:
       - main
+      - master
 
 jobs:
 

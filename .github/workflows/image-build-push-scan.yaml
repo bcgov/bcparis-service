@@ -3,14 +3,14 @@
 name: Build and Push Updated Image to Openshift Registry & scan for vulnerabilities
 
 on:
-  push:
-    branches:
-      - main
-      - master
-  pull_request:
-    branches:
-      - main
-      - master
+#  push:
+#    branches:
+#      - main
+#      - master
+#  pull_request:
+#    branches:
+#      - main
+#      - master
   workflow_dispatch:
     branches:
       - main

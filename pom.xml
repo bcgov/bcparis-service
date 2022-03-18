@@ -10,7 +10,7 @@
 	<version>1.3.1</version>
 
 	<properties>
-		<log4j2.version>2.17.1</log4j2.version>
+		<log4j2.version>2.17.2</log4j2.version>
 		<sonar.exclusions>
 			**/AutoWiringSpringBeanJobFactory.java,
 			**/SwaggerConfig.java
@@ -20,30 +20,30 @@
 		<java.version>1.8</java.version>
 		<!-- 3.3.9 is the most recent version supported by Red Hat Jenkins slave
             images. We can't go to 3.5 -->
-		<maven.version>3.3.9</maven.version>
+		<maven.version>3.8.5</maven.version>
 
 		<!-- ========== Text Encoding ========== -->
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
-		<springboot.version>2.3.4.RELEASE</springboot.version>
+		<springboot.version>2.6.4</springboot.version>
 		<springcloud.version>Hoxton.SR8</springcloud.version>
 		<swagger-springmvc.version>1.0.2</swagger-springmvc.version>
 		<springfox.version>3.0.0</springfox.version>
 
 		<maven-springboot-plugin.version>${springboot.version}</maven-springboot-plugin.version>
 
-		<springframework.version>5.3.5</springframework.version>
+		<springframework.version>5.3.14</springframework.version>
 		<spring-security.version>5.4.7</spring-security.version>
 		<spring-test.version>${springframework.version}</spring-test.version>
 		<metrics-spring.version>3.1.3</metrics-spring.version>
 
-		<junit.version>4.13.1</junit.version>
-		<lombok.version>1.18.12</lombok.version>
-		<jackson.version>2.11.3</jackson.version>
+		<jackson.version>2.13.2</jackson.version>
+		<lombok.version>1.18.22</lombok.version>
+		<junit.version>4.13.2</junit.version>
 		<slf4j.version>1.7.30</slf4j.version>
 		<logback.version>1.2.3</logback.version>
-		<logstash.version>6.4</logstash.version>
+		<logstash.version>7.0.1</logstash.version>
 		<httpclient.version>4.5.13</httpclient.version>
 		<guava.version>30.1-jre</guava.version>
 
@@ -233,7 +233,7 @@
 		<dependency>
 			<groupId>commons-io</groupId>
 			<artifactId>commons-io</artifactId>
-			<version>2.8.0</version>
+			<version>2.11.0</version>
 		</dependency>
 
 		<dependency>
@@ -266,13 +266,7 @@
 		<dependency>
 			<groupId>org.apache.cxf</groupId>
 			<artifactId>cxf-core</artifactId>
-			<version>3.4.0</version>
-		</dependency>
-
-		<dependency>
-			<groupId>org.apache.cxf</groupId>
-			<artifactId>cxf-xjc-plugin</artifactId>
-			<version>3.3.1</version>
+			<version>3.5.1</version>
 		</dependency>
 
 		<!-- Enabling health checks and metrics -->
@@ -352,10 +346,11 @@
 			<artifactId>logback-access</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>net.rakugakibox.spring.boot</groupId>
+			<groupId>dev.akkinoc.spring.boot</groupId>
 			<artifactId>logback-access-spring-boot-starter</artifactId>
-			<version>2.7.1</version>
+			<version>3.2.2</version>
 		</dependency>
+
 
 		<!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-core -->
 		<dependency>
@@ -389,14 +384,14 @@
 		<dependency>
 			<groupId>org.apache.tomcat.embed</groupId>
 			<artifactId>tomcat-embed-core</artifactId>
-			<version>9.0.43</version>
+			<version>9.0.60</version>
 		</dependency>
 
 		<!-- https://mvnrepository.com/artifact/org.apache.tomcat.embed/tomcat-embed-websocket -->
 		<dependency>
 			<groupId>org.apache.tomcat.embed</groupId>
 			<artifactId>tomcat-embed-websocket</artifactId>
-			<version>9.0.38</version>
+			<version>10.0.18</version>
 		</dependency>
 	</dependencies>
 
@@ -427,6 +422,7 @@
 		<plugins>
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.10.1</version>
 				<configuration>
 					<source>1.8</source>
 					<target>1.8</target>
@@ -467,7 +463,7 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-jar-plugin</artifactId>
-				<version>3.2.0</version>
+				<version>3.2.2</version>
 				<configuration>
 					<archive>
 						<addMavenDescriptor>false</addMavenDescriptor>

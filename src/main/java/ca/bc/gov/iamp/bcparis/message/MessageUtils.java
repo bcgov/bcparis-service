@@ -78,7 +78,7 @@ public class MessageUtils {
 
         if (!KNOWN_TOKENS.contains(key)) throw new IllegalArgumentException("key must be a known token");
 
-        if (StringUtils.isEmpty(message)) return null;
+        if (!StringUtils.hasLength(message)) return null;
 
         message = removeKnownEnd(message);
 

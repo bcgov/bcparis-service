@@ -2,9 +2,13 @@ name: Generate/Upload all Coverage Reports
 
 on:
   push:
-    branches: [master]
+    branches:
+    - master
+    - main
   pull_request:
-    branches: [master]
+    branches:
+    - master
+    - main
     
 jobs:
   spring-boot:
@@ -88,3 +92,16 @@ jobs:
       # Upload total coverage report to Code Climate
       - name: Upload coverage report to Code Climate
         run: ./cc-test-reporter upload-coverage -i coverage/bcparis-codeclimate.json
+
+  trivy-scan-image:
+    uses: SierraSystems/reusable-workflows/.github/workflows/trivy-scanning-s2i.yml@main
+    needs:
+      - build-push-image
+    with:
+      imagestream_name: bc-paris-api
+      source_image_tag: latest
+    secrets:
+      openshift_namespace: ${{ secrets.OPENSHIFT_LICENSE_PLATE_SILVER }}-tools
+      openshift_sa_name: ${{ secrets.OPENSHIFT_SA_NAME }}
+      openshift_sa_password: ${{ secrets.OPENSHIFT_SA_PASSWORD }}
+      openshift_external_repository: ${{ secrets.OPENSHIFT_EXTERNAL_REPOSITORY_SILVER }}

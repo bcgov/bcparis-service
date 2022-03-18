@@ -3,20 +3,23 @@ package ca.bc.gov.iamp.bcparis.repository;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
-import org.mockito.internal.util.reflection.FieldSetter;
+import org.mockito.junit.MockitoJUnitRunner;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.test.util.ReflectionTestUtils;
 import org.springframework.web.client.RestTemplate;
 
 import ca.bc.gov.iamp.bcparis.exception.layer7.Layer7RestException;
 import ca.bc.gov.iamp.bcparis.model.message.Layer7Message;
 
+@RunWith(MockitoJUnitRunner.class)
 public class Layer7MessageRepositoryTest {
 
 	@InjectMocks
@@ -27,12 +30,11 @@ public class Layer7MessageRepositoryTest {
 	
 	@Before
     public void initMocks() throws NoSuchFieldException, SecurityException{
-        MockitoAnnotations.initMocks(this);
-        
-        FieldSetter.setField(repo, repo.getClass().getDeclaredField("messageEndpoint"), "messageEndpoint");
-        FieldSetter.setField(repo, repo.getClass().getDeclaredField("path"), "path");
-        FieldSetter.setField(repo, repo.getClass().getDeclaredField("username"), "mock_username");
-        FieldSetter.setField(repo, repo.getClass().getDeclaredField("password"), "mock_password");
+
+		ReflectionTestUtils.setField(repo,"messageEndpoint", "messageEndpoint");
+		ReflectionTestUtils.setField(repo,"path", "path");
+		ReflectionTestUtils.setField(repo,"username", "mock_username");
+		ReflectionTestUtils.setField(repo,"password", "mock_password");
     }
 	
 	@Test

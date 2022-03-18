@@ -7,9 +7,10 @@
 	<groupId>ca.bc.gov.bcparis</groupId>
 	<artifactId>bcparis-service</artifactId>
 	<name>BCPARIS Legacy Migration</name>
-	<version>1.3.0-SNAPSHOT</version>
+	<version>1.3.1</version>
 
 	<properties>
+		<log4j2.version>2.17.1</log4j2.version>
 		<sonar.exclusions>
 			**/AutoWiringSpringBeanJobFactory.java,
 			**/SwaggerConfig.java
@@ -33,8 +34,8 @@
 		<maven-springboot-plugin.version>${springboot.version}</maven-springboot-plugin.version>
 
 		<springframework.version>5.2.9.RELEASE</springframework.version>
-		<spring-security.version>5.4.1</spring-security.version>
-		<spring-test.version>5.3.5</spring-test.version>
+		<spring-security.version>5.4.7</spring-security.version>
+		<spring-test.version>${springframework.version}</spring-test.version>
 		<metrics-spring.version>3.1.3</metrics-spring.version>
 
 		<junit.version>4.13.1</junit.version>
@@ -44,7 +45,7 @@
 		<logback.version>1.2.3</logback.version>
 		<logstash.version>6.4</logstash.version>
 		<httpclient.version>4.5.13</httpclient.version>
-		<guava.version>29.0-jre</guava.version>
+		<guava.version>30.1-jre</guava.version>
 
 	</properties>
 
@@ -360,21 +361,21 @@
 		<dependency>
 			<groupId>org.apache.logging.log4j</groupId>
 			<artifactId>log4j-core</artifactId>
-			<version>2.13.3</version>
+			<version>${log4j2.version}</version>
 		</dependency>
 
 		<!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-api -->
 		<dependency>
 			<groupId>org.apache.logging.log4j</groupId>
 			<artifactId>log4j-api</artifactId>
-			<version>2.13.3</version>
+			<version>${log4j2.version}</version>
 		</dependency>
 
 		<!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-to-slf4j -->
 		<dependency>
 			<groupId>org.apache.logging.log4j</groupId>
 			<artifactId>log4j-to-slf4j</artifactId>
-			<version>2.13.3</version>
+			<version>${log4j2.version}</version>
 		</dependency>
 
 		<!-- https://mvnrepository.com/artifact/org.dom4j/dom4j -->
@@ -388,7 +389,7 @@
 		<dependency>
 			<groupId>org.apache.tomcat.embed</groupId>
 			<artifactId>tomcat-embed-core</artifactId>
-			<version>9.0.39</version>
+			<version>9.0.43</version>
 		</dependency>
 
 		<!-- https://mvnrepository.com/artifact/org.apache.tomcat.embed/tomcat-embed-websocket -->
@@ -416,7 +417,7 @@
 				<dependency>
 					<groupId>com.splunk.logging</groupId>
 					<artifactId>splunk-library-javalogging</artifactId>
-					<version>1.8.0</version>
+					<version>1.11.2</version>
 				</dependency>
 			</dependencies>
 
@@ -446,7 +447,7 @@
 			<plugin>
 				<groupId>org.jacoco</groupId>
 				<artifactId>jacoco-maven-plugin</artifactId>
-				<version>0.8.6</version>
+				<version>0.8.7</version>
 				<executions>
 					<execution>
 						<goals>
@@ -466,7 +467,7 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-jar-plugin</artifactId>
-				<version>3.2.0</version>
+				<version>3.2.2</version>
 				<configuration>
 					<archive>
 						<addMavenDescriptor>false</addMavenDescriptor>

@@ -29,7 +29,7 @@ jobs:
       openshift_external_repository: ${{ secrets.OPENSHIFT_EXTERNAL_REPOSITORY_SILVER }}
   
   trivy-scan-image:
-    uses: SierraSystems/reusable-workflows/.github/workflows/trivy-scanning-s2i.yml@main
+    uses: SierraSystems/reusable-workflows/.github/workflows/trivy-scanning-s2i.yml@trivyscanimageupdate
     needs:
       - build-push-image
     with:

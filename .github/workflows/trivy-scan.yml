@@ -22,7 +22,7 @@ jobs:
       - name: Maven Package
         run: mvn -ntp clean -DskipTests package
 
-      #Build image jag-ccd-1-1
+      #Build image BC Paris
       - name: Build image bcparis
         env:
           COMPOSE_DOCKER_CLI_BUILD: 1
@@ -32,7 +32,7 @@ jobs:
           docker build -t bcparis-scan ${CONTEXT}
 
       - name: Run Trivy vulnerability scanner - stdout
-        uses: ekwanNTT/trivy-action@master
+        uses: SierraSystems/trivy-action@master
         with:
           scan-type: image
           image-ref: bcparis-scan
@@ -42,7 +42,7 @@ jobs:
           severity: HIGH,CRITICAL
 
       - name: Run Trivy vulnerability scanner - save-result to file
-        uses: ekwanNTT/trivy-action@master
+        uses: SierraSystems/trivy-action@master
         with:
           scan-type: image
           image-ref: bcparis-scan
@@ -59,4 +59,3 @@ jobs:
         if: always()
         with:
           sarif_file: trivy-results.sarif
-

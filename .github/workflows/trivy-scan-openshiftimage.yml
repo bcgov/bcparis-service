@@ -8,7 +8,7 @@ on:
 jobs:
   
   trivy-scan-openshiftimage:
-    uses: SierraSystems/reusable-workflows/.github/workflows/trivy-scanning-s2i.yml@trivyscanimageupdate
+    uses: SierraSystems/reusable-workflows/.github/workflows/trivy-scanning-s2i.yml@main
     with:
       imagestream_name: bc-paris-api
       source_image_tag: latest

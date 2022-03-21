@@ -20,7 +20,7 @@ jobs:
           java-version: 8
       # Runs build steps
       - name: Maven Package
-        run: mvn -ntp clean -DskipTests package
+        run: mvn -ntp clean verify
 
       #Build image jag-ccd-1-1
       - name: Build image bcparis

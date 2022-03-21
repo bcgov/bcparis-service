@@ -5,16 +5,61 @@ name: Trivy Scan
 on:
   workflow_dispatch:
 
-
 jobs:
+  build-scan:
+    name: Build & Scan Image
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
 
-  trivy-scan-image:
-    uses: SierraSystems/reusable-workflows/.github/workflows/trivy-scanning-s2i.yml@main
-    with:
-      imagestream_name: bc-paris-api
-      source_image_tag: latest
-    secrets:
-      openshift_namespace: ${{ secrets.OPENSHIFT_LICENSE_PLATE_SILVER }}-tools
-      openshift_sa_name: ${{ secrets.OPENSHIFT_SA_NAME }}
-      openshift_sa_password: ${{ secrets.OPENSHIFT_SA_PASSWORD }}
-      openshift_external_repository: ${{ secrets.OPENSHIFT_EXTERNAL_REPOSITORY_SILVER }}
+      - name: Authenticate and set context
+        uses: redhat-actions/oc-login@v1
+        with:
+          openshift_server_url: ${{ secrets.openshift_server_url }}
+          openshift_token: ${{ secrets.openshift_token }}
+          namespace: ${{ secrets.openshift_namespace }}
+
+      - name: Login to OpenShift Container Repository
+        uses: docker/login-action@v1
+        with:
+          registry: ${{ secrets.openshift_external_repository }}
+          username: ${{ secrets.openshift_sa_name }}
+          password: ${{ secrets.openshift_sa_password }}
+
+      - name: Pull Image for Scannning
+        env:
+          IMAGE: ${{secrets.openshift_external_repository}}/${{secrets.openshift_namespace}}/${{inputs.imagestream_name}}:${{inputs.image_tag}}
+        run: |
+          docker pull ${IMAGE}
+      - name: Run Trivy vulnerability scanner - stdout
+        uses: ekwanNTT/trivy-action@master
+        if: ${{ !inputs.push_results_to_github }}
+        with:
+          scan-type: image
+          image-ref: ${{secrets.openshift_external_repository}}/${{secrets.openshift_namespace}}/${{inputs.imagestream_name}}:${{inputs.image_tag}}
+          format: ${{ inputs.output }}
+          exit-code: '1'
+          ignore-unfixed: true
+          severity: HIGH,CRITICAL
+
+      - name: Run Trivy vulnerability scanner - save-result to file
+        uses: ekwanNTT/trivy-action@master
+        if: ${{ inputs.push_results_to_github }}
+        with:
+          scan-type: image
+          image-ref: ${{secrets.openshift_external_repository}}/${{secrets.openshift_namespace}}/${{inputs.imagestream_name}}:${{inputs.image_tag}}
+          format: template
+          template: '@/contrib/sarif.tpl'
+          output: trivy-results.sarif
+          exit-code: '1'
+          ignore-unfixed: true
+          severity: HIGH,CRITICAL
+
+      #Upload results to the GitHub Security Tab.
+      - name: Upload Trivy scan results to GitHub Security tab
+        uses: github/codeql-action/upload-sarif@v1
+        if: always() && inputs.push_results_to_github
+        with:
+          sarif_file: trivy-results.sarif
+

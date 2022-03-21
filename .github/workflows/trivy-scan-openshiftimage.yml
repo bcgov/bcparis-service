@@ -1,0 +1,21 @@
+# Creates a new image and push to Openshift image stream & also scan for vulnerabilities
+
+name: Build and Push Updated Image to Openshift Registry & scan for vulnerabilities
+
+on:
+  workflow_dispatch:
+
+jobs:
+  
+  trivy-scan-image:
+    uses: SierraSystems/reusable-workflows/.github/workflows/trivy-scanning-s2i.yml@trivyscanimageupdate
+    needs:
+      - build-push-image
+    with:
+      imagestream_name: bc-paris-api
+      source_image_tag: latest
+    secrets:
+      openshift_namespace: ${{ secrets.OPENSHIFT_LICENSE_PLATE_SILVER }}-tools
+      openshift_sa_name: ${{ secrets.OPENSHIFT_SA_NAME }}
+      openshift_sa_password: ${{ secrets.OPENSHIFT_SA_PASSWORD }}
+      openshift_external_repository: ${{ secrets.OPENSHIFT_EXTERNAL_REPOSITORY_SILVER }}

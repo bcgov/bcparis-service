@@ -31,20 +31,8 @@ jobs:
         run: |
           docker build -t bcparis-scan ${CONTEXT}
 
-      - name: Run Trivy vulnerability scanner - stdout
-        uses: ekwanNTT/trivy-action@master
-        if: ${{ !inputs.push_results_to_github }}
-        with:
-          scan-type: image
-          image-ref: bcparis-scan
-          format: ${{ inputs.output }}
-          exit-code: '1'
-          ignore-unfixed: true
-          severity: HIGH,CRITICAL
-
       - name: Run Trivy vulnerability scanner - save-result to file
         uses: ekwanNTT/trivy-action@master
-        if: ${{ inputs.push_results_to_github }}
         with:
           scan-type: image
           image-ref: bcparis-scan
@@ -58,7 +46,7 @@ jobs:
       #Upload results to the GitHub Security Tab.
       - name: Upload Trivy scan results to GitHub Security tab
         uses: github/codeql-action/upload-sarif@v1
-        if: always() && inputs.push_results_to_github
+        if: always()
         with:
           sarif_file: trivy-results.sarif
 

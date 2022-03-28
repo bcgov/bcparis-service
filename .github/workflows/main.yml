@@ -60,7 +60,7 @@ jobs:
         
       # Runs build steps
       - name: Maven Package
-        run: mvn -ntp clean -Popenshift -DskipTests package
+        run: mvn -ntp -Popenshift -DskipTests clean package
       
       #Login to OpenShift Container Repository
       - name: Login to OpenShift Container Repository

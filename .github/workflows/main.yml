@@ -29,7 +29,7 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - name: Git Checkout
         uses: actions/checkout@v2
-      
+
       # Get the version number which is prefixed with the Github release branches in format release/{version}
       - name: Get Release Version
         run: |
@@ -51,17 +51,16 @@ jobs:
           echo "Release Environment: ${{ github.event.inputs.env }}"
           echo "Release Version: ${{ env.releaseVersion }}"
           echo "Release Git Sha: ${{env.gitsha}}"
-
       # Set up JDK build environment
       - name: Set up JDK 8
         uses: actions/setup-java@v1
         with:
           java-version: 8
-        
+
       # Runs build steps
       - name: Maven Package
-        run: mvn -ntp -Popenshift -DskipTests clean package
-      
+        run: mvn -ntp clean -DskipTests package
+
       #Login to OpenShift Container Repository
       - name: Login to OpenShift Container Repository
         uses: docker/login-action@v1
@@ -102,7 +101,6 @@ jobs:
           openshiftEnvNamespace: ${{secrets.OPENSHIFT_LICENSE_PLATE_SILVER}}-${{ github.event.inputs.env }}
         run: |
           oc patch dc ${appName} -n ${openshiftEnvNamespace} --patch '{"spec":{"template":{"metadata":{"labels":{"version":"${{ env.releaseVersion }}.${{ env.gitsha }}"}}}}}'
-
       # Wait to DC rollout to get completed before proceeding next stage
       - name: Wait for DC rollout
         env:

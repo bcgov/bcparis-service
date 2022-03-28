@@ -27,7 +27,7 @@
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
 		<springboot.version>2.6.4</springboot.version>
-		<springcloud.version>Hoxton.SR8</springcloud.version>
+		<springcloud.version>2021.0.1</springcloud.version>
 		<swagger-springmvc.version>1.0.2</swagger-springmvc.version>
 		<springfox.version>3.0.0</springfox.version>
 
@@ -279,11 +279,13 @@
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-sleuth</artifactId>
+			<version>2.2.8.RELEASE</version>
 		</dependency>
 
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-zipkin</artifactId>
+			<version>2.2.8.RELEASE</version>
 		</dependency>
 
 		<!-- Swagger -->
@@ -430,7 +432,7 @@
 			</plugin>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
-				<version>2.6.4</version>
+				<version>${maven-springboot-plugin.version}</version>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 				<executions>
 					<execution>

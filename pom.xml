@@ -29,7 +29,6 @@
 		<springboot.version>2.6.4</springboot.version>
 		<springcloud.version>2021.0.1</springcloud.version>
 		<swagger-springmvc.version>1.0.2</swagger-springmvc.version>
-		<springfox.version>3.0.0</springfox.version>
 
 		<maven-springboot-plugin.version>${springboot.version}</maven-springboot-plugin.version>
 
@@ -197,21 +196,9 @@
 			</dependency>
 
 			<dependency>
-				<groupId>io.springfox</groupId>
-				<artifactId>springfox-swagger2</artifactId>
-				<version>${springfox.version}</version>
-			</dependency>
-
-			<dependency>
-				<groupId>io.springfox</groupId>
-				<artifactId>springfox-swagger-ui</artifactId>
-				<version>${springfox.version}</version>
-			</dependency>
-
-			<dependency>
-				<groupId>io.springfox</groupId>
-				<artifactId>springfox-core</artifactId>
-				<version>${springfox.version}</version>
+				<groupId>org.springdoc</groupId>
+				<artifactId>springdoc-openapi-ui</artifactId>
+				<version>1.6.4</version>
 			</dependency>
 
 			<dependency>
@@ -288,26 +275,9 @@
 			<version>2.2.8.RELEASE</version>
 		</dependency>
 
-		<!-- Swagger -->
-		<dependency>
-			<groupId>io.springfox</groupId>
-			<artifactId>springfox-swagger2</artifactId>
-			<exclusions>
-				<exclusion>
-					<groupId>com.google.guava</groupId>
-					<artifactId>guava</artifactId>
-				</exclusion>
-			</exclusions>
-		</dependency>
-
 		<dependency>
 			<groupId>com.google.guava</groupId>
 			<artifactId>guava</artifactId>
-		</dependency>
-
-		<dependency>
-			<groupId>io.springfox</groupId>
-			<artifactId>springfox-swagger-ui</artifactId>
 		</dependency>
 
 		<dependency>

@@ -25,10 +25,6 @@ jobs:
         
       # Runs build steps
       - name: Maven Package
-        run: mvn -ntp clean package
-        
-      # Runs build steps
-      - name: Maven Package
         run: mvn -ntp -DskipTests -Popenshift clean package
 
       - name: Build an image from Dockerfile

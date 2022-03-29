@@ -8,7 +8,7 @@ on:
             app:
                 description: 'App Name (bc-paris-api)'    
                 required: true
-                default: 'jag-pcss-civil'
+                default: 'bc-paris-api'
             imageSourceEnv:
                 description: 'Image Source Env'     
                 required: true

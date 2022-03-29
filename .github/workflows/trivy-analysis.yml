@@ -1,0 +1,60 @@
+# This workflow is used to build & scan image using trivy vulnerability scanner and upload the results to github security tab
+
+name: Build & Vulnerability Scan using Trivy Scanner
+
+on:
+  push:
+    branches: [ main, release/*]
+  pull_request:
+    # The branches below must be a subset of the branches above
+    branches: [ main, release/*]
+
+jobs:
+  build-scan-image:
+    name: Build & Scan Image
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      
+      # Set up JDK build environment
+      - name: Set up JDK 8
+        uses: actions/setup-java@v1
+        with:
+          java-version: 8
+        
+      # Runs build steps
+      - name: Maven Package
+        run: mvn -ntp clean package
+        
+      # Runs build steps
+      - name: Maven Package
+        run: mvn -ntp -DskipTests -Popenshift clean package
+
+      - name: Build an image from Dockerfile
+        env:
+          COMPOSE_DOCKER_CLI_BUILD: 1
+          DOCKER_BUILDKIT: 1
+          CONTEXT: .
+        run: |
+          docker build -t bc-paris-api:${{ github.sha }} ${CONTEXT}
+
+      #Run Vulnerability Scan usinig Trivy scanner
+      - name: Run Trivy vulnerability scanner
+        uses: aquasecurity/trivy-action@master
+        with:
+          scan-type: image
+          image-ref: bc-paris-api:${{ github.sha }}
+          format: template
+          template: '@/contrib/sarif.tpl'
+          output: trivy-results.sarif
+          exit-code: 1
+          ignore-unfixed: true
+          severity: HIGH,CRITICAL
+
+      #Upload results to the Github security tab.
+      - name: Upload Trivy scan results to GitHub Security tab
+        uses: github/codeql-action/upload-sarif@v1
+        if: always()
+        with:
+          sarif_file: trivy-results.sarif

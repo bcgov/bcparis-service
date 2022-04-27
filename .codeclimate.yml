@@ -1,0 +1,14 @@
+version: "2"
+checks:
+  method-lines:
+    config:
+      threshold: 50
+exclude_patterns:
+  - "**/*.js"
+  - ".mvn/"
+  - ".github/"
+  - ".env"
+  - ".env.template"
+  - "src/test"
+  - "test"
+  - "openshift"

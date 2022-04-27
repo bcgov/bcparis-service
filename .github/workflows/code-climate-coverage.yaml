@@ -2,13 +2,11 @@ name: Generate/Upload all Coverage Reports
 
 on:
   push:
-    branches:
-    - master
-    - main
+    branches: [ main ]
   pull_request:
-    branches:
-    - master
-    - main
+    branches: [ main ]
+  workflow_dispatch:
+    branches: [ main ]
     
 jobs:
   spring-boot:

@@ -1,0 +1,16 @@
+name: ZAP Scan for BCParis API
+on:
+  workflow_dispatch:
+
+jobs:
+  zap_scan:
+    runs-on: ubuntu-latest
+    name: Scan ZAP website
+    steps:
+      - name: ZAP Scan - BCParis API
+        uses: zaproxy/action-baseline@v0.6.1
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          issue_title: 'ZAP Scan Report - BCParis API'
+          target: '${{ secrets.BCParis_RouteUrl }}/actuator/health'
+          fail_action: true

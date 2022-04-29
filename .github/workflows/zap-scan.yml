@@ -1,4 +1,4 @@
-name: ZAP Scan for BCParis API
+name: ZAP Scan for BCParis Application
 on:
   workflow_dispatch:
 

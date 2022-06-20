@@ -1,162 +1,0 @@
-[[1;34mINFO[m] Scanning for projects...
-[[1;34mINFO[m] 
-[[1;34mINFO[m] [1m-----------------< [0;36mca.bc.gov.bcparis:bcparis-service[0;1m >------------------[m
-[[1;34mINFO[m] [1mBuilding BCPARIS Legacy Migration 1.3.1[m
-[[1;34mINFO[m] [1m--------------------------------[ jar ]---------------------------------[m
-Downloading from central: https://repo.maven.apache.org/maven2/org/springframework/security/spring-security-core/5.5.7/spring-security-core-5.5.7.pom
-Progress (1): 2.7/3.0 kBProgress (1): 3.0 kB                        Downloaded from central: https://repo.maven.apache.org/maven2/org/springframework/security/spring-security-core/5.5.7/spring-security-core-5.5.7.pom (3.0 kB at 3.7 kB/s)
-Downloading from central: https://repo.maven.apache.org/maven2/org/springframework/security/spring-security-crypto/5.5.7/spring-security-crypto-5.5.7.pom
-Progress (1): 1.9 kB                    Downloaded from central: https://repo.maven.apache.org/maven2/org/springframework/security/spring-security-crypto/5.5.7/spring-security-crypto-5.5.7.pom (1.9 kB at 6.4 kB/s)
-Downloading from central: https://repo.maven.apache.org/maven2/org/springframework/security/spring-security-core/5.5.7/spring-security-core-5.5.7.jar
-Downloading from central: https://repo.maven.apache.org/maven2/org/springframework/security/spring-security-crypto/5.5.7/spring-security-crypto-5.5.7.jar
-Progress (1): 2.7/388 kBProgress (1): 5.5/388 kBProgress (1): 8.2/388 kBProgress (1): 11/388 kB Progress (1): 14/388 kBProgress (1): 16/388 kBProgress (1): 19/388 kBProgress (1): 21/388 kBProgress (1): 24/388 kBProgress (2): 24/388 kB | 2.7/82 kBProgress (2): 27/388 kB | 2.7/82 kBProgress (2): 27/388 kB | 5.5/82 kBProgress (2): 30/388 kB | 5.5/82 kBProgress (2): 30/388 kB | 8.2/82 kBProgress (2): 32/388 kB | 8.2/82 kBProgress (2): 32/388 kB | 11/82 kB Progress (2): 35/388 kB | 11/82 kBProgress (2): 35/388 kB | 14/82 kBProgress (2): 38/388 kB | 14/82 kBProgress (2): 38/388 kB | 16/82 kBProgress (2): 40/388 kB | 16/82 kBProgress (2): 40/388 kB | 19/82 kBProgress (2): 43/388 kB | 19/82 kBProgress (2): 43/388 kB | 21/82 kBProgress (2): 46/388 kB | 21/82 kBProgress (2): 46/388 kB | 24/82 kBProgress (2): 49/388 kB | 24/82 kBProgress (2): 49/388 kB | 27/82 kBProgress (2): 53/388 kB | 27/82 kBProgress (2): 53/388 kB | 30/82 kBProgress (2): 57/388 kB | 30/82 kBProgress (2): 57/388 kB | 32/82 kBProgress (2): 61/388 kB | 32/82 kBProgress (2): 61/388 kB | 35/82 kBProgress (2): 65/388 kB | 35/82 kBProgress (2): 65/388 kB | 38/82 kBProgress (2): 69/388 kB | 38/82 kBProgress (2): 69/388 kB | 40/82 kBProgress (2): 73/388 kB | 40/82 kBProgress (2): 73/388 kB | 43/82 kBProgress (2): 77/388 kB | 43/82 kBProgress (2): 77/388 kB | 46/82 kBProgress (2): 81/388 kB | 46/82 kBProgress (2): 81/388 kB | 49/82 kBProgress (2): 85/388 kB | 49/82 kBProgress (2): 85/388 kB | 53/82 kBProgress (2): 90/388 kB | 53/82 kBProgress (2): 90/388 kB | 57/82 kBProgress (2): 94/388 kB | 57/82 kBProgress (2): 94/388 kB | 61/82 kBProgress (2): 98/388 kB | 61/82 kBProgress (2): 98/388 kB | 65/82 kBProgress (2): 102/388 kB | 65/82 kBProgress (2): 102/388 kB | 69/82 kBProgress (2): 106/388 kB | 69/82 kBProgress (2): 106/388 kB | 73/82 kBProgress (2): 110/388 kB | 73/82 kBProgress (2): 110/388 kB | 77/82 kBProgress (2): 114/388 kB | 77/82 kBProgress (2): 114/388 kB | 81/82 kBProgress (2): 118/388 kB | 81/82 kBProgress (2): 118/388 kB | 82 kB   Progress (2): 122/388 kB | 82 kBProgress (2): 126/388 kB | 82 kBProgress (2): 131/388 kB | 82 kBProgress (2): 135/388 kB | 82 kB                                Downloaded from central: https://repo.maven.apache.org/maven2/org/springframework/security/spring-security-crypto/5.5.7/spring-security-crypto-5.5.7.jar (82 kB at 95 kB/s)
-Progress (1): 139/388 kBProgress (1): 143/388 kBProgress (1): 147/388 kBProgress (1): 151/388 kBProgress (1): 155/388 kBProgress (1): 159/388 kBProgress (1): 163/388 kBProgress (1): 167/388 kBProgress (1): 171/388 kBProgress (1): 176/388 kBProgress (1): 180/388 kBProgress (1): 184/388 kBProgress (1): 188/388 kBProgress (1): 192/388 kBProgress (1): 196/388 kBProgress (1): 200/388 kBProgress (1): 204/388 kBProgress (1): 208/388 kBProgress (1): 212/388 kBProgress (1): 217/388 kBProgress (1): 221/388 kBProgress (1): 225/388 kBProgress (1): 229/388 kBProgress (1): 233/388 kBProgress (1): 237/388 kBProgress (1): 241/388 kBProgress (1): 245/388 kBProgress (1): 249/388 kBProgress (1): 253/388 kBProgress (1): 258/388 kBProgress (1): 262/388 kBProgress (1): 266/388 kBProgress (1): 270/388 kBProgress (1): 274/388 kBProgress (1): 278/388 kBProgress (1): 282/388 kBProgress (1): 286/388 kBProgress (1): 290/388 kBProgress (1): 294/388 kBProgress (1): 298/388 kBProgress (1): 303/388 kBProgress (1): 307/388 kBProgress (1): 311/388 kBProgress (1): 315/388 kBProgress (1): 319/388 kBProgress (1): 323/388 kBProgress (1): 327/388 kBProgress (1): 331/388 kBProgress (1): 335/388 kBProgress (1): 339/388 kBProgress (1): 343/388 kBProgress (1): 348/388 kBProgress (1): 352/388 kBProgress (1): 356/388 kBProgress (1): 360/388 kBProgress (1): 364/388 kBProgress (1): 368/388 kBProgress (1): 372/388 kBProgress (1): 376/388 kBProgress (1): 380/388 kBProgress (1): 384/388 kBProgress (1): 388 kB                        Downloaded from central: https://repo.maven.apache.org/maven2/org/springframework/security/spring-security-core/5.5.7/spring-security-core-5.5.7.jar (388 kB at 246 kB/s)
-[[1;34mINFO[m] 
-[[1;34mINFO[m] [1m--- [0;32mmaven-dependency-plugin:2.8:tree[m [1m(default-cli)[m @ [36mbcparis-service[0;1m ---[m
-[[1;34mINFO[m] ca.bc.gov.bcparis:bcparis-service:jar:1.3.1
-[[1;34mINFO[m] +- commons-io:commons-io:jar:2.11.0:compile
-[[1;34mINFO[m] +- org.springframework:spring-context:jar:5.3.14:compile
-[[1;34mINFO[m] |  +- org.springframework:spring-aop:jar:5.3.16:compile
-[[1;34mINFO[m] |  +- org.springframework:spring-beans:jar:5.3.16:compile
-[[1;34mINFO[m] |  +- org.springframework:spring-core:jar:5.3.16:compile
-[[1;34mINFO[m] |  |  \- org.springframework:spring-jcl:jar:5.3.16:compile
-[[1;34mINFO[m] |  \- org.springframework:spring-expression:jar:5.3.16:compile
-[[1;34mINFO[m] +- org.springframework:spring-test:jar:5.3.14:test
-[[1;34mINFO[m] +- org.springframework.boot:spring-boot-starter-web:jar:2.6.4:compile
-[[1;34mINFO[m] |  +- org.springframework.boot:spring-boot-starter:jar:2.6.4:compile
-[[1;34mINFO[m] |  |  +- org.springframework.boot:spring-boot:jar:2.6.4:compile
-[[1;34mINFO[m] |  |  +- org.springframework.boot:spring-boot-autoconfigure:jar:2.6.4:compile
-[[1;34mINFO[m] |  |  +- org.springframework.boot:spring-boot-starter-logging:jar:2.6.4:compile
-[[1;34mINFO[m] |  |  |  \- org.slf4j:jul-to-slf4j:jar:1.7.36:compile
-[[1;34mINFO[m] |  |  \- org.yaml:snakeyaml:jar:1.29:compile
-[[1;34mINFO[m] |  +- org.springframework.boot:spring-boot-starter-json:jar:2.6.4:compile
-[[1;34mINFO[m] |  |  +- com.fasterxml.jackson.datatype:jackson-datatype-jdk8:jar:2.13.1:compile
-[[1;34mINFO[m] |  |  +- com.fasterxml.jackson.datatype:jackson-datatype-jsr310:jar:2.13.1:compile
-[[1;34mINFO[m] |  |  \- com.fasterxml.jackson.module:jackson-module-parameter-names:jar:2.13.1:compile
-[[1;34mINFO[m] |  +- org.springframework.boot:spring-boot-starter-tomcat:jar:2.6.4:compile
-[[1;34mINFO[m] |  |  \- org.apache.tomcat.embed:tomcat-embed-el:jar:9.0.58:compile
-[[1;34mINFO[m] |  +- org.springframework:spring-web:jar:5.3.16:compile
-[[1;34mINFO[m] |  \- org.springframework:spring-webmvc:jar:5.3.16:compile
-[[1;34mINFO[m] +- org.springframework.boot:spring-boot-starter-test:jar:2.6.4:test
-[[1;34mINFO[m] |  +- org.springframework.boot:spring-boot-test:jar:2.6.4:test
-[[1;34mINFO[m] |  +- org.springframework.boot:spring-boot-test-autoconfigure:jar:2.6.4:test
-[[1;34mINFO[m] |  +- com.jayway.jsonpath:json-path:jar:2.6.0:test
-[[1;34mINFO[m] |  |  \- net.minidev:json-smart:jar:2.4.8:test
-[[1;34mINFO[m] |  |     \- net.minidev:accessors-smart:jar:2.4.8:test
-[[1;34mINFO[m] |  |        \- org.ow2.asm:asm:jar:9.1:test
-[[1;34mINFO[m] |  +- jakarta.xml.bind:jakarta.xml.bind-api:jar:2.3.3:compile
-[[1;34mINFO[m] |  |  \- jakarta.activation:jakarta.activation-api:jar:1.2.2:compile
-[[1;34mINFO[m] |  +- org.assertj:assertj-core:jar:3.21.0:test
-[[1;34mINFO[m] |  +- org.hamcrest:hamcrest:jar:2.2:test
-[[1;34mINFO[m] |  +- org.junit.jupiter:junit-jupiter:jar:5.8.2:test
-[[1;34mINFO[m] |  |  +- org.junit.jupiter:junit-jupiter-api:jar:5.8.2:test
-[[1;34mINFO[m] |  |  |  +- org.opentest4j:opentest4j:jar:1.2.0:test
-[[1;34mINFO[m] |  |  |  +- org.junit.platform:junit-platform-commons:jar:1.8.2:test
-[[1;34mINFO[m] |  |  |  \- org.apiguardian:apiguardian-api:jar:1.1.2:test
-[[1;34mINFO[m] |  |  +- org.junit.jupiter:junit-jupiter-params:jar:5.8.2:test
-[[1;34mINFO[m] |  |  \- org.junit.jupiter:junit-jupiter-engine:jar:5.8.2:test
-[[1;34mINFO[m] |  |     \- org.junit.platform:junit-platform-engine:jar:1.8.2:test
-[[1;34mINFO[m] |  +- org.mockito:mockito-core:jar:4.0.0:test
-[[1;34mINFO[m] |  |  +- net.bytebuddy:byte-buddy:jar:1.11.22:test
-[[1;34mINFO[m] |  |  +- net.bytebuddy:byte-buddy-agent:jar:1.11.22:test
-[[1;34mINFO[m] |  |  \- org.objenesis:objenesis:jar:3.2:test
-[[1;34mINFO[m] |  +- org.mockito:mockito-junit-jupiter:jar:4.0.0:test
-[[1;34mINFO[m] |  +- org.skyscreamer:jsonassert:jar:1.5.0:test
-[[1;34mINFO[m] |  |  \- com.vaadin.external.google:android-json:jar:0.0.20131108.vaadin1:test
-[[1;34mINFO[m] |  \- org.xmlunit:xmlunit-core:jar:2.8.4:test
-[[1;34mINFO[m] +- org.springframework.security:spring-security-core:jar:5.5.7:compile
-[[1;34mINFO[m] |  \- org.springframework.security:spring-security-crypto:jar:5.5.7:compile
-[[1;34mINFO[m] +- org.apache.cxf:cxf-core:jar:3.5.1:compile
-[[1;34mINFO[m] |  +- org.glassfish.jaxb:jaxb-runtime:jar:2.3.6:compile
-[[1;34mINFO[m] |  |  +- org.glassfish.jaxb:txw2:jar:2.3.6:compile
-[[1;34mINFO[m] |  |  \- com.sun.istack:istack-commons-runtime:jar:3.0.12:compile
-[[1;34mINFO[m] |  +- com.fasterxml.woodstox:woodstox-core:jar:6.2.7:compile
-[[1;34mINFO[m] |  |  \- org.codehaus.woodstox:stax2-api:jar:4.2.1:compile
-[[1;34mINFO[m] |  +- org.apache.ws.xmlschema:xmlschema-core:jar:2.3.0:compile
-[[1;34mINFO[m] |  +- jakarta.annotation:jakarta.annotation-api:jar:1.3.5:compile
-[[1;34mINFO[m] |  +- jakarta.xml.ws:jakarta.xml.ws-api:jar:2.3.3:compile
-[[1;34mINFO[m] |  +- jakarta.jws:jakarta.jws-api:jar:2.1.0:compile
-[[1;34mINFO[m] |  +- jakarta.xml.soap:jakarta.xml.soap-api:jar:1.4.2:compile
-[[1;34mINFO[m] |  +- com.sun.activation:jakarta.activation:jar:1.2.2:compile
-[[1;34mINFO[m] |  +- com.sun.xml.messaging.saaj:saaj-impl:jar:1.5.3:runtime
-[[1;34mINFO[m] |  |  \- org.jvnet.staxex:stax-ex:jar:1.8.3:runtime
-[[1;34mINFO[m] |  \- org.apache.geronimo.specs:geronimo-jta_1.1_spec:jar:1.1.1:compile
-[[1;34mINFO[m] +- org.springframework.boot:spring-boot-starter-actuator:jar:2.6.4:compile
-[[1;34mINFO[m] |  +- org.springframework.boot:spring-boot-actuator-autoconfigure:jar:2.6.4:compile
-[[1;34mINFO[m] |  |  \- org.springframework.boot:spring-boot-actuator:jar:2.6.4:compile
-[[1;34mINFO[m] |  \- io.micrometer:micrometer-core:jar:1.8.3:compile
-[[1;34mINFO[m] |     +- org.hdrhistogram:HdrHistogram:jar:2.1.12:compile
-[[1;34mINFO[m] |     \- org.latencyutils:LatencyUtils:jar:2.0.3:runtime
-[[1;34mINFO[m] +- org.springframework.cloud:spring-cloud-starter-sleuth:jar:2.2.8.RELEASE:compile
-[[1;34mINFO[m] |  +- org.springframework.cloud:spring-cloud-starter:jar:3.1.1:compile
-[[1;34mINFO[m] |  |  +- org.springframework.cloud:spring-cloud-context:jar:3.1.1:compile
-[[1;34mINFO[m] |  |  +- org.springframework.cloud:spring-cloud-commons:jar:3.1.1:compile
-[[1;34mINFO[m] |  |  \- org.springframework.security:spring-security-rsa:jar:1.0.10.RELEASE:compile
-[[1;34mINFO[m] |  |     \- org.bouncycastle:bcpkix-jdk15on:jar:1.68:compile
-[[1;34mINFO[m] |  |        \- org.bouncycastle:bcprov-jdk15on:jar:1.68:compile
-[[1;34mINFO[m] |  +- org.springframework.boot:spring-boot-starter-aop:jar:2.6.4:compile
-[[1;34mINFO[m] |  |  \- org.aspectj:aspectjweaver:jar:1.9.7:compile
-[[1;34mINFO[m] |  \- org.springframework.cloud:spring-cloud-sleuth-core:jar:2.2.8.RELEASE:compile
-[[1;34mINFO[m] |     +- org.aspectj:aspectjrt:jar:1.9.7:compile
-[[1;34mINFO[m] |     +- io.zipkin.brave:brave:jar:5.13.7:compile
-[[1;34mINFO[m] |     +- io.zipkin.brave:brave-context-slf4j:jar:5.13.7:compile
-[[1;34mINFO[m] |     +- io.zipkin.brave:brave-instrumentation-messaging:jar:5.13.7:compile
-[[1;34mINFO[m] |     +- io.zipkin.brave:brave-instrumentation-rpc:jar:5.13.7:compile
-[[1;34mINFO[m] |     +- io.zipkin.brave:brave-instrumentation-spring-web:jar:5.13.7:compile
-[[1;34mINFO[m] |     |  \- io.zipkin.brave:brave-instrumentation-http:jar:5.13.7:compile
-[[1;34mINFO[m] |     +- io.zipkin.brave:brave-instrumentation-spring-rabbit:jar:5.13.7:compile
-[[1;34mINFO[m] |     +- io.zipkin.brave:brave-instrumentation-kafka-clients:jar:5.13.7:compile
-[[1;34mINFO[m] |     +- io.zipkin.brave:brave-instrumentation-kafka-streams:jar:5.13.7:compile
-[[1;34mINFO[m] |     +- io.zipkin.brave:brave-instrumentation-httpclient:jar:5.13.7:compile
-[[1;34mINFO[m] |     +- io.zipkin.brave:brave-instrumentation-httpasyncclient:jar:5.13.7:compile
-[[1;34mINFO[m] |     +- io.zipkin.brave:brave-instrumentation-spring-webmvc:jar:5.13.7:compile
-[[1;34mINFO[m] |     |  \- io.zipkin.brave:brave-instrumentation-servlet:jar:5.13.7:compile
-[[1;34mINFO[m] |     +- io.zipkin.brave:brave-instrumentation-jms:jar:5.13.7:compile
-[[1;34mINFO[m] |     \- io.zipkin.reporter2:zipkin-reporter-metrics-micrometer:jar:2.16.3:compile
-[[1;34mINFO[m] +- org.springframework.cloud:spring-cloud-starter-zipkin:jar:2.2.8.RELEASE:compile
-[[1;34mINFO[m] |  \- org.springframework.cloud:spring-cloud-sleuth-zipkin:jar:3.1.1:compile
-[[1;34mINFO[m] |     +- org.springframework.cloud:spring-cloud-sleuth-instrumentation:jar:3.1.1:compile
-[[1;34mINFO[m] |     |  \- org.springframework.cloud:spring-cloud-sleuth-api:jar:3.1.1:compile
-[[1;34mINFO[m] |     +- io.zipkin.zipkin2:zipkin:jar:2.23.2:compile
-[[1;34mINFO[m] |     +- io.zipkin.reporter2:zipkin-reporter:jar:2.16.3:compile
-[[1;34mINFO[m] |     +- io.zipkin.reporter2:zipkin-reporter-brave:jar:2.16.3:compile
-[[1;34mINFO[m] |     +- io.zipkin.reporter2:zipkin-sender-kafka:jar:2.16.3:compile
-[[1;34mINFO[m] |     +- io.zipkin.reporter2:zipkin-sender-activemq-client:jar:2.16.3:compile
-[[1;34mINFO[m] |     \- io.zipkin.reporter2:zipkin-sender-amqp-client:jar:2.16.3:compile
-[[1;34mINFO[m] +- com.google.guava:guava:jar:30.1-jre:compile
-[[1;34mINFO[m] |  +- com.google.guava:failureaccess:jar:1.0.1:compile
-[[1;34mINFO[m] |  +- com.google.guava:listenablefuture:jar:9999.0-empty-to-avoid-conflict-with-guava:compile
-[[1;34mINFO[m] |  +- com.google.code.findbugs:jsr305:jar:3.0.2:compile
-[[1;34mINFO[m] |  +- org.checkerframework:checker-qual:jar:3.5.0:compile
-[[1;34mINFO[m] |  +- com.google.errorprone:error_prone_annotations:jar:2.3.4:compile
-[[1;34mINFO[m] |  \- com.google.j2objc:j2objc-annotations:jar:1.3:compile
-[[1;34mINFO[m] +- junit:junit:jar:4.13.2:test
-[[1;34mINFO[m] +- org.projectlombok:lombok:jar:1.18.22:provided
-[[1;34mINFO[m] +- org.slf4j:slf4j-api:jar:1.7.30:compile
-[[1;34mINFO[m] +- ch.qos.logback:logback-classic:jar:1.2.10:compile
-[[1;34mINFO[m] +- ch.qos.logback:logback-core:jar:1.2.10:compile
-[[1;34mINFO[m] +- net.logstash.logback:logstash-logback-encoder:jar:7.0.1:compile
-[[1;34mINFO[m] |  \- com.fasterxml.jackson.core:jackson-databind:jar:2.13.2:compile
-[[1;34mINFO[m] |     +- com.fasterxml.jackson.core:jackson-annotations:jar:2.13.2:compile
-[[1;34mINFO[m] |     \- com.fasterxml.jackson.core:jackson-core:jar:2.13.2:compile
-[[1;34mINFO[m] +- ch.qos.logback:logback-access:jar:1.2.10:compile
-[[1;34mINFO[m] +- dev.akkinoc.spring.boot:logback-access-spring-boot-starter:jar:3.2.2:compile
-[[1;34mINFO[m] |  +- org.jetbrains.kotlin:kotlin-stdlib-jdk8:jar:1.6.10:compile
-[[1;34mINFO[m] |  |  +- org.jetbrains.kotlin:kotlin-stdlib:jar:1.6.10:compile
-[[1;34mINFO[m] |  |  |  +- org.jetbrains:annotations:jar:13.0:compile
-[[1;34mINFO[m] |  |  |  \- org.jetbrains.kotlin:kotlin-stdlib-common:jar:1.6.10:compile
-[[1;34mINFO[m] |  |  \- org.jetbrains.kotlin:kotlin-stdlib-jdk7:jar:1.6.10:compile
-[[1;34mINFO[m] |  \- org.jetbrains.kotlin:kotlin-reflect:jar:1.6.10:compile
-[[1;34mINFO[m] +- org.apache.logging.log4j:log4j-core:jar:2.17.2:compile
-[[1;34mINFO[m] +- org.apache.logging.log4j:log4j-api:jar:2.17.2:compile
-[[1;34mINFO[m] +- org.apache.logging.log4j:log4j-to-slf4j:jar:2.17.2:compile
-[[1;34mINFO[m] +- org.dom4j:dom4j:jar:2.1.3:compile
-[[1;34mINFO[m] +- org.apache.tomcat.embed:tomcat-embed-core:jar:9.0.60:compile
-[[1;34mINFO[m] |  \- org.apache.tomcat:tomcat-annotations-api:jar:9.0.58:compile
-[[1;34mINFO[m] \- org.apache.tomcat.embed:tomcat-embed-websocket:jar:10.0.18:compile
-[[1;34mINFO[m] [1m------------------------------------------------------------------------[m
-[[1;34mINFO[m] [1;32mBUILD SUCCESS[m
-[[1;34mINFO[m] [1m------------------------------------------------------------------------[m
-[[1;34mINFO[m] Total time:  8.876 s
-[[1;34mINFO[m] Finished at: 2022-06-20T11:24:42-07:00
-[[1;34mINFO[m] [1m------------------------------------------------------------------------[m

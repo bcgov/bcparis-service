@@ -30,7 +30,7 @@
 		<springcloud.version>2021.0.1</springcloud.version>
 		<swagger-springmvc.version>1.0.2</swagger-springmvc.version>
 
-		<maven-springboot-plugin.version>${springboot.version}</maven-springboot-plugin.version>
+		<maven-springboot-plugin.version>2.7.1</maven-springboot-plugin.version>
 
 		<springframework.version>5.3.21</springframework.version>
 		<spring-security.version>5.7.1</spring-security.version>

@@ -24,11 +24,11 @@ public class LoggingFilter implements Filter {
 
         HttpRequestWrapper copiedRequest = new HttpRequestWrapper((HttpServletRequest) request);
         Layer7Message l7message;
-        log.info("request body: " + copiedRequest.getRequestBodyAsString());
+        //log.info("request body: " + copiedRequest.getRequestBodyAsString());
         // Message parsing
         try {
             HttpServletRequest req = (HttpServletRequest) request;
-            log.info("Request Method : " + req.getMethod().trim());
+            //log.info("Request Method : " + req.getMethod().trim());
             if (!req.getMethod().trim().equalsIgnoreCase("GET")) {
                 /* GET request means no request body, so parsing will fail */
                 l7message = new ObjectMapper().readValue(copiedRequest.getRequestBody(), Layer7Message.class);

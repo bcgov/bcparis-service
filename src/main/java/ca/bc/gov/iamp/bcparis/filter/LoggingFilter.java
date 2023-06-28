@@ -27,14 +27,17 @@ public class LoggingFilter implements Filter {
         log.info("request body: " + copiedRequest.getRequestBodyAsString());
         // Message parsing
         try {
-
-            l7message = new ObjectMapper().readValue(copiedRequest.getRequestBody(), Layer7Message.class);
-            if (l7message != null) {
-                MDC.put(MDC_MESSAGE_ID_KEY, l7message.getEnvelope().getMqmd().getMessageIdByte());
-                MDC.put(MDC_CORRELATION_ID_KEY, l7message.getEnvelope().getMqmd().getCorrelationIdByte());
-                MDC.put(MDC_DATA_KEY, String.format("[msgId:%s, corlId:%s]", l7message.getEnvelope().getMqmd().getMessageIdByte(), l7message.getEnvelope().getMqmd().getCorrelationIdByte()));
+            HttpServletRequest req = (HttpServletRequest) request;
+            log.info("Request Method : " + req.getMethod().trim());
+            if (!req.getMethod().trim().equalsIgnoreCase("GET")) {
+                /* GET request means no request body, so parsing will fail */
+                l7message = new ObjectMapper().readValue(copiedRequest.getRequestBody(), Layer7Message.class);
+                if (l7message != null) {
+                    MDC.put(MDC_MESSAGE_ID_KEY, l7message.getEnvelope().getMqmd().getMessageIdByte());
+                    MDC.put(MDC_CORRELATION_ID_KEY, l7message.getEnvelope().getMqmd().getCorrelationIdByte());
+                    MDC.put(MDC_DATA_KEY, String.format("[msgId:%s, corlId:%s]", l7message.getEnvelope().getMqmd().getMessageIdByte(), l7message.getEnvelope().getMqmd().getCorrelationIdByte()));
+                }
             }
-
             chain.doFilter(copiedRequest, response);
         } catch (Exception ex) {
             log.warn("Failed to parse request body at logging filter");

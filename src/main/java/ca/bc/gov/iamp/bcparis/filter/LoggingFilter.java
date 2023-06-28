@@ -24,7 +24,7 @@ public class LoggingFilter implements Filter {
 
         HttpRequestWrapper copiedRequest = new HttpRequestWrapper((HttpServletRequest) request);
         Layer7Message l7message;
-        log.info("request body: " + copiedRequest.getRequestBody().toString());
+        log.info("request body: " + copiedRequest.getRequestBodyAsString());
         // Message parsing
         try {
 

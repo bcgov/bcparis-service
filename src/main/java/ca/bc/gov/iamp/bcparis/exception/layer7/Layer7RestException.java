@@ -23,3 +23,4 @@ public class Layer7RestException extends RuntimeException {
 		return responseContent;
 	}
 }
+ /* changes in the code */

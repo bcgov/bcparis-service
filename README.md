@@ -116,7 +116,7 @@ If you are experiencing errors in the code, run Files > Invalidate Caches/Restar
 ### High Level Design and Messages
 
 For more information about the High Level Design  and Messages check the confluence page.
-[https://justice.gov.bc.ca/wiki/display/APILM/7.3+High+Level+Design](https://justice.gov.bc.ca/wiki/display/APILM/7.3+High+Level+Design)
+https://justice.gov.bc.ca/wiki/display/ITSDPROJ/10_BCPARIS+Integration+Service
 
 ## Versioning
 

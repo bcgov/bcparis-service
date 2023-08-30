@@ -1,3 +1,4 @@
+[![Lifecycle:Stable](https://img.shields.io/badge/Lifecycle-Stable-97ca00)](<Redirect-URL>)
 [![Maintainability](https://api.codeclimate.com/v1/badges/583acc1aa9817b970872/maintainability)](https://codeclimate.com/github/bcgov/bcparis-service/maintainability) [![Test Coverage](https://api.codeclimate.com/v1/badges/583acc1aa9817b970872/test_coverage)](https://codeclimate.com/github/bcgov/bcparis-service/test_coverage)
 
 # bcparis-service

@@ -13,7 +13,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	  http
 	  .headers()
 		.httpStrictTransportSecurity()
-			.includeSubdomains(true)
-			.maxAgeSeconds(31536000);
+			.includeSubDomains(true)
+			.maxAgeInSeconds(31536000);
   }
 }

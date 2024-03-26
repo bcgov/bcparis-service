@@ -1,3 +1,4 @@
+[![Lifecycle:Stable](https://img.shields.io/badge/Lifecycle-Stable-97ca00)](<Redirect-URL>)
 [![Maintainability](https://api.codeclimate.com/v1/badges/583acc1aa9817b970872/maintainability)](https://codeclimate.com/github/bcgov/bcparis-service/maintainability) [![Test Coverage](https://api.codeclimate.com/v1/badges/583acc1aa9817b970872/test_coverage)](https://codeclimate.com/github/bcgov/bcparis-service/test_coverage)
 
 # bcparis-service
@@ -116,7 +117,7 @@ If you are experiencing errors in the code, run Files > Invalidate Caches/Restar
 ### High Level Design and Messages
 
 For more information about the High Level Design  and Messages check the confluence page.
-[https://justice.gov.bc.ca/wiki/display/APILM/7.3+High+Level+Design](https://justice.gov.bc.ca/wiki/display/APILM/7.3+High+Level+Design)
+https://justice.gov.bc.ca/wiki/display/ITSDPROJ/10_BCPARIS+Integration+Service
 
 ## Versioning
 

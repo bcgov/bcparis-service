@@ -37,6 +37,7 @@ objects:
       name: ${appName}
       namespace: ${namespacePrefix}-dev
     spec:
+      ingressClassName: openshift-default
       ports:
         - name: http
           port: 8080

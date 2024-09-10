@@ -43,7 +43,7 @@ jobs:
           image-ref: bc-paris-api:${{ github.sha }}
           format: template
           template: '@/contrib/sarif.tpl'
-          output: trivy-results.sarif
+          output: ./trivy-results.sarif
           exit-code: 1
           ignore-unfixed: true
           severity: HIGH,CRITICAL
@@ -53,4 +53,4 @@ jobs:
         uses: github/codeql-action/upload-sarif@v3
         if: always()
         with:
-          sarif_file: trivy-results.sarif
+          sarif_file: ./trivy-results.sarif

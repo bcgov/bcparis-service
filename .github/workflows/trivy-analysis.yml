@@ -28,17 +28,22 @@ jobs:
         run: mvn -ntp -DskipTests -Popenshift clean package
 
       - name: Build an image from Dockerfile
+        env:
+          COMPOSE_DOCKER_CLI_BUILD: 1
+          DOCKER_BUILDKIT: 1
+          CONTEXT: .
         run: |
-          docker build -t bc-paris-api:${{ github.sha }} .
+          docker build -t bc-paris-api:${{ github.sha }} ${CONTEXT}
 
       #Run Vulnerability Scan usinig Trivy scanner
       - name: Run Trivy vulnerability scanner
         uses: aquasecurity/trivy-action@master
         with:
+          scan-type: 'image'
           image-ref: 'bc-paris-api:${{ github.sha }}'
           format: 'sarif'
           output: 'trivy-results.sarif'
-          exit-code: '0'
+          exit-code: '1'
           ignore-unfixed: true
           severity: 'HIGH,CRITICAL'
 

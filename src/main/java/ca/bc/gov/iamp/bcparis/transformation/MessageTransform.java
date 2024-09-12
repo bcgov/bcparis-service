@@ -30,7 +30,7 @@ public class MessageTransform {
 	/**
 	 * Remove the CDATA tags
 	 * 
-	 * @param msgFFmt
+	 * @param message
 	 *            Example: <![CDATA[\rSN:M00001-0001 MT:MUF
 	 *            MSID:BRKR-190703-20:40:43\nFROM:BC41127\nTO:BC41028]]>
 	 * @return Example: SN:M00001-0001 MT:MUF

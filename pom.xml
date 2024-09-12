@@ -17,7 +17,7 @@
 		</sonar.exclusions>
 
 		<!-- ========== Enforce ========== -->
-		<java.version>1.8</java.version>
+		<java.version>17</java.version>
 		<!-- 3.3.9 is the most recent version supported by Red Hat Jenkins slave
             images. We can't go to 3.5 -->
 		<maven.version>3.8.5</maven.version>
@@ -79,7 +79,7 @@
 			<dependency>
 				<groupId>com.fasterxml.jackson.core</groupId>
 				<artifactId>jackson-databind</artifactId>
-				<version>2.13.4.2</version>
+				<version>2.18.0-rc1</version>
 			</dependency>
 
 			<dependency>
@@ -198,7 +198,7 @@
 			<dependency>
 				<groupId>org.springdoc</groupId>
 				<artifactId>springdoc-openapi-ui</artifactId>
-				<version>1.6.9</version>
+				<version>1.8.0</version>
 			</dependency>
 
 			<dependency>
@@ -210,7 +210,7 @@
 			<dependency>
 				<groupId>javax.xml.bind</groupId>
 				<artifactId>jaxb-api</artifactId>
-				<version>2.3.1</version>
+				<version>2.4.0-b180830.0359</version>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
@@ -248,12 +248,13 @@
 		<dependency>
 			<groupId>org.springframework.security</groupId>
 			<artifactId>spring-security-core</artifactId>
+			<version>${spring-security.version}</version>
 		</dependency>
 
 		<dependency>
 			<groupId>org.apache.cxf</groupId>
 			<artifactId>cxf-core</artifactId>
-			<version>4.0.4</version>
+			<version>4.0.5</version>
 		</dependency>
 
 		<!-- Enabling health checks and metrics -->
@@ -306,6 +307,7 @@
 		<dependency>
 			<groupId>ch.qos.logback</groupId>
 			<artifactId>logback-core</artifactId>
+			<version>1.5.8</version>
 		</dependency>
 
 		<dependency>
@@ -320,7 +322,7 @@
 		<dependency>
 			<groupId>dev.akkinoc.spring.boot</groupId>
 			<artifactId>logback-access-spring-boot-starter</artifactId>
-			<version>4.1.1</version>
+			<version>4.3.0</version>
 		</dependency>
 
 
@@ -336,6 +338,11 @@
 			<groupId>org.apache.logging.log4j</groupId>
 			<artifactId>log4j-api</artifactId>
 			<version>${log4j2.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+			<version>4.0.1</version>
 		</dependency>
 
 		<!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-to-slf4j -->
@@ -356,14 +363,14 @@
 		<dependency>
 			<groupId>org.apache.tomcat.embed</groupId>
 			<artifactId>tomcat-embed-core</artifactId>
-			<version>11.0.0-M18</version>
+			<version>11.0.0-M25</version>
 		</dependency>
 
 		<!-- https://mvnrepository.com/artifact/org.apache.tomcat.embed/tomcat-embed-websocket -->
 		<dependency>
 			<groupId>org.apache.tomcat.embed</groupId>
 			<artifactId>tomcat-embed-websocket</artifactId>
-			<version>11.0.0-M18</version>
+			<version>11.0.0-M25</version>
 		</dependency>
 	</dependencies>
 
@@ -396,8 +403,8 @@
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>3.10.1</version>
 				<configuration>
-					<source>1.8</source>
-					<target>1.8</target>
+					<source>17</source>
+					<target>17</target>
 				</configuration>
 			</plugin>
 			<plugin>

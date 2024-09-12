@@ -47,6 +47,9 @@ jobs:
           exit-code: '1'
           ignore-unfixed: true
           severity: 'HIGH,CRITICAL'
+          scan-ref: '.'
+          vuln-type: 'os,library'
+          list-all-pkgs: false
 
       #Upload results to the Github security tab.
       - name: Upload Trivy scan results to GitHub Security tab

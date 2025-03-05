@@ -22,7 +22,7 @@ parameters:
     name: namespacePrefix
     required: true
     value: xqb2qz
-  objects:
+    objects:
   - apiVersion: route.openshift.io/v1
     kind: Route
     metadata:

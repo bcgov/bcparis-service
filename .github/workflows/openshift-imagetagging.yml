@@ -77,7 +77,7 @@ jobs:
         uses: redhat-actions/oc-login@v1
         env:
           OPENSHIFT_NAMESPACE: ${{secrets.OPENSHIFT_LICENSE_PLATE_SILVER}}-${{ github.event.inputs.imageTargetEnv }}
-          OPENSHIFT_USER: ${{secrets.OPENSHIFT_SA_Env_DEPLOYER_NAME}}
+          OPENSHIFT_USER: ${{secrets.OPENSHIFT_SA_ENV_DEPLOYER_NAME}}
         with:
           openshift_server_url: ${{secrets.OPENSHIFT_SERVER_URL_SILVER}}
           openshift_token: ${{secrets.OPENSHIFT_SA_ENV_DEPLOYER_TOKEN}}

@@ -93,23 +93,6 @@ jobs:
           openshift_token: ${{secrets.OPENSHIFT_SA_ENV_DEPLOYER_TOKEN}}
           namespace: ${OPENSHIFT_NAMESPACE}
 
-      #   # Labels the deployment config of the application with release version number to spin up the pods labelled in same version
-      # - name: Labelling DC to release version
-      #   env:
-      #     releaseVersion: ${{ env.releaseVersion }}
-      #     appName: ${{ github.event.inputs.app }}
-      #     openshiftEnvNamespace: ${{secrets.OPENSHIFT_LICENSE_PLATE_SILVER}}-${{ github.event.inputs.env }}
-      #   run: |
-      #     oc patch dc ${appName} -n ${openshiftEnvNamespace} --patch '{"spec":{"template":{"metadata":{"labels":{"version":"${{ env.releaseVersion }}.${{ env.gitsha }}"}}}}}'
-      # # Wait to DC rollout to get completed before proceeding next stage
-      # - name: Wait for DC rollout
-      #   env:
-      #     appName: ${{ github.event.inputs.app }}
-      #     openshiftEnvNamespace: ${{secrets.OPENSHIFT_LICENSE_PLATE_SILVER}}-${{ github.event.inputs.env }}
-      #   run: |
-      #     oc rollout status -n ${openshiftEnvNamespace} dc/${appName} --watch
-
-
       - name: Labelling Deployment to release version
         env:
           releaseVersion: ${{ env.releaseVersion }}
@@ -124,3 +107,4 @@ jobs:
           openshiftEnvNamespace: ${{secrets.OPENSHIFT_LICENSE_PLATE_SILVER}}-${{ github.event.inputs.env }}
         run: |
             oc rollout status -n ${openshiftEnvNamespace} deployment/${appName} --watch
+        

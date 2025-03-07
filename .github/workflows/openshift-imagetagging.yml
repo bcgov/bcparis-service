@@ -51,10 +51,10 @@ jobs:
         uses: redhat-actions/oc-login@v1
         env:
           OPENSHIFT_NAMESPACE: ${{secrets.OPENSHIFT_TOOLS_NAMESPACE_SILVER}}
-          OPENSHIFT_USER: ${{secrets.OPENSHIFT_SA_TEST_NAME}}
+          OPENSHIFT_USER: ${{secrets.OPENSHIFT_SA_ENV_DEPLOYER_NAME}}
         with:
           openshift_server_url: ${{secrets.OPENSHIFT_SERVER_URL_SILVER}}
-          openshift_token: ${{secrets.OPENSHIFT_SA_TOKEN}}
+          openshift_token: ${{secrets.OPENSHIFT_SA_ENV_DEPLOYER_TOKEN}}
           namespace: ${{secrets.OPENSHIFT_TOOLS_NAMESPACE_SILVER}}
         
         # Re-Tag latest dev (source) image to other env to trigger openshift deployment via DeploymentConfig

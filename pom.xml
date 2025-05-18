@@ -83,14 +83,6 @@
                                 <scope>provided</scope>
                         </dependency>
 			
-<!-- 			<dependency>
-                                <groupId>jakarta.servlet</groupId>
-                                <artifactId>jakarta.servlet-api</artifactId>
-                                <version>5.0.0</version> <!-- or use version 4.0.4 for Java EE 8 -->
-                                <scope>provided</scope>
-                        </dependency> -->
-
-
 			<dependency>
 				<groupId>com.fasterxml.jackson.core</groupId>
 				<artifactId>jackson-databind</artifactId>

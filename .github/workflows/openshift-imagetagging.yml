@@ -88,11 +88,16 @@ jobs:
           appName: ${{ github.event.inputs.app }}
           openshiftEnvNamespace: ${{ secrets.OPENSHIFT_LICENSE_PLATE_SILVER }}-${{ github.event.inputs.imageTargetEnv }}
         run: |
-          oc patch dc ${appName} -n ${openshiftEnvNamespace} --patch '{"spec":{"template":{"metadata":{"labels":{"version":"${{ env.releaseVersion }}.${{ env.gitsha }}"}}}}}'
+          oc patch deployment ${appName} -n ${openshiftEnvNamespace} --patch '{"spec":{"template":{"metadata":{"labels":{"version":"${{ env.releaseVersion }}.${{ env.gitsha }}"}}}}}'
 
       - name: Wait for DC rollout - Silver
         env:
           appName: ${{ github.event.inputs.app }}
           openshiftEnvNamespace: ${{ secrets.OPENSHIFT_LICENSE_PLATE_SILVER }}-${{ github.event.inputs.imageTargetEnv }}
         run: |
-          oc rollout status -n ${openshiftEnvNamespace} dc/${appName} --watch
+          oc rollout status -n ${openshiftEnvNamespace} deployment/${appName} --watch
+          
+      - name: Verify Deployment exists
+        run: |
+          oc get deployment ${appName} -n ${openshiftEnvNamespace}
+

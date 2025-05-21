@@ -88,4 +88,4 @@ jobs:
           appName: ${{ github.event.inputs.app }}
           openshiftEnvNamespace: ${{ secrets.OPENSHIFT_LICENSE_PLATE_SILVER }}-${{ github.event.inputs.env }}
         run: |
-            oc patch dc ${appName} -n ${openshiftEnvNamespace} --type merge --patch "{\"spec\":{\"template\":{\"metadata\":{\"labels\":{\"version\":\"${releaseVersion}.${gitsha}\"}}}}}"
+          oc patch deployment ${appName} -n ${openshiftEnvNamespace} --type merge --patch "{\"spec\":{\"template\":{\"metadata\":{\"labels\":{\"version\":\"${releaseVersion}.${gitsha}\"}}}}}"

@@ -11,10 +11,10 @@ jobs:
         uses: actions/checkout@v2
 
       - name: ZAP Scan - BCParis API
-        uses: zaproxy/action-api-scan@v0.1.0
+        uses: zaproxy/action-api-scan@v0.7.0
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          docker_name: 'owasp/zap2docker-stable'
+          docker_name: 'ghcr.io/zaproxy/zaproxy:stable'
           issue_title: 'ZAP Scan Report - BCParis API'
           target: '${{ secrets.BCParis_RouteUrl }}/actuator/health'
           fail_action: true

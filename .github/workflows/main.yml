@@ -81,11 +81,10 @@ jobs:
           openshift_token: ${{ secrets.OPENSHIFT_SA_ENV_DEPLOYER_TOKEN }}
           namespace: ${{ secrets.OPENSHIFT_LICENSE_PLATE_SILVER }}-${{ github.event.inputs.env }}
 
-      - name: Labelling DC to release version
+      - name: Labelling DC to release version - Silver
         env:
           releaseVersion: ${{ env.releaseVersion }}
-          gitsha: ${{ env.gitsha }}
           appName: ${{ github.event.inputs.app }}
-          openshiftEnvNamespace: ${{ secrets.OPENSHIFT_LICENSE_PLATE_SILVER }}-${{ github.event.inputs.env }}
+          openshiftEnvNamespace: ${{ secrets.OPENSHIFT_LICENSE_PLATE_SILVER }}-${{ github.event.inputs.imageTargetEnv }}
         run: |
-            oc patch dc ${appName} -n ${openshiftEnvNamespace} --type merge --patch "{\"spec\":{\"template\":{\"metadata\":{\"labels\":{\"version\":\"${releaseVersion}.${gitsha}\"}}}}}"
+          oc patch deployment ${appName} -n ${openshiftEnvNamespace} --patch '{"spec":{"template":{"metadata":{"labels":{"version":"${{ env.releaseVersion }}.${{ env.gitsha }}"}}}}}'

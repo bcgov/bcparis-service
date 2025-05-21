@@ -44,12 +44,13 @@ jobs:
         with:
           scan-type: image
           image-ref: bc-paris-api:${{ github.sha }}
-          format: template
-          template: '@/contrib/sarif.tpl'
+          format: sarif
           output: trivy-results.sarif
           exit-code: 1
           ignore-unfixed: true
           severity: HIGH,CRITICAL
+          vuln-type: os,library
+          scanners: vuln
 
       # Upload scan results to GitHub Security tab
       - name: Upload Trivy scan results to GitHub Security tab

@@ -35,7 +35,7 @@ jobs:
           docker build --no-cache -t bc-paris-api:${{ github.sha }} ${CONTEXT}
 
       # Confirm image was built successfully
-      - name: Debug: List Docker images
+      - name: List Docker images
         run: docker images | grep bc-paris-api
 
       # Run vulnerability scan using Trivy

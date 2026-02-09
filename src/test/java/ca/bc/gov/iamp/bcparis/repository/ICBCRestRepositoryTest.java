@@ -36,14 +36,17 @@ import static org.mockito.Mockito.when;
 @RunWith(MockitoJUnitRunner.class)
 public class ICBCRestRepositoryTest {
 
-    @InjectMocks
-    private ICBCRestRepository repo = new ICBCRestRepository();
-
     @Mock
     private RestTemplate rest;
+    @Mock
+    private IcbcOAuthClient icbcOAuthClient;
+
+    @InjectMocks
+    private ICBCRestRepository repo;
 
     @Before
     public void initMocks() throws NoSuchFieldException, SecurityException {
+        repo = new ICBCRestRepository(rest, icbcOAuthClient);
         ReflectionTestUtils.setField(repo, "username", "mock_username");
         ReflectionTestUtils.setField(repo, "password", "mock_password");
     }

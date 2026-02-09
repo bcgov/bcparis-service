@@ -248,10 +248,10 @@
 			<scope>test</scope>
 		</dependency>
 
-		<dependency>
+		<!-- <dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-security</artifactId>
-		</dependency>
+		</dependency> -->
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -289,11 +289,11 @@
 			<version>3.1.11</version>
 		</dependency>
 
-		<dependency>
+		<!-- <dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-zipkin</artifactId>
 			<version>2.2.8.RELEASE</version>
-		</dependency>
+		</dependency> -->
 
 		<dependency>
 			<groupId>com.google.guava</groupId>
@@ -340,7 +340,7 @@
 		<dependency>
 			<groupId>dev.akkinoc.spring.boot</groupId>
 			<artifactId>logback-access-spring-boot-starter</artifactId>
-			<version>4.1.1</version>
+			<version>3.4.0</version>
 		</dependency>
 
 
@@ -373,18 +373,18 @@
 		</dependency>
 
 		<!-- https://mvnrepository.com/artifact/org.apache.tomcat.embed/tomcat-embed-core -->
-		<dependency>
+		<!-- <dependency>
 			<groupId>org.apache.tomcat.embed</groupId>
 			<artifactId>tomcat-embed-core</artifactId>
 			<version>11.0.10</version>
-		</dependency>
+		</dependency> -->
 
 		<!-- https://mvnrepository.com/artifact/org.apache.tomcat.embed/tomcat-embed-websocket -->
-		<dependency>
+		<!-- <dependency>
 			<groupId>org.apache.tomcat.embed</groupId>
 			<artifactId>tomcat-embed-websocket</artifactId>
 			<version>11.0.0-M21</version>
-		</dependency>
+		</dependency> -->
 	</dependencies>
 
 	<profiles>

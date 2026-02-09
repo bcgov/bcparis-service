@@ -1,95 +1,97 @@
 package ca.bc.gov.iamp.bcparis.repository;
 
-import java.util.UUID;
-
+import ca.bc.gov.iamp.bcparis.repository.IcbcOAuthClient;
+import ca.bc.gov.iamp.bcparis.model.message.Layer7Message;
+import ca.bc.gov.iamp.bcparis.repository.query.IMSRequest;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.cloud.sleuth.annotation.NewSpan;
-import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
+import org.springframework.http.*;
 import org.springframework.stereotype.Repository;
-import org.springframework.web.client.HttpServerErrorException;
-
-import ca.bc.gov.iamp.bcparis.exception.icbc.ICBCRestException;
-import ca.bc.gov.iamp.bcparis.model.message.Layer7Message;
-import ca.bc.gov.iamp.bcparis.model.message.body.MQMD;
-import ca.bc.gov.iamp.bcparis.repository.query.IMSRequest;
-import ca.bc.gov.iamp.bcparis.repository.query.IMSResponse;
-import ca.bc.gov.iamp.bcparis.repository.rest.BaseRest;
+import org.springframework.web.client.RestTemplate;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 @Repository
-public class ICBCRestRepository extends BaseRest {
+public class ICBCRestRepository {
 
-    private final Logger log = LoggerFactory.getLogger(ICBCRestRepository.class);
+    private static final Logger log = LoggerFactory.getLogger(ICBCRestRepository.class);
 
-    @Value("${endpoint.icbc.rest}")
-    private String icbcUrl;
+    private final RestTemplate restTemplate;
+    private final IcbcOAuthClient oAuthClient;
+    private final ObjectMapper objectMapper = new ObjectMapper();
 
-    @Value("${endpoint.icbc.rest.header.imsUserId}")
-    private String imsUserId;
+    @Value("${icbc.api.url}")
+    private String icbcApiUrl;
 
-    @Value("${endpoint.icbc.rest.header.imsCredential}")
-    private String imsCredential;
+    public ICBCRestRepository(RestTemplate restTemplate,
+            IcbcOAuthClient oAuthClient) {
+        this.restTemplate = restTemplate;
+        this.oAuthClient = oAuthClient;
+    }
 
-    @Value("${endpoint.icbc.rest.path.transaction}")
-    private String pathTransaction;
+    public String callIcbcApi(String requestBody, String loginUserId) {
+        String accessToken = oAuthClient.getAccessToken();
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.APPLICATION_JSON);
+        headers.setAccept(MediaType.parseMediaTypes("application/json"));
+        headers.set("Authorization", "Bearer " + accessToken);
+        headers.set("loginUserId", loginUserId);
+        // Log all headers, masking sensitive values
+        // log.info("ICBC API Request Headers:");
+        // headers.forEach((key, value) -> {
+        // if ("Authorization".equalsIgnoreCase(key) ||
+        // "loginUserId".equalsIgnoreCase(key)) {
+        // log.info("{}: [****MASKED****]", key);
+        // } else {
+        // log.info("{}: {}", key, value);
+        // }
+        // });
+        log.info("ICBC API Request Body: {}", requestBody);
+        log.info("Calling ICBC API at {}", icbcApiUrl);
+        log.debug("ICBC API request body: {}", requestBody);
+        HttpEntity<String> entity = new HttpEntity<>(requestBody, headers);
+        ResponseEntity<String> response = restTemplate.exchange(icbcApiUrl, HttpMethod.POST, entity, String.class);
+        log.info("ICBC API response status: {}", response.getStatusCode());
+        log.debug("ICBC API response body: {}", response.getBody());
+        return response.getBody();
+    }
 
-    @Value("${endpoint.icbc.rest.header.username}")
-    private String username;
-
-    @Value("${endpoint.icbc.rest.header.password}")
-    private String password;
-
-    @NewSpan("icbc")
-    public String requestDetails(final Layer7Message l7message, IMSRequest ims) {
+    public String requestDetails(Layer7Message message, IMSRequest imsRequest) {
+        String requestBody;
         try {
-            final String URL = icbcUrl + pathTransaction;
-
-            HttpEntity<?> httpEntity = new HttpEntity<IMSRequest>(ims, getHeaders(l7message, username, password));
-
-            ResponseEntity<IMSResponse> response = getRestTemplate().postForEntity(URL, httpEntity, IMSResponse.class);
-
-            assertResponse(HttpStatus.OK, response.getStatusCode(), response.getBody().toString());
-
-            return response.getBody().getImsResponse();
-        } catch (HttpServerErrorException e) {
-            throw new ICBCRestException(
-                    String.format("Message=%s\n Response Body=%s", e.getLocalizedMessage(), e.getResponseBodyAsString()),
-                    e.getResponseBodyAsString(), e);
+            // Use 'requestString' as the JSON key instead of 'imsRequest'
+            requestBody = objectMapper.writeValueAsString(new SimpleRequestString(imsRequest.getImsRequest()));
         } catch (Exception e) {
-            throw new ICBCRestException(
-                    String.format("Message=%s", e.getLocalizedMessage()),
-                    e.getLocalizedMessage(), e);
+            throw new RuntimeException("Failed to serialize IMSRequest to JSON", e);
+        }
+        String loginUserId = (message.getEnvelope() != null && message.getEnvelope().getHeader() != null)
+                ? message.getEnvelope().getHeader().getUserId()
+                : "";
+        return callIcbcApi(requestBody, loginUserId);
+    }
+
+    // Helper class to match the required JSON structure
+    private static class SimpleRequestString {
+        public String requestString;
+
+        public SimpleRequestString(String requestString) {
+            this.requestString = requestString;
         }
     }
 
-    public HttpHeaders getHeaders(final Layer7Message l7message, final String username, final String password) {
-        HttpHeaders headers = getHeadersWithBasicAuth(username, password);
-        headers.add("imsUserId", imsUserId);
-        headers.add("imsCredential", imsCredential);
-        headers.add("auditTransactionId", generateAuditTransactionId(l7message));
+    public HttpHeaders getHeaders(Layer7Message l7message, String username, String password) {
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.APPLICATION_JSON);
+        headers.setBasicAuth(username, password);
+        // Example: add auditTransactionId if available
+        String auditTransactionId = "";
+        if (l7message != null && l7message.getEnvelope() != null && l7message.getEnvelope().getMqmd() != null) {
+            auditTransactionId = l7message.getEnvelope().getMqmd().getMessageIdByte();
+            if (auditTransactionId == null || auditTransactionId.isEmpty()) {
+                auditTransactionId = l7message.getEnvelope().getMqmd().getCorrelationIdByte();
+            }
+        }
+        headers.add("auditTransactionId", auditTransactionId != null ? auditTransactionId : "");
         return headers;
     }
-
-    private String generateAuditTransactionId(final Layer7Message l7message) {
-
-        if (l7message != null && l7message.getEnvelope() != null && l7message.getEnvelope().getMqmd() != null) {
-            MQMD mqmd = l7message.getEnvelope().getMqmd();
-            String messageIdByte = mqmd.getMessageIdByte();
-            String correlationIdByte = mqmd.getCorrelationIdByte();
-            if (messageIdByte != null && !messageIdByte.isEmpty()) {
-                messageIdByte = messageIdByte.replaceAll("\\s+", "");
-                return messageIdByte;
-            } else if(correlationIdByte !=null && !correlationIdByte.isEmpty()) {
-                correlationIdByte = correlationIdByte.replaceAll("\\s+", "");
-                return correlationIdByte;
-            }
-
-        }
-        return UUID.randomUUID().toString();
-    }
-
 }

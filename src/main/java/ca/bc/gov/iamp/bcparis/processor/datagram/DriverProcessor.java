@@ -117,9 +117,18 @@ public class DriverProcessor implements DatagramProcessor {
 			String finalResponse = messageService.buildResponse(
 					body, String.join("\n\n", responseParsed));
 
-			log.debug("Final formatted response: {}", finalResponse);
-
-			body.setMsgFFmt(finalResponse);
+			// Filter MsgFFmt to extract only the JSON object if present
+			String filteredResponse = finalResponse;
+			int jsonStart = finalResponse.indexOf('{');
+			int jsonEnd = finalResponse.lastIndexOf('}');
+			if (jsonStart != -1 && jsonEnd != -1 && jsonEnd > jsonStart) {
+				String possibleJson = finalResponse.substring(jsonStart, jsonEnd + 1);
+				// Basic check: looks like a JSON object
+				if (possibleJson.contains("responseString")) {
+					filteredResponse = possibleJson;
+				}
+			}
+			body.setMsgFFmt(filteredResponse);
 
 			log.info("===== EXIT DriverProcessor.process() SUCCESS =====");
 			return message;

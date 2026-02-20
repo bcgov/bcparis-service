@@ -128,7 +128,7 @@ public class DriverProcessor implements DatagramProcessor {
 					filteredResponse = possibleJson;
 				}
 			}
-			body.setMsgFFmt(filteredResponse);
+			body.setMsgFFmt(extractJsonString(finalResponse, "responseString"));
 
 			log.info("===== EXIT DriverProcessor.process() SUCCESS =====");
 			return message;
@@ -144,6 +144,39 @@ public class DriverProcessor implements DatagramProcessor {
 
 			throw e;
 		}
+	}
+
+	public static String extractJsonString(String json, String field) {
+		if (json == null || field == null) {
+			return null;
+		}
+
+		String key = "\"" + field + "\"";
+
+		int keyPos = json.indexOf(key);
+		if (keyPos == -1) {
+			return json; // field not found
+		}
+
+		int startQuote = json.indexOf('"', keyPos + key.length());
+		if (startQuote == -1) {
+			return null;
+		}
+
+		// Find the closing quote
+		int endQuote = json.indexOf('"', startQuote + 1);
+		if (endQuote == -1) {
+			return null;
+		}
+
+		String value = json.substring(startQuote + 1, endQuote);
+
+		value = value.replace("\\n", "\n")
+				.replace("\\t", "\t")
+				.replace("\\\"", "\"")
+				.replace("\\r", "\r");
+
+		return value;
 	}
 
 	private List<IMSRequest> createIMSContent(Layer7Message message) {

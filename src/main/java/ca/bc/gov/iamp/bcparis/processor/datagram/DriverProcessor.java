@@ -117,18 +117,24 @@ public class DriverProcessor implements DatagramProcessor {
 			String finalResponse = messageService.buildResponse(
 					body, String.join("\n\n", responseParsed));
 
-			// Filter MsgFFmt to extract only the JSON object if present
-			String filteredResponse = finalResponse;
-			int jsonStart = finalResponse.indexOf('{');
-			int jsonEnd = finalResponse.lastIndexOf('}');
-			if (jsonStart != -1 && jsonEnd != -1 && jsonEnd > jsonStart) {
-				String possibleJson = finalResponse.substring(jsonStart, jsonEnd + 1);
-				// Basic check: looks like a JSON object
-				if (possibleJson.contains("responseString")) {
-					filteredResponse = possibleJson;
-				}
-			}
-			body.setMsgFFmt(extractJsonString(finalResponse, "responseString"));
+			// // Filter MsgFFmt to extract only the JSON object if present
+			// String filteredResponse = finalResponse;
+			// int jsonStart = finalResponse.indexOf('{');
+			// int jsonEnd = finalResponse.lastIndexOf('}');
+			// if (jsonStart != -1 && jsonEnd != -1 && jsonEnd > jsonStart) {
+			// String possibleJson = finalResponse.substring(jsonStart, jsonEnd + 1);
+			// // Basic check: looks like a JSON object
+			// if (possibleJson.contains("responseString")) {
+			// filteredResponse = possibleJson;
+			// }
+			// }
+			// // body.setMsgFFmt(extractJsonString(finalResponse, "responseString"));
+			// log.info("Final response for MsgFFmt: {}", finalResponse);
+			// log.info("Extracted responseString for MsgFFmt: {}",
+			// extractJsonString(finalResponse, "responseString"));
+			// log.info("Filtered response for MsgFFmt: {}", filteredResponse);
+			finalResponse = finalResponse.replace("{&quot;responseString&quot;:&quot;", "").replace("&quot;}", "");
+			body.setMsgFFmt(finalResponse);
 
 			log.info("===== EXIT DriverProcessor.process() SUCCESS =====");
 			return message;
@@ -144,39 +150,6 @@ public class DriverProcessor implements DatagramProcessor {
 
 			throw e;
 		}
-	}
-
-	public static String extractJsonString(String json, String field) {
-		if (json == null || field == null) {
-			return null;
-		}
-
-		String key = "\"" + field + "\"";
-
-		int keyPos = json.indexOf(key);
-		if (keyPos == -1) {
-			return json; // field not found
-		}
-
-		int startQuote = json.indexOf('"', keyPos + key.length());
-		if (startQuote == -1) {
-			return null;
-		}
-
-		// Find the closing quote
-		int endQuote = json.indexOf('"', startQuote + 1);
-		if (endQuote == -1) {
-			return null;
-		}
-
-		String value = json.substring(startQuote + 1, endQuote);
-
-		value = value.replace("\\n", "\n")
-				.replace("\\t", "\t")
-				.replace("\\\"", "\"")
-				.replace("\\r", "\r");
-
-		return value;
 	}
 
 	private List<IMSRequest> createIMSContent(Layer7Message message) {

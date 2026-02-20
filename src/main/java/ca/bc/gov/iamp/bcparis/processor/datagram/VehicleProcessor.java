@@ -86,7 +86,10 @@ public class VehicleProcessor implements DatagramProcessor {
 					filteredResponse = possibleJson;
 				}
 			}
-			body.setMsgFFmt(filteredResponse);
+			finalResponse = finalResponse.replace("{&quot;responseString&quot;:&quot;", "").replace("&quot;}", "");
+			log.info("Final response for MsgFFmt: {}", finalResponse);
+			log.info("Filtered response for MsgFFmt: {}", filteredResponse);
+			body.setMsgFFmt(finalResponse);
 
 			log.info("===== EXIT VehicleProcessor.process() SUCCESS =====");
 			return message;

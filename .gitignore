@@ -37,5 +37,24 @@ hs_err_pid*
 
 pom.xml.versionsBackup
 
-# environemnt variables
+# environment variables
 .env
+.env.*
+!.env.template
+
+# security sensitive files
+*.key
+*.pem
+*.p12
+*.jks
+*.keystore
+*.truststore
+**/secrets/
+**/credentials/
+
+# IDE and OS files
+.DS_Store
+.vscode/
+*.swp
+*.swo
+*~

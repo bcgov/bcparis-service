@@ -21,25 +21,25 @@ public class IcbcRestLoggingInterceptor
             ClientHttpRequestExecution execution)
             throws IOException {
 
-        log.info("===== ICBC HTTP REQUEST (Interceptor) =====");
-        log.info("URI    : {}", request.getURI());
-        log.info("Method : {}", request.getMethod());
+        log.debug("===== ICBC HTTP REQUEST (Interceptor) =====");
+        log.debug("URI    : {}", request.getURI());
+        log.debug("Method : {}", request.getMethod());
 
         request.getHeaders().forEach((k, v) -> {
-            if ("Authorization".equalsIgnoreCase(k)) {
-                log.info("{} : Basic ********", k);
+            if ("Authorization".equalsIgnoreCase(k) || "loginUserId".equalsIgnoreCase(k)) {
+                log.debug("{} : ********", k);
             } else {
-                log.info("{} : {}", k, v);
+                log.debug("{} : {}", k, v);
             }
         });
 
-        log.info("Body   : {}", new String(body, StandardCharsets.UTF_8));
+        log.debug("Body   : {}", new String(body, StandardCharsets.UTF_8));
 
         ClientHttpResponse response = execution.execute(request, body);
 
-        log.info("===== ICBC HTTP RESPONSE =====");
-        log.info("Status : {}", response.getStatusCode());
-        log.info("Headers: {}", response.getHeaders());
+        log.debug("===== ICBC HTTP RESPONSE =====");
+        log.debug("Status : {}", response.getStatusCode());
+        log.debug("Headers: {}", response.getHeaders());
 
         return response;
     }

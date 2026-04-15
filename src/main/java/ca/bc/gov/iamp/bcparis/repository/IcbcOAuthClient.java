@@ -46,12 +46,24 @@ public class IcbcOAuthClient {
     public synchronized String getAccessToken() {
 
         if (isTokenValid()) {
-            log.debug("Using cached ICBC OAuth token: {}", cachedAccessToken);
+            log.debug("Using cached ICBC OAuth token");
             return cachedAccessToken;
         }
 
         log.info("Cached token missing or expired. Requesting new ICBC OAuth token.");
+        return requestNewToken();
+    }
 
+    /**
+     * Invalidates the cached token, forcing a new token request on next getAccessToken() call
+     */
+    public synchronized void invalidateToken() {
+        log.info("Invalidating cached OAuth token");
+        this.cachedAccessToken = null;
+        this.tokenExpiryTime = null;
+    }
+
+    private String requestNewToken() {
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_FORM_URLENCODED);
 
@@ -77,9 +89,6 @@ public class IcbcOAuthClient {
         OAuthTokenResponse tokenResponse = response.getBody();
 
         log.info("OAuthTokenResponse: {}", tokenResponse);
-        if (tokenResponse != null) {
-            log.debug("Received access token: {}", tokenResponse.getAccessToken());
-        }
 
         if (tokenResponse == null || tokenResponse.getAccessToken() == null) {
             throw new IllegalStateException("Failed to retrieve ICBC OAuth token");
@@ -87,7 +96,7 @@ public class IcbcOAuthClient {
 
         cacheToken(tokenResponse);
 
-        log.info("ICBC OAuth token retrieved and cached (masked)");
+        log.info("ICBC OAuth token retrieved and cached");
         log.debug("Token expires in {} seconds", tokenResponse.getExpiresIn());
 
         return cachedAccessToken;

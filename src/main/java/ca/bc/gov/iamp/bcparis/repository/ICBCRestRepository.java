@@ -30,23 +30,28 @@ public class ICBCRestRepository {
     }
 
     public String callIcbcApi(String requestBody, String loginUserId) {
+        try {
+            return callIcbcApiInternal(requestBody, loginUserId);
+        } catch (org.springframework.web.client.HttpClientErrorException e) {
+            // If we get 401 Unauthorized, invalidate token and retry once
+            if (e.getStatusCode() == org.springframework.http.HttpStatus.UNAUTHORIZED) {
+                log.warn("Received 401 Unauthorized from ICBC API. Invalidating cached token and retrying.");
+                oAuthClient.invalidateToken();
+                return callIcbcApiInternal(requestBody, loginUserId);
+            }
+            throw e;
+        }
+    }
+
+    private String callIcbcApiInternal(String requestBody, String loginUserId) {
         String accessToken = oAuthClient.getAccessToken();
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
         headers.setAccept(MediaType.parseMediaTypes("application/json"));
         headers.set("Authorization", "Bearer " + accessToken);
         headers.set("loginUserId", loginUserId);
-        // Log all headers, masking sensitive values
-        // log.info("ICBC API Request Headers:");
-        // headers.forEach((key, value) -> {
-        // if ("Authorization".equalsIgnoreCase(key) ||
-        // "loginUserId".equalsIgnoreCase(key)) {
-        // log.info("{}: [****MASKED****]", key);
-        // } else {
-        // log.info("{}: {}", key, value);
-        // }
-        // });
-        log.info("ICBC API Request Body: {}", requestBody);
+
+        log.debug("ICBC API Request Body: {}", requestBody);
         log.info("Calling ICBC API at {}", icbcApiUrl);
         log.debug("ICBC API request body: {}", requestBody);
         HttpEntity<String> entity = new HttpEntity<>(requestBody, headers);

@@ -6,24 +6,38 @@ on:
   workflow_dispatch:
     inputs:
       app:
-        description: 'App Name (bc-paris-api)'    
+        description: 'App Name'
         required: true
-        default: 'bc-paris-api'
+        type: choice
+        options:
+          - bc-paris-api-oauth
+          - bc-paris-api
+        default: 'bc-paris-api-oauth'
       imageSourceEnv:
-        description: 'Image Source Env'     
+        description: 'Image Source Env'
         required: true
         default: 'dev'
+      imageTag:
+        description: 'Image Tag (oauth or dev/test/prod)'
+        required: true
+        default: 'oauth'
       imageTargetEnv:
         description: 'Target Release Env'
         required: true
+        type: choice
+        options:
+          - test
+          - prod
 
 jobs:
   oc-image-tagging:
     runs-on: ubuntu-latest
     environment: ${{ github.event.inputs.imageTargetEnv }}
+    env:
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
     steps:
       - name: Git Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       - name: Install OpenShift CLI
         run: |
@@ -44,13 +58,14 @@ jobs:
 
       - name: Print Release Variables
         run: |
-          echo "Release Application: ${{ github.event.inputs.app }}"
-          echo "Release Environment: ${{ github.event.inputs.imageTargetEnv }}"
+          echo "Deployment Name: ${{ github.event.inputs.app }}"
+          echo "Image Tag: ${{ github.event.inputs.imageTag }}"
+          echo "Target Environment: ${{ github.event.inputs.imageTargetEnv }}"
           echo "Release Version: ${{ env.releaseVersion }}"
           echo "Release Git Sha: ${{ env.gitsha }}"
 
       - name: Authenticate OC Tools SA - Silver
-        uses: redhat-actions/oc-login@v1
+        uses: redhat-actions/oc-login@v1.3
         env:
           OPENSHIFT_NAMESPACE: ${{ secrets.OPENSHIFT_TOOLS_NAMESPACE_SILVER }}
           OPENSHIFT_USER: ${{ secrets.OPENSHIFT_SA_TOOLS_DEPLOYER_NAME }}
@@ -62,18 +77,24 @@ jobs:
       - name: Retag image to release env and version - Silver
         env:
           appName: ${{ github.event.inputs.app }}
-          imageSourceEnv: ${{ github.event.inputs.imageSourceEnv }}
+          imageTag: ${{ github.event.inputs.imageTag }}
           imageTargetEnv: ${{ github.event.inputs.imageTargetEnv }}
           openshiftToolsNamespace: ${{ secrets.OPENSHIFT_TOOLS_NAMESPACE_SILVER }}
           openshiftIImageRegistry: ${{ secrets.OPENSHIFT_INTERNAL_REPOSITORY }}
           releaseVersion: ${{ env.releaseVersion }}
           gitSha: ${{ env.gitsha }}
         run: |
-          oc tag ${openshiftIImageRegistry}/${openshiftToolsNamespace}/${appName}:${imageSourceEnv} ${appName}:${imageTargetEnv}
-          oc tag ${openshiftIImageRegistry}/${openshiftToolsNamespace}/${appName}:${imageTargetEnv} ${appName}:${releaseVersion}.${gitSha}
+          # Use bc-paris-api as the base image stream name for tagging
+          baseImageName="bc-paris-api"
+
+          # Tag from source tag to target environment
+          oc tag ${openshiftIImageRegistry}/${openshiftToolsNamespace}/${baseImageName}:${imageTag} ${baseImageName}:${imageTargetEnv}
+
+          # Tag with version and git sha
+          oc tag ${openshiftIImageRegistry}/${openshiftToolsNamespace}/${baseImageName}:${imageTargetEnv} ${baseImageName}:${releaseVersion}.${gitSha}
 
       - name: Authenticate OC Env Specific SA - Silver
-        uses: redhat-actions/oc-login@v1
+        uses: redhat-actions/oc-login@v1.3
         env:
           OPENSHIFT_NAMESPACE: ${{ secrets.OPENSHIFT_LICENSE_PLATE_SILVER }}-${{ github.event.inputs.imageTargetEnv }}
           OPENSHIFT_USER: ${{ secrets.OPENSHIFT_SA_Env_DEPLOYER_NAME }}

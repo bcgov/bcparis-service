@@ -15,10 +15,15 @@ import ca.bc.gov.iamp.bcparis.processor.MessageProcessor;
 import ca.bc.gov.iamp.bcparis.util.RequestContext;
 
 /**
- * The message API Controller accepts request to search drivers, vehicles or por and return information.
+ * The message API Controller accepts request to search drivers, vehicles or por
+ * and return information.
  *
- * There is a global exception handler ca.bc.gov.iamp.api.exception.handling.CustomRestExceptionHandler that handles any exception thrown.
- * There is a local exception handler ca.bc.gov.iamp.bcparis.api.exception.ExceptionHandlerController that handles known ICBC, layer7 or POR exception (an email is send in this case)
+ * There is a global exception handler
+ * ca.bc.gov.iamp.api.exception.handling.CustomRestExceptionHandler that handles
+ * any exception thrown.
+ * There is a local exception handler
+ * ca.bc.gov.iamp.bcparis.api.exception.ExceptionHandlerController that handles
+ * known ICBC, layer7 or POR exception (an email is send in this case)
  *
  */
 @RestController
@@ -33,8 +38,8 @@ public class MessageApi {
 	@Autowired
 	private RequestContext context;
 
-	@PutMapping(consumes=MediaType.APPLICATION_JSON_VALUE)
-	private ResponseEntity<Object> message( @RequestBody Layer7Message message ){
+	@PutMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
+	private ResponseEntity<Object> message(@RequestBody Layer7Message message) {
 
 		log.info("Message received");
 

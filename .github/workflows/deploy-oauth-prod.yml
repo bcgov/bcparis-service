@@ -1,0 +1,102 @@
+# Deploy OAuth-enabled bc-paris-api to production using blue-green strategy
+
+name: Deploy OAuth to Production
+
+on:
+  workflow_dispatch:
+    inputs:
+      action:
+        description: 'Deployment Action'
+        required: true
+        type: choice
+        options:
+          - deploy-green
+          - switch-to-green
+          - rollback-to-blue
+          - delete-blue
+
+permissions:
+  contents: read
+
+jobs:
+  deploy-oauth:
+    runs-on: ubuntu-latest
+    environment: prod
+    env:
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+    steps:
+      - name: Git Checkout
+        uses: actions/checkout@v4
+
+      - name: Install OpenShift CLI
+        run: |
+          curl -L https://mirror.openshift.com/pub/openshift-v4/clients/oc/latest/linux/oc.tar.gz | tar -xz
+          sudo mv oc /usr/local/bin/
+
+      - name: Authenticate to OpenShift Production
+        uses: redhat-actions/oc-login@v1.3
+        with:
+          openshift_server_url: ${{ secrets.OPENSHIFT_SERVER_URL_SILVER }}
+          openshift_token: ${{ secrets.OPENSHIFT_SA_ENV_DEPLOYER_TOKEN }}
+          namespace: ${{ secrets.OPENSHIFT_LICENSE_PLATE_SILVER }}-prod
+
+      - name: Deploy Green (OAuth) Deployment
+        if: github.event.inputs.action == 'deploy-green'
+        run: |
+          echo "Deploying OAuth-enabled green deployment..."
+          oc apply -f openshift/prod-oauth-deployment.yaml
+          oc apply -f openshift/prod-oauth-service.yaml
+
+          echo "Waiting for deployment to be ready..."
+          oc rollout status deployment/bc-paris-api-oauth -n 91beaa-prod --timeout=5m
+
+          echo "Deployment successful!"
+          oc get pods -l app=bc-paris-api-oauth -n 91beaa-prod
+
+      - name: Switch Traffic to Green (OAuth)
+        if: github.event.inputs.action == 'switch-to-green'
+        run: |
+          echo "Switching production traffic to OAuth-enabled service..."
+
+          # Update route to point to OAuth service
+          oc patch route bc-paris-api -n 91beaa-prod \
+            --type=json \
+            -p='[{"op": "replace", "path": "/spec/to/name", "value": "bc-paris-api-oauth"}]'
+
+          echo "Traffic switched to OAuth service!"
+          oc get route bc-paris-api -n 91beaa-prod -o jsonpath='{.spec.to.name}'
+
+      - name: Rollback to Blue (Current)
+        if: github.event.inputs.action == 'rollback-to-blue'
+        run: |
+          echo "Rolling back to current (non-OAuth) service..."
+
+          # Switch route back to original service
+          oc patch route bc-paris-api -n 91beaa-prod \
+            --type=json \
+            -p='[{"op": "replace", "path": "/spec/to/name", "value": "bc-paris-api"}]'
+
+          echo "Rollback complete!"
+          oc get route bc-paris-api -n 91beaa-prod -o jsonpath='{.spec.to.name}'
+
+      - name: Delete Blue (Current) Deployment
+        if: github.event.inputs.action == 'delete-blue'
+        run: |
+          echo "Scaling down old deployment..."
+          oc scale deployment bc-paris-api --replicas=0 -n 91beaa-prod
+
+          echo "Old deployment scaled down. Manual deletion required for safety."
+          echo "To delete: oc delete deployment bc-paris-api -n 91beaa-prod"
+
+      - name: Verify Deployment
+        run: |
+          echo "=== Current Deployments ==="
+          oc get deployments -n 91beaa-prod
+
+          echo ""
+          echo "=== Current Route ==="
+          oc get route bc-paris-api -n 91beaa-prod
+
+          echo ""
+          echo "=== OAuth Pods ==="
+          oc get pods -l app=bc-paris-api-oauth -n 91beaa-prod

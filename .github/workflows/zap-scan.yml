@@ -1,14 +1,23 @@
 name: ZAP Scan for BCParis API
 on:
   workflow_dispatch:
+  
+permissions:
+  contents: read          
+  issues: write           
+  actions: read          
+  security-events: write
 
 jobs:
   zap_scan:
     runs-on: ubuntu-latest
     name: Scan the application
+    env:
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       - name: ZAP Scan - BCParis API
         uses: zaproxy/action-api-scan@v0.7.0

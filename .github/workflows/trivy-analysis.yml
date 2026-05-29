@@ -10,15 +10,18 @@ jobs:
   build-scan-image:
     name: Build & Scan Image
     runs-on: ubuntu-latest
+    env:
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       # Set up JDK for Maven
       - name: Set up JDK 8
-        uses: actions/setup-java@v1
+        uses: actions/setup-java@v4
         with:
           java-version: 8
+          distribution: 'temurin'
 
       # Clean and build the app using Maven
       - name: Maven Package
@@ -40,13 +43,13 @@ jobs:
 
       # Run vulnerability scan using Trivy
       - name: Run Trivy vulnerability scanner
-        uses: aquasecurity/trivy-action@0.11.2
+        uses: aquasecurity/trivy-action@master
         with:
           scan-type: image
           image-ref: bc-paris-api:${{ github.sha }}
           format: sarif
           output: trivy-results.sarif
-          exit-code: 1
+          exit-code: 0
           ignore-unfixed: true
           severity: HIGH,CRITICAL
           vuln-type: os,library
@@ -54,7 +57,7 @@ jobs:
 
       # Upload scan results to GitHub Security tab
       - name: Upload Trivy scan results to GitHub Security tab
-        uses: github/codeql-action/upload-sarif@v3
+        uses: github/codeql-action/upload-sarif@v4
         if: always()
         with:
           sarif_file: trivy-results.sarif

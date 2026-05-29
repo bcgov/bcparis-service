@@ -15,6 +15,9 @@ on:
           - rollback-to-blue
           - delete-blue
 
+permissions:
+  contents: read
+
 jobs:
   deploy-oauth:
     runs-on: ubuntu-latest

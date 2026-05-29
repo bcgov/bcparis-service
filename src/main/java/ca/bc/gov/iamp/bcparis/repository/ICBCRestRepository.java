@@ -65,8 +65,13 @@ public class ICBCRestRepository {
             if (responseBody != null && responseBody.contains("responseString")) {
                 com.fasterxml.jackson.databind.JsonNode jsonNode = objectMapper.readTree(responseBody);
                 String responseString = jsonNode.get("responseString").asText();
-                log.debug("Extracted responseString: {}", responseString);
-                return responseString;
+                log.debug("Extracted responseString from JSON: {}", responseString);
+
+                // Convert ICBC line delimiters to newlines
+                // ICBC uses !" as line separator in the JSON response
+                String formattedResponse = responseString.replace("!\"", "\n");
+                log.debug("Formatted response with newlines: {}", formattedResponse);
+                return formattedResponse;
             }
             return responseBody;
         } catch (Exception e) {

@@ -58,7 +58,21 @@ public class ICBCRestRepository {
         ResponseEntity<String> response = restTemplate.exchange(icbcApiUrl, HttpMethod.POST, entity, String.class);
         log.info("ICBC API response status: {}", response.getStatusCode());
         log.debug("ICBC API response body: {}", response.getBody());
-        return response.getBody();
+
+        // Parse JSON response and extract responseString field
+        try {
+            String responseBody = response.getBody();
+            if (responseBody != null && responseBody.contains("responseString")) {
+                com.fasterxml.jackson.databind.JsonNode jsonNode = objectMapper.readTree(responseBody);
+                String responseString = jsonNode.get("responseString").asText();
+                log.debug("Extracted responseString: {}", responseString);
+                return responseString;
+            }
+            return responseBody;
+        } catch (Exception e) {
+            log.error("Failed to parse ICBC API response JSON", e);
+            return response.getBody();
+        }
     }
 
     public String requestDetails(Layer7Message message, IMSRequest imsRequest) {

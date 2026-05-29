@@ -33,9 +33,11 @@ jobs:
   oc-image-tagging:
     runs-on: ubuntu-latest
     environment: ${{ github.event.inputs.imageTargetEnv }}
+    env:
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
     steps:
       - name: Git Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       - name: Install OpenShift CLI
         run: |
@@ -63,7 +65,7 @@ jobs:
           echo "Release Git Sha: ${{ env.gitsha }}"
 
       - name: Authenticate OC Tools SA - Silver
-        uses: redhat-actions/oc-login@v1
+        uses: redhat-actions/oc-login@v1.3
         env:
           OPENSHIFT_NAMESPACE: ${{ secrets.OPENSHIFT_TOOLS_NAMESPACE_SILVER }}
           OPENSHIFT_USER: ${{ secrets.OPENSHIFT_SA_TOOLS_DEPLOYER_NAME }}
@@ -92,7 +94,7 @@ jobs:
           oc tag ${openshiftIImageRegistry}/${openshiftToolsNamespace}/${baseImageName}:${imageTargetEnv} ${baseImageName}:${releaseVersion}.${gitSha}
 
       - name: Authenticate OC Env Specific SA - Silver
-        uses: redhat-actions/oc-login@v1
+        uses: redhat-actions/oc-login@v1.3
         env:
           OPENSHIFT_NAMESPACE: ${{ secrets.OPENSHIFT_LICENSE_PLATE_SILVER }}-${{ github.event.inputs.imageTargetEnv }}
           OPENSHIFT_USER: ${{ secrets.OPENSHIFT_SA_Env_DEPLOYER_NAME }}

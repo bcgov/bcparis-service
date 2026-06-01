@@ -116,16 +116,33 @@ public class VehicleProcessorTest {
 	@Test
 	public void create_ims_using_VIN_success() {
 		final Layer7Message message = BCPARISTestUtil.getMessageVehicleVIN();
-		
+
 		ArgumentCaptor<IMSRequest> argument = ArgumentCaptor.forClass(IMSRequest.class);
 		Mockito.when(icbc.requestDetails(Mockito.any(Layer7Message.class), argument.capture())).thenReturn("ICBC Response");
-		
+
 		processor.process(message);
-	
+
 		Mockito.verify(icbc, Mockito.times(1)).requestDetails(Mockito.any(Layer7Message.class), argument.capture());
-		
+
 		Assert.assertTrue(
 			argument.getValue().getImsRequest().startsWith("JISTRAN HC BC41127 BC41028 VIN:1FTEW1EF3GKF29092"));
+	}
+
+	@Test
+	public void create_ims_strips_trailing_modifiers_from_VIN() {
+		final Layer7Message message = BCPARISTestUtil.getMessageVehicleMultipleParams();
+
+		ArgumentCaptor<IMSRequest> argument = ArgumentCaptor.forClass(IMSRequest.class);
+		Mockito.when(icbc.requestDetails(Mockito.any(Layer7Message.class), argument.capture())).thenReturn("ICBC Response");
+
+		processor.process(message);
+
+		// Verify that VIN queries have trailing modifiers stripped
+		// From FakeCData.SAMPLE_VEHICLE_MULTIPLE_PARAMS: VIN:163160/P:Y should become VIN:163160
+		boolean foundStrippedVIN = argument.getAllValues().stream()
+			.anyMatch(req -> req.getImsRequest().contains("VIN:163160") && !req.getImsRequest().contains("VIN:163160/P:Y"));
+
+		Assert.assertTrue("VIN query should have /P:Y modifier stripped", foundStrippedVIN);
 	}
 	
 	@Test

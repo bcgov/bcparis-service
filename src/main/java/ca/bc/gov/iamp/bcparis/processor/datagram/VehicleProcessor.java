@@ -117,8 +117,19 @@ public class VehicleProcessor implements DatagramProcessor {
 				query = getRNSQuery(query);
 			}
 
-			if (query.endsWith("/h") || query.endsWith("/H")) {
-				query = query.substring(0, query.length() - 2);
+			// Strip trailing modifiers (e.g., /h, /H, /P:Y, etc.) from non-RNS queries
+			// RNS queries are handled separately above
+			if (!query.toUpperCase().startsWith("RNS")) {
+				int lastSlashIndex = query.lastIndexOf('/');
+				if (lastSlashIndex > 0) {
+					// Check if there's content after the slash (trailing modifier)
+					String afterSlash = query.substring(lastSlashIndex + 1);
+					if (afterSlash.length() > 0) {
+						// Strip the trailing modifier
+						query = query.substring(0, lastSlashIndex);
+						log.info("Stripped trailing modifier from query: {} -> {}", originalQuery, query);
+					}
+				}
 			}
 
 			// ✅ CHANGE #1:

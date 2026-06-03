@@ -116,16 +116,20 @@ public class VehicleProcessorTest {
 	@Test
 	public void create_ims_using_VIN_success() {
 		final Layer7Message message = BCPARISTestUtil.getMessageVehicleVIN();
-		
+
 		ArgumentCaptor<IMSRequest> argument = ArgumentCaptor.forClass(IMSRequest.class);
 		Mockito.when(icbc.requestDetails(Mockito.any(Layer7Message.class), argument.capture())).thenReturn("ICBC Response");
-		
+
 		processor.process(message);
-	
+
 		Mockito.verify(icbc, Mockito.times(1)).requestDetails(Mockito.any(Layer7Message.class), argument.capture());
-		
-		Assert.assertTrue(
-			argument.getValue().getImsRequest().startsWith("JISTRAN HC BC41127 BC41028 VIN:1FTEW1EF3GKF29092"));
+
+		// Verify VIN query has timestamp appended (format: VIN:xxxxx/DDMMMYYYYHHmmss)
+		String imsRequest = argument.getValue().getImsRequest();
+		Assert.assertTrue("VIN query should start with correct transaction and VIN",
+			imsRequest.startsWith("JISTRN2 HC BC41127 BC41028 VIN:1FTEW1EF3GKF29092"));
+		Assert.assertTrue("VIN query should have timestamp appended",
+			imsRequest.matches(".*VIN:1FTEW1EF3GKF29092/\\d{2}[A-Z]{3}\\d{2}\\\\\\d{2}:\\d{2}:\\d{2}"));
 	}
 	
 	@Test

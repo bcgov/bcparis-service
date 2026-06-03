@@ -121,9 +121,9 @@ public class VehicleProcessor implements DatagramProcessor {
 				query = query.substring(0, query.length() - 2);
 			}
 
-			// ✅ CHANGE #1:
-			// DO NOT append timestamp for VIN queries
-			if (query.toUpperCase().startsWith("RNS")) {
+			// ✅ HOTFIX: Restore timestamp for VIN queries
+			// VIN queries need timestamp to work with ICBC API (modifiers like /P:Y cause issues without timestamp)
+			if (query.toUpperCase().startsWith("RNS") || query.toUpperCase().startsWith("VIN")) {
 				String timestamp = getLocalTimeNowICBCFormat();
 				query += "/" + timestamp;
 			}

@@ -72,11 +72,7 @@ public class VehicleProcessor implements DatagramProcessor {
 					.map(messageService::parseResponse)
 					.collect(Collectors.toList());
 
-			String finalResponse = messageService.buildResponse(
-					body, String.join("\n\n", responseParsed));
-
-			finalResponse = finalResponse.replace("{&quot;responseString&quot;:&quot;", "").replace("&quot;}", "");
-			body.setMsgFFmt(finalResponse);
+			body.setMsgFFmt(messageService.buildResponse(body, String.join("\n\n", responseParsed)));
 
 			log.info("===== EXIT VehicleProcessor.process() SUCCESS =====");
 			return message;

@@ -121,13 +121,8 @@ public class VehicleProcessor implements DatagramProcessor {
 				query = query.substring(0, query.length() - 2);
 			}
 
-			// Add date and time to all query types
-			// Restores original BCPARIS-292 behavior for VIN, LIC, ODN, TAG, FLC, REG, RNS, RVL
-			// Ensure query ends with a slash before adding timestamp (ICBC requires double slash)
-		if (!query.endsWith("/")) {
-			query += "/";
-		}
-		query += "/" + getLocalTimeNowICBCFormat();
+			// Add date and time
+			query += "/" + getLocalTimeNowICBCFormat();
 
 			final String imsContent = icbcPayload
 					.replace("${transactionName}", transaction)

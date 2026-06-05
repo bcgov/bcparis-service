@@ -193,6 +193,6 @@ public class VehicleProcessor implements DatagramProcessor {
 
 	private String getLocalTimeNowICBCFormat() {
 		return LocalDateTime.now()
-				.format(DateTimeFormatter.ofPattern("ddMMMyy\\HH:mm:ss"));
+				.format(DateTimeFormatter.ofPattern("ddMMMyy\\\\HH:mm:ss"));
 	}
 }

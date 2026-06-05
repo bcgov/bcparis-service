@@ -85,6 +85,7 @@ public class ICBCRestRepository {
         try {
             // Use 'requestString' as the JSON key instead of 'imsRequest'
             requestBody = objectMapper.writeValueAsString(new SimpleRequestString(imsRequest.getImsRequest()));
+            log.info("Serialized JSON request body: {}", requestBody);
         } catch (Exception e) {
             throw new RuntimeException("Failed to serialize IMSRequest to JSON", e);
         }

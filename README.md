@@ -46,6 +46,10 @@ mvn spring-boot:run
 | ENDPOINT_ICBC_REST_HEADER_IMSCREDENTIAL | String | ICBC headers userId | |
 | ENDPOINT_ICBC_REST_HEADER_USERNAME | String | ICBC headers username | |
 | ENDPOINT_ICBC_REST_HEADER_PASSWORD | String | ICBC headers password | |
+| ENDPOINT_ICBC_OAUTH_TOKEN_URL | String | ICBC OAuth token endpoint URL | |
+| ENDPOINT_ICBC_OAUTH_CLIENT_ID | String | ICBC OAuth client ID | |
+| ENDPOINT_ICBC_OAUTH_SECRET | String | ICBC OAuth client secret | |
+| ENDPOINT_ICBC_REST_URL | String | ICBC API base URL | |
 | ENDPOINT_IAMP_EMAIL_SERVICE_REST_USERNAME | String | Email Service username | |
 | ENDPOINT_IAMP_EMAIL_SERVICE_REST_PASSWORD | String | Email Service username | |
 | EMAIL_SERVICE_RECEIVER | String | Email Service username | |

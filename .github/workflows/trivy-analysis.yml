@@ -1,18 +1,21 @@
-# This workflow is used to build & scan image using trivy vulnerability scanner and upload the results to github security tab
-
 name: Build & Vulnerability Scan using Trivy Scanner
 
 on:
   push:
-    branches: [ master, release/*]
+    branches: [ master, release/* ]
   pull_request:
-    # The branches below must be a subset of the branches above
-    branches: [ master, release/*]
+    branches: [ master, release/* ]
+
+permissions:
+  contents: read
+  security-events: write   # required by github/codeql-action/upload-sarif
 
 jobs:
   build-scan-image:
     name: Build & Scan Image
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-24.04
+    env:
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
@@ -26,17 +29,23 @@ jobs:
         
       # Runs build steps
       - name: Maven Package
-        run: mvn -ntp -DskipTests -Popenshift clean package
+        run: mvn -ntp clean package -Popenshift -DskipTests
 
-      - name: Build an image from Dockerfile
+      # Build Docker image without cache to avoid stale content
+      - name: Build Docker image
         env:
           COMPOSE_DOCKER_CLI_BUILD: 1
           DOCKER_BUILDKIT: 1
           CONTEXT: .
         run: |
-          docker build -t bc-paris-api:${{ github.sha }} ${CONTEXT}
+          docker rmi bc-paris-api:${{ github.sha }} || true
+          docker build --no-cache -t bc-paris-api:${{ github.sha }} ${CONTEXT}
 
-      #Run Vulnerability Scan usinig Trivy scanner
+      # Confirm image was built successfully
+      - name: List Docker images
+        run: docker images | grep bc-paris-api
+
+      # Run vulnerability scan using Trivy
       - name: Run Trivy vulnerability scanner
         uses: aquasecurity/trivy-action@master
         with:
@@ -51,7 +60,7 @@ jobs:
           vuln-type: 'os,library'
           list-all-pkgs: false
 
-      #Upload results to the Github security tab.
+      # Upload scan results to GitHub Security tab
       - name: Upload Trivy scan results to GitHub Security tab
         uses: github/codeql-action/upload-sarif@v3
         if: always()

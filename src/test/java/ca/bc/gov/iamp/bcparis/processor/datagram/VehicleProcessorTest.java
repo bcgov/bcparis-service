@@ -123,9 +123,13 @@ public class VehicleProcessorTest {
 		processor.process(message);
 	
 		Mockito.verify(icbc, Mockito.times(1)).requestDetails(Mockito.any(Layer7Message.class), argument.capture());
-		
-		Assert.assertTrue(
-			argument.getValue().getImsRequest().startsWith("JISTRAN HC BC41127 BC41028 VIN:1FTEW1EF3GKF29092"));
+
+		// Verify VIN query has timestamp appended (format: VIN:xxxxx/DDMMMYYHHmmss)
+		String imsRequest = argument.getValue().getImsRequest();
+		Assert.assertTrue("VIN query should start with correct transaction and VIN",
+			imsRequest.startsWith("JISTRAN HC BC41127 BC41028 VIN:1FTEW1EF3GKF29092"));
+		Assert.assertTrue("VIN query should have timestamp appended",
+			imsRequest.matches(".*VIN:1FTEW1EF3GKF29092/\\d{2}[A-Z]{3}\\d{2}\\\\\\d{2}:\\d{2}:\\d{2}"));
 	}
 	
 	@Test
@@ -138,7 +142,13 @@ public class VehicleProcessorTest {
 		processor.process(message);
 	
 		Mockito.verify(icbc, Mockito.times(1)).requestDetails(Mockito.any(Layer7Message.class), argument.capture());
-		Assert.assertTrue(argument.getValue().getImsRequest().startsWith("JISTRAN HC BC41127 BC41028 LIC:PN890H"));
+
+		// Verify LIC query has timestamp appended (format: LIC:xxxxx/DDMMMYYHHmmss)
+		String imsRequest = argument.getValue().getImsRequest();
+		Assert.assertTrue("LIC query should start with correct transaction and LIC",
+			imsRequest.startsWith("JISTRAN HC BC41127 BC41028 LIC:PN890H"));
+		Assert.assertTrue("LIC query should have timestamp appended",
+			imsRequest.matches(".*LIC:PN890H/\\d{2}[A-Z]{3}\\d{2}\\\\\\d{2}:\\d{2}:\\d{2}"));
 	}
 	
 	@Test
@@ -151,7 +161,13 @@ public class VehicleProcessorTest {
 		processor.process(message);
 		
 		Mockito.verify(icbc, Mockito.times(1)).requestDetails(Mockito.any(Layer7Message.class), argument.capture());
-		Assert.assertTrue(argument.getValue().getImsRequest().startsWith("JISTRN2 HC BC41127 BC41028 RVL:845513634081303"));
+
+		// Verify RVL query has timestamp appended (format: RVL:xxxxx/DDMMMYYHHmmss)
+		String imsRequest = argument.getValue().getImsRequest();
+		Assert.assertTrue("RVL query should start with correct transaction and RVL",
+			imsRequest.startsWith("JISTRN2 HC BC41127 BC41028 RVL:845513634081303"));
+		Assert.assertTrue("RVL query should have timestamp appended",
+			imsRequest.matches(".*RVL:845513634081303/\\d{2}[A-Z]{3}\\d{2}\\\\\\d{2}:\\d{2}:\\d{2}"));
 	}
 	
 	@Test
@@ -164,7 +180,13 @@ public class VehicleProcessorTest {
 		processor.process(message);
 		
 		Mockito.verify(icbc, Mockito.times(1)).requestDetails(Mockito.any(Layer7Message.class), argument.capture());
-		Assert.assertTrue(argument.getValue().getImsRequest().startsWith("JISTRN2 HC BC41127 BC41028 RNS:845513634081303/"));
+
+		// Verify RNS query has timestamp appended (format: RNS:xxxxx/DDMMMYYHHmmss)
+		String imsRequest = argument.getValue().getImsRequest();
+		Assert.assertTrue("RNS query should start with correct transaction and RNS",
+			imsRequest.startsWith("JISTRN2 HC BC41127 BC41028 RNS:845513634081303/"));
+		Assert.assertTrue("RNS query should have timestamp appended",
+			imsRequest.matches(".*RNS:845513634081303/[^/]+/\\d{2}[A-Z]{3}\\d{2}\\\\\\d{2}:\\d{2}:\\d{2}"));
 	}
 	
 	@Test

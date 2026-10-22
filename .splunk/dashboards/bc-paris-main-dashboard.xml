@@ -101,9 +101,9 @@ dc(properties.traceId) AS distinctSpans BY severity</query>
         <option name="count">10</option>
         <option name="drilldown">row</option>
         <option name="refresh.display">progressbar</option>
-        <drilldown>
+        <!-- <drilldown>
           <link target="_blank">[zipkin-url]/zipkin/traces/$row.OpenTrace Id$</link>
-        </drilldown>
+        </drilldown> -->
       </table>
     </panel>
     <panel>

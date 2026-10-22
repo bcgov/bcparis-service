@@ -1,61 +1,45 @@
 package ca.bc.gov.iamp.bcparis.filter;
 
-import ca.bc.gov.iamp.bcparis.model.message.Layer7Message;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.slf4j.MDC;
-import org.springframework.stereotype.Component;
-
-import javax.servlet.*;
-import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 
-import static ca.bc.gov.iamp.bcparis.Keys.*;
+import javax.servlet.FilterChain;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Component;
+import org.springframework.web.filter.OncePerRequestFilter;
+import org.springframework.web.util.ContentCachingRequestWrapper;
 
 @Component
-public class LoggingFilter implements Filter {
+public class LoggingFilter extends OncePerRequestFilter {
 
-    private final Logger log = LoggerFactory.getLogger(LoggingFilter.class);
+    private static final Logger log = LoggerFactory.getLogger(LoggingFilter.class);
 
     @Override
-    public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
+    protected void doFilterInternal(
+            HttpServletRequest request,
+            HttpServletResponse response,
+            FilterChain filterChain)
+            throws ServletException, IOException {
 
-        HttpRequestWrapper copiedRequest = new HttpRequestWrapper((HttpServletRequest) request);
-        Layer7Message l7message;
-        //log.info("request body: " + copiedRequest.getRequestBodyAsString());
-        // Message parsing
+        ContentCachingRequestWrapper wrappedRequest = new ContentCachingRequestWrapper(request);
+
         try {
-            HttpServletRequest req = (HttpServletRequest) request;
-            //log.info("Request Method : " + req.getMethod().trim());
-            if (!req.getMethod().trim().equalsIgnoreCase("GET")) {
-                /* GET request means no request body, so parsing will fail */
-                l7message = new ObjectMapper().readValue(copiedRequest.getRequestBody(), Layer7Message.class);
-                if (l7message != null) {
-                    MDC.put(MDC_MESSAGE_ID_KEY, l7message.getEnvelope().getMqmd().getMessageIdByte());
-                    MDC.put(MDC_CORRELATION_ID_KEY, l7message.getEnvelope().getMqmd().getCorrelationIdByte());
-                    MDC.put(MDC_DATA_KEY, String.format("[msgId:%s, corlId:%s]", l7message.getEnvelope().getMqmd().getMessageIdByte(), l7message.getEnvelope().getMqmd().getCorrelationIdByte()));
-                }
-            }
-            chain.doFilter(copiedRequest, response);
-        } catch (Exception ex) {
-            log.warn("Failed to parse request body at logging filter");
+            // IMPORTANT: pass wrapped request forward
+            filterChain.doFilter(wrappedRequest, response);
+
         } finally {
-            MDC.remove(MDC_MESSAGE_ID_KEY);
-            MDC.remove(MDC_CORRELATION_ID_KEY);
-            MDC.remove(MDC_DATA_KEY);
+            byte[] body = wrappedRequest.getContentAsByteArray();
+
+            if (body.length > 0) {
+                String payload = new String(body, wrappedRequest.getCharacterEncoding());
+                log.debug("Request body: {}", payload);
+            } else {
+                log.warn("Request body empty or not readable");
+            }
         }
-
     }
-
-    @Override
-    public void init(FilterConfig filterConfig) throws ServletException {
-
-    }
-
-    @Override
-    public void destroy() {
-    }
-
 }

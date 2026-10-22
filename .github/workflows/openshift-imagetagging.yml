@@ -29,6 +29,9 @@ on:
           - test
           - prod
 
+permissions:
+  contents: read
+
 jobs:
   oc-image-tagging:
     runs-on: ubuntu-latest

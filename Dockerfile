@@ -1,4 +1,4 @@
-FROM eclipse-temurin:8-jre-jammy
+FROM eclipse-temurin:17-jre-jammy
 
 # Apply pending Ubuntu security updates (e.g. libgnutls30, libgcrypt20) that are not yet in the base image
 RUN apt-get -o Acquire::Retries=5 update \

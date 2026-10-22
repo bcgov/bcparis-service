@@ -18,16 +18,16 @@ jobs:
       FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
     steps:
       - name: Checkout code
-        uses: actions/checkout@v5
-
-      # Set up JDK for Maven
-      - name: Set up JDK 8
-        uses: actions/setup-java@v5
+        uses: actions/checkout@v2
+      
+      # Set up JDK build environment
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
         with:
-          java-version: 8
+          java-version: '17'
           distribution: 'temurin'
-
-      # Clean and build the app using Maven
+        
+      # Runs build steps
       - name: Maven Package
         run: mvn -ntp clean package -Popenshift -DskipTests
 
@@ -49,19 +49,20 @@ jobs:
       - name: Run Trivy vulnerability scanner
         uses: aquasecurity/trivy-action@master
         with:
-          scan-type: image
-          image-ref: bc-paris-api:${{ github.sha }}
-          format: sarif
-          output: trivy-results.sarif
-          exit-code: 0
+          scan-type: 'image'
+          image-ref: 'bc-paris-api:${{ github.sha }}'
+          format: 'sarif'
+          output: 'trivy-results.sarif'
+          exit-code: '1'
           ignore-unfixed: true
-          severity: HIGH,CRITICAL
-          vuln-type: os,library
-          scanners: vuln
+          severity: 'HIGH,CRITICAL'
+          scan-ref: '.'
+          vuln-type: 'os,library'
+          list-all-pkgs: false
 
       # Upload scan results to GitHub Security tab
       - name: Upload Trivy scan results to GitHub Security tab
-        uses: github/codeql-action/upload-sarif@v4
+        uses: github/codeql-action/upload-sarif@v3
         if: always()
         with:
-          sarif_file: trivy-results.sarif
+          sarif_file: 'trivy-results.sarif'

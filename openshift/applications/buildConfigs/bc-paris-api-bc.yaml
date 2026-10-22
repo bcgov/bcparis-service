@@ -64,7 +64,7 @@ objects:
         sourceStrategy:
           from:
             kind: ImageStreamTag
-            name: 'java:8'
+            name: 'java:17'
             namespace: openshift
         type: Source
       successfulBuildsHistoryLimit: 5

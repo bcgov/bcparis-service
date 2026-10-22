@@ -20,13 +20,13 @@ permissions:
 
 jobs:
   deploy-oauth:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     environment: prod
     env:
       FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
     steps:
       - name: Git Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Install OpenShift CLI
         run: |

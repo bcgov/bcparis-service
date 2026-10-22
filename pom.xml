@@ -10,7 +10,7 @@
 	<version>1.3.2</version>
 
 	<properties>
-		<log4j2.version>2.25.4</log4j2.version>
+		<log4j2.version>2.25.5</log4j2.version>
 		<sonar.exclusions>
 			**/AutoWiringSpringBeanJobFactory.java,
 			**/SwaggerConfig.java
@@ -34,11 +34,11 @@
 		<maven-springboot-plugin.version>${springboot.version}</maven-springboot-plugin.version>
 
 		<springframework.version>5.3.39</springframework.version>
-		<spring-security.version>5.7.16</spring-security.version>
+		<spring-security.version>5.7.14</spring-security.version><!-- latest 5.7.x on Maven Central; 5.7.15+ are commercial-only -->
 		<spring-test.version>5.3.39</spring-test.version>
 		<metrics-spring.version>3.1.3</metrics-spring.version>
 
-		<jackson.version>2.15.0</jackson.version>
+		<jackson.version>2.18.11</jackson.version>
 		<lombok.version>1.18.22</lombok.version>
 		<junit.version>4.13.2</junit.version>
 		<slf4j.version>1.7.30</slf4j.version>
@@ -51,6 +51,35 @@
 
 	<dependencyManagement>
 		<dependencies>
+			<!-- ====== Version BOMs ======
+			     Declared before the Spring Boot BOM import (first declaration wins) so these versions
+			     actually apply instead of the older ones managed by Spring Boot 2.7.3.
+			     All lines below remain Java 8 compatible. -->
+			<dependency>
+				<!-- jackson-core / databind / datatype modules: Dependabot + Trivy jackson CVEs -->
+				<groupId>com.fasterxml.jackson</groupId>
+				<artifactId>jackson-bom</artifactId>
+				<version>${jackson.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+			<dependency>
+				<!-- Align all Spring Framework modules (Boot 2.7.3 otherwise pulls 5.3.22) -->
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-framework-bom</artifactId>
+				<version>${springframework.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+			<dependency>
+				<!-- Align all Spring Security modules (Boot 2.7.3 otherwise pulls 5.7.3) -->
+				<groupId>org.springframework.security</groupId>
+				<artifactId>spring-security-bom</artifactId>
+				<version>${spring-security.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+
 			<dependency>
 				<groupId>junit</groupId>
 				<artifactId>junit</artifactId>
@@ -87,7 +116,7 @@
 			<dependency>
 				<groupId>com.fasterxml.jackson.core</groupId>
 				<artifactId>jackson-databind</artifactId>
-				<version>2.13.4.2</version>
+				<version>${jackson.version}</version>
 			</dependency>
 
 			<dependency>
@@ -299,6 +328,14 @@
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-sleuth</artifactId>
 			<version>3.1.11</version>
+			<exclusions>
+				<!-- Only needed for Spring Cloud {cipher} encrypted config, which BCPARIS doesn't use.
+				     It pulls bouncycastle bcprov/bcpkix-jdk15on 1.68 (CVE-2024-34447, CVE-2025-8916, CVE-2026-5588). -->
+				<exclusion>
+					<groupId>org.springframework.security</groupId>
+					<artifactId>spring-security-rsa</artifactId>
+				</exclusion>
+			</exclusions>
 		</dependency>
 
 		<dependency>

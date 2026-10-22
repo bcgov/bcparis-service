@@ -6,6 +6,10 @@ on:
   pull_request:
     branches: [ master, release/* ]
 
+permissions:
+  contents: read
+  security-events: write   # required by github/codeql-action/upload-sarif
+
 jobs:
   build-scan-image:
     name: Build & Scan Image

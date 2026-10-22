@@ -8,6 +8,9 @@ on:
   workflow_dispatch:
     branches: [ main ]
     
+permissions:
+  contents: read
+
 jobs:
   spring-boot:
     env:

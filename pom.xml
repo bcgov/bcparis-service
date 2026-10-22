@@ -10,7 +10,7 @@
 	<version>1.3.2</version>
 
 	<properties>
-		<log4j2.version>2.25.4</log4j2.version>
+		<log4j2.version>2.25.5</log4j2.version>
 		<sonar.exclusions>
 			**/AutoWiringSpringBeanJobFactory.java,
 			**/SwaggerConfig.java
@@ -27,20 +27,21 @@
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
 		<springboot.version>2.7.3</springboot.version>
+		<tomcat.version>9.0.123</tomcat.version>
 		<springcloud.version>2021.0.1</springcloud.version>
 		<swagger-springmvc.version>1.0.2</swagger-springmvc.version>
 
 		<maven-springboot-plugin.version>${springboot.version}</maven-springboot-plugin.version>
 
 		<springframework.version>5.3.39</springframework.version>
-		<spring-security.version>5.7.16</spring-security.version>
+		<spring-security.version>5.7.14</spring-security.version><!-- latest 5.7.x on Maven Central; 5.7.15+ are commercial-only -->
 		<spring-test.version>5.3.39</spring-test.version>
 		<metrics-spring.version>3.1.3</metrics-spring.version>
 
-		<jackson.version>2.18.2</jackson.version>
+		<jackson.version>2.18.11</jackson.version>
 		<lombok.version>1.18.22</lombok.version>
 		<junit.version>4.13.2</junit.version>
-		<slf4j.version>2.0.17</slf4j.version>
+		<slf4j.version>1.7.30</slf4j.version>
 		<logback.version>1.2.3</logback.version>
 		<logstash.version>7.0.1</logstash.version>
 		<httpclient.version>4.5.13</httpclient.version>
@@ -50,6 +51,35 @@
 
 	<dependencyManagement>
 		<dependencies>
+			<!-- ====== Version BOMs ======
+			     Declared before the Spring Boot BOM import (first declaration wins) so these versions
+			     actually apply instead of the older ones managed by Spring Boot 2.7.3.
+			     All lines below remain Java 8 compatible. -->
+			<dependency>
+				<!-- jackson-core / databind / datatype modules: Dependabot + Trivy jackson CVEs -->
+				<groupId>com.fasterxml.jackson</groupId>
+				<artifactId>jackson-bom</artifactId>
+				<version>${jackson.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+			<dependency>
+				<!-- Align all Spring Framework modules (Boot 2.7.3 otherwise pulls 5.3.22) -->
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-framework-bom</artifactId>
+				<version>${springframework.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+			<dependency>
+				<!-- Align all Spring Security modules (Boot 2.7.3 otherwise pulls 5.7.3) -->
+				<groupId>org.springframework.security</groupId>
+				<artifactId>spring-security-bom</artifactId>
+				<version>${spring-security.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+
 			<dependency>
 				<groupId>junit</groupId>
 				<artifactId>junit</artifactId>
@@ -86,7 +116,7 @@
 			<dependency>
 				<groupId>com.fasterxml.jackson.core</groupId>
 				<artifactId>jackson-databind</artifactId>
-				<version>2.13.4.2</version>
+				<version>${jackson.version}</version>
 			</dependency>
 
 			<dependency>
@@ -146,6 +176,27 @@
 						<artifactId>httpcore</artifactId>
 					</exclusion>
 				</exclusions>
+			</dependency>
+
+			<!-- ====== Embedded Tomcat ======
+			     BCPARIS-409: override the Tomcat 9.0.65 managed by Spring Boot 2.7.3 to fix critical CVEs
+			     (CVE-2025-24813, CVE-2024-50379, CVE-2025-55754, CVE-2025-66614, CVE-2026-41293,
+			     CVE-2026-43512, CVE-2026-43515). Must stay on 9.0.x: Tomcat 10+ requires Jakarta EE / Java 11+.
+			     Declared before the Spring Boot BOM import so these versions take precedence. -->
+			<dependency>
+				<groupId>org.apache.tomcat.embed</groupId>
+				<artifactId>tomcat-embed-core</artifactId>
+				<version>${tomcat.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.tomcat.embed</groupId>
+				<artifactId>tomcat-embed-el</artifactId>
+				<version>${tomcat.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.tomcat.embed</groupId>
+				<artifactId>tomcat-embed-websocket</artifactId>
+				<version>${tomcat.version}</version>
 			</dependency>
 
 			<!-- ====== SPRING BOOT Dependencies ====== -->
@@ -264,11 +315,6 @@
 			<artifactId>spring-security-core</artifactId>
 		</dependency>
 
-		<dependency>
-			<groupId>org.apache.cxf</groupId>
-			<artifactId>cxf-core</artifactId>
-			<version>4.0.7</version>
-		</dependency>
 
 
 		<!-- Enabling health checks and metrics -->
@@ -282,6 +328,14 @@
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-sleuth</artifactId>
 			<version>3.1.11</version>
+			<exclusions>
+				<!-- Only needed for Spring Cloud {cipher} encrypted config, which BCPARIS doesn't use.
+				     It pulls bouncycastle bcprov/bcpkix-jdk15on 1.68 (CVE-2024-34447, CVE-2025-8916, CVE-2026-5588). -->
+				<exclusion>
+					<groupId>org.springframework.security</groupId>
+					<artifactId>spring-security-rsa</artifactId>
+				</exclusion>
+			</exclusions>
 		</dependency>
 
 		<dependency>
@@ -329,7 +383,8 @@
 		<dependency>
 			<groupId>dev.akkinoc.spring.boot</groupId>
 			<artifactId>logback-access-spring-boot-starter</artifactId>
-			<version>4.7.0</version>
+			<!-- 3.x is the last line built for Java 8 / Spring Boot 2.x; 4.x requires Java 17 -->
+			<version>3.4.0</version>
 		</dependency>
 
 
